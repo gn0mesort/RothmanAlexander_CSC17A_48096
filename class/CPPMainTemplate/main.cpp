@@ -2,7 +2,7 @@
  * File:   main.cpp
  * Author: Alexander Rothman
  * Created on September 12, 2016, 1:01 PM
- * CPP Program Main Template
+ * Purpose: CPP Program Main Template
  */
 
 //System Libraries
