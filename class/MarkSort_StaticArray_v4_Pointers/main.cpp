@@ -24,8 +24,8 @@ int main(int argc, char** argv) {
     const int SIZE = 100, //Size of the array to sort  
               LINES = 10; //Number of values to print per line
     int utilize = SIZE / 2; //The size of the array to actually fill
-    int *array, //The array to be sorted
-        *index; //An indexing array for the array to be sorted
+    int array[SIZE], //The array to be sorted
+        index[SIZE]; //An indexing array for the array to be sorted
     
     //Initialize rand()
     srand(static_cast<int>(time(0)));
