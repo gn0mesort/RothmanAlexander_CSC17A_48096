@@ -25,6 +25,7 @@ int main(int argc, char** argv) {
     //Process Data
     
     //Display Output
+    cout << "Hello, World!" << endl;
     
     //Exit
     return 0;
