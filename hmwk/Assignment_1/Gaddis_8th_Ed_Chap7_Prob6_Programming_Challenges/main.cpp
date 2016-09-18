@@ -53,8 +53,10 @@ void newData(){
     ofstream output;
 
     output.open("RainOrShine.txt");
-    for(int i = 0; i < 90; ++i){
-        output << days[rand() % 3] << endl;
+    if(output.good()){
+        for(int i = 0; i < 90; ++i){
+            output << days[rand() % 3] << endl;
+        }
     }
     output.close();
 }
