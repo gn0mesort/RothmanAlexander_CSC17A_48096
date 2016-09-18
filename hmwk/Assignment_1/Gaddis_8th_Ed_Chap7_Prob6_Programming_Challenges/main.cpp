@@ -1,10 +1,4 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * File:   main.cpp
  * Author: Alexander Rothman <arothman@studnet.rcc.edu>
  * Purpose: Rain or Shine
@@ -14,18 +8,32 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 const unsigned char SIZE_W = 30;
 
+void newData();
 void rdData(char[][SIZE_W], unsigned char);
 void pData(char[][SIZE_W], unsigned char);
 void getRprt(char[][SIZE_W], unsigned char);
-void fullRprt(char[][SIZE_W], unsigned char);
+void fllRprt(char[][SIZE_W], unsigned char);
 
 int main(int argc, char** argv){
     const unsigned char SIZE = 3;
+    char input = 0;
     char data[SIZE][SIZE_W];
+
+    srand(static_cast<int>(time(0)));
+
+    do{
+        cout << "GENERATE NEW DATA? (Y/N) ";
+        cin >> input;
+    } while(!(toupper(input) == 'Y' || toupper(input) == 'N'));
+    if(toupper(input) == 'Y'){
+        newData();
+    }
     rdData(data, SIZE);
     cout << "REPORT:" << endl;
     pData(data, SIZE);
@@ -36,11 +44,22 @@ int main(int argc, char** argv){
     cout << "AUGUST:" << endl;
     getRprt(data, 2);
     cout << "3 MONTH PERIOD:" << endl;
-    fullRprt(data, SIZE);
+    fllRprt(data, SIZE);
     return 0;
 }
 
-void fullRprt(char data[][SIZE_W], unsigned char size){
+void newData(){
+    char days[3] = {'R', 'C', 'S'};
+    ofstream output;
+
+    output.open("RainOrShine.txt");
+    for(int i = 0; i < 90; ++i){
+        output << days[rand() % 3] << endl;
+    }
+    output.close();
+}
+
+void fllRprt(char data[][SIZE_W], unsigned char size){
     unsigned char rCount = 0,
             cCount = 0,
             sCount = 0,
