@@ -1,5 +1,5 @@
 #ignore build and dist folders
 build/
 dist/
-#ignore zipped archive folder
-zip/
+#ignore zipped archive files
+*.zip
