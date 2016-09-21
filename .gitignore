@@ -1,3 +1,4 @@
 #ignore build and dist folders
 build/
 dist/
+zip/
