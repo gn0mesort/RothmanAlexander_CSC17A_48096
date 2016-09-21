@@ -105,24 +105,28 @@ int main(int argc, char** argv){
                 cout << "CELSIUS TEMPERATURE TABLE" << endl;
                 solve7();
                 cout << endl;
+                break;
             }
             case 8:
             {
                 cout << "RAIN OR SHINE WEATHER REPORT" << endl;
                 solve8();
                 cout << endl;
+                break;
             }
             case 9:
             {
                 cout << "LOTTERY WINNERS" << endl;
                 solve9();
                 cout << endl;
+                break;
             }
             case 10:
             {
                 cout << "BINARY SEARCH FOR A STRING" << endl;
                 solve10();
                 cout << endl;
+                break;
             }
 
         }
