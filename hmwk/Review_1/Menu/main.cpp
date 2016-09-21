@@ -1,7 +1,7 @@
 /*
  * File:   main.cpp
  * Author: Alexander Rothman <arothman@student.rcc.edu>
- * Purpose: Create a template menu program for displaying homework solutions
+ * Purpose: Review 1 Menu Program
  * Created on September 21, 2016
  */
 
