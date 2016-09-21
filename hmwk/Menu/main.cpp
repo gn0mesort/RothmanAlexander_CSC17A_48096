@@ -6,13 +6,13 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream> //I/O
 using namespace std;
 
 //Global Constants
 
 //Function Prototypes
-int dspMenu();
+int dspMenu(int);
 
 //Begin Execution
 
@@ -21,12 +21,13 @@ int main(int argc, char** argv){
     int choice = 0;
 
     do{ //While not exiting
-        choice = dspMenu(); //Display menu and read the user input
+        choice = dspMenu(1); //Display menu and read the user input
         switch(choice){ //Select function based on choice
             case 1:
             {
                 cout << "SOLUTION 1" << endl;
                 cout << endl;
+                break;
             }
         }
     } while(choice);
@@ -43,7 +44,7 @@ int main(int argc, char** argv){
 //Output:
 //An integer representing the user's choice of menu item
 
-int dspMenu(){
+int dspMenu(int count){
     int choice = 0; //The user's choice of function or 0 to exit
 
     do{ //While choice is invalid
@@ -52,7 +53,7 @@ int dspMenu(){
         cout << "(0) Exit" << endl;
         cout << "> ";
         cin >> choice; //Read in choice
-    } while(choice < 0 && choice > 2);
+    } while(choice < 0 && choice > count);
 
     return choice;
 }
