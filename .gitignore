@@ -3,3 +3,5 @@ build/
 dist/
 #ignore zipped archive files
 *.zip
+#ignore stackdumps
+*.stackdump
