@@ -45,5 +45,11 @@ int main(int argc, char** argv){
 int* genArr(int length){
     return new int[length]{
     };
+    //If not using C++11 or later
+    //    int *r = new int[length];
+    //    for(int i = 0; i < length; ++i){
+    //        r[i] = 0;
+    //    }
+    //    return r;
 }
 
