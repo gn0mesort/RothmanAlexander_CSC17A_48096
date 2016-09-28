@@ -54,8 +54,15 @@ int main(int argc, char** argv){
 }
 
 //Shift
-//
-
+//Shift an array one element to the right
+//Input:
+//array
+//The array to shift
+//length
+//The length of the array to shift
+//Output:
+//A pointer to the shifted array
+//The new augmented length of the array
 int* shift(int array[], unsigned int& length){
     int *r = new int[length + 1];
 
@@ -70,19 +77,27 @@ int* shift(int array[], unsigned int& length){
     return r;
 }
 
+//Print Array
+//Print an array to standard output
+//Input:
+//array
+//The array to display
+//size
+//The size of that array
+
 void prntArr(const int array[], unsigned int size){
-    for(int i = 0; i < size; ++i){
-        cout << array[i];
-        if(size > 10){
-            if((i + 1) % 10 == 0){
+    for(int i = 0; i < size; ++i){ //For every element in the array
+        cout << array[i]; //Output the array element
+        if(size > 10){ //If the size is greater than 10
+            if((i + 1) % 10 == 0){ //Add some formatting
                 cout << endl;
             }
             else if(i != size - 1){
                 cout << ", ";
             }
         }
-        else{
-            if(i != size - 1){
+        else{ //Otherwise
+            if(i != size - 1){ //Add some other formatting
                 cout << ", ";
             }
         }

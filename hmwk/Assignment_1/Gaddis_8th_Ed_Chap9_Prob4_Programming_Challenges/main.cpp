@@ -1,16 +1,18 @@
 /*
  * File:   main.cpp
  * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Purpose: Calculate the average test score and display student names
  * Created on September 27, 2016
  */
 
-#include <iostream>
-#include <iomanip>
-#include <string>
 
+//System libraries
+#include <iostream> //I/O
+#include <iomanip> //Formatting
+#include <string> //String type and functions
 using namespace std;
 
+//Function Prototypes
 void sort(unsigned char[], short[], short);
 void prntArr(const unsigned char[], const string[], const short[], short);
 unsigned char* mkIndex(short);
