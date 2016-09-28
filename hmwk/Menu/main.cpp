@@ -7,12 +7,12 @@
 
 //System Libraries
 #include <iostream> //I/O
+#include <iomanip> //I/O Formatting
 using namespace std;
 
 //Global Constants
 
 //Function Prototypes
-int dspMenu(int);
 
 //Begin Execution
 
@@ -21,7 +21,14 @@ int main(int argc, char** argv){
     int choice = 0;
 
     do{ //While not exiting
-        choice = dspMenu(1); //Display menu and read the user input
+        do{ //While choice is not negative
+            //Output Choices
+            cout << setw(5) << "(1) " << "SOLUTION 1" << endl;
+            cout << setw(5) << "(0) " << "EXIT" << endl;
+            //Display Prompt and Read Input
+            cout << "> ";
+            cin >> choice;
+        }while(choice < 0);
         switch(choice){ //Select function based on choice
             case 1:
             {
@@ -35,25 +42,4 @@ int main(int argc, char** argv){
 
     //Exit
     return 0;
-}
-
-
-//Display Menu
-//Function to display the actual menu text and read user input for menu
-//processing.
-//Output:
-//An integer representing the user's choice of menu item
-
-int dspMenu(int count){
-    int choice = 0; //The user's choice of function or 0 to exit
-
-    do{ //While choice is invalid
-        cout << "Solutions:" << endl;
-        cout << "(1) Solution 1" << endl;
-        cout << "(0) Exit" << endl;
-        cout << "> ";
-        cin >> choice; //Read in choice
-    } while(choice < 0 && choice > count);
-
-    return choice;
 }
