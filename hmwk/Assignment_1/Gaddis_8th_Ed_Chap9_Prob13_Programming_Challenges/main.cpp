@@ -1,8 +1,8 @@
 /*
  * File:   main.cpp
  * Author: Alexander Rothman <arothman@student.rcc.edu>
- * Purpose: Collect and display movie statistics. 
- * Uses the functions from Mean_Median_Mode rather than the ones 
+ * Purpose: Collect and display movie statistics.
+ * Uses the functions from Mean_Median_Mode rather than the ones
  * described in the book.
  * Created on September 27, 2016
  */
@@ -22,9 +22,10 @@ int* getMdes(const int[], int, int, int);
 void prntArr(const int[], int);
 
 //Begin Execution
+
 int main(int argc, char** argv){
     //Declaration and Initialization
-    int size = 0;  //The number of students who were surveyed
+    int size = 0; //The number of students who were surveyed
     int *data = NULL, //The actual survey data
             *modes = NULL; //The array containing the mode data
 
@@ -33,7 +34,7 @@ int main(int argc, char** argv){
         cout << "ENTER THE NUMBER OF STUDENTS SURVEYED: ";
         cin >> size;
     } while(size < 0);
-    
+
     if(size > 0){ //If data was collected
         data = new int[size]; //Allocate data array
 
@@ -43,7 +44,7 @@ int main(int argc, char** argv){
                 cin >> data[i];
             } while(data[i] < 0);
         }
-        
+
         //Calculate and Output Data
         cout << "DATA:" << endl;
         prntArr(data, size); //Print the original data
@@ -54,7 +55,7 @@ int main(int argc, char** argv){
         if(modes[1] > 1){ //If modes exist
             cout << "NUMBER OF MODES: " << modes[0] << endl; //Output the number of modes
             cout << "MODE FREQUENCY: " << modes[1] << endl; //Output the frequency of the modes
-            cout << "MODES: "; 
+            cout << "MODES: ";
             for(int i = 2; i < modes[0] + 2; ++i){ //For all the modes found in the mode data array
                 cout << modes[i]; //Output the mode
                 if(i + 1 < modes[0] + 2){ //Formatting
@@ -90,6 +91,7 @@ int main(int argc, char** argv){
 //1. The number of modes found (array[0])
 //2. The frequency at which they occurred (array[1])
 //3. The values of those modes (array[2 - (n - 1)])
+
 int* mode(const int array[], int size){
     int *r = NULL, //The return array
             *modes = NULL; //The modes found by this function
@@ -127,6 +129,7 @@ int* mode(const int array[], int size){
 //The frequency of the modes in the array
 //Output:
 //A pointer to an array containing the modes of the input array
+
 int* getMdes(const int array[], int size, int numMode, int freq){
     int *r = new int[numMode]; //Allocate return array
     int count = 0, //The count of the current search value
@@ -159,6 +162,7 @@ int* getMdes(const int array[], int size, int numMode, int freq){
 //The size of the array
 //Output:
 //The frequency of the mode of the array
+
 int getFreq(const int array[], int size){
     int r = 0, //The frequency to return
             start = 0; //The position of the start of the most recent value in the array
@@ -192,6 +196,7 @@ int getFreq(const int array[], int size){
 //The frequency of the mode
 //Output:
 //The number of modes found in the array
+
 int modeCnt(const int array[], int size, int freq){
     int r = 0, //The return mode count
             count = 0; //The number of times the current value has appeared
@@ -223,6 +228,7 @@ int modeCnt(const int array[], int size, int freq){
 //The size of the array
 //Output:
 //The median of the array as a float
+
 float median(const int array[], int size){
     if(size & 1){ //If size is odd
         return array[(size - 1) / 2];
@@ -242,6 +248,7 @@ float median(const int array[], int size){
 //The size of the array
 //Output:
 //The mean value of the array as a float
+
 float mean(const int array[], int size){
     int total = 0; //The sum of the array elements
     for(int i = 0; i < size; ++i){ //For each array element
@@ -257,6 +264,7 @@ float mean(const int array[], int size){
 //The array to display
 //size
 //The size of that array
+
 void prntArr(const int array[], int size){
     for(int i = 0; i < size; ++i){ //For every element in the array
         cout << array[i]; //Output the array element
@@ -278,17 +286,15 @@ void prntArr(const int array[], int size){
 }
 
 //Sort
-//Sorts an indexing array based on string values found in a data array using the
-//gnome sort algorithm
+//Sorts an array based using the gnome sort algorithm
 //Input:
-//data
-//The string data array
-//index
-//The indexing array for data to be sorted
+//array
+//The array to sort
 //size
 //The size of both arrays
 //Output:
-//The sorted indexing array
+//The sorted array
+
 void sort(int array[], int size){
     int pos = 0; //The initial position
     while(pos < size){ //While unsorted

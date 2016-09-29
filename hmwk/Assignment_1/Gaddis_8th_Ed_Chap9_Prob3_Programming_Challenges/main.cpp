@@ -16,6 +16,7 @@ void prntArr(const short[], short);
 float avg(const short[], short);
 
 //Begin Execution
+
 int main(int argc, char** argv){
     //Declaration and Initialization
     short input = 0, //The input value
@@ -45,7 +46,7 @@ int main(int argc, char** argv){
         }
         sort(scores, length); //Sort the scores
         prntArr(scores, length); //Output the sorted scores
-        cout << fixed << setprecision(2);  //Formatting
+        cout << fixed << setprecision(2); //Formatting
         cout << "AVERAGE SCORE: " << avg(scores, length) << endl; //Output the average score
 
         //Delete the score array
@@ -57,17 +58,15 @@ int main(int argc, char** argv){
 }
 
 //Sort
-//Sorts an indexing array based on string values found in a data array using the
-//gnome sort algorithm
+//Sorts an array based using the gnome sort algorithm
 //Input:
-//data
-//The string data array
-//index
-//The indexing array for data to be sorted
+//array
+//The array to sort
 //size
 //The size of both arrays
 //Output:
-//The sorted indexing array
+//The sorted array
+
 void sort(short array[], short size){
     short pos = 0; //The initial position
     while(pos < size){ //While unsorted
@@ -92,6 +91,7 @@ void sort(short array[], short size){
 //The array to display
 //size
 //The size of that array
+
 void prntArr(const short array[], short size){
     for(int i = 0; i < size; ++i){ //For every element in the array
         cout << array[i]; //Output the array element
@@ -121,6 +121,7 @@ void prntArr(const short array[], short size){
 //The size of that array
 //Output:
 //The average of the array as a float
+
 float avg(const short array[], short length){
     float r = 0.0f; //The average to be returned
 

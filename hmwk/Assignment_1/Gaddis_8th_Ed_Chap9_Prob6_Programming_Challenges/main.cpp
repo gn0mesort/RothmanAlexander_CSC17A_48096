@@ -1,11 +1,13 @@
 /*
  * File:   main.cpp
  * Author: Alexander Rothman <arothman@student.rcc.edu>
- * Purpose:
+ * Purpose:  Modified Program 9-19 Case Study
+ * Program 9-19 is included but set not to be compiled.
  * Created on September 27, 2016
  */
 
-#include <iostream>
+//System Libraries
+#include <iostream> //I/O
 using namespace std;
 
 // Function prototypes
@@ -13,19 +15,24 @@ void arrSelectSort(int *[], int);
 void showArray(const int [], int);
 void showArrPtr(int *[], int);
 
+//Begin Execution
+
 int main(){
+    //Declaration and Initialization
     int numDnts = 0; // Number of donations
 
-    cout << "How many donations were there: ";
-    cin >> numDnts;
+    do{ //While the number of donations is invalid
+        cout << "How many donations were there: ";
+        cin >> numDnts;
+    } while(numDnts <= 0);
 
     // An array containing the donation amounts.
-    int *donations = new int[numDnts];
+    int *donations = new int[numDnts]; //Allocate dynamic array
 
-    for(int i = 0; i < numDnts; ++i){
-        do{
+    for(int i = 0; i < numDnts; ++i){ //For the number of donations
+        do{ //While the current donation is invalid
             cout << "Enter the amount donated for donation #" << i + 1 << ": ";
-            cin >> donations[i];
+            cin >> donations[i]; //Read in donation amount
         } while(donations[i] < 0);
     }
 
@@ -49,9 +56,10 @@ int main(){
     cout << "The donations, in their original order are: \n";
     showArray(donations, numDnts);
 
+    //Delete donation array
     delete [] donations;
 
-
+    //Exit
     return 0;
 }
 
