@@ -12,11 +12,11 @@
 using namespace std;
 
 //Function Prototypes
-void sort(int*, int);
-int* genArr(int);
-int mode(const int*, int);
-void prntArr(const int*, int);
-int getFreq(const int*, int);
+void sortPt(int*, int);
+int* gArrPt(int);
+int modePt(const int*, int);
+void pArrPt(const int*, int);
+int gFreqPt(const int*, int);
 
 //Begin Execution
 
@@ -27,13 +27,13 @@ int main(int argc, char** argv){
     int modeVal = 0; //The mode that was found
 
     srand(static_cast<int>(time(0))); //Seed PRNG
-    array = genArr(SIZE); //Generate the array
+    array = gArrPt(SIZE); //Generate the array
 
     //Calculate and Output
-    sort(array, SIZE); //Sort the array
-    modeVal = mode(array, SIZE); //Find the mode
+    sortPt(array, SIZE); //Sort the array
+    modeVal = modePt(array, SIZE); //Find the mode
     cout << "ARRAY: " << endl;
-    prntArr(array, SIZE); //Output the array
+    pArrPt(array, SIZE); //Output the array
     if(modeVal > -1){ //If the mode was found
         cout << "THE MODE IS " << modeVal << endl; //Output the mode
     }
@@ -48,7 +48,7 @@ int main(int argc, char** argv){
     return 0;
 }
 
-//Sort
+//Sort Pointer Notation
 //Sorts an array using the gnome sort algorithm
 //Input:
 //array
@@ -58,7 +58,7 @@ int main(int argc, char** argv){
 //Output:
 //The sorted array
 
-void sort(int *array, int size){
+void sortPt(int *array, int size){
     int pos = 0; //The initial position
     while(pos < size){ //While unsorted
         if(pos == 0 || *(array + pos) >= *(array + (pos - 1))){ //If the position is 0 or the current value is greater than the last value
@@ -76,7 +76,7 @@ void sort(int *array, int size){
 }
 
 
-//Generate Array
+//Generate Array Pointer Notation
 //Generates an array of the given size
 //Input:
 //size
@@ -84,7 +84,7 @@ void sort(int *array, int size){
 //Output:
 //The pointer to the generated array
 
-int* genArr(int size){
+int* gArrPt(int size){
     int *r = new int[size]; //Allocate the return array
 
     for(int i = 0; i < size; ++i){ //Generate array values
@@ -94,7 +94,7 @@ int* genArr(int size){
     return r;
 }
 
-//Print Array
+//Print Array Pointer Notation
 //Print an array to standard output
 //Input:
 //array
@@ -102,7 +102,7 @@ int* genArr(int size){
 //size
 //The size of that array
 
-void prntArr(const int *array, int size){
+void pArrPt(const int *array, int size){
     for(int i = 0; i < size; ++i){ //For every element in the array
         cout << *(array + i); //Output the array element
         if(size > 10){ //If the size is greater than 10
@@ -122,7 +122,7 @@ void prntArr(const int *array, int size){
     cout << endl;
 }
 
-//Mode
+//Mode Pointer Notation
 //Get the mode of a given array
 //Returns the highest valued mode rather than all modes in the case of multiple
 //Input:
@@ -133,14 +133,14 @@ void prntArr(const int *array, int size){
 //Output:
 //The highest mode found or -1 if none exist
 
-int mode(const int *array, int size){
+int modePt(const int *array, int size){
     int r = -1, //The return mode
-            freq = getFreq(array, size), //The frequency of the mode
+            freq = gFreqPt(array, size), //The frequency of the mode
             count = 0, //The number of times the current number occurs
             pos = 0; //The current position
     if(freq > 1){ //If the frequency is greater than 1
         for(int i = 0; i < size; ++i){ //For every element in the array
-            if(i > 0 && array[i] != array[i - 1]){ //If the current value has changed from the last value
+            if(i > 0 && *(array + i) != *(array + (i - 1))){ //If the current value has changed from the last value
                 if(count == freq){ //If the current count is the same as the frequency
                     r = *(array + (i - 1)); //Set the return value to the last array element
                 }
@@ -158,7 +158,7 @@ int mode(const int *array, int size){
     return r;
 }
 
-//Get Frequency
+//Get Frequency Pointer Notation
 //Get the frequency of the mode of an array
 //Input:
 //array
@@ -168,7 +168,7 @@ int mode(const int *array, int size){
 //Output:
 //The frequency of the mode of the array
 
-int getFreq(const int *array, int size){
+int gFreqPt(const int *array, int size){
     int r = 0, //The frequency to return
             start = 0; //The position of the start of the most recent value in the array
 

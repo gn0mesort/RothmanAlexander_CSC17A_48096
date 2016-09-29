@@ -13,7 +13,7 @@ using namespace std;
 //Function Prototypes
 void sort(short[], short);
 void prntArr(const short[], short);
-float avg(const short[], short);
+float mean(const short[], short);
 
 
 //Begin Execution
@@ -48,7 +48,7 @@ int main(int argc, char** argv){
         sort(scores, length); //Sort the scores
         prntArr(scores, length); //Output the sorted scores
         cout << fixed << setprecision(2); //Formatting
-        cout << "AVERAGE SCORE: " << avg(scores, length) << endl; //Output the average score
+        cout << "AVERAGE SCORE: " << mean(scores, length) << endl; //Output the average score
 
         //Delete the score array
         delete [] scores;
@@ -113,7 +113,7 @@ void prntArr(const short array[], short size){
     cout << endl;
 }
 
-//Average
+//Mean
 //Calculate the average of a given array
 //Input:
 //array
@@ -123,7 +123,7 @@ void prntArr(const short array[], short size){
 //Output:
 //The average of the array as a float
 
-float avg(const short array[], short length){
+float mean(const short array[], short length){
     float r = 0.0f; //The average to be returned
 
     for(int i = 0; i < length; ++i){ //For each element of the array

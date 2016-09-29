@@ -40,6 +40,13 @@ int main(int argc, char** argv){
 
 //Compute
 //Preform an arbitrary computation using pointers. Should return (10 * X) + (10 * Y) and swap the values of X and Y
+//Input:
+//x
+//A pointer to a value to use in computation
+//y
+//A pointer to a value to use in computation
+//Output:
+//A computed value
 
 int compute(int *x, int *y){
     int temp = *x; //A temporary value

@@ -19,7 +19,7 @@ int* mode(const int[], int);
 int modeCnt(const int[], int, int);
 int getFreq(const int[], int);
 int* getMdes(const int[], int, int, int);
-void prntArr(const int[], int);
+void prntArr(const int[], unsigned int);
 
 //Begin Execution
 
@@ -265,7 +265,7 @@ float mean(const int array[], int size){
 //size
 //The size of that array
 
-void prntArr(const int array[], int size){
+void prntArr(const int array[], unsigned int size){
     for(int i = 0; i < size; ++i){ //For every element in the array
         cout << array[i]; //Output the array element
         if(size > 10){ //If the size is greater than 10

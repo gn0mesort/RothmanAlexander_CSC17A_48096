@@ -5,7 +5,7 @@
  * Created on September 27, 2016
  */
 
-//System Libaries
+//System Libraries
 #include <iostream> //I/O
 #include <cstdlib> //C standard library
 #include <ctime> //Date and Time
@@ -63,6 +63,7 @@ int main(int argc, char** argv){
 //Output:
 //A pointer to the shifted array
 //The new augmented length of the array
+
 int* shift(int array[], unsigned int& length){
     int *r = new int[length + 1];
 

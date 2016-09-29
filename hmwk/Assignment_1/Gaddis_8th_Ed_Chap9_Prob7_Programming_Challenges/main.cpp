@@ -10,7 +10,7 @@
 using namespace std;
 
 // Function prototypes
-void arrSelectSort(int *[], int);
+void arrSelectSortDes(int *[], int);
 void showArray(const int [], int);
 void showArrPtr(int *[], int);
 
@@ -45,7 +45,7 @@ int main(){
         arrPtr[count] = &donations[count];
 
     // Sort the elements of the array of pointers.
-    arrSelectSort(arrPtr, numDnts);
+    arrSelectSortDes(arrPtr, numDnts);
 
     // Display the donations using the array of pointers. This
     // will display them in sorted order.
@@ -64,15 +64,15 @@ int main(){
 }
 
 //****************************************************************
-// Definition of function arrSelectSort.                         *
-// This function performs an ascending order selection sort on   *
+// Definition of function arrSelectSortDes.                         *
+// This function performs an descending order selection sort on   *
 // arr, which is an array of pointers. Each element of array     *
 // points to an element of a second array. After the sort,       *
 // arr will point to the elements of the second array in         *
-// ascending order.                                              *
+// descending order.                                              *
 //****************************************************************
 
-void arrSelectSort(int *arr[], int size){
+void arrSelectSortDes(int *arr[], int size){
     int startScan, minIndex;
     int *minElem;
 

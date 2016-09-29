@@ -20,7 +20,7 @@ int* mode(const int[], int);
 int modeCnt(const int[], int, int);
 int getFreq(const int[], int);
 int* getMdes(const int[], int, int, int);
-int* genArr(int);
+int* gArrFl(int);
 void prntArr(const int[], int);
 
 //Begin Execution
@@ -32,7 +32,7 @@ int main(int argc, char** argv){
             *modeDat = NULL; //The array for mode data
 
     srand(static_cast<int>(time(0))); //Seed PRNG
-    array = genArr(SIZE); //Generate and fill array
+    array = gArrFl(SIZE); //Generate and fill array
 
     //Calculate and Output
     cout << "INITIAL ARRAY:" << endl;
@@ -248,7 +248,7 @@ float mean(const int array[], int size){
 }
 
 
-//Generate Array
+//Generate Array Filled
 //Generate an array of the given size
 //Input:
 //size
@@ -256,7 +256,7 @@ float mean(const int array[], int size){
 //Output:
 //A pointer to the generated array
 
-int* genArr(int size){
+int* gArrFl(int size){
     int *r = new int[size]; //Allocate the return array
 
     for(int i = 0; i < size; ++i){ //For each element of the array

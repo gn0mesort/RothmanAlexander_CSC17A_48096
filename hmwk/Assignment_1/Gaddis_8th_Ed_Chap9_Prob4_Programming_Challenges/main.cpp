@@ -13,10 +13,10 @@
 using namespace std;
 
 //Function Prototypes
-void sort(unsigned char[], short[], short);
+void sortIdx(unsigned char[], short[], short);
 void prntArr(const unsigned char[], const string[], const short[], short);
 unsigned char* mkIndex(short);
-float avg(const short[], short);
+float mean(const short[], short);
 
 //Begin Execution
 
@@ -51,10 +51,10 @@ int main(int argc, char** argv){
 
         //Calculate and Output data
         cout << "SORTED SCORES:" << endl;
-        sort(index, scores, length); //Sort index by score
+        sortIdx(index, scores, length); //Sort index by score
         prntArr(index, names, scores, length); //Display score and name data
         cout << fixed << setprecision(2); //Formatting
-        cout << "AVERAGE SCORE: " << avg(scores, length) << endl; //Output average score
+        cout << "AVERAGE SCORE: " << mean(scores, length) << endl; //Output average score
 
         //Delete arrays
         delete [] scores;
@@ -82,7 +82,7 @@ unsigned char* mkIndex(short size){
     return r;
 }
 
-//Sort
+//Sort Index
 //Sort the indexing array using values found in the input array
 //Input:
 //index
@@ -92,7 +92,7 @@ unsigned char* mkIndex(short size){
 //size
 //The size of the input arrays
 
-void sort(unsigned char index[], short array[], short size){
+void sortIdx(unsigned char index[], short array[], short size){
     short pos = 0; //The initial position
     while(pos < size){ //While unsorted
         if(pos == 0 || array[index[pos]] >= array[index[pos - 1]]){ //If the position is 0 or the current value is greater than the last value
@@ -127,8 +127,8 @@ void prntArr(const unsigned char index[], const string names[], const short scor
     }
 }
 
-//Average
-//Calculate the average of a given array. Drops the lowest score from the average
+//Mean
+//Calculate the average of a given array.
 //Input:
 //array
 //The array to calculate the average of
@@ -137,12 +137,12 @@ void prntArr(const unsigned char index[], const string names[], const short scor
 //Output:
 //The average of the array as a float
 
-float avg(const short array[], short length){
+float mean(const short array[], short length){
     float r = 0.0f; //The average to be returned
 
-    for(int i = 1; i < length; ++i){ //For each element of the array except the first element
+    for(int i = 0; i < length; ++i){ //For each element of the array except the first element
         r += array[i]; //Sum the elements
     }
 
-    return r / ((length - 1) * 1.0f); //Return the average
+    return r / (length * 1.0f); //Return the average
 }
