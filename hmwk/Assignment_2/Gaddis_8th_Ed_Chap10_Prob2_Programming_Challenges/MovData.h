@@ -15,6 +15,8 @@ struct MovData{
     std::string dirctr;
     unsigned short yearRel;
     unsigned short runTime;
+    unsigned int cost;
+    unsigned int revenue;
 };
 
 #endif /* MOVDATA_H */
