@@ -10,7 +10,7 @@
 #include "MovData.h"
 using namespace std;
 
-void prntMov(MovData);
+void prntMov(const MovData&);
 
 int main(int argc, char** argv){
     MovData a,
@@ -35,7 +35,7 @@ int main(int argc, char** argv){
     return 0;
 }
 
-void prntMov(MovData data){
+void prntMov(const MovData &data){
     cout << "TITLE: " << data.title << endl;
     cout << "DIRECTOR: " << data.dirctr << endl;
     cout << "YEAR RELEASED: " << data.yearRel << endl;
