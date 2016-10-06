@@ -23,6 +23,7 @@ void dsSpkr(const vector<Speaker>&);
 void edSpkr(vector<Speaker>&);
 
 //Begin Execution
+
 int main(int argc, char** argv){
     //Declaration and Initialization
     vector<Speaker> data; //The vector containing speaker data
@@ -80,6 +81,7 @@ int main(int argc, char** argv){
 //The string to load data into
 //Output:
 //The input string loaded with data
+
 void getLn(string &str){
     getline(cin, str, '\n');
 }
@@ -91,6 +93,7 @@ void getLn(string &str){
 //The data vector for Speakers
 //Output:
 //The updated data vector
+
 void crSpkr(vector<Speaker> &data){
     Speaker speak; //The new Speaker
 
@@ -116,9 +119,10 @@ void crSpkr(vector<Speaker> &data){
 //The data vector for Speakers
 //Output:
 //The updated data vector
+
 void rmSpkr(vector<Speaker> &data){
     unsigned short input = 0; //The input value
-    
+
     //Display Remove Speaker menu
     for(int i = 0; i < data.size(); ++i){ //For the entire data vector
         cout << "(" << i + 1 << ") " << data.at(i).name << endl; //Output the Speaker's name
@@ -135,6 +139,7 @@ void rmSpkr(vector<Speaker> &data){
 //Display Speakers found in the data vector
 //Input:
 //The data vector for Speakers
+
 void dsSpkr(const vector<Speaker> &data){
     for(int i = 0; i < data.size(); ++i){ //For the entire data vector
         cout << "NAME: " << data.at(i).name << endl; //Output the Speaker's name
@@ -151,6 +156,7 @@ void dsSpkr(const vector<Speaker> &data){
 //The data vector for Speakers
 //Output:
 //The updated data vector
+
 void edSpkr(vector<Speaker> &data){
     unsigned short speak = 0, //The Speaker to edit
             input = 0; //The input value for the Speaker editing menu

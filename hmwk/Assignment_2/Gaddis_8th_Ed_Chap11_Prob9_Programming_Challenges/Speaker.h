@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Speaker.h
  * Author: Alexander Rothman <arothman@student.rcc.edu>
  * Purpose: Store data on a single speaker
@@ -13,7 +13,8 @@
 
 //Speaker
 //Store data on a speaker
-struct Speaker {
+
+struct Speaker{
     std::string name; //The name of the speaker
     std::string tel; //The speaker's telephone number
     std::string topic; //The speaker's topic

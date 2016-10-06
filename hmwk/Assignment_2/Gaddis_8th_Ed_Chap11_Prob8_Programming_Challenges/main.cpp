@@ -25,6 +25,7 @@ void fdAcct(const vector<CstAcct>&);
 string toupper(const string&);
 
 //Begin Execution
+
 int main(int argc, char** argv){
     //Declaration and Initialization
     vector<CstAcct> data; //The vector containing customer account data
@@ -89,6 +90,7 @@ int main(int argc, char** argv){
 //The string to load data into
 //Output:
 //The input string loaded with data
+
 void getLn(string &str){
     getline(cin, str, '\n');
 }
@@ -100,10 +102,11 @@ void getLn(string &str){
 //The data vector for Customer Accounts
 //Output:
 //The updated data vector
+
 void crAcct(vector<CstAcct> &data){
     CstAcct acct; //The new user account
     time_t rawtime; //The current time
-    
+
     cout << "Enter the name of the account holder: ";
     cin.ignore(); //Clear input
     getLn(acct.name); //Read in the account name
@@ -130,9 +133,10 @@ void crAcct(vector<CstAcct> &data){
 //The data vector for Customer Accounts
 //Output:
 //The updated data vector
+
 void rmAcct(vector<CstAcct> &data){
     unsigned short input = 0; //The input value
-    
+
     //Display Remove Account menu
     for(int i = 0; i < data.size(); ++i){ //For the entire data vector
         cout << "(" << i + 1 << ") " << data.at(i).name << endl; //Output the account name
@@ -149,6 +153,7 @@ void rmAcct(vector<CstAcct> &data){
 //Display Customer Accounts found in the data vector
 //Input:
 //The data vector for Customer Accounts
+
 void dsAcct(const vector<CstAcct> &data){
     for(int i = 0; i < data.size(); ++i){ //For the entire data vector
         cout << "NAME: " << data.at(i).name << endl; //Output the account name
@@ -170,6 +175,7 @@ void dsAcct(const vector<CstAcct> &data){
 //The data vector for Customer accounts
 //Output:
 //The updated data vector
+
 void edAcct(vector<CstAcct> &data){
     unsigned short acct = 0, //The account to edit
             input = 0; //The input value for the account editing menu
@@ -248,10 +254,11 @@ void edAcct(vector<CstAcct> &data){
 //Find a Customer Account in the data vector
 //Input:
 //The data vector for Customer Accounts
+
 void fdAcct(const vector<CstAcct> &data){
     bool results = false; //Whether or not the value was found
     string key = ""; //The value to search for
-    
+
     cout << "SEARCH TERM: ";
     cin.ignore(); //Clear input
     getLn(key); //Read in the key
@@ -273,6 +280,7 @@ void fdAcct(const vector<CstAcct> &data){
 //The string to change to upper case
 //Output:
 //The string all uppercased
+
 string toupper(const string &str){
     string r = ""; //The return string
 

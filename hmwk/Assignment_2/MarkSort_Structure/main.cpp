@@ -22,23 +22,23 @@ void sort(Array&);
 
 //Begin Execution
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv){
     //Declaration and Initialization
     const unsigned char SIZE = 100; //Size of the array
     unsigned char perLine = 10; //Number of values to print per line
     Array arr; //The array object to sort
-    
+
     srand(static_cast<unsigned int>(time(0))); //Seed PRNG
     fillArr(arr, SIZE); //Allocate the array and fill it with random values
-    
+
     //Output
     cout << "INITIAL ARRAY:" << endl;
     prntArr(arr, perLine); //Print the initial array
-    cout << endl; 
+    cout << endl;
     sort(arr); //Sort the array
     cout << "SORTED ARRAY:" << endl;
     prntArr(arr, perLine); //Print the sorted array
-    
+
     //Delete the array
     delete [] arr.data;
 
@@ -71,6 +71,7 @@ void prntArr(const Array &arr, int perLine){
 //The size of the array that should be allocated
 //Output:
 //The input Array object allocated and filled
+
 void fillArr(Array &arr, unsigned char size){
     arr.data = new int[size]; //Allocate the underlying array
     arr.size = size; //Set the array size

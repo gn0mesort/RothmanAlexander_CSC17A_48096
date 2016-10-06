@@ -36,7 +36,7 @@ int main(int argc, char** argv){
             cin >> input; //Read input
         } while(input < 0);
         team[i].number = input; //Set the Player's number to input
-        do{ //While the input value is naegative
+        do{ //While the input value is negative
             cout << "ENTER " << team[i].name << "'S SCORE: ";
             cin >> input; //Read input
         } while(input < 0);

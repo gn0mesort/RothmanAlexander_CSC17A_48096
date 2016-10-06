@@ -10,6 +10,7 @@
 
 //Customer Account
 //Stores data on a single customer account
+
 struct CstAcct{
     std::string name; //The customer's name
     std::string address; //The customer's address
