@@ -10,30 +10,50 @@
 #include "Stat.h"
 
 
+std::string Flow::Stat::name() const{
+    return _name;
+}
+
+std::string Flow::Stat::flName() const{
+    return _flName;
+}
+
+void Flow::Stat::setName(const std::string &name){
+    _name = name;
+}
+
+void Flow::Stat::setFlName(const std::string &flName){
+    _flName = flName;
+}
+
 //BStat
 
 Flow::BStat::BStat(){
-    name = "Stat";
-    flName = "Statistic";
-    value = 0;
+    setName("Stat");
+    setFlName("Statistic");
+    _value = 0;
 }
 
 Flow::BStat::BStat(const BStat &other){
-    name = other.name;
-    flName = other.flName;
-    value = other.value;
+    setName(other.name());
+    setFlName(other.flName());
+    _value = other._value;
 }
 
 Flow::BStat::BStat(const std::string &nName, const std::string &nFlName, unsigned char nValue){
-    name = nName;
-    flName = nFlName;
-    value = nValue;
+    setName(nName);
+    setFlName(nFlName);
+    _value = nValue;
+}
+
+Byte::Byte<unsigned char>& Flow::BStat::value(){
+    return _value;
 }
 
 std::string Flow::BStat::toString() const{
     std::stringstream r;
 
-    r << name << ": " << static_cast<int>(value.get());
+    r << name() << ": " << static_cast<int>(_value.get());
 
     return r.str();
 }
@@ -41,8 +61,8 @@ std::string Flow::BStat::toString() const{
 //IStat
 
 Flow::IStat::IStat(){
-    name = "Stat";
-    flName = "Statistic";
+    setName("Stat");
+    setFlName("Statistic");
     _max = 100;
     _min = 0;
     _value = 0;
@@ -51,8 +71,8 @@ Flow::IStat::IStat(){
 }
 
 Flow::IStat::IStat(const IStat &other){
-    name = other.name;
-    flName = other.flName;
+    setName(other.name());
+    setFlName(other.flName());
     _max = other._max;
     _min = other._min;
     _value = other._value;
@@ -61,8 +81,8 @@ Flow::IStat::IStat(const IStat &other){
 }
 
 Flow::IStat::IStat(const std::string &nName, const std::string &nFlName, int value, int max, int min, int absMax, int absMin){
-    name = nName;
-    flName = nFlName;
+    setName(nName);
+    setFlName(nFlName);
     _value = value;
     _max = max;
     _min = min;
@@ -125,7 +145,7 @@ void Flow::IStat::setVal(int value){
 std::string Flow::IStat::toString() const{
     std::stringstream r;
 
-    r << name << ": " << _value << "/" << _max;
+    r << name() << ": " << _value << "/" << _max;
 
     return r.str();
 }

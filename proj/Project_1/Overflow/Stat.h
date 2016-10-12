@@ -15,23 +15,28 @@ namespace Flow{
 
 class Stat{
 public:
-    std::string name;
-    std::string flName;
+    std::string name() const;
+    std::string flName() const ;
+    void setName(const std::string&);
+    void setFlName(const std::string&);
 private:
+    std::string _name;
+    std::string _flName;
     //Stat();
 };
 
 class BStat : public Stat{
 public:
-    Byte::Byte<unsigned char> value;
-    
     BStat();
     BStat(const std::string&, const std::string&, unsigned char);
     BStat(const BStat&);
     //~BStat();
+    Byte::Byte<unsigned char>& value();
+    //void setValue(const Byte::Byte<unsigned char>&);
    
     std::string toString() const;
 private:
+    Byte::Byte<unsigned char> _value;
 };
 
 class IStat : public Stat{

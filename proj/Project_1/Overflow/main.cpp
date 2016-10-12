@@ -16,16 +16,15 @@
 
 #include "Game.h"
 #include "Stat.h"
+#include "Byte.h"
+#include "Enums.h"
 using namespace std;
 
 int main(int argc, char** argv){
-    Byte::Byte<int> b = 0x79656f5a;
-    ofstream out;
-
-    out.open("out.bin", ios::binary);
-    out.write(b.getSBytes(), b.size());
-    out.close();
-
+    Flow::RoomType r = Flow::RoomType::Encounter;
+    
+    cout << Flow::EnumUtils::toByte(r).toString() << endl;
+    
     return 0;
 }
 

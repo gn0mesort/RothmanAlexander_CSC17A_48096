@@ -15,7 +15,6 @@ namespace Flow{
 
 const static unsigned int HEADER = 0x776f6c66; //Header value for game files
 
-
 class Game{
 public:
 private:

@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Byte.h</itemPath>
+      <itemPath>Enums.h</itemPath>
       <itemPath>Game.h</itemPath>
       <itemPath>Stat.h</itemPath>
     </logicalFolder>
@@ -15,6 +16,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Enums.cpp</itemPath>
       <itemPath>Stat.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -39,8 +41,16 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <stripSymbols>true</stripSymbols>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="Byte.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Enums.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Enums.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -72,6 +82,10 @@
         </asmTool>
       </compileType>
       <item path="Byte.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Enums.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Enums.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
       </item>
