@@ -8,60 +8,56 @@
 #ifndef STAT_H
 #define STAT_H
 
-#include "Byte.h"
-
-
 namespace Flow{
 
-class Stat{
-public:
-    std::string name() const;
-    std::string flName() const ;
-    void setName(const std::string&);
-    void setFlName(const std::string&);
-private:
-    std::string _name;
-    std::string _flName;
-    //Stat();
-};
+    class Stat{
+    public:
+        std::string name() const;
+        std::string flName() const ;
+        void setName(const std::string&);
+        void setFlName(const std::string&);
+    private:
+        std::string _name;
+        std::string _flName;
+        //Stat();
+    };
 
-class BStat : public Stat{
-public:
-    BStat();
-    BStat(const std::string&, const std::string&, unsigned char);
-    BStat(const BStat&);
-    //~BStat();
-    Byte::Byte<unsigned char>& value();
-    //void setValue(const Byte::Byte<unsigned char>&);
-   
-    std::string toString() const;
-private:
-    Byte::Byte<unsigned char> _value;
-};
+    class BStat : public Stat{
+    public:
+        BStat();
+        BStat(const std::string&, const std::string&, unsigned char);
+        BStat(const BStat&);
+        //~BStat();
+        unsigned char value() const;
+        void setValue(unsigned char);
+        std::string toString() const;
+    private:
+        unsigned char _value;
+    };
 
-class IStat : public Stat{
-public:
-    IStat();
-    IStat(const IStat&);
-    IStat(const std::string&, const std::string&, int, int = 100, int = 0, int = 9999, int = 0);
-    //~IStat();
-    
-    int value() const;
-    int max() const;
-    int min() const;
-    int absMax() const;
-    int absMin() const;
-    void setVal(int);
-    void setMax(int);
-    void setMin(int);
-    std::string toString() const;
-private:
-    int _max,
-            _min,
-            _value,
-            _absMax,
-            _absMin;
-};
+    class IStat : public Stat{
+    public:
+        IStat();
+        IStat(const IStat&);
+        IStat(const std::string&, const std::string&, int, int = 100, int = 0, int = 9999, int = 0);
+       //~IStat();
+
+        int value() const;
+        int max() const;
+        int min() const;
+        int absMax() const;
+        int absMin() const;
+        void setVal(int);
+        void setMax(int);
+        void setMin(int);
+        std::string toString() const;
+    private:
+        int _max,
+                _min,
+                _value,
+                _absMax,
+                _absMin;
+    };
 
 }
 

@@ -9,7 +9,6 @@
 
 #include "Stat.h"
 
-
 std::string Flow::Stat::name() const{
     return _name;
 }
@@ -37,7 +36,7 @@ Flow::BStat::BStat(){
 Flow::BStat::BStat(const BStat &other){
     setName(other.name());
     setFlName(other.flName());
-    _value = other._value;
+    _value = other.value();
 }
 
 Flow::BStat::BStat(const std::string &nName, const std::string &nFlName, unsigned char nValue){
@@ -46,14 +45,18 @@ Flow::BStat::BStat(const std::string &nName, const std::string &nFlName, unsigne
     _value = nValue;
 }
 
-Byte::Byte<unsigned char>& Flow::BStat::value(){
+unsigned char Flow::BStat::value() const{
     return _value;
+}
+
+void Flow::BStat::setValue(unsigned char value){
+    _value = value;
 }
 
 std::string Flow::BStat::toString() const{
     std::stringstream r;
 
-    r << name() << ": " << static_cast<int>(_value.get());
+    r << name() << ": " << static_cast<int>(_value);
 
     return r.str();
 }
@@ -88,6 +91,10 @@ Flow::IStat::IStat(const std::string &nName, const std::string &nFlName, int val
     _min = min;
     _absMax = absMax;
     _absMin = absMin;
+}
+
+int Flow::IStat::value() const{
+    return _value;
 }
 
 int Flow::IStat::absMax() const{

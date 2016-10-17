@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="GameData" displayName="GameData" projectFiles="true">
+      <itemPath>GameData/clericweapons.txt</itemPath>
+      <itemPath>GameData/knightweapons.txt</itemPath>
+      <itemPath>GameData/lancerweapons.txt</itemPath>
+      <itemPath>GameData/mageweapons.txt</itemPath>
+      <itemPath>GameData/title.txt</itemPath>
+      <itemPath>GameData/uidarmornames.txt</itemPath>
+      <itemPath>GameData/uidpotionnames.txt</itemPath>
+      <itemPath>GameData/uidweaponnames.txt</itemPath>
+    </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Actor.h</itemPath>
       <itemPath>Byte.h</itemPath>
-      <itemPath>Enums.h</itemPath>
+      <itemPath>Flags.h</itemPath>
       <itemPath>Game.h</itemPath>
+      <itemPath>Item.h</itemPath>
       <itemPath>Stat.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -16,7 +28,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Enums.cpp</itemPath>
+      <itemPath>Actor.cpp</itemPath>
+      <itemPath>Flags.cpp</itemPath>
+      <itemPath>Game.cpp</itemPath>
+      <itemPath>Item.cpp</itemPath>
       <itemPath>Stat.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -32,6 +47,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>GameData</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -46,13 +64,39 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="Actor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Actor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Byte.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Enums.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Flags.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Enums.h" ex="false" tool="3" flavor2="0">
+      <item path="Flags.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/clericweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/knightweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/lancerweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/mageweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/title.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/uidarmornames.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/uidpotionnames.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/uidweaponnames.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Item.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Item.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Stat.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -81,13 +125,39 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Actor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Actor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Byte.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Enums.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Flags.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Enums.h" ex="false" tool="3" flavor2="0">
+      <item path="Flags.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/clericweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/knightweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/lancerweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/mageweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/title.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/uidarmornames.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/uidpotionnames.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/uidweaponnames.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Item.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Item.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Stat.cpp" ex="false" tool="1" flavor2="0">
       </item>

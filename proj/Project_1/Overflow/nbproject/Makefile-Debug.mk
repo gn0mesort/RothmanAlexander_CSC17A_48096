@@ -35,7 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Enums.o \
+	${OBJECTDIR}/Actor.o \
+	${OBJECTDIR}/Flags.o \
+	${OBJECTDIR}/Game.o \
+	${OBJECTDIR}/Item.o \
 	${OBJECTDIR}/Stat.o \
 	${OBJECTDIR}/main.o
 
@@ -64,10 +67,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/overflow.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/overflow ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Enums.o: Enums.cpp 
+${OBJECTDIR}/Actor.o: Actor.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -s -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Enums.o Enums.cpp
+	$(COMPILE.cc) -g -s -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Actor.o Actor.cpp
+
+${OBJECTDIR}/Flags.o: Flags.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -s -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Flags.o Flags.cpp
+
+${OBJECTDIR}/Game.o: Game.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -s -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Game.o Game.cpp
+
+${OBJECTDIR}/Item.o: Item.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -s -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Item.o Item.cpp
 
 ${OBJECTDIR}/Stat.o: Stat.cpp 
 	${MKDIR} -p ${OBJECTDIR}

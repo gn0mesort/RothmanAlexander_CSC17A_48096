@@ -1,10 +1,4 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * File:   main.cpp
  * Author: Alexander Rothman <alexander@megate.ch>
  * Purpose:
@@ -13,18 +7,30 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 #include "Game.h"
 #include "Stat.h"
+#include "Flags.h"
 #include "Byte.h"
-#include "Enums.h"
+#include "Item.h"
+
 using namespace std;
+using namespace Flow;
 
 int main(int argc, char** argv){
-    Flow::RoomType r = Flow::RoomType::Encounter;
-    
-    cout << Flow::EnumUtils::toByte(r).toString() << endl;
-    
+    init();
+
+    if(Game::conf.ascArt){
+        rdTxt("GameData/title.txt");
+    }
+    else{
+        cout << "OVERFLOW" << endl;
+        cout << endl;
+    }
+    cout << "v" << toInt(Game::conf.mjVer) << "." << toInt(Game::conf.miVer) << endl;
+
+    cleanUp(); //Clean up game memory
     return 0;
 }
 

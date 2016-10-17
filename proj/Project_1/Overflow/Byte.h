@@ -54,7 +54,7 @@ namespace Byte {
         Byte(const Byte &other) {
             data.value = other.get();
         }
-
+        
         //Get
         //Return the underlying value of the Byte
         //Output:
