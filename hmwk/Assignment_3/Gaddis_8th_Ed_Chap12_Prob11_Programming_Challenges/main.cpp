@@ -61,7 +61,7 @@ int main(int argc, char** argv){
 
 void save(const char *path, SaleDat &data){
     ofstream out;
-    int len = data.divName.size();
+    int len = data.divName.size() + 1;
 
     out.open(path, ios::binary | ios::app);
     out.write(reinterpret_cast<char*>(&len), sizeof (len));
@@ -74,27 +74,25 @@ void save(const char *path, SaleDat &data){
 
 void load(const char *path, vector<SaleDat> &data){
     ifstream in;
-
+    
     in.open(path, ios::binary);
-    while(in.good() && !in.eof()){
-        int len = 0;
+    
+    in.seekg(0, ios::end);
+    int size = in.tellg();
+    in.seekg(0, ios::beg);
+    while(in.tellg() < size) {
         SaleDat tmp;
-        //tmp.divName = "";
-        in.read(reinterpret_cast<char*>(&len), sizeof (len));
-        if(len > 0){
-            char *buffer = new char[len];
-            //clear(buffer, len);
-            in.read(buffer, len);
-            tmp.divName = buffer;
-            delete [] buffer;
-        }
+        int len = 0;
+        in.read(reinterpret_cast<char*>(&len), sizeof(len));
+        char *buffer = new char[len];
+        in.read(buffer, len);
+        tmp.divName = buffer;
+        delete [] buffer;
         for(int i = 0; i < SaleDat::SIZE; ++i){
-            in.read(reinterpret_cast<char*>(&tmp.sales[i]), sizeof (tmp.sales[i]));
+            in.read(reinterpret_cast<char*>(&tmp.sales[i]), sizeof(tmp.sales[i]));
         }
-        if(!in.eof()){
-            data.push_back(tmp);
-        }
-    }
+        data.push_back(tmp);
+    } 
     in.close();
 }
 

@@ -26,6 +26,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>out.txt</itemPath>
     <itemPath>salesdata.bin</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -41,6 +42,8 @@
       <item path="SaleDat.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="out.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="salesdata.bin" ex="false" tool="3" flavor2="0">
       </item>
@@ -68,6 +71,8 @@
       <item path="SaleDat.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="out.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="salesdata.bin" ex="false" tool="3" flavor2="0">
       </item>
