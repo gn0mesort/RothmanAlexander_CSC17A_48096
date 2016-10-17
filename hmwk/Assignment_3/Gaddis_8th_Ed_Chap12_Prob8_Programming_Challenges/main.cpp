@@ -49,7 +49,7 @@ void toFile(const char *path, int *array, int size){
 
     out.open(path, ios::binary);
     for(int i = 0; i < size; ++i){
-        out.write(reinterpret_cast<char*>(array + i), sizeof (array + i));
+        out.write(reinterpret_cast<char*>(&array[i]), sizeof (array[i]));
     }
     out.close();
 }
@@ -59,7 +59,7 @@ void toArray(const char *path, int *array, int size){
 
     in.open(path, ios::binary);
     for(int i = 0; i < size; ++i){
-        in.read(reinterpret_cast<char*>(array + i), sizeof (array + i));
+        in.read(reinterpret_cast<char*>(&array[i]), sizeof (array[i]));
     }
     in.close();
 }

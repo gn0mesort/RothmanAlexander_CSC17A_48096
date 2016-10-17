@@ -44,12 +44,17 @@ int main(int argc, char** argv){
     load(PATH, data);
     cout << "DONE!" << endl;
     cout << endl;
+    ofstream out;
+    out.open("out.txt");
     for(int i = 0; i < data.size(); ++i){
         cout << "DIVISION: " << data[i].divName << endl;
+        out << "DIVISION: " << data[i].divName << endl;
         for(int j = 0; j < SaleDat::SIZE; ++j){
-            cout << "ENTER SALES FOR Q" << j + 1 << ": $" << data[i].sales[j] << endl;
+            cout << "SALES FOR Q" << j + 1 << ": $" << data[i].sales[j] << endl;
+            out << "SALES FOR Q" << j + 1 << ": $" << data[i].sales[j] << endl;
         }
     }
+    out.close();
 
     return 0;
 }
@@ -74,12 +79,13 @@ void load(const char *path, vector<SaleDat> &data){
     while(in.good() && !in.eof()){
         int len = 0;
         SaleDat tmp;
+        //tmp.divName = "";
         in.read(reinterpret_cast<char*>(&len), sizeof (len));
         if(len > 0){
             char *buffer = new char[len];
-            clear(buffer, len);
+            //clear(buffer, len);
             in.read(buffer, len);
-            tmp.divName.assign(buffer);
+            tmp.divName = buffer;
             delete [] buffer;
         }
         for(int i = 0; i < SaleDat::SIZE; ++i){
