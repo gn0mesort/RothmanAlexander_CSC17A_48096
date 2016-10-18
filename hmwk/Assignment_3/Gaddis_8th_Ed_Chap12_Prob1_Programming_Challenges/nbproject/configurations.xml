@@ -25,8 +25,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>in.txt</itemPath>
-    <itemPath>in_short.txt</itemPath>
+    <itemPath>in_12_1.txt</itemPath>
+    <itemPath>in_12_1_short.txt</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -38,9 +38,9 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="in.txt" ex="false" tool="3" flavor2="0">
+      <item path="in_12_1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="in_short.txt" ex="false" tool="3" flavor2="0">
+      <item path="in_12_1_short.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -65,9 +65,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="in.txt" ex="false" tool="3" flavor2="0">
+      <item path="in_12_1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="in_short.txt" ex="false" tool="3" flavor2="0">
+      <item path="in_12_1_short.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

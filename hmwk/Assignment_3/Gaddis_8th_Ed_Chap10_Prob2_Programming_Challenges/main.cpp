@@ -5,25 +5,42 @@
  * Created on October 16, 2016
  */
 
-#include <iostream>
-#include <string>
+//System Libraries
+#include <iostream> //I/O
+#include <string> //String type and functions
 using namespace std;
 
+//Function Prototypes
 void reverse(const char*, unsigned int);
 
+//Begin Execution
+
 int main(int argc, char** argv){
-    string str = "";
+    //Declaration and Initialization
+    string str = ""; //The string to reverse
 
+    //Input
     cout << "ENTER A STRING: ";
-    getline(cin, str);
-    cout << "REVERSED STRING: ";
-    reverse(str.c_str(), str.size());
+    getline(cin, str); //Read in str
 
+    //Output
+    cout << "REVERSED STRING: ";
+    reverse(str.c_str(), str.size()); //Output reversed string
+
+    //Exit
     return 0;
 }
 
+//Reverse
+//Print a CString in reverse to stdout
+//Input:
+//str
+//A pointer to a CString
+//size
+//The size of str in characters
+
 void reverse(const char *str, unsigned int size){
-    for(int i = size - 1; i >= 0; --i){
-        cout << str[i];
+    for(int i = size - 1; i >= 0; --i){ //Start at the last character and work backward
+        cout << str[i]; //Output the character at i
     }
 }

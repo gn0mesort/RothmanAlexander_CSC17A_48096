@@ -25,7 +25,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>out.dat</itemPath>
+    <itemPath>out_12_8.dat</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -39,7 +39,7 @@
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="out.dat" ex="false" tool="3" flavor2="0">
+      <item path="out_12_8.dat" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -64,7 +64,7 @@
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="out.dat" ex="false" tool="3" flavor2="0">
+      <item path="out_12_8.dat" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

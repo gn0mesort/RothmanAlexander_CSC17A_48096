@@ -25,7 +25,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>data.txt</itemPath>
+    <itemPath>data_10_4.txt</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -37,7 +37,7 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="data.txt" ex="false" tool="3" flavor2="0">
+      <item path="data_10_4.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -62,7 +62,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="data.txt" ex="false" tool="3" flavor2="0">
+      <item path="data_10_4.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

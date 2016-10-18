@@ -1,59 +1,59 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * File:   main.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Sentence file filtering. Capitalize the first letter of each sentence
  * Created on October 16, 2016
  */
 
-#include <fstream>
-#include <iostream>
-#include <string>
+//System Libraries
+#include <fstream> //File I/O
+#include <iostream> //I/O
+#include <string> //String type and functions
 using namespace std;
 
-string capital(const string&);
+
+//Begin Execution
 
 int main(int argc, char** argv){
-    string inFile = "", outFile = "", data = "";
-    ifstream in;
-    ofstream out;
+    //Declaration and Initialization
+    string inFile = "", //The input file path
+            outFile = "", //The output file path
+            data = ""; //The string to read lines into
+    ifstream in; //The input file stream
+    ofstream out; //The output file stream
 
+    //Input
     cout << "ENTER THE INPUT FILE PATH: ";
-    getline(cin, inFile);
+    getline(cin, inFile); //Read in inFile
     cout << "ENTER THE OUTPUT FILE PATH: ";
-    getline(cin, outFile);
+    getline(cin, outFile); //Read in outFile
 
-    in.open(inFile.c_str());
-    out.open(outFile.c_str());
-    while(in.good() && !in.eof()){
-        string input;
-        bool endSent = true;
-        getline(in, input);
-        for(int i = 0; i < input.size(); ++i){
-            if(!endSent && (input[i - 1] == '.' || input[i - 1] == '?' || input[i - 1] == '!')){
-                endSent = true;
+    //Filter file
+    in.open(inFile.c_str()); //Open the input file
+    out.open(outFile.c_str()); //Open the output file
+    while(getline(in, data)){ //While there is more input to read
+        bool endSent = true; //Whether or not the program is at the end of a sentence
+        for(int i = 0; i < data.size(); ++i){ //For every character in the current line
+            if(!endSent && (data[i - 1] == '.' || data[i - 1] == '?' || data[i - 1] == '!')){ //If this is a sentence ending
+                endSent = true; //The program is at the end of a sentence
             }
-            if(endSent && isalpha(input[i])){
-                input[i] = toupper(input[i]);
-                endSent = false;
+            if(endSent && isalpha(data[i])){ //If we reached the end of a sentence and the next character is a letter
+                data[i] = toupper(data[i]); //Uppercase the letter
+                endSent = false; //The program is not at a sentence ending
             }
-            else{
-                input[i] = tolower(input[i]);
+            else{ //Otherwise
+                data[i] = tolower(data[i]); //Lowercase the data
             }
         }
-        if(!input.empty()){
-            cout << input << endl;
-            out << input << endl;
+        if(!data.empty()){ //If the current line isn't empty
+            cout << data << endl; //Output the line to stdout
+            out << data << endl; //Output the line to the output file
         }
     }
-    in.close();
-    out.close();
+    in.close(); //Close the input file
+    out.close(); //Close the output file
 
+    //Exit
     return 0;
 }
 
