@@ -29,6 +29,9 @@ int main(int argc, char** argv){
         cout << endl;
     }
     cout << "v" << toInt(Game::conf.mjVer) << "." << toInt(Game::conf.miVer) << endl;
+    
+    Game::player();
+    cout << Game::player.atk().value() << endl;
 
     cleanUp(); //Clean up game memory
     return 0;

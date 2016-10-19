@@ -8,6 +8,9 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
+#include <string>
+#include "Stat.h"
+
 namespace Flow{
     const unsigned char JOB_CNT = 4;
 
@@ -21,10 +24,28 @@ namespace Flow{
 
     class Actor{
     public:
-        Job job();
+        Actor();
+        Actor(const Actor&);
+        Actor(const std::string&, Job = Job::Knight);
+        Job job() const;
         void setJob(Job);
+        IStat hp() const;
+        void setHp(const IStat&);
+        IStat mp() const;
+        void setMp(const IStat&);
+        BStat atk() const;
+        void setAtk(const BStat&);
+        BStat def() const;
+        void setDef(const BStat&);
+        std::string name() const;
+        void setName(const std::string&);
     private:
         Job _job;
+        IStat _hp;
+        IStat _mp;
+        BStat _atk;
+        BStat _def;
+        std::string _name;
     };
 
 }

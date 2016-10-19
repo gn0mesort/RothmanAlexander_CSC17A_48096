@@ -8,6 +8,8 @@
 #ifndef STAT_H
 #define STAT_H
 
+#include <string>
+
 namespace Flow{
 
     class Stat{
