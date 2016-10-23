@@ -21,6 +21,7 @@ namespace Flow{
         int rand();
         Floor rFloor(unsigned char = 32);
         unsigned char rDirect();
+        unsigned char rElem();
         Room rRoom(bool = false, bool = false);
         unsigned int seed();
         void srand();
