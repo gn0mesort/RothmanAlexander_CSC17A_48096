@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include "Actor.h"
+#include "Room.h"
 
 namespace Flow{
 
@@ -18,6 +19,9 @@ namespace Flow{
     public:
         GmRand();
         int rand();
+        Floor rFloor(unsigned char = 32);
+        unsigned char rDirect();
+        Room rRoom(bool = false, bool = false);
         unsigned int seed();
         void srand();
         void srand(unsigned int);
@@ -33,6 +37,7 @@ namespace Flow{
         bool ascArt; //Setting for displaying ASCII art title 
         unsigned char mjVer; //Major Version number
         unsigned char miVer; //Minor Version number
+        unsigned char diff; //The game difficulty
     };
     
     //Game
@@ -40,9 +45,13 @@ namespace Flow{
     struct Game{
         static const unsigned int HEADER = 0x776f6c66; //Header value for game files
         static std::vector<std::string> *nWeaps;
+        static std::vector<std::string> mMenu;
         static Actor player;
+        static Point pos;
         static GmRand gmRand; 
         static Config conf;
+        static Floor floor;
+        static char input;
     };
     
     int toInt(unsigned char);
@@ -53,6 +62,9 @@ namespace Flow{
     void init();
     void cleanUp();
     unsigned int binPow(unsigned int);
+    char menu(const std::vector<std::string>&, unsigned int);
+    std::string frmtOpt(const std::string&);
+    bool isValid(const std::vector<std::string>&, char);
 
 }
 

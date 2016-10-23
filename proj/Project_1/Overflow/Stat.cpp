@@ -74,6 +74,7 @@ Flow::IStat::IStat(){
 }
 
 Flow::IStat::IStat(const IStat &other){
+
     setName(other.name());
     setFlName(other.flName());
     _max = other._max;
@@ -81,11 +82,12 @@ Flow::IStat::IStat(const IStat &other){
     _value = other._value;
     _absMax = other._absMax;
     _absMin = other._absMin;
+
 }
 
-Flow::IStat::IStat(const std::string &nName, const std::string &nFlName, int value, int max, int min, int absMax, int absMin){
-    setName(nName);
-    setFlName(nFlName);
+Flow::IStat::IStat(const std::string &name, const std::string &flName, int value, int max, int min, int absMax, int absMin){
+    setName(name);
+    setFlName(flName);
     _value = value;
     _max = max;
     _min = min;

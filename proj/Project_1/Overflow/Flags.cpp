@@ -9,28 +9,68 @@
 
 #include "Flags.h"
 
-std::string Flow::Exit::toStr(unsigned char exit){
+std::string Flow::Direct::toStr(unsigned char direct){
     std::stringstream r;
 
-    if(exit == Flow::Exit::NONE){
+    if(direct == Flow::Direct::NONE){
         r << "No exits ";
     }
     else{
-        if(Flow::FlgUtil::hasFlag(exit, Flow::Exit::NORTH)){
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::NORTH)){
             r << "North ";
         }
-        if(Flow::FlgUtil::hasFlag(exit, Flow::Exit::EAST)){
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::EAST)){
             r << "East ";
         }
-        if(Flow::FlgUtil::hasFlag(exit, Flow::Exit::SOUTH)){
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::SOUTH)){
             r << "South ";
         }
-        if(Flow::FlgUtil::hasFlag(exit, Flow::Exit::WEST)){
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::WEST)){
             r << "West ";
         }
     }
 
     return r.str();
+}
+
+std::string Flow::Direct::toStr(unsigned char direct, bool abbrv){
+    std::stringstream r;
+
+    if(abbrv){
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::NORTH)){
+            r << "N";
+        }
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::EAST)){
+            r << "E";
+        }
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::SOUTH)){
+            r << "S";
+        }
+        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::WEST)){
+            r << "W";
+        }
+    }
+    else{
+        r << toStr(direct);
+    }
+
+    return r.str();
+}
+
+unsigned char Flow::Direct::reverse(unsigned char direct){
+    if(direct == Flow::Direct::NORTH){
+        return Flow::Direct::SOUTH;
+    }
+    else if(direct == Flow::Direct::SOUTH){
+        return Flow::Direct::NORTH;
+    }
+    else if(direct == Flow::Direct::EAST){
+        return Flow::Direct::WEST;
+    }
+    else if(direct == Flow::Direct::WEST){
+        return Flow::Direct::EAST;
+    }
+    return Flow::Direct::NONE;
 }
 
 std::string Flow::DmgElem::toStr(unsigned char elem){

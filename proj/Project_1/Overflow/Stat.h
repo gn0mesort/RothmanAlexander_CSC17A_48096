@@ -41,7 +41,7 @@ namespace Flow{
     public:
         IStat();
         IStat(const IStat&);
-        IStat(const std::string&, const std::string&, int, int = 100, int = 0, int = 9999, int = 0);
+        IStat(const std::string &name, const std::string &flName, int value, int max = 100, int min = 0, int absMax = 9999, int absMin = 0);
        //~IStat();
 
         int value() const;

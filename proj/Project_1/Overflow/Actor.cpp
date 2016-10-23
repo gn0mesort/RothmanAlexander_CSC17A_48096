@@ -9,32 +9,32 @@
 
 Flow::Actor::Actor(){
     _job = Job::Knight;
-    _hp("HP", "Hit Points", 100);
-    _mp("MP", "Magic Points", 100);
-    _atk("ATK", "Attack", 10);
-    _def("DEF", "Defense", 10);
+    _hp = Flow::IStat(std::string("HP"), std::string("Hit Points"), 100);
+    _mp = Flow::IStat(std::string("MP"), std::string("Magic Points"), 100);
+    _atk = Flow::BStat(std::string("ATK"), std::string("Attack"), 10);
+    _def = Flow::BStat(std::string("DEF"), std::string("Defense"), 10);
     _name = "Player";
 }
 
 Flow::Actor::Actor(const Actor &other){
     _job = other.job();
-    _hp(other.hp());
-    _mp(other.mp());
-    _atk(other.atk());
-    _def(other.def());
+    _hp = Flow::IStat(other.hp());
+    _mp = Flow::IStat(other.mp());
+    _atk = Flow::BStat(other.atk());
+    _def = Flow::BStat(other.def());
     _name = other.name();
 }
 
 Flow::Actor::Actor(const std::string &name, Job job){
     _job = job;
     _name = name;
-    _hp("HP", "Hit Points", 100);
-    _mp("MP", "Magic Points", 100);
-    _atk("ATK", "Attack", 10);
-    _def("DEF", "Defense", 10);
+    _hp = Flow::IStat(std::string("HP"), std::string("Hit Points"), 100);
+    _mp = Flow::IStat(std::string("MP"), std::string("Magic Points"), 100);
+    _atk = Flow::BStat(std::string("ATK"), std::string("Attack"), 10);
+    _def = Flow::BStat(std::string("DEF"), std::string("Defense"), 10);
 }
 
-Flow::Job Flow::Actor::job(){
+Flow::Job Flow::Actor::job() const{
     return _job;
 }
 
@@ -47,7 +47,7 @@ Flow::IStat Flow::Actor::hp() const{
 }
 
 void Flow::Actor::setHp(const IStat &hp){
-    _hp(hp);
+    _hp = Flow::IStat(hp);
 }
 
 Flow::IStat Flow::Actor::mp() const{
@@ -55,7 +55,7 @@ Flow::IStat Flow::Actor::mp() const{
 }
 
 void Flow::Actor::setMp(const IStat &mp){
-    _mp(mp);
+    _mp = Flow::IStat(mp);
 }
 
 Flow::BStat Flow::Actor::atk() const{
@@ -63,7 +63,7 @@ Flow::BStat Flow::Actor::atk() const{
 }
 
 void Flow::Actor::setAtk(const BStat &atk){
-    _atk(atk);
+    _atk = Flow::BStat(atk);
 }
 
 Flow::BStat Flow::Actor::def() const{
@@ -71,7 +71,7 @@ Flow::BStat Flow::Actor::def() const{
 }
 
 void Flow::Actor::setDef(const BStat &def){
-    _def(def);
+    _def = Flow::BStat(def);
 }
 
 std::string Flow::Actor::name() const{

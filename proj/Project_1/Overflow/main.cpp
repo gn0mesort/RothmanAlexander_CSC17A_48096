@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <vector>
 
@@ -14,11 +15,13 @@
 #include "Flags.h"
 #include "Byte.h"
 #include "Item.h"
+#include "Room.h"
 
 using namespace std;
 using namespace Flow;
 
 int main(int argc, char** argv){
+    bool quit = false;
     init();
 
     if(Game::conf.ascArt){
@@ -28,10 +31,34 @@ int main(int argc, char** argv){
         cout << "OVERFLOW" << endl;
         cout << endl;
     }
-    cout << "v" << toInt(Game::conf.mjVer) << "." << toInt(Game::conf.miVer) << endl;
-    
-    Game::player();
-    cout << Game::player.atk().value() << endl;
+    Game::conf.diff = (Diff::HARD);
+    Game::floor = Game::gmRand.rFloor(Game::conf.diff);
+    Game::pos = Game::floor.start();
+    do{
+        Game::input = menu(Game::mMenu, 5);
+        switch(Game::input){
+            case 'N':
+            {
+                break;
+            }
+            case 'L':
+            {
+                break;
+            }
+            case 'O':
+            {
+                break;
+            }
+            case 'H':
+            {
+                break;
+            }
+            case 'E':
+            {
+                quit = true;
+            }
+        }
+    } while(!quit);
 
     cleanUp(); //Clean up game memory
     return 0;
