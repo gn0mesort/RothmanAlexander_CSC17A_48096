@@ -299,10 +299,12 @@ Flow::Actor Flow::createChar(){
         }
     }
     Game::player.setJob(r.job());
-    r.equip(Item(Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Weapon), "",
+    r.equip(Item(Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Weapon),
+                 Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Weapon),
                  Item::mkDesc(Flow::DmgElem::NONE, Flow::ItmType::Weapon, 10),
                  Flow::DmgElem::NONE, Flow::ItmType::Weapon, 10, true), false);
-    r.equip(Item(Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Armor), "",
+    r.equip(Item(Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Armor),
+                 Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Armor),
                  Item::mkDesc(Flow::DmgElem::NONE, Flow::ItmType::Armor, 10),
                  Flow::DmgElem::NONE, Flow::ItmType::Armor, 10, true), false);
     std::cout << "Choose a difficulty:" << std::endl;
@@ -396,17 +398,23 @@ unsigned char Flow::GmRand::rDirect(){
 
 unsigned char Flow::GmRand::rElem(){
     unsigned char val = rand() % 100;
+    unsigned char r = 0;
 
-    if(val < 50){
-        return Flow::DmgElem::NONE;
+    if(val < 75){
+        r = Flow::DmgElem::NONE;
     }
-    else if(val >= 50 && val < 95){
-        return (rand() % 29) + 2;
+    else if(val >= 75 && val < 95){
+        r = (rand() % 29) + 2;
     }
     else{
-        return rand() % 256;
+        r = rand() % 256;
     }
 
+    if((rand() % 1000) != 0 && Flow::FlgUtil::hasFlag(r, Flow::DmgElem::HEALING)){
+        r ^= Flow::DmgElem::HEALING;
+    }
+
+    return r;
 }
 
 Flow::Floor Flow::GmRand::rFloor(unsigned char size){
