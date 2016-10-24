@@ -5,7 +5,12 @@
  * Created on October 15, 2016
  */
 
+#include <iostream>
+#include <sstream>
+
 #include "Actor.h"
+#include "Room.h"
+#include "Game.h"
 
 Flow::Actor::Actor(){
     _job = Job::Knight;
@@ -14,6 +19,8 @@ Flow::Actor::Actor(){
     _atk = Flow::BStat(std::string("ATK"), std::string("Attack"), 10);
     _def = Flow::BStat(std::string("DEF"), std::string("Defense"), 10);
     _name = "Player";
+    _weap = Flow::Item("Fists", "", "Your fists", Flow::DmgElem::NONE, Flow::ItmType::Weapon, 1, true);
+    _armr = Flow::Item("Clothes", "", "Your Clothes", Flow::DmgElem::NONE, Flow::ItmType::Armor, 1, true);
 }
 
 Flow::Actor::Actor(const Actor &other){
@@ -23,6 +30,11 @@ Flow::Actor::Actor(const Actor &other){
     _atk = Flow::BStat(other.atk());
     _def = Flow::BStat(other.def());
     _name = other.name();
+    _weap = other.weap();
+    _armr = other.armr();
+    for(int i = 0; i < other.invSize(); ++i){
+        _inv.push_back(other.getItem(i));
+    }
 }
 
 Flow::Actor::Actor(const std::string &name, Job job){
@@ -32,6 +44,8 @@ Flow::Actor::Actor(const std::string &name, Job job){
     _mp = Flow::IStat(std::string("MP"), std::string("Magic Points"), 100);
     _atk = Flow::BStat(std::string("ATK"), std::string("Attack"), 10);
     _def = Flow::BStat(std::string("DEF"), std::string("Defense"), 10);
+    _weap = Flow::Item("Fists", "", "Your fists", Flow::DmgElem::NONE, Flow::ItmType::Weapon, 1, true);
+    _armr = Flow::Item("Clothes", "", "Your Clothes", Flow::DmgElem::NONE, Flow::ItmType::Armor, 1, true);
 }
 
 Flow::Job Flow::Actor::job() const{
@@ -66,6 +80,10 @@ void Flow::Actor::setAtk(const BStat &atk){
     _atk = Flow::BStat(atk);
 }
 
+void Flow::Actor::setAtk(unsigned char atk){
+    _atk.setValue(atk);
+}
+
 Flow::BStat Flow::Actor::def() const{
     return _def;
 }
@@ -74,10 +92,181 @@ void Flow::Actor::setDef(const BStat &def){
     _def = Flow::BStat(def);
 }
 
+void Flow::Actor::setDef(unsigned char def){
+    _def.setValue(def);
+}
+
 std::string Flow::Actor::name() const{
     return _name;
 }
 
 void Flow::Actor::setName(const std::string &name){
     _name = name;
+}
+
+unsigned int Flow::Actor::invSize() const{
+    return _inv.size();
+}
+
+void Flow::Actor::addItem(const Flow::Item &itm){
+    _inv.push_back(itm);
+}
+
+void Flow::Actor::rmItem(unsigned int index){
+    _inv.erase(_inv.begin() + index);
+}
+
+Flow::Item Flow::Actor::getItem(unsigned int index) const{
+    return _inv[index];
+}
+
+Flow::Item Flow::Actor::weap() const{
+    return _weap;
+}
+
+Flow::Item Flow::Actor::armr() const{
+    return _armr;
+}
+
+void Flow::Actor::equip(unsigned int index, bool output){
+    if(_inv[index].type() == Flow::ItmType::Weapon){
+        addItem(_weap);
+        _weap = _inv[index];
+        if(output){
+            std::cout << _name << " equipped " << _weap.name() << std::endl;
+        }
+        rmItem(index);
+    }
+    else if(_inv[index].type() == Flow::ItmType::Armor){
+        addItem(_armr);
+        _armr = _inv[index];
+        if(output){
+            std::cout << _name << " equipped " << _armr.name() << std::endl;
+        }
+        rmItem(index);
+    }
+}
+
+void Flow::Actor::use(unsigned int index){
+    _inv[index].identify();
+    if(_inv[index].type() == Flow::ItmType::Weapon || _inv[index].type() == Flow::ItmType::Armor){
+        equip(index);
+    }
+    else if(_inv[index].type() == Flow::ItmType::Potion){
+        Flow::Item target = Item(_inv[index]);
+        std::cout << _name << " used " << target.name() << "." << std::endl;
+        rmItem(index);
+        if(target.element() == Flow::DmgElem::NONE){
+            if(_inv.size() > 0){
+                unsigned int select = 0;
+                invMenu();
+                do{
+                    select = selectItm();
+                } while(_inv[select].isIdent());
+                _inv[select].identify();
+                std::cout << _inv[select].uiName() << " is " << _inv[select].name() << std::endl;
+            }
+            else{
+                std::cout << "Nothing happens." << std::endl;
+            }
+        }
+        else if(target.element() == Flow::DmgElem::ABSOLUT){
+            std::cout << _name << " was fully restored!" << std::endl;
+            _hp.setVal(_hp.max());
+            _mp.setVal(_mp.max());
+        }
+        else{
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::HEALING)){
+                std::cout << _name << " recovered " << toInt(target.value()) << " HP!" << std::endl;
+                _hp.setVal(_hp.value() + target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::FIRE)){
+                std::cout << _name << "'s attack power increased by " << toInt(target.value()) << std::endl;
+                _atk.setValue(_atk.value() + target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::ICE)){
+                std::cout << _name << "'s defense increased by " << toInt(target.value()) << std::endl;
+                _def.setValue(_def.value() + target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::LIGHTNG)){
+                std::cout << _name << "'s defense decreased by " << toInt(target.value()) << std::endl;
+                _def.setValue(_def.value() - target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::WIND)){
+                std::cout << _name << "'s attack power decreased by " << toInt(target.value()) << std::endl;
+                _atk.setValue(_atk.value() - target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::HOLY)){
+                std::cout << _name << "'s maximum HP has increased by " << toInt(target.value()) << std::endl;
+                _hp.setMax(_hp.max() + target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::SHADOW)){
+                std::cout << _name << "'s maximum MP has increased by " << toInt(target.value()) << std::endl;
+                _mp.setMax(_mp.max() + target.value());
+            }
+            if(Flow::FlgUtil::hasFlag(target.element(), Flow::DmgElem::NGHTMRE)){
+                std::cout << _name << " had a terrible nightmare!" << std::endl;
+                for(int i = 0; i < _inv.size(); ++i){
+                    _inv[i].obfscte();
+                }
+            }
+        }
+
+    }
+}
+
+void Flow::Actor::invMenu() const{
+    for(int i = 0; i < _inv.size(); ++i){
+        std::cout << frmtOpt(i) << " ";
+        if(_inv[i].isIdent()){
+            std::cout << _inv[i].name() << std::endl;
+            std::cout << "\t" << _inv[i].desc() << std::endl;
+        }
+        else{
+            std::cout << _inv[i].uiName() << std::endl;
+        }
+    }
+}
+
+void Flow::Actor::identify(unsigned int index){
+    _inv[index].identify();
+}
+
+unsigned int Flow::Actor::selectItm(){
+    std::string input = "";
+    std::stringstream convert;
+    unsigned int r = 0;
+
+    do{
+        std::cout << "> ";
+        getline(std::cin, input);
+        convert << input;
+        convert >> r;
+    } while(r < 0 || r >= _inv.size());
+
+    return r;
+}
+
+void Flow::Actor::setHp(int value){
+    _hp.setVal(value);
+}
+
+void Flow::Actor::setMp(int value){
+    _mp.setVal(value);
+}
+
+void Flow::Actor::attack(Actor &target){
+    int damage = 0;
+    bool healing = Flow::FlgUtil::hasFlag(_weap.element(), Flow::DmgElem::HEALING);
+    if(_weap.element() != target.armr().element()){
+        damage = (_atk.value() + _weap.value()) - (target.def().value() + target.armr().value());
+    }
+    if(healing){
+        target.setHp(target.hp().value() + damage);
+        std::cout << _name << " heals " << target.name() << " for +" << damage << " HP!" << std::endl;
+    }
+    else{
+        target.setHp(target.hp().value() - damage);
+        std::cout << _name << " deals " << damage << " damage to " << target.name() << "!" << std::endl;
+    }
 }

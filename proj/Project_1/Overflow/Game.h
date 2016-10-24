@@ -23,6 +23,8 @@ namespace Flow{
         unsigned char rDirect();
         unsigned char rElem();
         Room rRoom(bool = false, bool = false);
+        Item rItem(bool = false);
+        Actor rActor();
         unsigned int seed();
         void srand();
         void srand(unsigned int);
@@ -47,6 +49,9 @@ namespace Flow{
         static const unsigned int HEADER = 0x776f6c66; //Header value for game files
         static std::vector<std::string> *nWeaps;
         static std::vector<std::string> mMenu;
+        static std::vector<std::string> *nItems;
+        static std::vector<std::string> nMons;
+        static bool over;
         static Actor player;
         static Point pos;
         static GmRand gmRand; 
@@ -56,7 +61,8 @@ namespace Flow{
     };
     
     int toInt(unsigned char);
-    std::vector<std::string>* rNWeaps();
+    std::vector<std::string>* gNWeaps();
+    std::vector<std::string>* gNItems();
     void rdTxt(const std::string&);
     void rdTxt(std::vector<std::string>&, const std::string&); 
     bool ckFile(const std::string&);
@@ -65,7 +71,9 @@ namespace Flow{
     unsigned int binPow(unsigned int);
     char menu(const std::vector<std::string>&, unsigned int);
     std::string frmtOpt(const std::string&);
+    std::string frmtOpt(int);
     bool isValid(const std::vector<std::string>&, char);
+    bool encounter(const Actor&);
 
 }
 

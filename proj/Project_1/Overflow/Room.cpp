@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 #include "Room.h"
 #include "Flags.h"
@@ -61,6 +62,36 @@ bool Flow::Room::isEnd() const{
 
 void Flow::Room::addExit(unsigned char exit){
     _exit |= exit;
+}
+
+void Flow::Room::trigger(){
+    std::stringstream convert;
+    convert << "GameData/desc" << (static_cast<int>(_event) * 3) + ((Game::gmRand.rand() % 3) + 1) << ".txt";
+    Flow::rdTxt(convert.str());
+    std::cout << std::endl;
+    if(_event != Flow::RmEvent::None){
+        if(_event == Flow::RmEvent::Encounter){
+            Flow::Actor enem = Game::gmRand.rActor();
+            std::cout << "A " << enem.name() << " attacks!" << std::endl;
+            Game::over = !Flow::encounter(enem);
+        }
+        else if(_event == Flow::RmEvent::Treasure){
+            unsigned char tCount = (Game::gmRand.rand() % 3) + 1;
+
+            for(int i = 0; i < tCount; ++i){
+                Flow::Item treas = Game::gmRand.rItem();
+                std::cout << treas.uiName() << " acquired!" << std::endl;
+                Game::player.addItem(treas);
+            }
+        }
+        else if(_event == Flow::RmEvent::Spring){
+            Game::player.setHp(Game::player.hp().max());
+            Game::player.setMp(Game::player.mp().max());
+            std::cout << Game::player.name() << " is fully restored!" << std::endl;
+        }
+
+        _event = Flow::RmEvent::None;
+    }
 }
 
 Flow::Floor::Floor(){

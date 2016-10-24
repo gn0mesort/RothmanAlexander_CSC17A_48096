@@ -40,6 +40,7 @@ namespace Flow{
         bool isStart() const;
         bool isEnd() const;
         void addExit(unsigned char);
+        void trigger();
     };
 
     class Floor{

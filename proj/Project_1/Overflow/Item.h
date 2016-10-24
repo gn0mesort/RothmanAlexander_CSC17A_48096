@@ -18,19 +18,20 @@
 
 
 namespace Flow{
+    const unsigned char ITM_CNT = 3;
     
     enum class ItmType {
         None = 0,
         Potion = 1,
         Armor = 2,
-        Weapon = 4
+        Weapon = 3
     };
     
     class Item{
     public:
         Item();
         Item(const Item&);
-        Item(std::string = "Item", std::string = "Unknown Item", std::string = "An Item", 
+        Item(std::string, std::string = "Unknown Item", std::string = "An Item", 
         unsigned char = DmgElem::NONE, ItmType = ItmType::Potion, unsigned char = 0, bool = false);
         //~Item();
         bool isIdent() const;

@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include <sstream>
 
 #include "Game.h"
 #include "Room.h"
@@ -25,9 +26,12 @@ Flow::GmRand Flow::Game::gmRand;
 Flow::Config Flow::Game::conf;
 Flow::Floor Flow::Game::floor;
 std::vector<std::string> Flow::Game::mMenu;
+std::vector<std::string> *Flow::Game::nItems = NULL;
+std::vector<std::string> Flow::Game::nMons;
 char Flow::Game::input = 0;
+bool over = false;
 
-std::vector<std::string>* Flow::rNWeaps(){
+std::vector<std::string>* Flow::gNWeaps(){
     std::vector<std::string> *r = new std::vector<std::string>[JOB_CNT];
 
     for(int i = 0; i < JOB_CNT; ++i){
@@ -43,6 +47,26 @@ std::vector<std::string>* Flow::rNWeaps(){
         }
         else{
             path = "GameData/lancerweapons.txt";
+        }
+        Flow::rdTxt(r[i], path);
+    }
+
+    return r;
+}
+
+std::vector<std::string>* Flow::gNItems(){
+    std::vector<std::string> *r = new std::vector<std::string>[ITM_CNT];
+
+    for(int i = 0; i < ITM_CNT; ++i){
+        std::string path;
+        if(i == 0){
+            path = "GameData/uidpotionnames.txt";
+        }
+        else if(i == 1){
+            path = "GameData/uidarmornames.txt";
+        }
+        else{
+            path = "GameData/uidweaponnames.txt";
         }
         Flow::rdTxt(r[i], path);
     }
@@ -86,7 +110,9 @@ bool Flow::ckFile(const std::string &path){
 }
 
 void Flow::init(){
-    Game::nWeaps = rNWeaps();
+    Game::nWeaps = gNWeaps();
+    Game::nItems = gNItems();
+    rdTxt(Game::nMons, std::string("GameData/monsters.txt"));
     Game::mMenu = {"New Game", "Load", "Options", "Help", "Exit"};
     if(ckFile(Flow::Config::SAVPATH)){
 
@@ -101,6 +127,9 @@ void Flow::init(){
 
 void Flow::cleanUp(){
     delete [] Game::nWeaps;
+    Game::nWeaps = NULL;
+    delete [] Game::nItems;
+    Game::nItems = NULL;
 }
 
 unsigned int Flow::binPow(unsigned int pow){
@@ -144,6 +173,14 @@ std::string Flow::frmtOpt(const std::string &opt){
     return r;
 }
 
+std::string Flow::frmtOpt(int opt){
+    std::stringstream r;
+
+    r << '(' << opt << ')';
+
+    return r.str();
+}
+
 bool Flow::isValid(const std::vector<std::string> &opts, char key){
     for(int i = 0; i < opts.size(); ++i){
         if(std::toupper(opts.at(i)[0]) == std::toupper(key)){
@@ -151,6 +188,24 @@ bool Flow::isValid(const std::vector<std::string> &opts, char key){
         }
     }
     return false;
+}
+
+bool Flow::encounter(const Actor &enem){
+    do{
+        //Enemy Turn
+        enem.attack(Game::player);
+
+        //Player Turn
+
+
+    } while(Game::player.hp().value() > 0 && enem.hp().value() > 0);
+    if(Game::player.hp().value() > 0){
+        return true;
+    }
+    else{
+        rdTxt(std::string("GameData/gameover.txt"));
+        return false;
+    }
 }
 
 int Flow::GmRand::rand(){
@@ -205,7 +260,18 @@ unsigned char Flow::GmRand::rDirect(){
 }
 
 unsigned char Flow::GmRand::rElem(){
-    return rand() % 256;
+    unsigned char val = rand() % 100;
+
+    if(val < 50){
+        return Flow::DmgElem::NONE;
+    }
+    else if(val >= 50 && val < 95){
+        return (rand() % 29) + 2;
+    }
+    else{
+        return rand() % 256;
+    }
+
 }
 
 Flow::Floor Flow::GmRand::rFloor(unsigned char size){
@@ -252,6 +318,56 @@ Flow::Floor Flow::GmRand::rFloor(unsigned char size){
             } while(!r.move(pos, direct));
             r[last.y][last.x].addExit(direct);
         }
+    }
+
+    return r;
+}
+
+Flow::Item Flow::GmRand::rItem(bool ident){
+    unsigned char value = rand() % 256;
+    unsigned char elem = rand() % 256;
+    int tInt = rand() % 100;
+    if(tInt < 50){
+        tInt = 1;
+    }
+    else if(tInt >= 50 && tInt < 70){
+        tInt = 2;
+    }
+    else{
+        tInt = 3;
+    }
+    Flow::ItmType type = static_cast<Flow::ItmType>(tInt);
+
+    std::string uiName = Game::nItems[tInt - 1][rand() % Game::nItems[tInt - 1].size()];
+
+    return Item(Item::mkName(elem, type), uiName, Item::mkDesc(elem, type, value), elem, type, value, ident);
+
+}
+
+Flow::Actor Flow::GmRand::rActor(){
+    unsigned char drops = 0;
+    int hp = rand() % (Game::player.hp().max() * 2);
+    int mp = rand() % (Game::player.mp().max() * 2);
+    unsigned char atk = rand() % (Game::player.atk().value() * 2);
+    unsigned char def = rand() % (Game::player.atk().value() * 2);
+    std::string name = Game::nMons[rand() % Game::nMons.size()];
+    Flow::Item weap = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % 256, true);
+    Flow::Item armr = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % 256, true);
+    Flow::Actor r;
+
+    r.addItem(weap);
+    r.equip(0, false);
+    r.addItem(armr);
+    r.equip(0, false);
+    r.setName(name);
+    r.setAtk(atk);
+    r.setDef(def);
+    r.setHp(hp);
+    r.setMp(mp);
+
+    drops = (rand() % 4);
+    for(int i = 0; i < drops; ++i){
+        r.addItem(rItem());
     }
 
     return r;

@@ -47,6 +47,9 @@ int main(int argc, char** argv){
             }
             case 'O':
             {
+                Game::floor[Game::pos.y][Game::pos.x].trigger();
+                Game::floor = Game::gmRand.rFloor(Game::conf.diff);
+                Game::pos = Game::floor.start();
                 break;
             }
             case 'H':

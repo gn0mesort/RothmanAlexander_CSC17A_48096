@@ -9,6 +9,9 @@
 #define ACTOR_H
 
 #include <string>
+#include <vector>
+
+#include "Item.h"
 #include "Stat.h"
 
 namespace Flow{
@@ -31,21 +34,40 @@ namespace Flow{
         void setJob(Job);
         IStat hp() const;
         void setHp(const IStat&);
+        void setHp(int);
         IStat mp() const;
         void setMp(const IStat&);
+        void setMp(int);
         BStat atk() const;
         void setAtk(const BStat&);
+        void setAtk(unsigned char);
         BStat def() const;
         void setDef(const BStat&);
+        void setDef(unsigned char);
         std::string name() const;
         void setName(const std::string&);
+        void addItem(const Item&);
+        Item getItem(unsigned int) const;
+        void rmItem(unsigned int);
+        unsigned int invSize() const;
+        Item weap() const;
+        Item armr() const;
+        void equip(unsigned int, bool = true);
+        void use(unsigned int);
+        void invMenu() const;
+        void identify(unsigned int);
+        void attack(Actor&);
+        unsigned int selectItm();
     private:
         Job _job;
         IStat _hp;
         IStat _mp;
         BStat _atk;
         BStat _def;
+        Item _weap;
+        Item _armr;
         std::string _name;
+        std::vector<Item> _inv;
     };
 
 }

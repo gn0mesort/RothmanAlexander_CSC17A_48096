@@ -35,7 +35,7 @@ Flow::Item::Item(const Item &other){
 Flow::Item::Item(std::string name, std::string uiName, std::string desc, unsigned char elem, ItmType type,
                  unsigned char value, bool ident){
     _ident = ident;
-    _elem = elem;
+    setElem(elem);
     _value = value;
     _name = name;
     _uiName = uiName;
@@ -127,25 +127,25 @@ std::string Flow::Item::mkDesc(unsigned char elem, Flow::ItmType type, unsigned 
         }
         else{
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::HEALING)){
-                r << "Restores " << value << " HP. ";
+                r << "Restores " << toInt(value) << " HP. ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::FIRE)){
-                r << "Increases Attack by " << value << ". ";
+                r << "Increases Attack by " << toInt(value) << ". ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::ICE)){
-                r << "Increases Defense by " << value << ". ";
+                r << "Increases Defense by " << toInt(value) << ". ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::LIGHTNG)){
-                r << "Decreases Defense by " << value << ". ";
+                r << "Decreases Defense by " << toInt(value) << ". ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::WIND)){
-                r << "Decreases Attack by " << value << ". ";
+                r << "Decreases Attack by " << toInt(value) << ". ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::HOLY)){
-                r << "Increases max HP by " << value << ". ";
+                r << "Increases max HP by " << toInt(value) << ". ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::SHADOW)){
-                r << "Increases max MP by " << value << ". ";
+                r << "Increases max MP by " << toInt(value) << ". ";
             }
             if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::NGHTMRE)){
                 r << "Obfuscates all items. ";
@@ -154,18 +154,18 @@ std::string Flow::Item::mkDesc(unsigned char elem, Flow::ItmType type, unsigned 
     }
     else if(type == Flow::ItmType::Weapon){
         if(elem == Flow::DmgElem::NONE){
-            r << "+" << value << " Attack. ";
+            r << "+" << toInt(value) << " Attack. ";
         }
         else{
-            r << "Deals ( " << Flow::DmgElem::toStr(elem) << ") damage. +" << value << " Attack. ";
+            r << "Deals ( " << Flow::DmgElem::toStr(elem) << ") damage. +" << toInt(value) << " Attack. ";
         }
     }
     else if(type == Flow::ItmType::Armor){
         if(elem == Flow::DmgElem::NONE){
-            r << "+" << value << " Defense. ";
+            r << "+" << toInt(value) << " Defense. ";
         }
         else{
-            r << "Resists ( " << Flow::DmgElem::toStr(elem) << ") damage. +" << value << " Defense. ";
+            r << "Resists ( " << Flow::DmgElem::toStr(elem) << ") damage. +" << toInt(value) << " Defense. ";
         }
     }
 
@@ -322,7 +322,8 @@ std::string Flow::Item::mkName(unsigned char elem, Flow::ItmType type){
             }
 
             if(Game::player.job() != Flow::Job::None){
-                r << Game::nWeaps[static_cast<int>(Game::player.job()) - 1].at(0);
+                int loc = static_cast<int>(Game::player.job()) - 1;
+                r << Game::nWeaps[loc].at(Game::gmRand.rand() % Game::nWeaps[loc].size());
             }
             else{
                 r << "Fists";

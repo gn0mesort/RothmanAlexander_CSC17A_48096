@@ -3,9 +3,22 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="GameData" displayName="GameData" projectFiles="true">
       <itemPath>GameData/clericweapons.txt</itemPath>
+      <itemPath>GameData/desc1.txt</itemPath>
+      <itemPath>GameData/desc10.txt</itemPath>
+      <itemPath>GameData/desc11.txt</itemPath>
+      <itemPath>GameData/desc12.txt</itemPath>
+      <itemPath>GameData/desc2.txt</itemPath>
+      <itemPath>GameData/desc3.txt</itemPath>
+      <itemPath>GameData/desc4.txt</itemPath>
+      <itemPath>GameData/desc5.txt</itemPath>
+      <itemPath>GameData/desc6.txt</itemPath>
+      <itemPath>GameData/desc7.txt</itemPath>
+      <itemPath>GameData/desc8.txt</itemPath>
+      <itemPath>GameData/desc9.txt</itemPath>
       <itemPath>GameData/knightweapons.txt</itemPath>
       <itemPath>GameData/lancerweapons.txt</itemPath>
       <itemPath>GameData/mageweapons.txt</itemPath>
+      <itemPath>GameData/monsters.txt</itemPath>
       <itemPath>GameData/title.txt</itemPath>
       <itemPath>GameData/uidarmornames.txt</itemPath>
       <itemPath>GameData/uidpotionnames.txt</itemPath>
@@ -82,11 +95,37 @@
       </item>
       <item path="GameData/clericweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/desc1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc10.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc11.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc12.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc3.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc4.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc5.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc6.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc7.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc8.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc9.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameData/knightweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/lancerweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/mageweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/monsters.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/title.txt" ex="false" tool="3" flavor2="0">
       </item>
@@ -147,11 +186,37 @@
       </item>
       <item path="GameData/clericweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/desc1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc10.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc11.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc12.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc3.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc4.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc5.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc6.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc7.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc8.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/desc9.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameData/knightweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/lancerweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/mageweapons.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameData/monsters.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/title.txt" ex="false" tool="3" flavor2="0">
       </item>
