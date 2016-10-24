@@ -174,9 +174,15 @@ void Flow::Actor::use(unsigned int index){
         if(target.element() == Flow::DmgElem::NONE){
             if(_inv.size() > 0){
                 unsigned int select = 0;
+                std::stringstream convert;
+                std::string input = "";
+
                 invMenu();
                 do{
-                    select = selectItm();
+                    std::cout << "> ";
+                    getline(std::cin, input);
+                    convert << input;
+                    convert >> select;
                 } while(_inv[select].isIdent());
                 _inv[select].identify();
                 std::cout << _inv[select].uiName() << " is " << _inv[select].name() << std::endl;
@@ -232,7 +238,7 @@ void Flow::Actor::use(unsigned int index){
 
 void Flow::Actor::invMenu() const{
     for(int i = 0; i < _inv.size(); ++i){
-        std::cout << frmtOpt(i) << " ";
+        std::cout << frmtOpt(i + 1) << " ";
         if(_inv[i].isIdent()){
             std::cout << _inv[i].name() << std::endl;
             std::cout << "\t" << _inv[i].desc() << std::endl;
@@ -240,6 +246,9 @@ void Flow::Actor::invMenu() const{
         else{
             std::cout << _inv[i].uiName() << std::endl;
         }
+    }
+    if(_inv.size() > 0){
+        std::cout << "(0) Back" << std::endl;
     }
 }
 
@@ -258,7 +267,28 @@ int Flow::Actor::selectItm(){
             getline(std::cin, input);
             convert << input;
             convert >> r;
-        } while(r < 0 || r >= _inv.size());
+        } while(r < 0 || r >= _inv.size() + 1);
+        if(r > 0){
+            Game::input = menu({"Use", "Drop"}, 2);
+            switch(Game::input){
+                case 'U':
+                {
+                    use(r - 1);
+                    break;
+                }
+                case 'D':
+                {
+                    std::cout << _name << " dropped ";
+                    if(_inv[r - 1].isIdent()){
+                        std::cout << _inv[r - 1].name() << std::endl;
+                    }
+                    else{
+                        std::cout << _inv[r - 1].uiName() << std::endl;
+                    }
+                    rmItem(r - 1);
+                }
+            }
+        }
     }
 
     return r;
@@ -293,6 +323,9 @@ void Flow::Actor::attack(Actor &target){
     else{
         damage = (_weap.value() + _atk.value()) / ((Game::gmRand.rand() % 3) + 1);
         damage -= (target.armr().value() + target.def().value()) / ((Game::gmRand.rand() % 3) + 1);
+    }
+    if(damage < 0){
+        damage = 0;
     }
     if(!healing && !absorb){
         damage += (Game::gmRand.rand() % 5);

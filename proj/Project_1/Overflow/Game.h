@@ -53,6 +53,7 @@ namespace Flow{
         static std::vector<std::string> nMons;
         static std::vector<std::string> bMenu;
         static std::vector<std::string> gMenu;
+        static std::vector<std::string> dMenu;
         static bool over;
         static Actor player;
         static Point pos;

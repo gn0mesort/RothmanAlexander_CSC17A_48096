@@ -24,17 +24,14 @@ int main(int argc, char** argv){
     bool quit = false;
     init();
 
-    if(Game::conf.ascArt){
-        rdTxt("GameData/title.txt");
-    }
-    else{
-        cout << "OVERFLOW" << endl;
-        cout << endl;
-    }
-    Game::conf.diff = (Diff::HARD);
-    Game::floor = Game::gmRand.rFloor(Game::conf.diff);
-    Game::pos = Game::floor.start();
     do{
+        if(Game::conf.ascArt){
+            rdTxt("GameData/title.txt");
+        }
+        else{
+            cout << "OVERFLOW" << endl;
+            cout << endl;
+        }
         Game::input = menu(Game::mMenu, 5);
         switch(Game::input){
             case 'N':

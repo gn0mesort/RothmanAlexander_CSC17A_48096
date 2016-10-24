@@ -121,10 +121,7 @@ void Flow::Room::trigger(){
                 case 'I':
                 {
                     Game::player.invMenu();
-                    int input = Game::player.selectItm();
-                    if(input >= 0){
-                        Game::player.use(input);
-                    }
+                    Game::player.selectItm();
                     break;
                 }
                 case 'O':
@@ -156,7 +153,12 @@ void Flow::Room::trigger(){
                     }
                     else if(Game::input == 'D' && _end){
                         Game::over = true;
-                        rdTxt("GameData/win.txt");
+                        if(Game::conf.ascArt){
+                            rdTxt("GameData/win.txt");
+                        }
+                        else{
+                            std::cout << "YOU WIN!" << std::endl;
+                        }
                         moved = true;
                     }
                 }

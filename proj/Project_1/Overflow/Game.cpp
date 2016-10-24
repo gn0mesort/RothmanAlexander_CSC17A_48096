@@ -30,6 +30,7 @@ std::vector<std::string> Flow::Game::bMenu;
 std::vector<std::string> Flow::Game::gMenu;
 std::vector<std::string> *Flow::Game::nItems = NULL;
 std::vector<std::string> Flow::Game::nMons;
+std::vector<std::string> Flow::Game::dMenu;
 char Flow::Game::input = 0;
 bool Flow::Game::over = false;
 
@@ -118,6 +119,7 @@ void Flow::init(){
     Game::mMenu = {"New Game", "Load", "Options", "Help", "Exit"};
     Game::bMenu = {"Attack", "Inventory", "Status"};
     Game::gMenu = {"Player Status", "Inventory", "Options", "Map"};
+    Game::dMenu = {"Stroll" /*8*/, "Mosey" /*16*/, "Journey" /*32*/, "Adventure" /*40*/, "Quest" /*48*/, "Epic" /*56*/};
     if(ckFile(Flow::Config::SAVPATH)){
 
     }
@@ -222,7 +224,6 @@ bool Flow::encounter(Actor &enem){
                         Game::player.invMenu();
                         index = Game::player.selectItm();
                         if(index > -1){
-                            Game::player.use(index);
                             turn = false;
                         }
                         break;
@@ -244,7 +245,12 @@ bool Flow::encounter(Actor &enem){
         return true;
     }
     else{
-        rdTxt(std::string("GameData/gameover.txt"));
+        if(Game::conf.ascArt){
+            rdTxt(std::string("GameData/gameover.txt"));
+        }
+        else{
+            std::cout << "GAME OVER!" << std::endl;
+        }
         return false;
     }
 }
@@ -252,10 +258,89 @@ bool Flow::encounter(Actor &enem){
 void Flow::play(){
     Game::floor = Game::gmRand.rFloor(Game::conf.diff);
     Game::pos = Game::floor.start();
+    Game::floor[Game::pos.y][Game::pos.x].setEvent(Flow::RmEvent::None);
     do{
         Game::floor[Game::pos.y][Game::pos.x].trigger();
+        std::cout << std::endl;
     } while(!Game::over);
     Game::over = false;
+}
+
+Flow::Actor Flow::createChar(){
+    std::vector<std::string> jMenu = {"Knight", "Cleric", "Mage", "Lancer"};
+    std::string input;
+    Actor r;
+    std::cout << "What's your name?" << std::endl;
+    std::cout << "> ";
+    std::getline(std::cin, input);
+    r.setName(input);
+    std::cout << "Choose you class:" << std::endl;
+    Game::input = menu(jMenu, 4);
+    switch(Game::input){
+        case 'K':
+        {
+            r.setJob(Flow::Job::Knight);
+            break;
+        }
+        case 'C':
+        {
+            r.setJob(Flow::Job::Cleric);
+            break;
+        }
+        case 'M':
+        {
+            r.setJob(Flow::Job::Mage);
+            break;
+        }
+        case 'L':
+        {
+            r.setJob(Flow::Job::Lancer);
+            break;
+        }
+    }
+    Game::player.setJob(r.job());
+    r.equip(Item(Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Weapon), "",
+                 Item::mkDesc(Flow::DmgElem::NONE, Flow::ItmType::Weapon, 10),
+                 Flow::DmgElem::NONE, Flow::ItmType::Weapon, 10, true), false);
+    r.equip(Item(Item::mkName(Flow::DmgElem::NONE, Flow::ItmType::Armor), "",
+                 Item::mkDesc(Flow::DmgElem::NONE, Flow::ItmType::Armor, 10),
+                 Flow::DmgElem::NONE, Flow::ItmType::Armor, 10, true), false);
+    std::cout << "Choose a difficulty:" << std::endl;
+    Game::input = menu(Game::dMenu, 1);
+    switch(Game::input){
+        case 'S':
+        {
+            Game::conf.diff = Flow::Diff::EASY;
+            break;
+        }
+        case 'M':
+        {
+            Game::conf.diff = Flow::Diff::MEDIUM;
+            break;
+        }
+        case 'J':
+        {
+            Game::conf.diff = Flow::Diff::EASY | Flow::Diff::MEDIUM;
+            break;
+        }
+        case 'A':
+        {
+            Game::conf.diff = Flow::Diff::HARD;
+            break;
+        }
+        case 'Q':
+        {
+            Game::conf.diff = Flow::Diff::EASY | Flow::Diff::HARD;
+            break;
+        }
+        case 'E':
+        {
+            Game::conf.diff = Flow::Diff::EASY | Flow::Diff::MEDIUM | Flow::Diff::HARD;
+        }
+
+    }
+
+    return r;
 }
 
 int Flow::GmRand::rand(){
@@ -398,11 +483,11 @@ Flow::Actor Flow::GmRand::rActor(){
     unsigned char drops = 0;
     int hp = rand() % (Game::player.hp().max() * 2);
     int mp = rand() % (Game::player.mp().max() * 2);
-    unsigned char atk = rand() % (Game::player.atk().value() * 2);
-    unsigned char def = rand() % (Game::player.atk().value() * 2);
+    unsigned char atk = rand() % (Game::player.atk().value() + 2);
+    unsigned char def = rand() % (Game::player.atk().value() + 2);
     std::string name = Game::nMons[rand() % Game::nMons.size()];
-    Flow::Item weap = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % 256, true);
-    Flow::Item armr = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % 256, true);
+    Flow::Item weap = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % (Game::player.weap().value() + 10), true);
+    Flow::Item armr = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % (Game::player.armr().value() + 10), true);
     Flow::Actor r;
 
     r.equip(weap, false);
@@ -410,8 +495,8 @@ Flow::Actor Flow::GmRand::rActor(){
     r.setName(name);
     r.setAtk(atk);
     r.setDef(def);
-    r.setHp(hp);
-    r.setMp(mp);
+    r.setHp(Flow::IStat(std::string("HP"), std::string("Hit Points"), hp, hp));
+    r.setMp(Flow::IStat(std::string("MP"), std::string("Magic Points"), mp, mp));
 
     drops = (rand() % 4);
     for(int i = 0; i < drops; ++i){
