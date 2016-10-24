@@ -96,6 +96,10 @@ void Flow::rdTxt(std::vector<std::string> &data, const std::string &path){
     while(in.good() && !in.eof()){
         std::string input;
         getline(in, input);
+        if(input[input.size() - 1] == '\r'){ //This is needed to clean Windows line endings
+            //Windows ends lines with \r\n rather than just \n
+            input.erase(input.end() - 1);
+        }
         data.push_back(input);
     }
     in.close();

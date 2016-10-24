@@ -60,6 +60,7 @@ int main(int argc, char** argv){
                 quit = true;
             }
         }
+        cout << endl;
     } while(!quit);
 
     cleanUp(); //Clean up game memory
