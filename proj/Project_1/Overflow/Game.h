@@ -38,8 +38,7 @@ namespace Flow{
     struct Config{
         static const std::string SAVPATH; //Configuration save path
         bool ascArt; //Setting for displaying ASCII art title 
-        unsigned char mjVer; //Major Version number
-        unsigned char miVer; //Minor Version number
+        std::string saveGame;
         unsigned char diff; //The game difficulty
     };
     
@@ -78,6 +77,8 @@ namespace Flow{
     bool isValid(const std::vector<std::string>&, char);
     bool encounter(Actor&);
     void play();
+    void mMOpts();
+    void gMOpts();
     Actor createChar();
 
 }

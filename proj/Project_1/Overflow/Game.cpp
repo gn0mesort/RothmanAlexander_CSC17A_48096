@@ -125,8 +125,7 @@ void Flow::init(){
     }
     else{
         Flow::Game::conf.ascArt = true;
-        Flow::Game::conf.mjVer = 1;
-        Flow::Game::conf.miVer = 0;
+        Flow::Game::conf.saveGame = "GameData/";
         Flow::Game::conf.diff = Flow::Diff::EASY;
     }
 }
@@ -343,6 +342,47 @@ Flow::Actor Flow::createChar(){
     }
 
     return r;
+}
+
+void Flow::mMOpts(){
+    bool back = false;
+    Config nConf = Game::conf;
+    std::vector<std::string> optMen = {"Ascii Art", "Save Path", "Back"};
+
+    do{
+        std::cout << "ASCII ART: " << (nConf.ascArt ? "ON" : "OFF") << std::endl;
+        std::cout << "GAME SAVE PATH: " << nConf.saveGame << std::endl;
+        Game::input = menu(optMen, 3);
+        switch(Game::input){
+            case 'A':
+            {
+                std::vector<std::string> tmp = {"1 On", "2 Off"};
+                std::cout << "Toggle game ASCII art on or off" << std::endl;
+                Game::input = menu(tmp, 2);
+                if(Game::input == '1'){
+                    nConf.ascArt = true;
+                }
+                else if(Game::input == '2'){
+                    nConf.ascArt = false;
+                }
+                break;
+            }
+            case 'S':
+            {
+                std::cout << "Enter the new path to save to:" << std::endl;
+                std::cout << "> ";
+                std::getline(std::cin, nConf.saveGame);
+                break;
+            }
+            case 'B':
+            {
+                back = true;
+                break;
+            }
+        }
+    } while(!back);
+    Game::conf = nConf;
+
 }
 
 int Flow::GmRand::rand(){

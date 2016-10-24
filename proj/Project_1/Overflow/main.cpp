@@ -46,6 +46,7 @@ int main(int argc, char** argv){
             }
             case 'O':
             {
+                mMOpts();
                 break;
             }
             case 'H':
