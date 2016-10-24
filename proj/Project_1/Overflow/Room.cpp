@@ -65,6 +65,7 @@ void Flow::Room::addExit(unsigned char exit){
 }
 
 void Flow::Room::trigger(){
+    bool moved = false;
     std::stringstream convert;
     convert << "GameData/desc" << (static_cast<int>(_event) * 3) + ((Game::gmRand.rand() % 3) + 1) << ".txt";
     Flow::rdTxt(convert.str());
@@ -91,6 +92,76 @@ void Flow::Room::trigger(){
         }
 
         _event = Flow::RmEvent::None;
+    }
+    else{
+        std::vector<std::string> tmpMenu(Game::gMenu);
+        if(Flow::FlgUtil::hasFlag(_exit, Flow::Direct::NORTH)){
+            tmpMenu.push_back("North");
+        }
+        if(Flow::FlgUtil::hasFlag(_exit, Flow::Direct::EAST)){
+            tmpMenu.push_back("East");
+        }
+        if(Flow::FlgUtil::hasFlag(_exit, Flow::Direct::SOUTH)){
+            tmpMenu.push_back("South");
+        }
+        if(Flow::FlgUtil::hasFlag(_exit, Flow::Direct::WEST)){
+            tmpMenu.push_back("West");
+        }
+        if(_end){
+            tmpMenu.push_back("Down");
+        }
+        do{
+            Game::input = menu(tmpMenu, 4);
+            switch(Game::input){
+                case 'P':
+                {
+                    Game::player.stat();
+                    break;
+                }
+                case 'I':
+                {
+                    Game::player.invMenu();
+                    int input = Game::player.selectItm();
+                    if(input >= 0){
+                        Game::player.use(input);
+                    }
+                    break;
+                }
+                case 'O':
+                {
+                    break;
+                }
+                case 'M':
+                {
+                    Game::floor.draw();
+                    break;
+                }
+                default:
+                {
+                    if(Game::input == 'N' && Flow::FlgUtil::hasFlag(_exit, Flow::Direct::NORTH)){
+                        Game::floor.move(Game::pos, Flow::Direct::NORTH);
+                        moved = true;
+                    }
+                    else if(Game::input == 'E' && Flow::FlgUtil::hasFlag(_exit, Flow::Direct::EAST)){
+                        Game::floor.move(Game::pos, Flow::Direct::EAST);
+                        moved = true;
+                    }
+                    else if(Game::input == 'S' && Flow::FlgUtil::hasFlag(_exit, Flow::Direct::SOUTH)){
+                        Game::floor.move(Game::pos, Flow::Direct::SOUTH);
+                        moved = true;
+                    }
+                    else if(Game::input == 'W' && Flow::FlgUtil::hasFlag(_exit, Flow::Direct::WEST)){
+                        Game::floor.move(Game::pos, Flow::Direct::WEST);
+                        moved = true;
+                    }
+                    else if(Game::input == 'D' && _end){
+                        Game::over = true;
+                        rdTxt("GameData/win.txt");
+                        moved = true;
+                    }
+                }
+            }
+        } while(!moved);
     }
 }
 

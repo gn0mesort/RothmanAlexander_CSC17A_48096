@@ -147,6 +147,21 @@ void Flow::Actor::equip(unsigned int index, bool output){
     }
 }
 
+void Flow::Actor::equip(const Item &itm, bool output){
+    if(itm.type() == Flow::ItmType::Weapon){
+        _weap = itm;
+        if(output){
+            std::cout << _name << " equipped " << _weap.name() << std::endl;
+        }
+    }
+    else if(itm.type() == Flow::ItmType::Armor){
+        _armr = itm;
+        if(output){
+            std::cout << _name << " equipped " << _armr.name() << std::endl;
+        }
+    }
+}
+
 void Flow::Actor::use(unsigned int index){
     _inv[index].identify();
     if(_inv[index].type() == Flow::ItmType::Weapon || _inv[index].type() == Flow::ItmType::Armor){
@@ -232,17 +247,19 @@ void Flow::Actor::identify(unsigned int index){
     _inv[index].identify();
 }
 
-unsigned int Flow::Actor::selectItm(){
-    std::string input = "";
-    std::stringstream convert;
-    unsigned int r = 0;
+int Flow::Actor::selectItm(){
+    int r = -1;
+    if(_inv.size() > 0){
+        std::string input = "";
+        std::stringstream convert;
 
-    do{
-        std::cout << "> ";
-        getline(std::cin, input);
-        convert << input;
-        convert >> r;
-    } while(r < 0 || r >= _inv.size());
+        do{
+            std::cout << "> ";
+            getline(std::cin, input);
+            convert << input;
+            convert >> r;
+        } while(r < 0 || r >= _inv.size());
+    }
 
     return r;
 }
@@ -257,16 +274,67 @@ void Flow::Actor::setMp(int value){
 
 void Flow::Actor::attack(Actor &target){
     int damage = 0;
-    bool healing = Flow::FlgUtil::hasFlag(_weap.element(), Flow::DmgElem::HEALING);
-    if(_weap.element() != target.armr().element()){
-        damage = (_atk.value() + _weap.value()) - (target.def().value() + target.armr().value());
+    bool healing = Flow::FlgUtil::hasFlag(_weap.element(), Flow::DmgElem::HEALING)
+            && _weap.element() != Flow::DmgElem::ABSOLUT;
+    bool absorb = false;
+    if(_weap.element() == Flow::DmgElem::ABSOLUT && target.armr().element() != Flow::DmgElem::ABSOLUT){
+        damage = _weap.value() + _atk.value();
     }
-    if(healing){
-        target.setHp(target.hp().value() + damage);
-        std::cout << _name << " heals " << target.name() << " for +" << damage << " HP!" << std::endl;
+    else if(target.armr().element() == Flow::DmgElem::ABSOLUT){
+        damage = (_weap.value() + _atk.value()) / ((Game::gmRand.rand() % 3) + 1);
+        damage -= (target.armr().value() + target.def().value()) / ((Game::gmRand.rand() % 3) + 1);
+    }
+    else if(_weap.element() != Flow::DmgElem::ABSOLUT && target.armr().element() == Flow::DmgElem::ABSOLUT){
+        absorb = true;
+    }
+    else if(_weap.element() == target.armr().element() && _weap.element() != Flow::DmgElem::NONE){
+        absorb = true;
     }
     else{
-        target.setHp(target.hp().value() - damage);
-        std::cout << _name << " deals " << damage << " damage to " << target.name() << "!" << std::endl;
+        damage = (_weap.value() + _atk.value()) / ((Game::gmRand.rand() % 3) + 1);
+        damage -= (target.armr().value() + target.def().value()) / ((Game::gmRand.rand() % 3) + 1);
     }
+    if(!healing && !absorb){
+        damage += (Game::gmRand.rand() % 5);
+        if(damage > 0){
+            std::cout << _name << " deals " << damage << " damage to " << target.name() << std::endl;
+            target.setHp(target.hp().value() - damage);
+        }
+        else{
+            std::cout << _name << " missed!" << std::endl;
+        }
+    }
+    else if(healing && !absorb){
+        std::cout << _name << " heals " << damage << " points to " << target.name() << std::endl;
+        target.setHp(target.hp().value() + damage);
+    }
+    else if(absorb){
+        std::cout << target.name() << " absorbed the damage!" << std::endl;
+    }
+
+}
+
+void Flow::Actor::stat() const{
+    std::cout << _name << std::endl;
+    std::cout << "Job: ";
+    if(_job == Flow::Job::Knight){
+        std::cout << "Knight" << std::endl;
+    }
+    else if(_job == Flow::Job::Cleric){
+        std::cout << "Cleric" << std::endl;
+    }
+    else if(_job == Flow::Job::Lancer){
+        std::cout << "Lancer" << std::endl;
+    }
+    else if(_job == Flow::Job::Mage){
+        std::cout << "Mage" << std::endl;
+    }
+    std::cout << _hp.flName() << ": " << _hp.value() << "/" << _hp.max() << std::endl;
+    std::cout << _mp.flName() << ": " << _mp.value() << "/" << _mp.max() << std::endl;
+    std::cout << _atk.flName() << ": " << toInt(_atk.value()) << std::endl;
+    std::cout << _def.flName() << ": " << toInt(_def.value()) << std::endl;
+    std::cout << "Weapon: " << _weap.name() << std::endl;
+    std::cout << "\t" << _weap.desc() << std::endl;
+    std::cout << "Armor: " << _armr.name() << std::endl;
+    std::cout << "\t" << _armr.desc() << std::endl;
 }

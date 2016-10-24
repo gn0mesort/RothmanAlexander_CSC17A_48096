@@ -53,11 +53,13 @@ namespace Flow{
         Item weap() const;
         Item armr() const;
         void equip(unsigned int, bool = true);
+        void equip(const Item&, bool = true);
         void use(unsigned int);
         void invMenu() const;
         void identify(unsigned int);
         void attack(Actor&);
-        unsigned int selectItm();
+        void stat() const;
+        int selectItm();
     private:
         Job _job;
         IStat _hp;

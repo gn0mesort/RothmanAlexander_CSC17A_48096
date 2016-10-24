@@ -51,6 +51,8 @@ namespace Flow{
         static std::vector<std::string> mMenu;
         static std::vector<std::string> *nItems;
         static std::vector<std::string> nMons;
+        static std::vector<std::string> bMenu;
+        static std::vector<std::string> gMenu;
         static bool over;
         static Actor player;
         static Point pos;
@@ -73,7 +75,9 @@ namespace Flow{
     std::string frmtOpt(const std::string&);
     std::string frmtOpt(int);
     bool isValid(const std::vector<std::string>&, char);
-    bool encounter(const Actor&);
+    bool encounter(Actor&);
+    void play();
+    Actor createChar();
 
 }
 

@@ -39,6 +39,8 @@ int main(int argc, char** argv){
         switch(Game::input){
             case 'N':
             {
+                Game::player = createChar();
+                play();
                 break;
             }
             case 'L':
@@ -47,9 +49,6 @@ int main(int argc, char** argv){
             }
             case 'O':
             {
-                Game::floor[Game::pos.y][Game::pos.x].trigger();
-                Game::floor = Game::gmRand.rFloor(Game::conf.diff);
-                Game::pos = Game::floor.start();
                 break;
             }
             case 'H':

@@ -26,10 +26,12 @@ Flow::GmRand Flow::Game::gmRand;
 Flow::Config Flow::Game::conf;
 Flow::Floor Flow::Game::floor;
 std::vector<std::string> Flow::Game::mMenu;
+std::vector<std::string> Flow::Game::bMenu;
+std::vector<std::string> Flow::Game::gMenu;
 std::vector<std::string> *Flow::Game::nItems = NULL;
 std::vector<std::string> Flow::Game::nMons;
 char Flow::Game::input = 0;
-bool over = false;
+bool Flow::Game::over = false;
 
 std::vector<std::string>* Flow::gNWeaps(){
     std::vector<std::string> *r = new std::vector<std::string>[JOB_CNT];
@@ -114,6 +116,8 @@ void Flow::init(){
     Game::nItems = gNItems();
     rdTxt(Game::nMons, std::string("GameData/monsters.txt"));
     Game::mMenu = {"New Game", "Load", "Options", "Help", "Exit"};
+    Game::bMenu = {"Attack", "Inventory", "Status"};
+    Game::gMenu = {"Player Status", "Inventory", "Options", "Map"};
     if(ckFile(Flow::Config::SAVPATH)){
 
     }
@@ -149,13 +153,13 @@ char Flow::menu(const std::vector<std::string> &opts, unsigned int perLine){
     std::string input = "";
     do{
         for(int i = 0; i < opts.size(); ++i){
-            if(i > 0){
+            if(i % perLine != 0 && i != 0){
                 std::cout << "     ";
             }
-            std::cout << frmtOpt(opts[i]) << " ";
-            if(i + 1 > perLine){
+            if(i % perLine == 0){
                 std::cout << std::endl;
             }
+            std::cout << frmtOpt(opts[i]) << " ";
         }
         std::cout << std::endl << "> ";
         std::getline(std::cin, input);
@@ -190,22 +194,68 @@ bool Flow::isValid(const std::vector<std::string> &opts, char key){
     return false;
 }
 
-bool Flow::encounter(const Actor &enem){
+bool Flow::encounter(Actor &enem){
+    bool turn = false;
     do{
         //Enemy Turn
         enem.attack(Game::player);
 
         //Player Turn
-
-
+        if(Game::player.hp().value() > 0){
+            do{
+                std::cout << enem.name() << ": " << enem.hp().value() << "/" << enem.hp().max() << " ";
+                std::cout << enem.hp().name() << std::endl;
+                std::cout << Game::player.name() << ": " << Game::player.hp().value() << "/" << Game::player.hp().max();
+                std::cout << " " << Game::player.hp().name() << std::endl;
+                turn = true;
+                Game::input = menu(Game::bMenu, 5);
+                switch(Game::input){
+                    case 'A':
+                    {
+                        Game::player.attack(enem);
+                        turn = false;
+                        break;
+                    }
+                    case 'I':
+                    {
+                        int index = 0;
+                        Game::player.invMenu();
+                        index = Game::player.selectItm();
+                        if(index > -1){
+                            Game::player.use(index);
+                            turn = false;
+                        }
+                        break;
+                    }
+                    case 'S':
+                    {
+                        Game::player.stat();
+                        break;
+                    }
+                }
+            } while(turn);
+        }
     } while(Game::player.hp().value() > 0 && enem.hp().value() > 0);
     if(Game::player.hp().value() > 0){
+        for(int i = 0; i < enem.invSize(); ++i){
+            Game::player.addItem(enem.getItem(i));
+            std::cout << enem.getItem(i).uiName() << " acquired!" << std::endl;
+        }
         return true;
     }
     else{
         rdTxt(std::string("GameData/gameover.txt"));
         return false;
     }
+}
+
+void Flow::play(){
+    Game::floor = Game::gmRand.rFloor(Game::conf.diff);
+    Game::pos = Game::floor.start();
+    do{
+        Game::floor[Game::pos.y][Game::pos.x].trigger();
+    } while(!Game::over);
+    Game::over = false;
 }
 
 int Flow::GmRand::rand(){
@@ -355,10 +405,8 @@ Flow::Actor Flow::GmRand::rActor(){
     Flow::Item armr = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % 256, true);
     Flow::Actor r;
 
-    r.addItem(weap);
-    r.equip(0, false);
-    r.addItem(armr);
-    r.equip(0, false);
+    r.equip(weap, false);
+    r.equip(armr, false);
     r.setName(name);
     r.setAtk(atk);
     r.setDef(def);
