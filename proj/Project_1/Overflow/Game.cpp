@@ -385,6 +385,51 @@ void Flow::mMOpts(){
 
 }
 
+void Flow::gMOpts(){
+    bool back = false;
+    Config nConf = Game::conf;
+    std::vector<std::string> optMen = {"Ascii Art", "Save Game", "Quit to menu", "Back"};
+
+    do{
+        std::cout << "ASCII ART: " << (nConf.ascArt ? "ON" : "OFF") << std::endl;
+        std::cout << "GAME SAVE PATH: " << nConf.saveGame << std::endl;
+        std::cout << "MAX FLOOR SIZE: " << toInt(nConf.diff) << std::endl;
+        Game::input = menu(optMen, 4);
+        switch(Game::input){
+            case 'A':
+            {
+                std::vector<std::string> tmp = {"1 On", "2 Off"};
+                std::cout << "Toggle game ASCII art on or off" << std::endl;
+                Game::input = menu(tmp, 2);
+                if(Game::input == '1'){
+                    nConf.ascArt = true;
+                }
+                else if(Game::input == '2'){
+                    nConf.ascArt = false;
+                }
+                break;
+            }
+            case 'S':
+            {
+
+                break;
+            }
+            case 'Q':
+            {
+                Game::over = true;
+                back = true;
+                break;
+            }
+            case 'B':
+            {
+                back = true;
+                break;
+            }
+        }
+    } while(!back);
+    Game::conf = nConf;
+}
+
 int Flow::GmRand::rand(){
     ++_pos;
     return std::rand();

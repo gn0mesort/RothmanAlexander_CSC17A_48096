@@ -79,6 +79,10 @@ namespace Flow{
     void play();
     void mMOpts();
     void gMOpts();
+    void save();
+    void wConf();
+    Actor load();
+    Config gConf();
     Actor createChar();
 
 }

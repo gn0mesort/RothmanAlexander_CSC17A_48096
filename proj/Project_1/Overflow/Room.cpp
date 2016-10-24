@@ -134,6 +134,10 @@ void Flow::Room::trigger(){
                 }
                 case 'O':
                 {
+                    Flow::gMOpts();
+                    if(Game::over){
+                        moved = true;
+                    }
                     break;
                 }
                 case 'M':

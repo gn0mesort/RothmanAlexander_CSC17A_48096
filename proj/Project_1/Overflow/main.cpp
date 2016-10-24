@@ -36,6 +36,7 @@ int main(int argc, char** argv){
         switch(Game::input){
             case 'N':
             {
+                rdTxt("GameData/crawl.txt");
                 Game::player = createChar();
                 play();
                 break;
@@ -51,6 +52,7 @@ int main(int argc, char** argv){
             }
             case 'H':
             {
+                rdTxt("README.txt");
                 break;
             }
             case 'E':
