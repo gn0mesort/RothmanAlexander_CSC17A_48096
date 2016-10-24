@@ -73,6 +73,8 @@ void Flow::Item::setElem(unsigned char elem){
        && _elem != Flow::DmgElem::ABSOLUT){
         _elem ^= (Flow::DmgElem::ICE | Flow::DmgElem::LIGHTNG);
     }
+    _name = Item::mkName(_elem, _type);
+    _desc = Item::mkDesc(_elem, _type, _value);
 }
 
 unsigned char Flow::Item::value() const{

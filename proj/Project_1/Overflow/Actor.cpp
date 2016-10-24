@@ -19,8 +19,8 @@ Flow::Actor::Actor(){
     _atk = Flow::BStat(std::string("ATK"), std::string("Attack"), 10);
     _def = Flow::BStat(std::string("DEF"), std::string("Defense"), 10);
     _name = "Player";
-    _weap = Flow::Item("Fists", "", "Your fists", Flow::DmgElem::NONE, Flow::ItmType::Weapon, 1, true);
-    _armr = Flow::Item("Clothes", "", "Your Clothes", Flow::DmgElem::NONE, Flow::ItmType::Armor, 1, true);
+    _weap = Flow::Item("Fists", "Fists", "Your fists", Flow::DmgElem::NONE, Flow::ItmType::Weapon, 1, true);
+    _armr = Flow::Item("Clothes", "Clothes", "Your Clothes", Flow::DmgElem::NONE, Flow::ItmType::Armor, 1, true);
 }
 
 Flow::Actor::Actor(const Actor &other){
