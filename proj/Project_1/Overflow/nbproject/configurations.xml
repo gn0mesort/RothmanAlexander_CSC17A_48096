@@ -3,6 +3,7 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="GameData" displayName="GameData" projectFiles="true">
       <itemPath>GameData/clericweapons.txt</itemPath>
+      <itemPath>GameData/crawl.txt</itemPath>
       <itemPath>GameData/desc1.txt</itemPath>
       <itemPath>GameData/desc10.txt</itemPath>
       <itemPath>GameData/desc11.txt</itemPath>
@@ -15,6 +16,7 @@
       <itemPath>GameData/desc7.txt</itemPath>
       <itemPath>GameData/desc8.txt</itemPath>
       <itemPath>GameData/desc9.txt</itemPath>
+      <itemPath>GameData/gameover.txt</itemPath>
       <itemPath>GameData/knightweapons.txt</itemPath>
       <itemPath>GameData/lancerweapons.txt</itemPath>
       <itemPath>GameData/mageweapons.txt</itemPath>
@@ -23,6 +25,7 @@
       <itemPath>GameData/uidarmornames.txt</itemPath>
       <itemPath>GameData/uidpotionnames.txt</itemPath>
       <itemPath>GameData/uidweaponnames.txt</itemPath>
+      <itemPath>GameData/win.txt</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -61,6 +64,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>README.txt</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>GameData</Elem>
@@ -95,6 +99,8 @@
       </item>
       <item path="GameData/clericweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/crawl.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameData/desc1.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/desc10.txt" ex="false" tool="3" flavor2="0">
@@ -119,6 +125,8 @@
       </item>
       <item path="GameData/desc9.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/gameover.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameData/knightweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/lancerweapons.txt" ex="false" tool="3" flavor2="0">
@@ -135,9 +143,13 @@
       </item>
       <item path="GameData/uidweaponnames.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/win.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Item.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Item.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Room.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -186,6 +198,8 @@
       </item>
       <item path="GameData/clericweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/crawl.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameData/desc1.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/desc10.txt" ex="false" tool="3" flavor2="0">
@@ -210,6 +224,8 @@
       </item>
       <item path="GameData/desc9.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/gameover.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameData/knightweapons.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameData/lancerweapons.txt" ex="false" tool="3" flavor2="0">
@@ -226,9 +242,13 @@
       </item>
       <item path="GameData/uidweaponnames.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GameData/win.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Item.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Item.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Room.cpp" ex="false" tool="1" flavor2="0">
       </item>
