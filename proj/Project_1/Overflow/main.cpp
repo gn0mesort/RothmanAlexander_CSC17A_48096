@@ -63,6 +63,7 @@ int main(int argc, char** argv){
         cout << endl;
     } while(!quit);
 
+    wConf(); //Output configuration file
     cleanUp(); //Clean up game memory
     return 0;
 }

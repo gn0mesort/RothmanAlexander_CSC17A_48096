@@ -6,6 +6,7 @@
  */
 
 #include <sstream>
+#include <cstring>
 
 #include "Item.h"
 #include "Game.h"
@@ -340,4 +341,33 @@ std::string Flow::Item::mkName(unsigned char elem, Flow::ItmType type){
     }
 
     return r.str();
+}
+
+char* Flow::Item::toBin() const{
+    unsigned int size = strBSize(_name) + strBSize(_uiName) + strBSize(_desc) + sizeof(unsigned char) + 
+        sizeof(unsigned char) + sizeof(unsigned char);
+    unsigned int strSize = 0;
+    unsigned char bType = static_cast<unsigned char>(_type);
+    char *r = new char[size];
+    
+    strSize = _name.size() + 1
+    strcat(r, reinterpret_cast<char*>(&strSize));
+    strcat(r, _name.c_str());
+    strcat(r, '\0');
+    
+    strSize = _uiName.size() + 1
+    strcat(r, reinterpret_cast<char*>(&strSize));
+    strcat(r, _uiName.c_str());
+    strcat(r, '\0');
+    
+    strSize = _desc.size() + 1
+    strcat(r, reinterpret_cast<char*>(&strSize));
+    strcat(r, _desc.c_str());
+    strcat(r, '\0');
+    
+    strcat(r, reinterpret_cast<char*>(&_elem));
+    strcat(r, reinterpret_cast<char*>(&_value));
+    strcat(r, reinterpret_cast<char*>(&bType));
+    
+    return r;
 }

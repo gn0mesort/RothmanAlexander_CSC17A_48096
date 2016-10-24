@@ -39,6 +39,7 @@ namespace Flow{
         static const std::string SAVPATH; //Configuration save path
         bool ascArt; //Setting for displaying ASCII art title 
         std::string saveGame;
+        unsigned char slot;
         unsigned char diff; //The game difficulty
     };
     
@@ -82,8 +83,10 @@ namespace Flow{
     void save();
     void wConf();
     Actor load();
-    Config gConf();
+    void gConf();
     Actor createChar();
+    unsigned int strBSize(const std::string&);
+    char* toBin(const std::string&);
 
 }
 

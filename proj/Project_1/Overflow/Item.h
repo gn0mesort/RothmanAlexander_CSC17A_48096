@@ -52,6 +52,7 @@ namespace Flow{
         static std::string mkDesc(unsigned char, ItmType, unsigned char);
         void mkDesc();
         static std::string mkName(unsigned char, ItmType);
+        char* toBin() const;
     private:
         bool _ident;
         unsigned char _elem;

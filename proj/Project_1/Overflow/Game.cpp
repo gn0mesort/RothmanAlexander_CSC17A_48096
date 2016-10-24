@@ -107,10 +107,14 @@ void Flow::rdTxt(std::vector<std::string> &data, const std::string &path){
 
 bool Flow::ckFile(const std::string &path){
     bool r = false;
+    int header = 0;
     std::ifstream in;
 
-    in.open(path);
-    r = in.good();
+    in.open(path, in.binary);
+    if(in.is_open()){
+        in.read(reinterpret_cast<char*>(&header), sizeof(header));
+    }
+    r = in.is_open() && header == Game::HEADER;
     in.close();
 
     return r;
@@ -124,14 +128,15 @@ void Flow::init(){
     Game::bMenu = {"Attack", "Inventory", "Status"};
     Game::gMenu = {"Player Status", "Inventory", "Options", "Map"};
     Game::dMenu = {"Stroll" /*8*/, "Mosey" /*16*/, "Journey" /*32*/, "Adventure" /*40*/, "Quest" /*48*/, "Epic" /*56*/};
-    if(ckFile(Flow::Config::SAVPATH)){
-
+    if(ckFile(Config::SAVPATH)){
+        gConf();
     }
     else{
-        Flow::Game::conf.ascArt = true;
-        Flow::Game::conf.saveGame = "GameData/";
-        Flow::Game::conf.diff = Flow::Diff::EASY;
+        Game::conf.ascArt = true;
+        Game::conf.saveGame = "GameData/";
+        Game::conf.diff = Diff::EASY;
     }
+    Game::conf.slot = 0;
 }
 
 void Flow::cleanUp(){
@@ -277,7 +282,7 @@ Flow::Actor Flow::createChar(){
     std::cout << "> ";
     std::getline(std::cin, input);
     r.setName(input);
-    std::cout << "Choose you class:" << std::endl;
+    std::cout << "Choose your class:" << std::endl;
     Game::input = menu(jMenu, 4);
     switch(Game::input){
         case 'K':
@@ -415,7 +420,9 @@ void Flow::gMOpts(){
             }
             case 'S':
             {
-
+                save();
+                std::cout << "GAME SAVED to " << Game::conf.saveGame << std::endl;
+                std::cout << std::endl;
                 break;
             }
             case 'Q':
@@ -432,6 +439,73 @@ void Flow::gMOpts(){
         }
     } while(!back);
     Game::conf = nConf;
+}
+
+void Flow::wConf(){
+    unsigned int header = Game::HEADER;
+    int len = Game::conf.saveGame.size() + 1;
+    std::ofstream out;
+    
+    out.open(Game::conf.SAVPATH.c_str(), std::ios::binary | std::ios::trunc);
+    out.write(reinterpret_cast<char*>(&header), sizeof(header));
+    out.write(reinterpret_cast<char*>(&Game::conf.ascArt), sizeof(Game::conf.ascArt));
+    out.write(reinterpret_cast<char*>(&len), sizeof(len));
+    out.write(Game::conf.saveGame.c_str(), len);
+    out.close();
+}
+
+void Flow::gConf(){
+    unsigned int header = 0;
+    int len = 0;
+    char *buffer = NULL;
+    std::ifstream in;
+    
+    in.open(Game::conf.SAVPATH.c_str(), std::ios::binary);
+    in.read(reinterpret_cast<char*>(&header), sizeof(header));
+    if(header == Game::HEADER){
+        in.read(reinterpret_cast<char*>(&Game::conf.ascArt), sizeof(Game::conf.ascArt));
+        in.read(reinterpret_cast<char*>(&len), sizeof(len));
+        buffer = new char[len];
+        in.read(buffer, len);
+        Game::conf.saveGame = buffer;
+        delete [] buffer;
+    }
+    in.close();
+}
+
+void Flow::save(){
+    unsigned int header = 0;
+    unsigned int slotLen = 0;
+    unsigned int curSlot = 0;
+    std::string path = Game::conf.saveGame;
+    if(path[path.size() - 1] != '/' && path[path.size() - 1] != '\\'){
+        path += '/';
+    }
+    path += "player.sav";
+    std::fstream file;
+
+    if(!ckFile(path)){
+        Game::conf.slot = 0;
+    }
+    
+    file.open(path.c_str(), std::ios::binary | std::ios::in | std::ios::out);
+    file.close();
+    
+}
+
+unsigned int Flow::strBSize(const std::string &str){
+    return (sizeof(int) + str.size() + 1);
+}
+
+char* Flow::toBin(const std::string &str){
+    unsigned int strSize = str.size() + 1;
+    char *r = new char[sizeof(int) + strSize];
+   
+    strcat(r, reinterpret_cast<char*>(&strSize));
+    strcat(r, str.c_str());
+    strcat(r, '\0');
+    
+    return r;
 }
 
 int Flow::GmRand::rand(){
