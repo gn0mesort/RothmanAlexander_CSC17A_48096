@@ -113,21 +113,57 @@ Flow::BinArray& Flow::BinArray::operator<<(const Flow::BinArray &rhs){
 Flow::BinArray& Flow::BinArray::operator>>(BinArray &rhs){
     if(_read + rhs.size() - 1 < _size){
         for(unsigned int i = 0; i < rhs.size(); ++i){
-            rhs.set(i, _data[i]);
+            rhs.set(i, _data[_read + i]);
         }
         _read += rhs.size();
     }
     return *this;
 }
 
-void Flow::BinArray::write(std::ofstream &out){
+void Flow::BinArray::write(std::fstream &out){
     if(out.is_open()){
         out.write(_data, _size);
     }
 }
 
-void Flow::BinArray::read(std::ifstream &in){
+void Flow::BinArray::read(std::fstream &in){
     if(in.is_open()){
         in.read(_data, _size);
     }
+}
+
+Flow::BinArray Flow::toBin(const std::string &str){
+    unsigned int strSize = str.size() + 1;
+    BinArray r(sizeof (strSize) + strSize);
+
+    r << BinArray(reinterpret_cast<char*>(&strSize), sizeof (strSize));
+    r << BinArray(str.c_str(), strSize);
+
+    return r;
+}
+
+std::string Flow::toStr(BinArray &data){
+    std::string r = "";
+    data.seekg(sizeof (unsigned int));
+    while(data[data.tellg()] != '\0'){
+        r += data[data.tellg()];
+        data.seekg(data.tellg() + 1);
+    }
+
+    return r;
+}
+
+unsigned int Flow::toInt(BinArray &data){
+    unsigned int r = 0;
+    char *buffer = new char[sizeof (r)];
+
+    for(int i = 0; i < data.size(); ++i){
+        buffer[i] = data[i];
+    }
+    r = *reinterpret_cast<unsigned int*>(buffer);
+
+    delete [] buffer;
+    buffer = 0;
+
+    return r;
 }

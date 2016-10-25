@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <cstdio>
 #include <ctime>
 #include <sstream>
 
@@ -100,7 +101,9 @@ void Flow::rdTxt(std::vector<std::string> &data, const std::string &path){
             //Windows ends lines with \r\n rather than just \n
             input.erase(input.end() - 1);
         }
-        data.push_back(input);
+        if(!input.empty()){
+            data.push_back(input);
+        }
     }
     in.close();
 }
@@ -136,7 +139,6 @@ void Flow::init(){
         Game::conf.saveGame = "GameData/";
         Game::conf.diff = Diff::EASY;
     }
-    Game::conf.slot = 0;
 }
 
 void Flow::cleanUp(){
@@ -176,6 +178,29 @@ char Flow::menu(const std::vector<std::string> &opts, unsigned int perLine){
     } while(!isValid(opts, input[0]));
 
     return std::toupper(input[0]);
+}
+
+int Flow::iMenu(const std::vector<std::string> &opts, unsigned int perLine){
+    int r = 0;
+    std::string input = "";
+    std::stringstream convert;
+    do{
+        for(int i = 0; i < opts.size(); ++i){
+            if(i % perLine != 0 && i != 0){
+                std::cout << "     ";
+            }
+            if(i % perLine == 0){
+                std::cout << std::endl;
+            }
+            std::cout << frmtOpt(opts[i]) << " ";
+        }
+        std::cout << std::endl << "> ";
+        std::getline(std::cin, input);
+    } while(!isValid(opts, input[0]));
+    convert << input;
+    convert >> r;
+
+    return r;
 }
 
 std::string Flow::frmtOpt(const std::string &opt){
@@ -421,12 +446,13 @@ void Flow::gMOpts(){
             case 'S':
             {
                 save();
-                std::cout << "GAME SAVED to " << Game::conf.saveGame << std::endl;
+                std::cout << "GAME SAVED to " << Game::conf.saveGame << Game::player.name() << ".sav" << std::endl;
                 std::cout << std::endl;
                 break;
             }
             case 'Q':
             {
+                save();
                 Game::over = true;
                 back = true;
                 break;
@@ -474,37 +500,94 @@ void Flow::gConf(){
 }
 
 void Flow::save(){
-    unsigned int header = 0;
-    unsigned int slotLen = 0;
-    unsigned int curSlot = 0;
+    unsigned int header = Game::HEADER;
     std::string path = Game::conf.saveGame;
     if(path[path.size() - 1] != '/' && path[path.size() - 1] != '\\'){
         path += '/';
+        Game::conf.saveGame += '/';
     }
-    path += "player.sav";
+    path += Game::player.name() + ".sav";
     std::fstream file;
 
     if(!ckFile(path)){
-        Game::conf.slot = 0;
+        std::ofstream create;
+        create.open(path.c_str(), std::ios::binary);
+        create.write(reinterpret_cast<char*>(&header), sizeof (header));
+        create.close();
+        create.open("GameData/index.sav", std::ios::app);
+        create << path << std::endl;
+        create.close();
     }
 
     file.open(path.c_str(), std::ios::binary | std::ios::in | std::ios::out);
+    file.seekg(std::ios::beg + sizeof (header));
+    file.write(reinterpret_cast<char*>(&Game::conf.diff), sizeof (Game::conf.diff));
+    Game::player.toBin().write(file);
     file.close();
+}
 
+bool Flow::load(){
+    bool r = false,
+            back = false;
+    int input = 0;
+    std::vector<std::string> paths,
+            lMenu,
+            aMenu = {"Load", "Delete", "Back"};
+    rdTxt(paths, "GameData/index.sav");
+    for(int i = 0; i < paths.size(); ++i){
+        std::stringstream convert;
+        convert << i + 1;
+        lMenu.push_back(convert.str() + " " + paths[i]);
+    }
+    lMenu.push_back("0 Back");
+
+    do{
+        input = iMenu(lMenu, 1);
+        if(input > 0 && ckFile(paths[input - 1])){
+            Game::input = menu(aMenu, 3);
+            switch(Game::input){
+                case 'L':
+                {
+                    std::fstream in;
+                    BinArray data;
+
+                    in.open(paths[input - 1].c_str(), std::ios::binary | std::ios::in | std::ios::ate);
+                    data = BinArray(in.tellg());
+                    in.seekg(std::ios::beg + sizeof (Game::HEADER));
+                    in.read(reinterpret_cast<char*>(&Game::conf.diff), sizeof (Game::conf.diff));
+                    data.read(in);
+                    in.close();
+
+                    Game::player.toActor(data);
+                    r = true;
+                    back = true;
+                    break;
+                }
+                case 'D':
+                {
+                    std::remove(paths[input - 1].c_str());
+                    paths.erase(paths.begin() + (input - 1));
+                    std::ofstream out;
+
+                    out.open("GameData/index.sav");
+                    for(int i = 0; i < paths.size(); ++i){
+                        out << paths[i];
+                    }
+                    out.close();
+                    break;
+                }
+            }
+        }
+        else{
+            back = true;
+        }
+    } while(!back);
+
+    return r;
 }
 
 unsigned int Flow::strBSize(const std::string &str){
-    return (sizeof (int) +str.size() + 1);
-}
-
-Flow::BinArray Flow::toBin(const std::string &str){
-    unsigned int strSize = str.size() + 1;
-    BinArray r(sizeof (strSize) + strSize);
-
-    r << BinArray(reinterpret_cast<char*>(&strSize), sizeof (strSize));
-    r << BinArray(str.c_str(), strSize);
-
-    return r;
+    return (sizeof (int) + (str.size() + 1));
 }
 
 int Flow::GmRand::rand(){

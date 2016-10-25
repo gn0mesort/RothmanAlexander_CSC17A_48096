@@ -41,9 +41,13 @@ namespace Flow{
         void seekg(unsigned int);
         BinArray& operator<<(const BinArray&);
         BinArray& operator>>(BinArray&);
-        void write(std::ofstream&);
-        void read(std::ifstream&);
+        void write(std::fstream&);
+        void read(std::fstream&);
     };
+    
+    BinArray toBin(const std::string&);
+    std::string toStr(BinArray&);
+    unsigned int toInt(BinArray&);
 }
 
 #endif /* BINARRAY_H */

@@ -171,6 +171,7 @@ void Flow::Room::trigger(){
                         else{
                             std::cout << "YOU WIN!" << std::endl;
                         }
+                        save();
                         moved = true;
                     }
                 }

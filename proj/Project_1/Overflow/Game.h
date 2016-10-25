@@ -40,7 +40,6 @@ namespace Flow{
         static const std::string SAVPATH; //Configuration save path
         bool ascArt; //Setting for displaying ASCII art title 
         std::string saveGame;
-        unsigned char slot;
         unsigned char diff; //The game difficulty
     };
     
@@ -74,6 +73,7 @@ namespace Flow{
     void cleanUp();
     unsigned int binPow(unsigned int);
     char menu(const std::vector<std::string>&, unsigned int);
+    int iMenu(const std::vector<std::string>&, unsigned int);
     std::string frmtOpt(const std::string&);
     std::string frmtOpt(int);
     bool isValid(const std::vector<std::string>&, char);
@@ -83,12 +83,10 @@ namespace Flow{
     void gMOpts();
     void save();
     void wConf();
-    Actor load();
+    bool load();
     void gConf();
     Actor createChar();
     unsigned int strBSize(const std::string&);
-    BinArray toBin(const std::string&);
-
 }
 
 #endif /* GAME_H */

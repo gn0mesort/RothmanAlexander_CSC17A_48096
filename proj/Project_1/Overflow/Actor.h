@@ -61,6 +61,7 @@ namespace Flow{
         void stat() const;
         int selectItm();
         BinArray toBin();
+        void toActor(BinArray&);
     private:
         Job _job;
         IStat _hp;

@@ -11,6 +11,7 @@
 #include "Actor.h"
 #include "Room.h"
 #include "Game.h"
+#include "BinArray.h"
 
 Flow::Actor::Actor(){
     _job = Job::Knight;
@@ -393,4 +394,40 @@ Flow::BinArray Flow::Actor::toBin(){
     r << armr;
 
     return r;
+}
+
+void Flow::Actor::toActor(BinArray &data){
+    BinArray strSize(sizeof (unsigned int)),
+            str,
+            job(sizeof (Job)),
+            hpMax(sizeof (int)),
+            mpMax(sizeof (int)),
+            atk(sizeof (unsigned char)),
+            def(sizeof (unsigned char));
+
+    data >> strSize;
+    str = BinArray(sizeof (unsigned int) +Flow::toInt(strSize));
+    data.seekg(data.tellg() - sizeof (unsigned int));
+    data >> str;
+    _name = Flow::toStr(str);
+
+    data >> job;
+    _job = static_cast<Job>(Flow::toInt(job));
+
+    data >> hpMax;
+    _hp.setMax(Flow::toInt(hpMax));
+    _hp.setVal(_hp.max());
+
+    data >> mpMax;
+    _mp.setMax(Flow::toInt(mpMax));
+    _mp.setVal(_mp.max());
+
+    data >> atk;
+    _atk.setValue(atk[0]);
+
+    data >> def;
+    _def.setValue(def[0]);
+
+    _weap.toItem(data);
+    _armr.toItem(data);
 }

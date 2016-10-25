@@ -16,6 +16,51 @@ OUTPUT CONFIGURATION:
     Overflow looks best in windows with at least 80 character columns and
     is meant to be displayed in the 12 pt Lucida Console font. If you prefer
     another font any monospace font should work well.
+SAVING AND LOADING GAMES:
+    Overflow will save your data automatically if you choose to quit from
+    the options menu or reach the end of a board. You may also choose to
+    save at any point during the game. Game saves store only your immediate
+    character information (name, statistics, current equipment). On reloading
+    the game you will lose any items in your inventory and a new board will be
+    generated.
+    The only supported way to delete saves is using the Load menu's delete
+    function. Deleting game saves outside of this will corrupt the index.sav
+    file. If you wish to fix your index.sav file manually you may open it as
+    a text file and remove the invalid paths.
+.SAV FILE FORMAT:
+    Overflow's .sav files are formatted as follows.
+    *****PLAYER_NAME.SAV*******************************************************
+    *HEADER VALUE (4 BYTES)                                                   *
+    *GAME DIFFICULTY (1 BYTE)                                                 *
+    *SIZE OF THE PLAYER'S NAME IN CHARACTERS (4 BYTES)                        *
+    *PLAYER NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)                    *
+    *PLAYER JOB (4 BYTES)                                                     *
+    *PLAYER MAX HP (4 BYTES)                                                  *
+    *PLAYER MAX MP (4 BYTES)                                                  *
+    *PLAYER ATTACK POWER (1 BYTE)                                             *
+    *PLAYER DEFENSE POWER (1 BYTE)                                            *
+    *SIZE OF WEAPON'S NAME (4 BYTES)                                          *
+    *WEAPON'S NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)                  *
+    *SIZE OF WEAPON'S UNIDENTIFIED NAME (4 BYTES)                             *
+    *WEAPON'S UNIDENTIFIED NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)     *
+    *SIZE OF WEAPON'S DESCRIPTION (4 BYTES)                                   *
+    *WEAPON'S DESCRIPTION (SIZE DETERMINED BY NUMBER OF CHARACTERS)           *
+    *WEAPON'S ELEMENT (1 BYTE)                                                *
+    *WEAPON'S ATTACK BONUS (1 BYTE)                                           *
+    *WEAPON'S ITMTYPE (4 BYTES)                                               *
+    *WEAPON'S IDENTIFIACTION STATUS (1 BYTE)                                  *
+    *SIZE OF ARMOR'S NAME (4 BYTES)                                           *
+    *ARMOR'S NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)                   *
+    *SIZE OF ARMOR'S UNIDENTIFIED NAME (4 BYTES)                              *
+    *ARMOR'S UNIDENTIFIED NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)      *
+    *SIZE OF ARMOR'S DESCRIPTION (4 BYTES)                                    *
+    *ARMOR'S DESCRIPTION (SIZE DETERMINED BY NUMBER OF CHARACTERS)            *
+    *ARMOR'S ELEMENT (1 BYTE)                                                 *
+    *ARMOR'S ATTACK BONUS (1 BYTE)                                            *
+    *ARMOR'S ITMTYPE (4 BYTES)                                                *
+    *ARMOR'S IDENTIFIACTION STATUS                                            *
+    ***************************************************************************
+    All stored strings are null terminated.
 READING THE MAP:
     The game map uses the following symbols
     ' ' : indicating a visitable cell on the board
@@ -34,6 +79,7 @@ READING THE MAP:
     
     An integer value (1 or 0) indicating whether or not the cell is the end
     cell
+    
     An integer value (0, 1, 2, or 3) indicating the cell event.
     0 : No event
     1 : Encounter a monster
@@ -47,8 +93,7 @@ MODIFYING:
     Therefore any content not given its own line will be considered part of
     the line it's on.
     
-    It is never safe to modify binary game files of the types: .sav, .conf,
-    and .inv
+    It is never safe to modify binary game files of the types: .sav, and .conf
 KNOWN ISSUES:
     The game title or other ASCII art is displaying incorrectly.
         Overflow looks best in a window with at least 80 columns and is

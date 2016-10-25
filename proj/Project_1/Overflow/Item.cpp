@@ -360,3 +360,42 @@ Flow::BinArray Flow::Item::toBin(){
 
     return r;
 }
+
+void Flow::Item::toItem(BinArray &data){
+    BinArray strSize(sizeof (unsigned int)),
+            str,
+            elem(sizeof (_elem)),
+            value(sizeof (_value)),
+            iType(sizeof (_type)),
+            ident(sizeof (_ident));
+
+    data >> strSize;
+    str = BinArray(sizeof (unsigned int) +Flow::toInt(strSize));
+    data.seekg(data.tellg() - sizeof (unsigned int));
+    data >> str;
+    _name = Flow::toStr(str);
+
+    data >> strSize;
+    str = BinArray(sizeof (unsigned int) +Flow::toInt(strSize));
+    data.seekg(data.tellg() - sizeof (unsigned int));
+    data >> str;
+    _uiName = Flow::toStr(str);
+
+    data >> strSize;
+    str = BinArray(sizeof (unsigned int) +Flow::toInt(strSize));
+    data.seekg(data.tellg() - sizeof (unsigned int));
+    data >> str;
+    _desc = Flow::toStr(str);
+
+    data >> elem;
+    _elem = elem[0];
+
+    data >> value;
+    _value = value[0];
+
+    data >> iType;
+    _type = static_cast<ItmType>(toInt(iType));
+
+    data >> ident;
+    _ident = ident[0];
+}

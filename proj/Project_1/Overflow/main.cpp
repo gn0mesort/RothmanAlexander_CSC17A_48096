@@ -9,6 +9,7 @@
 #include <iomanip>
 #include <fstream>
 #include <vector>
+#include <sstream>
 
 #include "Game.h"
 #include "Stat.h"
@@ -39,15 +40,17 @@ int main(int argc, char** argv){
             {
                 rdTxt("GameData/crawl.txt");
                 Game::player = createChar();
-                ofstream out;
-                out.open("test.bin");
-                Game::player.toBin().write(out);
-                out.close();
+                BinArray b = Game::player.toBin();
+                Game::player.toActor(b);
                 play();
                 break;
             }
             case 'L':
             {
+                if(load()){
+                    rdTxt("GameData/crawl.txt");
+                    play();
+                }
                 break;
             }
             case 'O':

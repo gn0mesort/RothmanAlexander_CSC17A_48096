@@ -54,6 +54,7 @@ namespace Flow{
         void mkDesc();
         static std::string mkName(unsigned char, ItmType);
         BinArray toBin();
+        void toItem(BinArray&);
     private:
         bool _ident;
         unsigned char _elem;
