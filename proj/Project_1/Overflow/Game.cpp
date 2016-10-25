@@ -112,7 +112,7 @@ bool Flow::ckFile(const std::string &path){
 
     in.open(path, in.binary);
     if(in.is_open()){
-        in.read(reinterpret_cast<char*>(&header), sizeof(header));
+        in.read(reinterpret_cast<char*>(&header), sizeof (header));
     }
     r = in.is_open() && header == Game::HEADER;
     in.close();
@@ -445,11 +445,11 @@ void Flow::wConf(){
     unsigned int header = Game::HEADER;
     int len = Game::conf.saveGame.size() + 1;
     std::ofstream out;
-    
+
     out.open(Game::conf.SAVPATH.c_str(), std::ios::binary | std::ios::trunc);
-    out.write(reinterpret_cast<char*>(&header), sizeof(header));
-    out.write(reinterpret_cast<char*>(&Game::conf.ascArt), sizeof(Game::conf.ascArt));
-    out.write(reinterpret_cast<char*>(&len), sizeof(len));
+    out.write(reinterpret_cast<char*>(&header), sizeof (header));
+    out.write(reinterpret_cast<char*>(&Game::conf.ascArt), sizeof (Game::conf.ascArt));
+    out.write(reinterpret_cast<char*>(&len), sizeof (len));
     out.write(Game::conf.saveGame.c_str(), len);
     out.close();
 }
@@ -459,12 +459,12 @@ void Flow::gConf(){
     int len = 0;
     char *buffer = NULL;
     std::ifstream in;
-    
+
     in.open(Game::conf.SAVPATH.c_str(), std::ios::binary);
-    in.read(reinterpret_cast<char*>(&header), sizeof(header));
+    in.read(reinterpret_cast<char*>(&header), sizeof (header));
     if(header == Game::HEADER){
-        in.read(reinterpret_cast<char*>(&Game::conf.ascArt), sizeof(Game::conf.ascArt));
-        in.read(reinterpret_cast<char*>(&len), sizeof(len));
+        in.read(reinterpret_cast<char*>(&Game::conf.ascArt), sizeof (Game::conf.ascArt));
+        in.read(reinterpret_cast<char*>(&len), sizeof (len));
         buffer = new char[len];
         in.read(buffer, len);
         Game::conf.saveGame = buffer;
@@ -487,24 +487,21 @@ void Flow::save(){
     if(!ckFile(path)){
         Game::conf.slot = 0;
     }
-    
+
     file.open(path.c_str(), std::ios::binary | std::ios::in | std::ios::out);
     file.close();
-    
+
 }
 
 unsigned int Flow::strBSize(const std::string &str){
-    return (sizeof(int) + str.size() + 1);
+    return (sizeof (int) +str.size() + 1);
 }
 
 char* Flow::toBin(const std::string &str){
     unsigned int strSize = str.size() + 1;
-    char *r = new char[sizeof(int) + strSize];
-   
-    strcat(r, reinterpret_cast<char*>(&strSize));
-    strcat(r, str.c_str());
-    strcat(r, '\0');
-    
+    char *r = new char[sizeof (int) +strSize];
+
+
     return r;
 }
 

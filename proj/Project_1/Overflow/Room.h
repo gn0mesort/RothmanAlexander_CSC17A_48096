@@ -48,6 +48,7 @@ namespace Flow{
         Room **_rooms;
         unsigned char _sizeX;
         unsigned char _sizeY;
+        void clear();
     public:
         Floor();
         Floor(const Floor&);

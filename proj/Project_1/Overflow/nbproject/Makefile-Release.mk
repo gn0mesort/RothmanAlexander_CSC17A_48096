@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Actor.o \
+	${OBJECTDIR}/BinArray.o \
 	${OBJECTDIR}/Flags.o \
 	${OBJECTDIR}/Game.o \
 	${OBJECTDIR}/Item.o \
@@ -72,6 +73,11 @@ ${OBJECTDIR}/Actor.o: Actor.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Actor.o Actor.cpp
+
+${OBJECTDIR}/BinArray.o: BinArray.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BinArray.o BinArray.cpp
 
 ${OBJECTDIR}/Flags.o: Flags.cpp 
 	${MKDIR} -p ${OBJECTDIR}

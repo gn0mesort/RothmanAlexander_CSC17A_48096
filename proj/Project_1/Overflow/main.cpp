@@ -16,6 +16,7 @@
 #include "Byte.h"
 #include "Item.h"
 #include "Room.h"
+#include "BinArray.h"
 
 using namespace std;
 using namespace Flow;

@@ -189,17 +189,15 @@ Flow::Floor::Floor(){
 }
 
 Flow::Floor::Floor(const Floor &other){
-    if(this != &other){
-        _sizeX = other.sizeX();
-        _sizeY = other.sizeY();
-        _rooms = new Flow::Room*[_sizeY];
-        for(int i = 0; i < _sizeY; ++i){
-            _rooms[i] = new Flow::Room[_sizeX];
-        }
-        for(int i = 0; i < _sizeY; ++i){
-            for(int j = 0; j < _sizeX; ++j){
-                _rooms[i][j] = Room(other.get(j, i));
-            }
+    _sizeX = other.sizeX();
+    _sizeY = other.sizeY();
+    _rooms = new Flow::Room*[_sizeY];
+    for(int i = 0; i < _sizeY; ++i){
+        _rooms[i] = new Flow::Room[_sizeX];
+    }
+    for(int i = 0; i < _sizeY; ++i){
+        for(int j = 0; j < _sizeX; ++j){
+            _rooms[i][j] = Room(other.get(j, i));
         }
     }
 }
@@ -214,12 +212,7 @@ Flow::Floor::Floor(unsigned char sizeX, unsigned char sizeY){
 }
 
 Flow::Floor::~Floor(){
-    for(int i = 0; i < _sizeY; ++i){
-        delete [] _rooms[i];
-        _rooms[i] = 0;
-    }
-    delete [] _rooms;
-    _rooms = 0;
+    clear();
 }
 
 Flow::Room* Flow::Floor::operator[](unsigned int index){
@@ -230,6 +223,7 @@ Flow::Floor& Flow::Floor::operator=(const Floor &other){
     if(this != &other){
         _sizeX = other.sizeX();
         _sizeY = other.sizeY();
+        clear();
         _rooms = new Flow::Room*[_sizeY];
         for(int i = 0; i < _sizeY; ++i){
             _rooms[i] = new Flow::Room[_sizeX];
@@ -343,4 +337,13 @@ Flow::Point Flow::Floor::start() const{
     }
 
     return start;
+}
+
+void Flow::Floor::clear(){
+    for(int i = 0; i < _sizeY; ++i){
+        delete [] _rooms[i];
+        _rooms[i] = 0;
+    }
+    delete [] _rooms;
+    _rooms = 0;
 }
