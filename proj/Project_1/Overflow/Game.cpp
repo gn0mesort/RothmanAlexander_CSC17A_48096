@@ -497,10 +497,12 @@ unsigned int Flow::strBSize(const std::string &str){
     return (sizeof (int) +str.size() + 1);
 }
 
-char* Flow::toBin(const std::string &str){
+Flow::BinArray Flow::toBin(const std::string &str){
     unsigned int strSize = str.size() + 1;
-    char *r = new char[sizeof (int) +strSize];
+    BinArray r(sizeof (strSize) + strSize);
 
+    r << BinArray(reinterpret_cast<char*>(&strSize), sizeof (strSize));
+    r << BinArray(str.c_str(), strSize);
 
     return r;
 }

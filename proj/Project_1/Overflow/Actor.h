@@ -60,6 +60,7 @@ namespace Flow{
         void attack(Actor&);
         void stat() const;
         int selectItm();
+        BinArray toBin();
     private:
         Job _job;
         IStat _hp;

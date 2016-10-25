@@ -12,6 +12,7 @@
 #include <string>
 #include "Actor.h"
 #include "Room.h"
+#include "BinArray.h"
 
 namespace Flow{
 
@@ -86,7 +87,7 @@ namespace Flow{
     void gConf();
     Actor createChar();
     unsigned int strBSize(const std::string&);
-    char* toBin(const std::string&);
+    BinArray toBin(const std::string&);
 
 }
 

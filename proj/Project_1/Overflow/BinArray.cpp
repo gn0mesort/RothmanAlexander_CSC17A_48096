@@ -101,7 +101,7 @@ void Flow::BinArray::set(unsigned int index, char value){
 }
 
 Flow::BinArray& Flow::BinArray::operator<<(const Flow::BinArray &rhs){
-    if(_write + rhs.size() < _size){
+    if(_write + rhs.size() - 1 < _size){
         for(unsigned int i = 0; i < rhs.size(); ++i){
             _data[_write + i] = rhs.get(i);
         }
@@ -111,11 +111,23 @@ Flow::BinArray& Flow::BinArray::operator<<(const Flow::BinArray &rhs){
 }
 
 Flow::BinArray& Flow::BinArray::operator>>(BinArray &rhs){
-    if(_read + rhs.size() < _size){
+    if(_read + rhs.size() - 1 < _size){
         for(unsigned int i = 0; i < rhs.size(); ++i){
             rhs.set(i, _data[i]);
         }
         _read += rhs.size();
     }
     return *this;
+}
+
+void Flow::BinArray::write(std::ofstream &out){
+    if(out.is_open()){
+        out.write(_data, _size);
+    }
+}
+
+void Flow::BinArray::read(std::ifstream &in){
+    if(in.is_open()){
+        in.read(_data, _size);
+    }
 }

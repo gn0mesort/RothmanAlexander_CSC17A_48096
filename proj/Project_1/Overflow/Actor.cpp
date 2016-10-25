@@ -371,3 +371,26 @@ void Flow::Actor::stat() const{
     std::cout << "Armor: " << _armr.name() << std::endl;
     std::cout << "\t" << _armr.desc() << std::endl;
 }
+
+Flow::BinArray Flow::Actor::toBin(){
+    int hpMax = _hp.max(),
+            mpMax = _mp.max();
+    unsigned char atk = _atk.value(),
+            def = _def.value();
+    BinArray name = Flow::toBin(_name),
+            weap = _weap.toBin(),
+            armr = _armr.toBin(),
+            r(name.size() + sizeof (_job) + sizeof (hpMax) + sizeof (mpMax) + sizeof (atk) + sizeof (def)
+              + weap.size() + armr.size());
+
+    r << name;
+    r << BinArray(reinterpret_cast<char*>(&_job), sizeof (_job));
+    r << BinArray(reinterpret_cast<char*>(&hpMax), sizeof (hpMax));
+    r << BinArray(reinterpret_cast<char*>(&mpMax), sizeof (mpMax));
+    r << BinArray(reinterpret_cast<char*>(&atk), sizeof (atk));
+    r << BinArray(reinterpret_cast<char*>(&def), sizeof (def));
+    r << weap;
+    r << armr;
+
+    return r;
+}

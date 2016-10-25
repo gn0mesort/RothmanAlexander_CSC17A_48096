@@ -39,6 +39,10 @@ int main(int argc, char** argv){
             {
                 rdTxt("GameData/crawl.txt");
                 Game::player = createChar();
+                ofstream out;
+                out.open("test.bin");
+                Game::player.toBin().write(out);
+                out.close();
                 play();
                 break;
             }

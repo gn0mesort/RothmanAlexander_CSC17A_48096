@@ -15,6 +15,7 @@
 #define ITEM_H
 
 #include "Flags.h"
+#include "BinArray.h"
 
 
 namespace Flow{
@@ -52,7 +53,7 @@ namespace Flow{
         static std::string mkDesc(unsigned char, ItmType, unsigned char);
         void mkDesc();
         static std::string mkName(unsigned char, ItmType);
-        char* toBin() const;
+        BinArray toBin();
     private:
         bool _ident;
         unsigned char _elem;

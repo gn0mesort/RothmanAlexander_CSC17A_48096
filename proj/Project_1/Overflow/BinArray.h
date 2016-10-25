@@ -14,6 +14,8 @@
 #ifndef BINARRAY_H
 #define BINARRAY_H
 
+#include <fstream>
+
 namespace Flow{
     class BinArray{
     private:
@@ -39,6 +41,8 @@ namespace Flow{
         void seekg(unsigned int);
         BinArray& operator<<(const BinArray&);
         BinArray& operator>>(BinArray&);
+        void write(std::ofstream&);
+        void read(std::ifstream&);
     };
 }
 

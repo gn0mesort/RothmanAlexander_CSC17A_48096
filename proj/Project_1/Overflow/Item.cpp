@@ -343,12 +343,20 @@ std::string Flow::Item::mkName(unsigned char elem, Flow::ItmType type){
     return r.str();
 }
 
-char* Flow::Item::toBin() const{
-    unsigned int size = strBSize(_name) + strBSize(_uiName) + strBSize(_desc) + sizeof (unsigned char) +
-            sizeof (unsigned char) + sizeof (unsigned char);
-    unsigned int strSize = 0;
-    unsigned char bType = static_cast<unsigned char>(_type);
-    char *r = new char[size];
+Flow::BinArray Flow::Item::toBin(){
+    BinArray name = Flow::toBin(_name),
+            uiName = Flow::toBin(_uiName),
+            desc = Flow::toBin(_desc),
+            r(name.size() + uiName.size() + desc.size() + sizeof (_elem) + sizeof (_value) + sizeof (_type)
+              + sizeof (_ident));
+
+    r << name;
+    r << uiName;
+    r << desc;
+    r << BinArray(reinterpret_cast<char*>(&_elem), sizeof (_elem));
+    r << BinArray(reinterpret_cast<char*>(&_value), sizeof (_value));
+    r << BinArray(reinterpret_cast<char*>(&_type), sizeof (_type));
+    r << BinArray(reinterpret_cast<char*>(&_ident), sizeof (_ident));
 
     return r;
 }
