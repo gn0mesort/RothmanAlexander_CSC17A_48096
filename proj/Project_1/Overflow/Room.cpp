@@ -128,7 +128,6 @@ void Flow::Room::trigger(){
                 }
                 case 'I':
                 {
-                    Game::player.invMenu();
                     Game::player.selectItm();
                     break;
                 }

@@ -183,8 +183,8 @@ char Flow::menu(const std::vector<std::string> &opts, unsigned int perLine){
 int Flow::iMenu(const std::vector<std::string> &opts, unsigned int perLine){
     int r = 0;
     std::string input = "";
-    std::stringstream convert;
     do{
+        std::stringstream convert;
         for(int i = 0; i < opts.size(); ++i){
             if(i % perLine != 0 && i != 0){
                 std::cout << "     ";
@@ -192,13 +192,19 @@ int Flow::iMenu(const std::vector<std::string> &opts, unsigned int perLine){
             if(i % perLine == 0){
                 std::cout << std::endl;
             }
-            std::cout << frmtOpt(opts[i]) << " ";
+            if(i + 1 < opts.size()){
+                std::cout << frmtOpt(i + 1) << " " << opts[i];
+            }
+            else{
+                std::cout << frmtOpt(0) << " " << opts[i];
+            } 
         }
         std::cout << std::endl << "> ";
         std::getline(std::cin, input);
-    } while(!isValid(opts, input[0]));
-    convert << input;
-    convert >> r;
+        convert << input;
+        convert >> r;
+    } while(r < 0 || r > opts.size() + 1);
+    
 
     return r;
 }
@@ -535,11 +541,9 @@ bool Flow::load(){
             aMenu = {"Load", "Delete", "Back"};
     rdTxt(paths, "GameData/index.sav");
     for(int i = 0; i < paths.size(); ++i){
-        std::stringstream convert;
-        convert << i + 1;
-        lMenu.push_back(convert.str() + " " + paths[i]);
+        lMenu.push_back(paths[i]);
     }
-    lMenu.push_back("0 Back");
+    lMenu.push_back("Back");
 
     do{
         input = iMenu(lMenu, 1);
@@ -643,14 +647,14 @@ unsigned char Flow::GmRand::rDirect(){
 }
 
 unsigned char Flow::GmRand::rElem(){
-    unsigned char val = rand() % 100;
+    unsigned char val = rand() % 1000;
     unsigned char r = 0;
 
     if(val < 75){
-        r = Flow::DmgElem::NONE;
+        r = DmgElem::NONE;
     }
-    else if(val >= 75 && val < 95){
-        r = (rand() % 29) + 2;
+    else if(val >= 75 && val < 85){
+        r = binPow(rand() % 8);
     }
     else{
         r = rand() % 256;
@@ -710,8 +714,10 @@ Flow::Floor Flow::GmRand::rFloor(unsigned char size){
 
 Flow::Item Flow::GmRand::rItem(bool ident){
     unsigned char value = rand() % 256;
-    unsigned char elem = rand() % 256;
+    unsigned char elem = rElem();
     int tInt = rand() % 100;
+    Item r;
+    
     if(tInt < 50){
         tInt = 1;
     }
@@ -721,12 +727,13 @@ Flow::Item Flow::GmRand::rItem(bool ident){
     else{
         tInt = 3;
     }
-    Flow::ItmType type = static_cast<Flow::ItmType>(tInt);
+    ItmType type = static_cast<ItmType>(tInt);
 
     std::string uiName = Game::nItems[tInt - 1][rand() % Game::nItems[tInt - 1].size()];
-
-    return Item(Item::mkName(elem, type), uiName, Item::mkDesc(elem, type, value), elem, type, value, ident);
-
+    r = Item("", uiName, "", DmgElem::NONE, type, value, ident);
+    r.setElem(elem);
+    
+    return r;
 }
 
 Flow::Actor Flow::GmRand::rActor(){
@@ -736,8 +743,8 @@ Flow::Actor Flow::GmRand::rActor(){
     unsigned char atk = rand() % (Game::player.atk().value() + 2);
     unsigned char def = rand() % (Game::player.atk().value() + 2);
     std::string name = Game::nMons[rand() % Game::nMons.size()];
-    Flow::Item weap = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % (Game::player.weap().value() + 10), true);
-    Flow::Item armr = Item("", "", "", rElem(), Flow::ItmType::Weapon, rand() % (Game::player.armr().value() + 10), true);
+    Flow::Item weap = Item("", "", "", rElem(), ItmType::Weapon, rand() % (Game::player.weap().value() + 10), true);
+    Flow::Item armr = Item("", "", "", rElem(), ItmType::Weapon, rand() % (Game::player.armr().value() + 10), true);
     Flow::Actor r;
 
     r.equip(weap, false);

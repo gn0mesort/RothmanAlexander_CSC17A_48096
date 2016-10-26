@@ -24,7 +24,7 @@ Flow::Item::Item(){
 Flow::Item::Item(const Item &other){
     if(this != &other){
         _ident = other.isIdent();
-        _elem = other.element();
+        setElem(other.element());
         _value = other.value();
         _name = other.name();
         _uiName = other.uiName();

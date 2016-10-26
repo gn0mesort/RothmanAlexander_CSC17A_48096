@@ -56,8 +56,7 @@ namespace Flow{
         void attack(Actor&);
         void equip(unsigned int, bool = true);
         void equip(const Item&, bool = true);
-        void identify(unsigned int);
-        void invMenu() const;
+        void identify(unsigned int, bool = false);
         void rmItem(unsigned int);
         void setAtk(unsigned char);
         void setAtk(const BStat&);
@@ -83,6 +82,7 @@ namespace Flow{
         Item armr() const;
         Item getItem(unsigned int) const;
         Item weap() const;
+        std::vector<std::string> invMenu() const;
         BinArray toBin();
     };
 
