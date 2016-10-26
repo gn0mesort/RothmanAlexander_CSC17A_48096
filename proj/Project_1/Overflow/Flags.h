@@ -27,8 +27,8 @@ namespace Flow{
     //Damage Element
     //Container namespace for DamageElement constants. Provides scoped enum like syntax to constants
     namespace DmgElem{
-        const unsigned char NONE = 0, HEALING = 1, FIRE = 2, ICE = 4, LIGHTNG = 8, WIND = 16, HOLY = 32, SHADOW = 64,
-                NGHTMRE = 128, ABSOLUT = 255;
+        const unsigned char NONE = 0, NGHTMRE = 1, FIRE = 2, ICE = 4, LIGHTNG = 8, WIND = 16, HOLY = 32, SHADOW = 64, 
+                HEALING = 128, ABSOLUT = 255;
         std::string toStr(unsigned char);
     }
     

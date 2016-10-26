@@ -70,10 +70,7 @@ void Flow::Room::trigger(){
     convert << "GameData/desc" << (static_cast<int>(_event) * 3) + ((Game::gmRand.rand() % 3) + 1) << ".txt";
     Flow::rdTxt(convert.str());
     std::cout << std::endl;
-    std::cout << "There are exits to the ( " << Flow::Direct::toStr(_exit) << " )" << std::endl;
-    if(_end){
-        std::cout << "You can see a flight of stairs in the far corner!" << std::endl;
-    }
+
     if(_event != Flow::RmEvent::None){
         if(_event == Flow::RmEvent::Encounter){
             Flow::Actor enem = Game::gmRand.rActor();
@@ -98,10 +95,13 @@ void Flow::Room::trigger(){
             }
             std::cout << "Items identified!" << std::endl;
         }
-
         _event = Flow::RmEvent::None;
     }
     else{
+        std::cout << "There are exits to the ( " << Flow::Direct::toStr(_exit) << " )" << std::endl;
+        if(_end){
+            std::cout << "You can see a flight of stairs in the far corner!" << std::endl;
+        }
         std::vector<std::string> tmpMenu(Game::gMenu);
         if(Flow::FlgUtil::hasFlag(_exit, Flow::Direct::NORTH)){
             tmpMenu.push_back("North");

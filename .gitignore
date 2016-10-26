@@ -5,3 +5,6 @@ dist/
 *.zip
 #ignore stackdumps
 *.stackdump
+#Ignore Overflow saves and config files
+**/GameData/*.sav
+**/GameData/*.conf

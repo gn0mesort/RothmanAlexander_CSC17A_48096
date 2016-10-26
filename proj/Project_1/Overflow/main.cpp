@@ -47,6 +47,7 @@ int main(int argc, char** argv){
             }
             case 'L':
             {
+                Game::player = Actor();
                 if(load()){
                     rdTxt("GameData/crawl.txt");
                     play();

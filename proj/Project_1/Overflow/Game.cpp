@@ -567,6 +567,7 @@ bool Flow::load(){
                 {
                     std::remove(paths[input - 1].c_str());
                     paths.erase(paths.begin() + (input - 1));
+                    lMenu.erase(lMenu.begin() + (input - 1));
                     std::ofstream out;
 
                     out.open("GameData/index.sav");
@@ -653,10 +654,6 @@ unsigned char Flow::GmRand::rElem(){
     }
     else{
         r = rand() % 256;
-    }
-
-    if((rand() % 1000) != 0 && Flow::FlgUtil::hasFlag(r, Flow::DmgElem::HEALING)){
-        r ^= Flow::DmgElem::HEALING;
     }
 
     return r;

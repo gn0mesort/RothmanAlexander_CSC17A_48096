@@ -58,7 +58,7 @@ SAVING AND LOADING GAMES:
     *ARMOR'S ELEMENT (1 BYTE)                                                 *
     *ARMOR'S ATTACK BONUS (1 BYTE)                                            *
     *ARMOR'S ITMTYPE (4 BYTES)                                                *
-    *ARMOR'S IDENTIFIACTION STATUS                                            *
+    *ARMOR'S IDENTIFIACTION STATUS (1 BYTE)                                   *
     ***************************************************************************
     All stored strings are null terminated.
 READING THE MAP:
