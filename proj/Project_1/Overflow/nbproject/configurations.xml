@@ -32,7 +32,6 @@
                    projectFiles="true">
       <itemPath>Actor.h</itemPath>
       <itemPath>BinArray.h</itemPath>
-      <itemPath>Byte.h</itemPath>
       <itemPath>Flags.h</itemPath>
       <itemPath>Game.h</itemPath>
       <itemPath>Item.h</itemPath>
@@ -92,8 +91,6 @@
       <item path="BinArray.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BinArray.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Byte.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Flags.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -195,8 +192,6 @@
       <item path="BinArray.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BinArray.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Byte.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Flags.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -1,7 +1,14 @@
-/* 
+/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   Actor.h
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Define Actor objects which represent both game players and enemies
  * Created on October 15, 2016
  */
 
@@ -15,8 +22,10 @@
 #include "Stat.h"
 
 namespace Flow{
-    const unsigned char JOB_CNT = 4;
+    const unsigned char JOB_CNT = 4; //The number of valid Jobs
 
+    //Job
+    //An enumeration type defining game Jobs (classes)
     enum class Job {
         None = 0,
         Knight = 1,
@@ -25,53 +34,56 @@ namespace Flow{
         Lancer = 4 
     };
 
+    //Actor
+    //Describes any character in the game who is capable of acting. This is used both for the player and their enemies.
+    //Also defines functions for creating binary data from Actor objects
     class Actor{
+    private:
+        Job _job; //The Actor's job
+        std::string _name; //The Actor's name
+        BStat _atk; //The Actor's Attack Statistic
+        BStat _def; //The Actor's Defense Statistic
+        IStat _hp; //The Actor's Hit Points Statistic
+        IStat _mp; //The Actor's Magic Points Statistic
+        Item _weap; //The Actor's equipped Weapon
+        Item _armr; //The Actor's equipped Armor
+        std::vector<Item> _inv; //The Actor's Inventory
     public:
         Actor();
         Actor(const Actor&);
         Actor(const std::string&, Job = Job::Knight);
-        Job job() const;
-        void setJob(Job);
-        IStat hp() const;
-        void setHp(const IStat&);
-        void setHp(int);
-        IStat mp() const;
-        void setMp(const IStat&);
-        void setMp(int);
-        BStat atk() const;
-        void setAtk(const BStat&);
-        void setAtk(unsigned char);
-        BStat def() const;
-        void setDef(const BStat&);
-        void setDef(unsigned char);
-        std::string name() const;
-        void setName(const std::string&);
         void addItem(const Item&);
-        Item getItem(unsigned int) const;
-        void rmItem(unsigned int);
-        unsigned int invSize() const;
-        Item weap() const;
-        Item armr() const;
+        void attack(Actor&);
         void equip(unsigned int, bool = true);
         void equip(const Item&, bool = true);
-        void use(unsigned int);
-        void invMenu() const;
         void identify(unsigned int);
-        void attack(Actor&);
+        void invMenu() const;
+        void rmItem(unsigned int);
+        void setAtk(unsigned char);
+        void setAtk(const BStat&);
+        void setDef(unsigned char);
+        void setDef(const BStat&);
+        void setHp(int);
+        void setHp(const IStat&);
+        void setJob(Job);
+        void setMp(int);
+        void setMp(const IStat&);
+        void setName(const std::string&);
         void stat() const;
-        int selectItm();
-        BinArray toBin();
         void toActor(BinArray&);
-    private:
-        Job _job;
-        IStat _hp;
-        IStat _mp;
-        BStat _atk;
-        BStat _def;
-        Item _weap;
-        Item _armr;
-        std::string _name;
-        std::vector<Item> _inv;
+        void use(unsigned int);
+        unsigned int invSize() const;
+        int selectItm();
+        Job job() const;
+        std::string name() const;
+        BStat atk() const;
+        BStat def() const;
+        IStat hp() const;
+        IStat mp() const;
+        Item armr() const;
+        Item getItem(unsigned int) const;
+        Item weap() const;
+        BinArray toBin();
     };
 
 }

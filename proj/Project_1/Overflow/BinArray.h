@@ -1,13 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   BinArray.h
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Define a class for quickly reading and writing binary data based on objects
  * Created on October 24, 2016
  */
 
@@ -17,37 +18,44 @@
 #include <fstream>
 
 namespace Flow{
+    //BinArray
+    //A class for holding binary data. Defines the basic array, its size, as well as read and write positions.
     class BinArray{
     private:
-        char *_data;
-        unsigned int _size;
+        unsigned int _size; //The size of the Array
         unsigned int _read;
         unsigned int _write;
+        char *_data;
+        
         void clear();
     public:
         BinArray();
         BinArray(const BinArray&);
-        BinArray(const char*, unsigned int);
         BinArray(int);
+        BinArray(const char*, unsigned int);
         ~BinArray();
-        unsigned int size() const;
-        BinArray& operator=(const BinArray&);
-        char get(unsigned int) const;
-        void set(unsigned int, char);
-        char& operator[](unsigned int);
-        unsigned int tellp() const;
-        unsigned int tellg() const;
-        void seekp(unsigned int);
-        void seekg(unsigned int);
-        BinArray& operator<<(const BinArray&);
-        BinArray& operator>>(BinArray&);
-        void write(std::fstream&);
         void read(std::fstream&);
+        void seekg(unsigned int);
+        void seekp(unsigned int);
+        void set(unsigned int, char);
+        void write(std::fstream&);
+        char get(unsigned int) const;
+        unsigned int size() const;
+        unsigned int tellg() const;
+        unsigned int tellp() const;
+        
+        //Operator Overloads
+        char& operator[](unsigned int);
+        BinArray& operator=(const BinArray&);
+        BinArray& operator<<(const BinArray&);
+        BinArray& operator>>(BinArray&);     
     };
     
-    BinArray toBin(const std::string&);
-    std::string toStr(BinArray&);
+    //Function Prototypes
     unsigned int toInt(BinArray&);
+    std::string toStr(BinArray&);
+    BinArray toBin(const std::string&);
+   
 }
 
 #endif /* BINARRAY_H */

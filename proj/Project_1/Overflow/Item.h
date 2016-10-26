@@ -1,13 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   Item.h
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Define game items and item types
  * Created on October 14, 2016
  */
 
@@ -17,10 +18,13 @@
 #include "Flags.h"
 #include "BinArray.h"
 
-
 namespace Flow{
+    
+    //The number of valid ItmTypes
     const unsigned char ITM_CNT = 3;
     
+    //ItmType
+    //Item type enumeration. Defines the different kinds of items found in the game
     enum class ItmType {
         None = 0,
         Potion = 1,
@@ -28,42 +32,46 @@ namespace Flow{
         Weapon = 3
     };
     
+    //Item
+    //Defines an item object. Used for all types of item in the game
     class Item{
-    public:
-        Item();
-        Item(const Item&);
-        Item(std::string, std::string = "Unknown Item", std::string = "An Item", 
-        unsigned char = DmgElem::NONE, ItmType = ItmType::Potion, unsigned char = 0, bool = false);
-        //~Item();
-        bool isIdent() const;
-        void identify();
-        void obfscte();
-        unsigned char element() const;
-        void setElem(unsigned char);
-        unsigned char value() const;
-        void setValue(unsigned char);
-        std::string name() const;
-        void setName(std::string);
-        std::string uiName() const;
-        void setUiName(std::string);
-        std::string desc() const;
-        void setDesc(std::string);
-        ItmType type() const;
-        void setType(ItmType);
-        static std::string mkDesc(unsigned char, ItmType, unsigned char);
-        void mkDesc();
-        static std::string mkName(unsigned char, ItmType);
-        BinArray toBin();
-        void toItem(BinArray&);
     private:
         bool _ident;
         unsigned char _elem;
         unsigned char _value;
+        ItmType _type;
+        std::string _desc;
         std::string _name;
         std::string _uiName;
-        std::string _desc;
-        ItmType _type;
+    public:
+        //Static functions
+        static std::string mkDesc(unsigned char, ItmType, unsigned char);
+        static std::string mkName(unsigned char, ItmType);
+        
+        Item();
+        Item(const Item&);
+        Item(std::string, std::string = "Unknown Item", std::string = "An Item", 
+        unsigned char = DmgElem::NONE, ItmType = ItmType::Potion, unsigned char = 0, bool = false);
+        void identify();
+        void mkDesc();
+        void obfscte();
+        void setDesc(std::string);
+        void setElem(unsigned char);
+        void setName(std::string);
+        void setType(ItmType);
+        void setUiName(std::string);
+        void setValue(unsigned char);
+        void toItem(BinArray&);
+        bool isIdent() const;
+        unsigned char element() const;
+        unsigned char value() const;
+        ItmType type() const;
+        std::string desc() const;
+        std::string name() const;
+        std::string uiName() const;
+        BinArray toBin();
     };
+    
 }
 
 #endif /* ITEM_H */

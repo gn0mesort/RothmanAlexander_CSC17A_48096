@@ -1,72 +1,80 @@
 /*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   main.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Main Program for Overflow. Handles initialization, main menu, config file writing, and clean up.
  * Created on October 11, 2016
  */
 
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <vector>
-#include <sstream>
+//System Libraries
+#include <iostream> //I/O
+#include <iomanip> //I/O Formatting
+#include <fstream> //File I/O
+#include <vector> //Vector collections
+#include <sstream> //Stringstreams for conversions
 
-#include "Game.h"
-#include "Stat.h"
-#include "Flags.h"
-#include "Byte.h"
-#include "Item.h"
-#include "Room.h"
-#include "BinArray.h"
+//User Libraries
+#include "Game.h" //Main Game functions and objects
+#include "Stat.h" //Character Statistics
+#include "Flags.h" //Bit Flags
+#include "Item.h" //Item objects
+#include "Room.h" //Room and Floor objects
+#include "BinArray.h" //Binary Array objects
 
 using namespace std;
-using namespace Flow;
+using namespace Flow; //Using the game namespace as well as std
+
+//Begin Execution
 
 int main(int argc, char** argv){
-    bool quit = false;
-    init();
+    bool quit = false; //Whether or not to quit the game
+    init(); //Initialize the game
 
-    do{
-        if(Game::conf.ascArt){
-            rdTxt("GameData/title.txt");
+    do{ //While not quitting
+        if(Game::conf.ascArt){ //If ASCII art is enabled
+            rdTxt("GameData/title.txt"); //Display ASCII title
         }
-        else{
-            cout << "OVERFLOW" << endl;
+        else{ //Otherwise
+            cout << "OVERFLOW" << endl; //Output title
             cout << endl;
         }
-        Game::input = menu(Game::mMenu, 5);
+        Game::input = menu(Game::mMenu, 5); //Do main menu processing
         switch(Game::input){
-            case 'N':
+            case 'N': //New Game
             {
-                rdTxt("GameData/crawl.txt");
-                Game::player = createChar();
-                BinArray b = Game::player.toBin();
-                Game::player.toActor(b);
-                play();
+                rdTxt("GameData/crawl.txt"); //Display title crawl
+                Game::player = createChar(); //Create player character
+                play(); //Play the game
                 break;
             }
-            case 'L':
+            case 'L': //Load
             {
-                Game::player = Actor();
-                if(load()){
-                    rdTxt("GameData/crawl.txt");
-                    play();
+                Game::player = Actor(); //Reinitialize the player
+                if(load()){ //If the game is loaded
+                    rdTxt("GameData/crawl.txt"); //Display title crawl
+                    play(); //Play the game
                 }
                 break;
             }
-            case 'O':
+            case 'O': //Options
             {
-                mMOpts();
+                mMOpts(); //Display game options menu
                 break;
             }
-            case 'H':
+            case 'H': //Help
             {
-                rdTxt("README.txt");
+                rdTxt("README.txt"); //Display README.txt data
                 break;
             }
-            case 'E':
+            case 'E': //Exit
             {
-                quit = true;
+                quit = true; //Quit the game
             }
         }
         cout << endl;
@@ -74,6 +82,8 @@ int main(int argc, char** argv){
 
     wConf(); //Output configuration file
     cleanUp(); //Clean up game memory
+
+    //Exit
     return 0;
 }
 

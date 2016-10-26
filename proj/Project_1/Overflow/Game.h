@@ -1,92 +1,113 @@
-/* 
+/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   Game.h
  * Author: Alexander Rothman <arothman@student.rcc.edu>
- * Purpose:
+ * Purpose: Define main game objects and loose game functions.
  * Created on October 11, 2016
  */
 
 #ifndef GAME_H
 #define GAME_H
 
+//System Libraries
 #include <vector>
 #include <string>
+
+//User Libraries
 #include "Actor.h"
 #include "Room.h"
 #include "BinArray.h"
 
+//Flow
+//This is Overflow's main namespace. Contains all game objects and data.
 namespace Flow{
 
+    //GmRand
+    //The Game Random number generator object. Allows for reseeding of PRNG as well as PRNG seeking. Generates various
+    //Game objects as well as numbers.
     class GmRand{
+    private:
+        unsigned int _seed; //PRNG seed equal to static_cast<int>(time(0)) when default constructed
+        unsigned int _pos; //The current PRNG position. Equal to the number of calls to rand()
     public:
         GmRand();
-        int rand();
-        Floor rFloor(unsigned char = 32);
-        unsigned char rDirect();
-        unsigned char rElem();
-        Room rRoom(bool = false, bool = false);
-        Item rItem(bool = false);
-        Actor rActor();
-        unsigned int seed();
+        void seek(unsigned int);
         void srand();
         void srand(unsigned int);
+        unsigned char rDirect();
+        unsigned char rElem();
+        unsigned int seed();
         unsigned int pos();
-        void seek(unsigned int);
-    private:
-        unsigned int _seed;
-        unsigned int _pos;
+        int rand();
+        Item rItem(bool = false);
+        Actor rActor();
+        Room rRoom(bool = false, bool = false);
+        Floor rFloor(unsigned char = 32); 
     };
     
+    //Config
+    //Game configuration objects. Contains information about the current game configuration
     struct Config{
         static const std::string SAVPATH; //Configuration save path
+        
         bool ascArt; //Setting for displaying ASCII art title 
-        std::string saveGame;
         unsigned char diff; //The game difficulty
+        std::string saveGame; //The current path to save player data to
     };
     
     //Game
     //Stores static game data. Allows accessing of game data without global variables.
     struct Game{
         static const unsigned int HEADER = 0x776f6c66; //Header value for game files
-        static std::vector<std::string> *nWeaps;
-        static std::vector<std::string> mMenu;
-        static std::vector<std::string> *nItems;
-        static std::vector<std::string> nMons;
-        static std::vector<std::string> bMenu;
-        static std::vector<std::string> gMenu;
-        static std::vector<std::string> dMenu;
-        static bool over;
-        static Actor player;
-        static Point pos;
-        static GmRand gmRand; 
-        static Config conf;
-        static Floor floor;
-        static char input;
+        //Should be equal to "flow" on most systems
+        
+        static bool over; //Game::over, whether or not the game has ended
+        static char input; //The last game input character
+        static Point pos; //The position of the game's player
+        static Config conf; //The game's current configuration
+        static GmRand gmRand;  //The game's PRNG
+        static Actor player; //The Actor representing the game's player
+        static std::vector<std::string> mMenu; //Main Menu vector
+        static std::vector<std::string> nMons; //Monster names vector
+        static std::vector<std::string> bMenu; //Battle menu vector
+        static std::vector<std::string> gMenu; //Main game menu vector
+        static std::vector<std::string> dMenu; //Difficulty menu vector
+        static std::vector<std::string> *nItems; //Pointer to unidentified item names array/vectors
+        static std::vector<std::string> *nWeaps; //Pointer to weapon names array/vectors
+        static Floor floor; //The game's current board as a floor object
     };
     
-    int toInt(unsigned char);
-    std::vector<std::string>* gNWeaps();
-    std::vector<std::string>* gNItems();
-    void rdTxt(const std::string&);
-    void rdTxt(std::vector<std::string>&, const std::string&); 
-    bool ckFile(const std::string&);
-    void init();
+    //Function Prototypes
     void cleanUp();
-    unsigned int binPow(unsigned int);
-    char menu(const std::vector<std::string>&, unsigned int);
-    int iMenu(const std::vector<std::string>&, unsigned int);
-    std::string frmtOpt(const std::string&);
-    std::string frmtOpt(int);
-    bool isValid(const std::vector<std::string>&, char);
-    bool encounter(Actor&);
-    void play();
-    void mMOpts();
-    void gMOpts();
-    void save();
-    void wConf();
-    bool load();
     void gConf();
-    Actor createChar();
+    void gMOpts();
+    void init();
+    void mMOpts();
+    void play();
+    void rdTxt(const std::string&);
+    void rdTxt(std::vector<std::string>&, const std::string&);
+    void wConf();
+    void save();
+    bool ckFile(const std::string&);
+    bool encounter(Actor&);
+    bool isValid(const std::vector<std::string>&, char);
+    bool load();
+    char menu(const std::vector<std::string>&, unsigned int);
+    unsigned int binPow(unsigned int);
     unsigned int strBSize(const std::string&);
+    int iMenu(const std::vector<std::string>&, unsigned int);
+    int toInt(unsigned char);
+    std::string frmtOpt(int);
+    std::string frmtOpt(const std::string&);
+    Actor createChar();
+    std::vector<std::string>* gNItems();
+    std::vector<std::string>* gNWeaps();
 }
 
 #endif /* GAME_H */
