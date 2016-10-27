@@ -13,7 +13,7 @@
  */
 
 //User Libraries
-#include "Game.h" //Main game objects and loose functions
+#include "Game.h" //Main game objects and functions
 
 //Static Definitions
 const std::string Flow::Config::SAVPATH = "GameData/game.conf"; //Config Save Path

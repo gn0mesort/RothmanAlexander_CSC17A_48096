@@ -16,22 +16,20 @@
 #define GAME_H
 
 //System Libraries
-#include <vector>
-#include <string>
-#include <fstream>
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <cstdio>
-#include <ctime>
-#include <sstream>
+#include <vector> //Vector collections
+#include <string> //String type and functions
+#include <fstream> //File Streams
+#include <iostream> //I/O
+#include <cstdlib> //C Standard Library
+#include <cstdio> //C Standard I/O (for std::remove)
+#include <ctime> //C Time
+#include <sstream> //String Streams
 
 //User Libraries
-#include "Actor.h"
-#include "Room.h"
-#include "BinArray.h"
-#include "Room.h"
-#include "Flags.h"
+#include "Actor.h" //Actor Objects
+#include "Room.h" //Room, Point, and Floor objects
+#include "BinArray.h" //BinArray objects
+#include "Flags.h" //Bit Flags
 
 //Flow
 //This is Overflow's main namespace. Contains all game objects and data.

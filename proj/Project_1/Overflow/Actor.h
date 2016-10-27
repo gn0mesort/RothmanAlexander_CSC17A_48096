@@ -15,11 +15,15 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
-#include <string>
-#include <vector>
+//System Libraries
+#include <string> //String type and functions
+#include <vector> //Vector collections
+#include <iostream> //I/O
 
-#include "Item.h"
-#include "Stat.h"
+//User Libraries
+#include "Item.h" //Item objects
+#include "Stat.h" //Statistic objects
+#include "BinArray.h" //BinArray objects
 
 namespace Flow{
     const unsigned char JOB_CNT = 4; //The number of valid Jobs

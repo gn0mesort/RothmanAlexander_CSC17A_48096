@@ -15,8 +15,12 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "Flags.h"
-#include "BinArray.h"
+//System Libraries
+#include <sstream> //String streams
+
+//User Libraries
+#include "Flags.h" //Bit Flags
+#include "BinArray.h" //BinArray objects
 
 namespace Flow{
     

@@ -15,6 +15,14 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+//System Libraries
+#include <iostream> //I/O
+#include <iomanip> //I/O Formatting
+#include <sstream> //String streams
+
+//User Libraries
+#include "Flags.h" //Bit Flags
+
 namespace Flow{
     
     //Point

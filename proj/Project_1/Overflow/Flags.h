@@ -15,8 +15,8 @@
 #ifndef FLAGS_H
 #define FLAGS_H
 
-#include <string>
-//#include <cmath>
+//System Libraries
+#include <string> //String type and functions
 
 namespace Flow{
 

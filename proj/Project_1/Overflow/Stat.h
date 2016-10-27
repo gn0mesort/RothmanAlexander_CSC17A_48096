@@ -15,7 +15,8 @@
 #ifndef STAT_H
 #define STAT_H
 
-#include <string>
+//System Libaries
+#include <string> //String type and functions
 
 namespace Flow{
 

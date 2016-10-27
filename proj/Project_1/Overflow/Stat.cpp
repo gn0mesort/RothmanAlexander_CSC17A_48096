@@ -12,7 +12,8 @@
  * Created on October 11, 2016
  */
 
-#include "Stat.h"
+//User Libraries
+#include "Stat.h" //Statistic Objects
 
 //name
 //Return the name of this Stat

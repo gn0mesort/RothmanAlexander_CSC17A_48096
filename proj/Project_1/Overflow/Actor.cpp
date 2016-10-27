@@ -12,13 +12,9 @@
  * Created on October 15, 2016
  */
 
-#include <iostream>
-#include <sstream>
-
-#include "Actor.h"
-#include "Room.h"
-#include "Game.h"
-#include "BinArray.h"
+//User Libraries
+#include "Actor.h" //Actor objects
+#include "Game.h" //Game objects and functions
 
 //Actor
 //Default constructor for an Actor object

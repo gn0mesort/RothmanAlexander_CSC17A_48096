@@ -12,7 +12,8 @@
  * Created on October 24, 2016
  */
 
-#include "BinArray.h"
+//User Librares
+#include "BinArray.h" //BinArray objects
 
 //BinArray
 //The default BinArray constructor

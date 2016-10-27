@@ -12,7 +12,8 @@
  * Created on October 15, 2016
  */
 
-#include "Flags.h"
+//User Libraries
+#include "Flags.h" //Bit Flags
 
 //toStr
 //Convert a direction constant to a string

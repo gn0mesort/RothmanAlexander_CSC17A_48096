@@ -12,13 +12,10 @@
  * Created on October 22, 2016
  */
 
-#include <iostream>
-#include <iomanip>
-#include <sstream>
 
-#include "Room.h"
-#include "Flags.h"
-#include "Game.h"
+//User Libraries
+#include "Room.h" //Room, Floor, and Point objects
+#include "Game.h" //Main game objects and loose functions
 
 //Room
 //Default constructor

@@ -1,0 +1,448 @@
+\hypertarget{class_flow_1_1_actor}{}\section{Flow\+:\+:Actor Class Reference}
+\label{class_flow_1_1_actor}\index{Flow\+::\+Actor@{Flow\+::\+Actor}}
+
+
+{\ttfamily \#include $<$Actor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_actor_a242b634b62029fb8fc3226e6dae85606}{Actor} ()
+\item 
+\hyperlink{class_flow_1_1_actor_a87c772011a71a40cba07f3f4122eeaec}{Actor} (const \hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+\hyperlink{class_flow_1_1_actor_a5e8bbbcb474e2c2122dc012849c71d77}{Actor} (const std\+::string \&, \hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job}=\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07ba8c23b2b86573edf2a5ea482c2ccc1497}{Job\+::\+Knight})
+\item 
+void \hyperlink{class_flow_1_1_actor_afefe67bd3da9a846d7f6cadb865e2109}{add\+Item} (const \hyperlink{class_flow_1_1_item}{Item} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a37e4e24d0896e55da37ff88483b2e302}{attack} (\hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a4433bb3ae20b14962659588c259da624}{equip} (unsigned int, bool=true)
+\item 
+void \hyperlink{class_flow_1_1_actor_acf1918a44fafa59fd8bde330d4b9f01c}{equip} (const \hyperlink{class_flow_1_1_item}{Item} \&, bool=true)
+\item 
+void \hyperlink{class_flow_1_1_actor_ae4cb3aadfe983b6bee09b27649dbb704}{identify} (unsigned int, bool=false)
+\item 
+void \hyperlink{class_flow_1_1_actor_ad0c8afd90595778d5d7db6d1c011cf66}{rm\+Item} (unsigned int)
+\item 
+void \hyperlink{class_flow_1_1_actor_acbf21154d7e206e1c9c40d43d6ae88b3}{set\+Atk} (unsigned char)
+\item 
+void \hyperlink{class_flow_1_1_actor_a2f9aa41cb7a5e4a4319d26df739e6cbc}{set\+Atk} (const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_ac16d68ce3b4ae9c101e88c88c5a8fba7}{set\+Def} (unsigned char)
+\item 
+void \hyperlink{class_flow_1_1_actor_a7f26d278d238642dc41a078a1bf11e17}{set\+Def} (const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a9d238ca2827b58905429ffb52658b6e4}{set\+Hp} (int)
+\item 
+void \hyperlink{class_flow_1_1_actor_a7b3e24d878fc96ecab4745e61f58af01}{set\+Hp} (const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a3921cad19f9f35e813fd23ecf8c41d48}{set\+Job} (\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job})
+\item 
+void \hyperlink{class_flow_1_1_actor_ab7eb041ec6ec3d5d7dc7461357b2f1f3}{set\+Mp} (int)
+\item 
+void \hyperlink{class_flow_1_1_actor_a903cd49c0be38c65c8def221f707e987}{set\+Mp} (const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_aba0903cd8e1791709bda9fdf7cdf2b6b}{set\+Name} (const std\+::string \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a766104232c5b1e55c487d734af749cba}{stat} () const
+\item 
+void \hyperlink{class_flow_1_1_actor_ac49323dea55c9a516c9de9a7a29f3af1}{to\+Actor} (\hyperlink{class_flow_1_1_bin_array}{Bin\+Array} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_af13b4677ccd567310e86791b2a68be5d}{use} (unsigned int)
+\item 
+unsigned int \hyperlink{class_flow_1_1_actor_a21e03a4d2284091fe232dfe2cc7cbf47}{inv\+Size} () const
+\item 
+int \hyperlink{class_flow_1_1_actor_aa2e9fe8206357384b2b515fb4adc5613}{select\+Itm} ()
+\item 
+\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job} \hyperlink{class_flow_1_1_actor_aac6046fc99b742a2307084b0b366c2ed}{job} () const
+\item 
+std\+::string \hyperlink{class_flow_1_1_actor_a66f88663ad38508b09e53115608dd0f7}{name} () const
+\item 
+\hyperlink{class_flow_1_1_b_stat}{B\+Stat} \hyperlink{class_flow_1_1_actor_ac78ab3e662afc0b9e2b49c5627fbee6f}{atk} () const
+\item 
+\hyperlink{class_flow_1_1_b_stat}{B\+Stat} \hyperlink{class_flow_1_1_actor_a745ae0efb3531935e92e0929b995cd96}{def} () const
+\item 
+\hyperlink{class_flow_1_1_i_stat}{I\+Stat} \hyperlink{class_flow_1_1_actor_aaea76048a01d31bfc82a0eeb53c5cbdb}{hp} () const
+\item 
+\hyperlink{class_flow_1_1_i_stat}{I\+Stat} \hyperlink{class_flow_1_1_actor_a197cf5bc7b1b24c4e557adbdc6d9bbdf}{mp} () const
+\item 
+\hyperlink{class_flow_1_1_item}{Item} \hyperlink{class_flow_1_1_actor_a7bb72f8323d7023e3ccac777a25e0966}{armr} () const
+\item 
+\hyperlink{class_flow_1_1_item}{Item} \hyperlink{class_flow_1_1_actor_ae7bcb5a227abb90a6850f15ec9cdd1e7}{get\+Item} (unsigned int) const
+\item 
+\hyperlink{class_flow_1_1_item}{Item} \hyperlink{class_flow_1_1_actor_ac3a62be0b16ee5c462dfb573b45d16b0}{weap} () const
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_flow_1_1_actor_aec57f78aa7e423c35b6b8addbe0aa46f}{inv\+Menu} () const
+\item 
+\hyperlink{class_flow_1_1_bin_array}{Bin\+Array} \hyperlink{class_flow_1_1_actor_a2252bd864b45e784daaa9f8ecf7ba276}{to\+Bin} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 44 of file Actor.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_actor_a242b634b62029fb8fc3226e6dae85606}{}\label{class_flow_1_1_actor_a242b634b62029fb8fc3226e6dae85606} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{Actor()}{Actor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Flow\+::\+Actor\+::\+Actor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a87c772011a71a40cba07f3f4122eeaec}{}\label{class_flow_1_1_actor_a87c772011a71a40cba07f3f4122eeaec} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{Actor()}{Actor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Flow\+::\+Actor\+::\+Actor (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_actor}{Actor} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a5e8bbbcb474e2c2122dc012849c71d77}{}\label{class_flow_1_1_actor_a5e8bbbcb474e2c2122dc012849c71d77} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{Actor()}{Actor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Flow\+::\+Actor\+::\+Actor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job}}]{job = {\ttfamily \hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07ba8c23b2b86573edf2a5ea482c2ccc1497}{Job\+::\+Knight}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file Actor.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_actor_afefe67bd3da9a846d7f6cadb865e2109}{}\label{class_flow_1_1_actor_afefe67bd3da9a846d7f6cadb865e2109} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{add\+Item()}{addItem()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::add\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_item}{Item} \&}]{itm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 213 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a7bb72f8323d7023e3ccac777a25e0966}{}\label{class_flow_1_1_actor_a7bb72f8323d7023e3ccac777a25e0966} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!armr@{armr}}
+\index{armr@{armr}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{armr()}{armr()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_item}{Flow\+::\+Item} Flow\+::\+Actor\+::armr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 253 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ac78ab3e662afc0b9e2b49c5627fbee6f}{}\label{class_flow_1_1_actor_ac78ab3e662afc0b9e2b49c5627fbee6f} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!atk@{atk}}
+\index{atk@{atk}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{atk()}{atk()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_b_stat}{Flow\+::\+B\+Stat} Flow\+::\+Actor\+::atk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 126 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a37e4e24d0896e55da37ff88483b2e302}{}\label{class_flow_1_1_actor_a37e4e24d0896e55da37ff88483b2e302} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!attack@{attack}}
+\index{attack@{attack}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::attack (\begin{DoxyParamCaption}\item[{\hyperlink{class_flow_1_1_actor}{Actor} \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Definition at line 483 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a745ae0efb3531935e92e0929b995cd96}{}\label{class_flow_1_1_actor_a745ae0efb3531935e92e0929b995cd96} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!def@{def}}
+\index{def@{def}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{def()}{def()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_b_stat}{Flow\+::\+B\+Stat} Flow\+::\+Actor\+::def (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 155 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a4433bb3ae20b14962659588c259da624}{}\label{class_flow_1_1_actor_a4433bb3ae20b14962659588c259da624} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!equip@{equip}}
+\index{equip@{equip}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{equip()}{equip()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::equip (\begin{DoxyParamCaption}\item[{unsigned int}]{index,  }\item[{bool}]{output = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 265 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_acf1918a44fafa59fd8bde330d4b9f01c}{}\label{class_flow_1_1_actor_acf1918a44fafa59fd8bde330d4b9f01c} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!equip@{equip}}
+\index{equip@{equip}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{equip()}{equip()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::equip (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_item}{Item} \&}]{itm,  }\item[{bool}]{output = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 292 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ae7bcb5a227abb90a6850f15ec9cdd1e7}{}\label{class_flow_1_1_actor_ae7bcb5a227abb90a6850f15ec9cdd1e7} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!get\+Item@{get\+Item}}
+\index{get\+Item@{get\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{get\+Item()}{getItem()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_item}{Flow\+::\+Item} Flow\+::\+Actor\+::get\+Item (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 235 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aaea76048a01d31bfc82a0eeb53c5cbdb}{}\label{class_flow_1_1_actor_aaea76048a01d31bfc82a0eeb53c5cbdb} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!hp@{hp}}
+\index{hp@{hp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{hp()}{hp()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_i_stat}{Flow\+::\+I\+Stat} Flow\+::\+Actor\+::hp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 88 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ae4cb3aadfe983b6bee09b27649dbb704}{}\label{class_flow_1_1_actor_ae4cb3aadfe983b6bee09b27649dbb704} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!identify@{identify}}
+\index{identify@{identify}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{identify()}{identify()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::identify (\begin{DoxyParamCaption}\item[{unsigned int}]{index,  }\item[{bool}]{output = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 414 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aec57f78aa7e423c35b6b8addbe0aa46f}{}\label{class_flow_1_1_actor_aec57f78aa7e423c35b6b8addbe0aa46f} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!inv\+Menu@{inv\+Menu}}
+\index{inv\+Menu@{inv\+Menu}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{inv\+Menu()}{invMenu()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Flow\+::\+Actor\+::inv\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 388 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a21e03a4d2284091fe232dfe2cc7cbf47}{}\label{class_flow_1_1_actor_a21e03a4d2284091fe232dfe2cc7cbf47} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!inv\+Size@{inv\+Size}}
+\index{inv\+Size@{inv\+Size}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{inv\+Size()}{invSize()}}
+{\footnotesize\ttfamily unsigned int Flow\+::\+Actor\+::inv\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 203 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aac6046fc99b742a2307084b0b366c2ed}{}\label{class_flow_1_1_actor_aac6046fc99b742a2307084b0b366c2ed} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!job@{job}}
+\index{job@{job}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{job()}{job()}}
+{\footnotesize\ttfamily \hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Flow\+::\+Job} Flow\+::\+Actor\+::job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 69 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a197cf5bc7b1b24c4e557adbdc6d9bbdf}{}\label{class_flow_1_1_actor_a197cf5bc7b1b24c4e557adbdc6d9bbdf} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!mp@{mp}}
+\index{mp@{mp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{mp()}{mp()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_i_stat}{Flow\+::\+I\+Stat} Flow\+::\+Actor\+::mp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 107 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a66f88663ad38508b09e53115608dd0f7}{}\label{class_flow_1_1_actor_a66f88663ad38508b09e53115608dd0f7} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!name@{name}}
+\index{name@{name}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Actor\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 184 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ad0c8afd90595778d5d7db6d1c011cf66}{}\label{class_flow_1_1_actor_ad0c8afd90595778d5d7db6d1c011cf66} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!rm\+Item@{rm\+Item}}
+\index{rm\+Item@{rm\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{rm\+Item()}{rmItem()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::rm\+Item (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 223 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aa2e9fe8206357384b2b515fb4adc5613}{}\label{class_flow_1_1_actor_aa2e9fe8206357384b2b515fb4adc5613} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!select\+Itm@{select\+Itm}}
+\index{select\+Itm@{select\+Itm}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{select\+Itm()}{selectItm()}}
+{\footnotesize\ttfamily int Flow\+::\+Actor\+::select\+Itm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 431 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_acbf21154d7e206e1c9c40d43d6ae88b3}{}\label{class_flow_1_1_actor_acbf21154d7e206e1c9c40d43d6ae88b3} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Atk@{set\+Atk}}
+\index{set\+Atk@{set\+Atk}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Atk()}{setAtk()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Atk (\begin{DoxyParamCaption}\item[{unsigned char}]{atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line 146 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a2f9aa41cb7a5e4a4319d26df739e6cbc}{}\label{class_flow_1_1_actor_a2f9aa41cb7a5e4a4319d26df739e6cbc} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Atk@{set\+Atk}}
+\index{set\+Atk@{set\+Atk}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Atk()}{setAtk()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Atk (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&}]{atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ac16d68ce3b4ae9c101e88c88c5a8fba7}{}\label{class_flow_1_1_actor_ac16d68ce3b4ae9c101e88c88c5a8fba7} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Def@{set\+Def}}
+\index{set\+Def@{set\+Def}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Def()}{setDef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Def (\begin{DoxyParamCaption}\item[{unsigned char}]{def }\end{DoxyParamCaption})}
+
+
+
+Definition at line 175 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a7f26d278d238642dc41a078a1bf11e17}{}\label{class_flow_1_1_actor_a7f26d278d238642dc41a078a1bf11e17} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Def@{set\+Def}}
+\index{set\+Def@{set\+Def}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Def()}{setDef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Def (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&}]{def }\end{DoxyParamCaption})}
+
+
+
+Definition at line 165 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a9d238ca2827b58905429ffb52658b6e4}{}\label{class_flow_1_1_actor_a9d238ca2827b58905429ffb52658b6e4} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Hp@{set\+Hp}}
+\index{set\+Hp@{set\+Hp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Hp()}{setHp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Hp (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 463 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a7b3e24d878fc96ecab4745e61f58af01}{}\label{class_flow_1_1_actor_a7b3e24d878fc96ecab4745e61f58af01} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Hp@{set\+Hp}}
+\index{set\+Hp@{set\+Hp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Hp()}{setHp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Hp (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&}]{hp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a3921cad19f9f35e813fd23ecf8c41d48}{}\label{class_flow_1_1_actor_a3921cad19f9f35e813fd23ecf8c41d48} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Job@{set\+Job}}
+\index{set\+Job@{set\+Job}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Job()}{setJob()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Job (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job}}]{job }\end{DoxyParamCaption})}
+
+
+
+Definition at line 79 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ab7eb041ec6ec3d5d7dc7461357b2f1f3}{}\label{class_flow_1_1_actor_ab7eb041ec6ec3d5d7dc7461357b2f1f3} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Mp@{set\+Mp}}
+\index{set\+Mp@{set\+Mp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Mp()}{setMp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Mp (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 473 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a903cd49c0be38c65c8def221f707e987}{}\label{class_flow_1_1_actor_a903cd49c0be38c65c8def221f707e987} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Mp@{set\+Mp}}
+\index{set\+Mp@{set\+Mp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Mp()}{setMp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Mp (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&}]{mp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aba0903cd8e1791709bda9fdf7cdf2b6b}{}\label{class_flow_1_1_actor_aba0903cd8e1791709bda9fdf7cdf2b6b} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 194 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a766104232c5b1e55c487d734af749cba}{}\label{class_flow_1_1_actor_a766104232c5b1e55c487d734af749cba} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!stat@{stat}}
+\index{stat@{stat}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{stat()}{stat()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::stat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 538 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ac49323dea55c9a516c9de9a7a29f3af1}{}\label{class_flow_1_1_actor_ac49323dea55c9a516c9de9a7a29f3af1} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!to\+Actor@{to\+Actor}}
+\index{to\+Actor@{to\+Actor}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{to\+Actor()}{toActor()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::to\+Actor (\begin{DoxyParamCaption}\item[{\hyperlink{class_flow_1_1_bin_array}{Bin\+Array} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 598 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a2252bd864b45e784daaa9f8ecf7ba276}{}\label{class_flow_1_1_actor_a2252bd864b45e784daaa9f8ecf7ba276} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!to\+Bin@{to\+Bin}}
+\index{to\+Bin@{to\+Bin}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{to\+Bin()}{toBin()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_bin_array}{Flow\+::\+Bin\+Array} Flow\+::\+Actor\+::to\+Bin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 569 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_af13b4677ccd567310e86791b2a68be5d}{}\label{class_flow_1_1_actor_af13b4677ccd567310e86791b2a68be5d} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!use@{use}}
+\index{use@{use}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::use (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 313 of file Actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ac3a62be0b16ee5c462dfb573b45d16b0}{}\label{class_flow_1_1_actor_ac3a62be0b16ee5c462dfb573b45d16b0} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!weap@{weap}}
+\index{weap@{weap}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{weap()}{weap()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_item}{Flow\+::\+Item} Flow\+::\+Actor\+::weap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 244 of file Actor.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/git/gn0mesort/\+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+1/\+Overflow/\hyperlink{_actor_8h}{Actor.\+h}\item 
+E\+:/git/gn0mesort/\+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+1/\+Overflow/\hyperlink{_actor_8cpp}{Actor.\+cpp}\end{DoxyCompactItemize}

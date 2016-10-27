@@ -15,7 +15,8 @@
 #ifndef BINARRAY_H
 #define BINARRAY_H
 
-#include <fstream>
+//System Libraries
+#include <fstream> //File Streams
 
 namespace Flow{
     //BinArray

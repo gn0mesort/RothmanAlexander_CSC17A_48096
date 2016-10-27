@@ -12,11 +12,9 @@
  * Created on October 14, 2016
  */
 
-#include <sstream>
-#include <cstring>
-
-#include "Item.h"
-#include "Game.h"
+//User Libraries
+#include "Item.h" //Item objects
+#include "Game.h" //Main game objects and loose functions
 
 //Item
 //Default Constructor
