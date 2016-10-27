@@ -1,113 +1,160 @@
 /*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   Flags.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Source file for Flags.h
  * Created on October 15, 2016
  */
 
-#include <sstream>
-
 #include "Flags.h"
 
+//toStr
+//Convert a direction constant to a string
+//Input:
+//direct
+//A direction to return the string of
+//Output:
+//A string representing the input direction
+
 std::string Flow::Direct::toStr(unsigned char direct){
-    std::stringstream r;
+    std::string r; //The return string
 
-    if(direct == Flow::Direct::NONE){
-        r << "No exits ";
+    if(direct == Direct::NONE){ //If no exits
+        r += "No exits ";
     }
-    else{
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::NORTH)){
-            r << "North ";
+    else{ //Otherwise
+        if(FlgUtil::hasFlag(direct, Direct::NORTH)){ //If there's a north exit
+            r += "North ";
         }
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::EAST)){
-            r << "East ";
+        if(FlgUtil::hasFlag(direct, Direct::EAST)){ //If there's an east exit
+            r += "East ";
         }
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::SOUTH)){
-            r << "South ";
+        if(FlgUtil::hasFlag(direct, Direct::SOUTH)){ //If there's a south exit
+            r += "South ";
         }
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::WEST)){
-            r << "West ";
+        if(FlgUtil::hasFlag(direct, Direct::WEST)){ //If there's a west exit
+            r += "West ";
         }
     }
 
-    return r.str();
+    return r;
 }
 
-std::string Flow::Direct::toStr(unsigned char direct, bool abbrv){
-    std::stringstream r;
+//toStr
+//Convert a direction to an abbreviated string or to its normal string representation
+//Input:
+//direct
+//The direction to return the string of
+//Output:
+//A string representing the input direction
 
-    if(abbrv){
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::NORTH)){
-            r << "N";
+std::string Flow::Direct::toStr(unsigned char direct, bool abbrv){
+    std::string r; //The return string
+
+    if(abbrv){ //If abbreviated
+        if(FlgUtil::hasFlag(direct, Direct::NORTH)){ //If north
+            r += "N";
         }
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::EAST)){
-            r << "E";
+        if(FlgUtil::hasFlag(direct, Direct::EAST)){ //If east
+            r += "E";
         }
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::SOUTH)){
-            r << "S";
+        if(FlgUtil::hasFlag(direct, Direct::SOUTH)){ //If south
+            r += "S";
         }
-        if(Flow::FlgUtil::hasFlag(direct, Flow::Direct::WEST)){
+        if(FlgUtil::hasFlag(direct, Direct::WEST)){ //If west
             r << "W";
         }
     }
-    else{
-        r << toStr(direct);
+    else{ //Otherwise
+        r += toStr(direct); //Get the long string
     }
 
-    return r.str();
+    return r;
 }
+
+//reverse
+//Return the reverse of the input direction
+//Input:
+//direct
+//The direction to return the reverse of
+//Output:
+//The opposite of any cardinal direction or Flow::Direct::NONE (0) otherwise
 
 unsigned char Flow::Direct::reverse(unsigned char direct){
-    if(direct == Flow::Direct::NORTH){
-        return Flow::Direct::SOUTH;
+    if(direct == Direct::NORTH){ //If north
+        return Direct::SOUTH;
     }
-    else if(direct == Flow::Direct::SOUTH){
-        return Flow::Direct::NORTH;
+    else if(direct == Direct::SOUTH){ //Else if south
+        return Direct::NORTH;
     }
-    else if(direct == Flow::Direct::EAST){
-        return Flow::Direct::WEST;
+    else if(direct == Direct::EAST){ //Else if east
+        return Direct::WEST;
     }
-    else if(direct == Flow::Direct::WEST){
-        return Flow::Direct::EAST;
+    else if(direct == Direct::WEST){ //Else if west
+        return Direct::EAST;
     }
-    return Flow::Direct::NONE;
+    return Direct::NONE; //In case of noncardinal directions
 }
+
+//toStr
+//Convert an element to a string
+//Input:
+//elem
+//The element to convert
+//Output:
+//The string representation of the element
 
 std::string Flow::DmgElem::toStr(unsigned char elem){
-    std::stringstream r;
+    std::string r;
 
     if(elem == Flow::DmgElem::ABSOLUT){
-        r << "Absolute ";
+        r += "Absolute ";
     }
     else{
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::HEALING)){
-            r << "Healing ";
+        if(FlgUtil::hasFlag(elem, DmgElem::HEALING)){ //If the element contains healing
+            r += "Healing ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::FIRE)){
-            r << "Fire ";
+        if(FlgUtil::hasFlag(elem, DmgElem::FIRE)){ //If the element contains fire
+            r += "Fire ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::ICE)){
-            r << "Ice ";
+        if(FlgUtil::hasFlag(elem, DmgElem::ICE)){ //If the element contains ice
+            r += "Ice ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::LIGHTNG)){
-            r << "Lightning ";
+        if(FlgUtil::hasFlag(elem, DmgElem::LIGHTNG)){ //If the element contains lightning
+            r += "Lightning ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::WIND)){
-            r << "Wind ";
+        if(FlgUtil::hasFlag(elem, DmgElem::WIND)){ //If the element contains wind
+            r += "Wind ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::HOLY)){
-            r << "Holy ";
+        if(FlgUtil::hasFlag(elem, DmgElem::HOLY)){ //If the element contains holy
+            r += "Holy ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::SHADOW)){
-            r << "Shadow ";
+        if(FlgUtil::hasFlag(elem, DmgElem::SHADOW)){ //If the element contains shadow
+            r += "Shadow ";
         }
-        if(Flow::FlgUtil::hasFlag(elem, Flow::DmgElem::NGHTMRE)){
-            r << "Nightmare ";
+        if(FlgUtil::hasFlag(elem, DmgElem::NGHTMRE)){ //If the element contains nightmare
+            r += "Nightmare ";
         }
     }
 
-    return r.str();
+    return r;
 }
+
+//hasFlag
+//Return whether or not the input data has the given flag value. Works with flags of any size up to unsigned long
+//Input:
+//data
+//The set of flags to check
+//value
+//The elemental flag value to check for
+//Output:
+//True if the flag is found otherwise false
 
 bool Flow::FlgUtil::hasFlag(unsigned long data, unsigned long value){
     return (data & value) == value;

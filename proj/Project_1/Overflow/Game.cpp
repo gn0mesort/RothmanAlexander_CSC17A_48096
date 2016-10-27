@@ -1,7 +1,14 @@
 /*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   Game.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Source file for Game.h
  * Created on October 15, 2016
  */
 
@@ -197,14 +204,14 @@ int Flow::iMenu(const std::vector<std::string> &opts, unsigned int perLine){
             }
             else{
                 std::cout << frmtOpt(0) << " " << opts[i];
-            } 
+            }
         }
         std::cout << std::endl << "> ";
         std::getline(std::cin, input);
         convert << input;
         convert >> r;
     } while(r < 0 || r > opts.size() + 1);
-    
+
 
     return r;
 }
@@ -717,7 +724,7 @@ Flow::Item Flow::GmRand::rItem(bool ident){
     unsigned char elem = rElem();
     int tInt = rand() % 100;
     Item r;
-    
+
     if(tInt < 50){
         tInt = 1;
     }
@@ -732,7 +739,7 @@ Flow::Item Flow::GmRand::rItem(bool ident){
     std::string uiName = Game::nItems[tInt - 1][rand() % Game::nItems[tInt - 1].size()];
     r = Item("", uiName, "", DmgElem::NONE, type, value, ident);
     r.setElem(elem);
-    
+
     return r;
 }
 

@@ -98,7 +98,7 @@ void Flow::Room::trigger(){
         _event = Flow::RmEvent::None;
     }
     else{
-        std::cout << "There are exits to the ( " << Flow::Direct::toStr(_exit) << " )" << std::endl;
+        std::cout << "There are exits to the ( " << Flow::Direct::toStr(_exit) << ")" << std::endl;
         if(_end){
             std::cout << "You can see a flight of stairs in the far corner!" << std::endl;
         }
