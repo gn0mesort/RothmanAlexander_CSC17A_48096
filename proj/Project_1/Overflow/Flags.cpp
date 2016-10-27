@@ -68,7 +68,7 @@ std::string Flow::Direct::toStr(unsigned char direct, bool abbrv){
             r += "S";
         }
         if(FlgUtil::hasFlag(direct, Direct::WEST)){ //If west
-            r << "W";
+            r += "W";
         }
     }
     else{ //Otherwise

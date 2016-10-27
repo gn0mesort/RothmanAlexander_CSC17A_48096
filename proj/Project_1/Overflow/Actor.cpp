@@ -341,13 +341,13 @@ void Flow::Actor::use(unsigned int index){
         }
         else if(target.element() == DmgElem::ABSOLUT){ //If the potion is an absolute type potion
             std::cout << _name << " was fully restored!" << std::endl;
-            _hp.setVal(_hp.max()); //Restore hp
-            _mp.setVal(_mp.max()); //Restore mp
+            _hp.setValue(_hp.max()); //Restore hp
+            _mp.setValue(_mp.max()); //Restore mp
         }
         else{ //Otherwise do potion processing by element
             if(FlgUtil::hasFlag(target.element(), DmgElem::HEALING)){ //If the potion has a healing flag
                 std::cout << _name << " recovered " << toInt(target.value()) << " HP!" << std::endl;
-                _hp.setVal(_hp.value() + target.value()); //heal the Actor
+                _hp.setValue(_hp.value() + target.value()); //heal the Actor
             }
             if(FlgUtil::hasFlag(target.element(), DmgElem::FIRE)){ //If the potion has a fire flag
                 std::cout << _name << "'s attack power increased by " << toInt(target.value()) << std::endl;
@@ -465,7 +465,7 @@ int Flow::Actor::selectItm(){
 //The value to set the Actor's hp to
 
 void Flow::Actor::setHp(int value){
-    _hp.setVal(value);
+    _hp.setValue(value);
 }
 
 //setMp
@@ -475,7 +475,7 @@ void Flow::Actor::setHp(int value){
 //The value to set the Actor's mp to
 
 void Flow::Actor::setMp(int value){
-    _mp.setVal(value);
+    _mp.setValue(value);
 }
 
 //attack
@@ -515,7 +515,7 @@ void Flow::Actor::attack(Actor &target){
             std::cout << _name << "'s weapon is burning with witchfire!" << std::endl;
             int bonus = 0; //The mana bonus is 0
             bonus = Game::gmRand.rand() % _mp.value(); //Calculate the mana bonus between 0 and the current amount of MP
-            _mp.setVal(_mp.value() - bonus); //Subtract the consumed MP
+            _mp.setValue(_mp.value() - bonus); //Subtract the consumed MP
             damage += bonus; //Add the bonus to the damage
         }
         if(damage > 0){ //If the damage is greater than 0
@@ -619,11 +619,11 @@ void Flow::Actor::toActor(BinArray &data){
 
     data >> hpMax; //Extract the Actor's hp
     _hp.setMax(toInt(hpMax)); //Set the Actor's max hp
-    _hp.setVal(_hp.max()); //Set the Actor's current hp
+    _hp.setValue(_hp.max()); //Set the Actor's current hp
 
     data >> mpMax; //Extract the Actor's mp
     _mp.setMax(toInt(mpMax)); //Set the Actor's max mp
-    _mp.setVal(_mp.max()); //Set the Actor's current mp
+    _mp.setValue(_mp.max()); //Set the Actor's current mp
 
     data >> atk; //Extract the Actor's atk
     _atk.setValue(atk[0]); //Set the Actor's atk

@@ -45,7 +45,6 @@ namespace Flow{
         BStat(const BStat&);
         void setValue(unsigned char);
         unsigned char value() const;
-        std::string toString() const;
     };
 
     //IStat
@@ -65,13 +64,12 @@ namespace Flow{
             int absMax = 9999, int absMin = 0);
         void setMax(int);
         void setMin(int);
-        void setVal(int);
+        void setValue(int);
         int absMax() const;
         int absMin() const;
         int max() const;
         int min() const;
         int value() const;
-        std::string toString() const;
     };
 
 }

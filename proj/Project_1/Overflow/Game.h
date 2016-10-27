@@ -18,11 +18,20 @@
 //System Libraries
 #include <vector>
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <cstdio>
+#include <ctime>
+#include <sstream>
 
 //User Libraries
 #include "Actor.h"
 #include "Room.h"
 #include "BinArray.h"
+#include "Room.h"
+#include "Flags.h"
 
 //Flow
 //This is Overflow's main namespace. Contains all game objects and data.
@@ -80,7 +89,7 @@ namespace Flow{
         static std::vector<std::string> dMenu; //Difficulty menu vector
         static std::vector<std::string> *nItems; //Pointer to unidentified item names array/vectors
         static std::vector<std::string> *nWeaps; //Pointer to weapon names array/vectors
-        static Floor floor; //The game's current board as a floor object
+        static Floor floor; //The game's current board as a Floor object
     };
     
     //Function Prototypes
@@ -100,7 +109,6 @@ namespace Flow{
     bool load();
     char menu(const std::vector<std::string>&, unsigned int);
     unsigned int binPow(unsigned int);
-    unsigned int strBSize(const std::string&);
     int iMenu(const std::vector<std::string>&, unsigned int);
     int toInt(unsigned char);
     std::string frmtOpt(int);

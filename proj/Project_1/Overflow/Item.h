@@ -53,7 +53,6 @@ namespace Flow{
         Item(std::string, std::string = "Unknown Item", std::string = "An Item", 
         unsigned char = DmgElem::NONE, ItmType = ItmType::Potion, unsigned char = 0, bool = false);
         void identify();
-        void mkDesc();
         void obfscte();
         void setDesc(std::string);
         void setElem(unsigned char);

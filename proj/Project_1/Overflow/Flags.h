@@ -15,6 +15,7 @@
 #ifndef FLAGS_H
 #define FLAGS_H
 
+#include <string>
 //#include <cmath>
 
 namespace Flow{
