@@ -27,6 +27,15 @@ SAVING AND LOADING GAMES:
     function. Deleting game saves outside of this will corrupt the index.sav
     file. If you wish to fix your index.sav file manually you may open it as
     a text file and remove the invalid paths.
+FILE ENCODINGS
+    The default game data files for Overflow are all encoded using UTF-8. A
+    set of ANSI encoded ASCII art files can be found in the GameData/ANSI
+    folder. A copy of the default UTF-8 encoded art files can be found in
+    GameData/UTF8
+    
+    It is safe to switch between these different encodings (even while the
+    game is running) but it is not necessary to switch unless you're 
+    experiencing display issues.
 .SAV FILE FORMAT:
     Overflow's .sav files are formatted as follows.
     *****PLAYER_NAME.SAV*******************************************************
@@ -100,3 +109,9 @@ KNOWN ISSUES:
         intended to be displayed in the Lucida Console font. If you prefer
         to use other settings you may disable ASCII art at any time in the
         options menu.
+        This issue may also be caused by terminals that display UTF-8 encoded
+        text incorrectly. This is especially the case in Windows. By default
+        all Overflow text files are encoded in UTF-8. However ANSI encoded
+        ASCII art files can be found in the GameData/ANSI folder. If you
+        wish to use these instead of the default simply copy them into
+        GameData.
