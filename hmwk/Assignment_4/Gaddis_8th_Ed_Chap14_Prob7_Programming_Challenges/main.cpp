@@ -6,10 +6,10 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream> //I/O
 
 //User Libraries
-#include "month.h"
+#include "month.h" //Month objects
 using namespace std;
 
 //Begin Execution
@@ -37,7 +37,7 @@ int main(int argc, char** argv){
         cout << "INPUT A MONTH NAME: ";
         cin >> m; //Test inserting by reading in a month
     } while(m.value() == 13);
-    cout << "INPUT MONTH WAS: " << m << " OR MONTH #" << static_cast<int>(m.value()) << endl; //Output month
+    cout << "INPUT MONTH WAS: " << m << " OR MONTH #" << static_cast<int>(m.value() ? m.value() : 12) << endl; //Output month
 
     //Exit
     return 0;

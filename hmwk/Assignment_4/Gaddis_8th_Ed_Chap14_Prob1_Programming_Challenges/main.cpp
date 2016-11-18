@@ -6,10 +6,10 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream> //I/O
 
 //User Libraries
-#include "numbers.h"
+#include "numbers.h" //Numbers objects
 using namespace std;
 
 //Begin Execution

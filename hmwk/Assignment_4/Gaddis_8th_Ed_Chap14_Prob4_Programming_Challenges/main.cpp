@@ -6,10 +6,10 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream> //I/O
 
 //User Libraries
-#include "numdays.h"
+#include "numdays.h" //NumDays objects
 using namespace std;
 
 //Begin Execution

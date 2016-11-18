@@ -6,10 +6,10 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream> //I/O
 
 //User Libraries
-#include "person.h"
+#include "person.h" //Person objects
 using namespace std;
 
 //Function Prototypes

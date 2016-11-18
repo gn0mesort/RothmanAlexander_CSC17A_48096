@@ -6,11 +6,11 @@
  */
 
 //System Libraries
-#include <iostream>
-#include <iomanip>
+#include <iostream> //I/O
+#include <iomanip> //I/O Formatting
 
 //User Libraries
-#include "inventory.h"
+#include "inventory.h" //Inventory objects
 using namespace std;
 
 //Begin Execution

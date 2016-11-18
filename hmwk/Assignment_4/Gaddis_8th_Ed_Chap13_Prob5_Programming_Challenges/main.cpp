@@ -6,11 +6,11 @@
  */
 
 //System Libraries
-#include <iostream>
-#include <iomanip>
+#include <iostream> //I/O
+#include <iomanip> //I/O Formatting
 
 //User Libraries
-#include "retailitem.h"
+#include "retailitem.h" //RetailItem objects
 using namespace std;
 
 //Begin Execution

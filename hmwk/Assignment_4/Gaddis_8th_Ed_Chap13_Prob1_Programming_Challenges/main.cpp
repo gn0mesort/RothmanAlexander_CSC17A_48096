@@ -6,10 +6,10 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream> //I/O
 
 //User Libraries
-#include "date.h"
+#include "date.h" //Date objects
 using namespace std;
 
 //Begin Execution

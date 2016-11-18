@@ -9,9 +9,9 @@
 #define DAYOFYEAR_H
 
 //System Libraries
-#include <string>
-#include <iostream>
-#include <sstream>
+#include <string> //Strings
+#include <iostream> //I/O
+#include <sstream> //String streams
 
 //DayOfYear
 //A class representing a single day of a 365 day year. Does not handle leap years
@@ -50,7 +50,7 @@ public:
     //Output:
     //The underlying day value
 
-    unsigned int day(){
+    unsigned int day() const{
         return _day;
     }
 
@@ -64,12 +64,12 @@ public:
         _day = nDay % 365;
     }
 
-    std::string toString();
+    std::string toString() const;
 
     //print
     //Output the string representation of this object to standard out
 
-    void print(){
+    void print() const{
         std::cout << toString() << std::endl;
     }
 

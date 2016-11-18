@@ -6,12 +6,12 @@
  */
 
 //System Libraries
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <iostream> //I/O
+#include <cstdlib> //C Standard Library
+#include <ctime> //Time
 
 //User Libraries
-#include "floatarr.h"
+#include "floatarr.h" //FloatArr objects
 using namespace std;
 
 //Begin Execution

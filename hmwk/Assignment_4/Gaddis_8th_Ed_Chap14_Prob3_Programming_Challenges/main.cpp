@@ -6,12 +6,12 @@
  */
 
 //System Libraries
-#include <iostream>
-#include <iomanip>
-#include <string>
+#include <iostream> //I/O
+#include <iomanip> //I/O Formatting
+#include <string> //Strings
 
 //User Libraries
-#include "dayofyear.h"
+#include "dayofyear.h" //DayOfYear objects
 using namespace std;
 
 //Begin Execution

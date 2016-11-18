@@ -6,7 +6,7 @@
  */
 
 //User Libraries
-#include "dayofyear.h"
+#include "dayofyear.h" //DayOfYear objects
 
 std::string DayOfYear::_months[NUM_MON] = {"January", "February", "March", "April", "May", "June", "July", "August",
                                            "September", "October", "November", "December"};
@@ -18,7 +18,7 @@ unsigned char DayOfYear::_monthDays[NUM_MON] = {31, 28, 31, 30, 31, 30, 31, 31, 
 //Output:
 //The string name of the current month and the day of that month
 
-std::string DayOfYear::toString(){
+std::string DayOfYear::toString() const{
     std::stringstream r; //Conversion stream
 
     if(_day == 0){ //If December 31
