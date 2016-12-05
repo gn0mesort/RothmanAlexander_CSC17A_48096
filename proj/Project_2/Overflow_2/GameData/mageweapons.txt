@@ -1,0 +1,10 @@
+Staff
+Wand
+Cane
+Amulet
+Talisman
+Charm
+Tome
+Crystal
+Censer
+Relic
