@@ -13,6 +13,9 @@
 
 #ifndef STRUCTS_H
 #define STRUCTS_H
+
+#include <string>
+
 namespace Flow{
 
     struct RNGPoint{
@@ -25,6 +28,10 @@ namespace Flow{
         std::string saveGame;
     };
 
+    struct Point{
+        int x;
+        int y;
+    };
 }
 
 #endif /* STRUCTS_H */

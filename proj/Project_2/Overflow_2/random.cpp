@@ -11,12 +11,10 @@
  * Created on December 2, 2016
  */
 
+#include "game.h"
 #include "random.h"
 
-Flow::GmRand::GmRand(){
-    _point.pos = 0;
-    _point.seed = 0;
-}
+Flow::RNGPoint Flow::GmRand::_point;
 
 void Flow::GmRand::srand(){
     _point.pos = 0;
@@ -53,7 +51,36 @@ unsigned int Flow::GmRand::seed(){
     return _point.seed;
 }
 
-Flow::Actor Flow::GmRand::rActor(){ }
+Flow::Actor Flow::GmRand::rActor(Game &game){
+    unsigned char drops = 0; //The number of drop items
+    int hp = rand() % (game.player().hp().max() * 2) + 1; //HP is between 1 and 2 * the player's max HP
+    int mp = rand() % (game.player().mp().max() * 2) + 1; //MP is between 1 and 2 * the player's max MP
+    unsigned char atk = rand() % (game.player().attack().value() + 2); //Attack is between 0 and the player's attack + 2
+    unsigned char def = rand() % (game.player().attack().value() + 2); //Defense is between 0 and the player's defense + 2
+    std::string name = game.monsterNames()[rand() % game.monsterNames().size()]; //Generate the name
+    //Generate weapons and armor
+    //Both may have values between 0 and the player's bonus + 10
+    Actor r; //The return Actor
+    rItem(r, game, ItemType::Weapon, false);
+    r.use(0, false);
+    r.removeItem(0);
+    rItem(r, game, ItemType::Armor, false);
+    r.use(0, false);
+    r.removeItem(0);
+
+    r.name(name); //Set the name
+    r.attack(atk); //Set the atk
+    r.defense(def); //Set the def
+    r.hp(IStat(hp, "HP", "Hit Points", hp, 0, 9999, 0)); //Set HP
+    r.mp(IStat(mp, "MP", "Magic Points", mp, 0, 9999, 0)); //Set MP
+
+    drops = (rand() % 4); //Generate number of Item drops
+    for(int i = 0; i < drops; ++i){ //For each drop
+        rItem(r, game, ItemType::None, false); //Add a random Item
+    }
+
+    return r;
+}
 
 unsigned char Flow::GmRand::rElem(){
     unsigned char val = rand() % 100; //Generate a percentage
@@ -68,33 +95,33 @@ unsigned char Flow::GmRand::rElem(){
     else{ ///10% chance of possible multiple enchants
         r = rand() % 256; //Generate a totally random element
     }
+
+    return r;
 }
 
-void Flow::GmRand::rItem(Actor &target, ItemType type){
-    std::shared_ptr<Collections::Dictionary<ItemType, Collections::LinkedList < std::string>>> uiNames =
-            Game::get<Collections::Dictionary<ItemType, Collections::LinkedList < std::string>>>("item_names");
+void Flow::GmRand::rItem(Actor &target, Game &game, ItemType type, bool output){
     RNGPoint gen = _point;
-    unsigned char value = rand() % 256;
+    unsigned char value = rand() % (game.player().attack().value() + 50);
     unsigned char elem = rElem();
     int percent = rand() % 100;
     std::string uiName = "";
 
     if(type == ItemType::None){
         if(percent < 50){
-            uiName = (*uiNames)[ItemType::Potion][rand() % uiNames->size()];
+            uiName = game.itemNames()[ItemType::Potion][rand() % game.itemNames().size()];
             Potion itm("", uiName, "", elem, value);
             itm.generationPoint(gen);
             target.addItem(itm);
         }
         else if(percent >= 50 && percent < 70){
-            uiName = (*uiNames)[ItemType::Armor][rand() % uiNames->size()];
+            uiName = game.itemNames()[ItemType::Armor][rand() % game.itemNames().size()];
             Armor itm("", uiName, "", elem, value);
             itm.generationPoint(gen);
             target.addItem(itm);
         }
         else{
-            uiName = (*uiNames)[ItemType::Weapon][rand() % uiNames->size()];
-            Weapon itm("", uiName, "", elem, value);
+            uiName = game.itemNames()[ItemType::Weapon][rand() % game.itemNames().size()];
+            Weapon itm(game, "", uiName, "", elem, value);
             itm.generationPoint(gen);
             target.addItem(itm);
         }
@@ -103,7 +130,7 @@ void Flow::GmRand::rItem(Actor &target, ItemType type){
         switch(type){
             case ItemType::Potion:
             {
-                uiName = (*uiNames)[ItemType::Potion][rand() % uiNames->size()];
+                uiName = game.itemNames()[ItemType::Potion][rand() % game.itemNames().size()];
                 Potion itm("", uiName, "", elem, value);
                 itm.generationPoint(gen);
                 target.addItem(itm);
@@ -111,15 +138,15 @@ void Flow::GmRand::rItem(Actor &target, ItemType type){
             }
             case ItemType::Weapon:
             {
-                uiName = (*uiNames)[ItemType::Weapon][rand() % uiNames->size()];
-                Weapon itm("", uiName, "", elem, value);
+                uiName = game.itemNames()[ItemType::Weapon][rand() % game.itemNames().size()];
+                Weapon itm(game, "", uiName, "", elem, value);
                 itm.generationPoint(gen);
                 target.addItem(itm);
                 break;
             }
             case ItemType::Armor:
             {
-                uiName = (*uiNames)[ItemType::Armor][rand() % uiNames->size()];
+                uiName = game.itemNames()[ItemType::Armor][rand() % game.itemNames().size()];
                 Armor itm("", uiName, "", elem, value);
                 itm.generationPoint(gen);
                 target.addItem(itm);
@@ -127,8 +154,9 @@ void Flow::GmRand::rItem(Actor &target, ItemType type){
             }
         }
     }
-
-    std::cout << uiName << " acquired!" << std::endl;
+    if(output){
+        std::cout << uiName << " acquired!" << std::endl;
+    }
 }
 
 void Flow::GmRand::seek(const RNGPoint &point){

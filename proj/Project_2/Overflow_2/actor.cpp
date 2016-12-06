@@ -11,6 +11,7 @@
  * Created on December 2, 2016
  */
 
+#include "random.h"
 #include "actor.h"
 
 Flow::Actor::Actor(){
@@ -37,7 +38,7 @@ void Flow::Actor::addItem(const Armor &item){
 }
 
 void Flow::Actor::hit(Actor &target){
-    std::shared_ptr<GmRand> gmRand = Game::get<GmRand>("rand");
+    GmRand gmRand;
     int damage = 0; //The total damage to be dealt
     bool healing = FlagUtil::hasFlag(_weap.element(), DmgElem::HEALING) //Whether or not this attack will heal
             && _weap.element() != DmgElem::ABSOLUT;
@@ -46,8 +47,8 @@ void Flow::Actor::hit(Actor &target){
         damage = _weap.value() + _atk.value(); //Calculate the damage based solely on attack and weapon damage
     }
     else if(target.armor().element() == DmgElem::ABSOLUT){ //Else if both elements are Absolute
-        damage = (_weap.value() + _atk.value()) / ((gmRand->rand() % 3) + 1); //Calculate damage as normal
-        damage -= (target.armor().value() + target.defense().value()) / ((gmRand->rand() % 3) + 1);
+        damage = (_weap.value() + _atk.value()) / ((gmRand.rand() % 3) + 1); //Calculate damage as normal
+        damage -= (target.armor().value() + target.defense().value()) / ((gmRand.rand() % 3) + 1);
     }
     else if(_weap.element() != DmgElem::ABSOLUT && target.armor().element() == DmgElem::ABSOLUT){ //If the defense element is Absolute but the attack element isn't
         absorb = true; //The damage is absorbed
@@ -56,18 +57,18 @@ void Flow::Actor::hit(Actor &target){
         absorb = true; //The damage is absorbed
     }
     else{ //Otherwise
-        damage = (_weap.value() + _atk.value()) / ((gmRand->rand() % 3) + 1); //Calculate damage as normal
-        damage -= (target.armor().value() + target.defense().value()) / ((gmRand->rand() % 3) + 1);
+        damage = (_weap.value() + _atk.value()) / ((gmRand.rand() % 3) + 1); //Calculate damage as normal
+        damage -= (target.armor().value() + target.defense().value()) / ((gmRand.rand() % 3) + 1);
     }
     if(damage < 0){ //If the damage is negative
         damage = 0; //No damage
     }
     if(!healing && !absorb){ //If the attack isn't a heal or absorbed
-        damage += (gmRand->rand() % 5); //Add between 0 and 5 damage
+        damage += (gmRand.rand() % 5); //Add between 0 and 5 damage
         if(_weap.element() != DmgElem::ABSOLUT && FlagUtil::hasFlag(_weap.element(), DmgElem::NGHTMRE) && _mp.value() > 0){ //If Nightmare damage
             std::cout << _name << "'s weapon is burning with witchfire!" << std::endl;
             int bonus = 0; //The mana bonus is 0
-            bonus = gmRand->rand() % _mp.value(); //Calculate the mana bonus between 0 and the current amount of MP
+            bonus = gmRand.rand() % _mp.value(); //Calculate the mana bonus between 0 and the current amount of MP
             _mp.value(_mp.value() - bonus); //Subtract the consumed MP
             damage += bonus; //Add the bonus to the damage
         }
@@ -89,6 +90,7 @@ void Flow::Actor::hit(Actor &target){
 }
 
 void Flow::Actor::equip(const Weapon &weap, bool output){
+    addItem(_weap);
     _weap = weap;
     if(output){
         std::cout << _name << " equipped " << _weap.name() << std::endl;
@@ -96,6 +98,7 @@ void Flow::Actor::equip(const Weapon &weap, bool output){
 }
 
 void Flow::Actor::equip(const Armor &armor, bool output){
+    addItem(_armor);
     _armor = armor;
     if(output){
         std::cout << _name << " equipped " << _armor.name() << std::endl;
@@ -103,10 +106,11 @@ void Flow::Actor::equip(const Armor &armor, bool output){
 }
 
 void Flow::Actor::identify(unsigned int index, bool output){
-    if(_inv[index]->isIdenitfied()){
+    if(!_inv[index]->isIdenitfied()){
         if(output){ //If output should be displayed
             std::cout << _inv[index]->unidentifiedName() << " is " << _inv[index]->name() << std::endl;
         }
+        _inv[index]->identify();
     }
     else if(output){ //Otherwise if output should be displayed
         std::cout << "Nothing happens." << std::endl;
@@ -190,7 +194,47 @@ Flow::Armor Flow::Actor::armor() const{
 }
 
 int Flow::Actor::selectItem(){
-    return 0;
+    int r = intMenu(inventoryMenu(), 1); //Get the return value from menu processing
+    if(r > 0){ //If not back
+        char input = menu({"Use", "Drop"}, 2); //Menu processing
+        switch(input){
+            case 'U': //Use
+            {
+                use(r - 1); //Use the item
+                break;
+            }
+            case 'D': //Drop
+            {
+                std::cout << _name << " dropped ";
+                if(_inv[r - 1]->isIdenitfied()){ //If it's identified
+                    std::cout << _inv[r - 1]->name() << std::endl; //Show the identified name
+                }
+                else{ //Otherwise
+                    std::cout << _inv[r - 1]->unidentifiedName() << std::endl; //Show the unidentified name
+                }
+                removeItem(r - 1); //Remove the item
+            }
+        }
+    }
+    return r;
+}
+
+Collections::LinkedList<std::string> Flow::Actor::inventoryMenu(){
+    Collections::LinkedList<std::string> r; //The return vector
+    for(int i = 0; i < _inv.size(); ++i){ //For the entire inventory
+        std::string opt; //The current menu option
+        if(_inv[i]->isIdenitfied()){ //If the item is identified
+            opt += _inv[i]->name() + "\n"; //Add the name
+            opt += "\t" + _inv[i]->description(); //Add the description
+        }
+        else{ //Otherwise
+            opt += _inv[i]->unidentifiedName(); //Add the unidentified name
+        }
+        r.addBack(opt); //Push opt to the return vector
+    }
+    r.addBack("Back"); //Push the Back option
+
+    return r;
 }
 
 unsigned int Flow::Actor::invSize(){
@@ -199,6 +243,7 @@ unsigned int Flow::Actor::invSize(){
 
 void Flow::Actor::addItems(const Actor &other){
     for(int i = 0; i < other._inv.size(); ++i){
+        //std::cout << other._inv[i]->isIdenitfied() << std::endl;
         _inv.addBack(other._inv[i]);
         std::cout << other._inv[i]->unidentifiedName() << " acquired!" << std::endl;
     }
@@ -212,9 +257,17 @@ void Flow::Actor::difficulty(unsigned char diff){
     _diff = diff;
 }
 
-void Flow::Actor::use(unsigned int index){
-    if(_inv[index]->use(*this)){
-        removeItem(index);
+void Flow::Actor::use(unsigned int index, bool output){
+    std::shared_ptr<Item> itm = _inv[index];
+    removeItem(index);
+    if(!itm->use(*this, output)){
+        _inv.addBack(itm);
+    }
+}
+
+void Flow::Actor::obfuscate(){
+    for(int i = 0; i < _inv.size(); ++i){
+        _inv[i]->obfuscate();
     }
 }
 

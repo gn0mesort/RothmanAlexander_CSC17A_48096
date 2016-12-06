@@ -14,32 +14,20 @@
 #ifndef RANDOM_H
 #define RANDOM_H
 
-#include <cstdlib>
-#include <ctime>
-#include <memory>
-
-#include "collections.h"
-#include "macros.h"
-#include "game.h"
-#include "item.h"
 #include "structs.h"
-#include "room.h"
+#include "enums.h"
 
 namespace Flow{
-    class Actor;
-    class Game;
-    class Item;
-    class Armor;
-    class Weapon;
-    class Potion;
     class Floor;
     class Room;
+    class Game;
+    class Actor;
 
     class GmRand{
     private:
-        RNGPoint _point;
+        static RNGPoint _point;
     public:
-        GmRand();
+        //GmRand();
         void seek(unsigned int);
         void seek(const RNGPoint&);
         void srand();
@@ -47,8 +35,8 @@ namespace Flow{
         unsigned int seed();
         unsigned int pos();
         int rand();
-        Actor rActor();
-        void rItem(Actor&, ItemType = ItemType::None);
+        Actor rActor(Game&);
+        void rItem(Actor&, Game&, ItemType = ItemType::None, bool = true);
         unsigned char rElem();
         Floor rFloor(unsigned char = 32);
         Room rRoom(bool = false, bool = false);

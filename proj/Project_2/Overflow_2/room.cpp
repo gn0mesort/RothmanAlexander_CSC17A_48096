@@ -11,6 +11,7 @@
  * Created on December 3, 2016
  */
 
+#include "game.h"
 #include "room.h"
 
 Flow::Room::Room(){
@@ -54,41 +55,41 @@ void Flow::Room::exit(unsigned char nExit){
     _exit = nExit;
 }
 
-void Flow::Room::trigger(){
-    std::shared_ptr<GmRand> gmRand = Game::get<GmRand>("rand");
-    std::shared_ptr<Actor> player = Game::get<Actor>("player");
-    std::shared_ptr<bool> over = Game::get<bool>("game_over");
-    std::shared_ptr<Floor> floor = Game::get<Floor>("floor");
-    std::shared_ptr<Config> conf = Game::get<Config>("game_config");
-    std::shared_ptr<Point> pos = Game::get<Point>("player_pos");
+void Flow::Room::trigger(Game &game){
 
+
+    Point pos = game.pos();
     bool moved = false; //If the player has moved
     std::stringstream convert; //String stream for conversion
-    convert << "GameData/desc" << (to_int(_event) * 3) + ((gmRand->rand() % 3) + 1) << ".txt"; //Get description path
+    convert << "GameData/desc" << (to_int(_event) * 3) + ((game.gmRand().rand() % 3) + 1) << ".txt"; //Get description path
     rdTxt(convert.str()); //Display Room description
     std::cout << std::endl;
 
     if(_event != RmEvent::None){ //If the RmEvent is not none
         if(_event == RmEvent::Encounter){ //If encounter
-            Actor enem = gmRand->rActor(); //Create enemy
+            Actor enem = game.gmRand().rActor(game); //Create enemy
             std::cout << "A " << enem.name() << " attacks!" << std::endl;
-            *over = !encounter(enem); //Process encounter
+            game.setGameOver(!game.encounter(enem)); //Process encounter
         }
         else if(_event == RmEvent::Treasure){ //If treasure
-            unsigned char tCount = (gmRand->rand() % 3) + 1; //Generate between 1 and 3 treasures
+            Actor player = game.player();
+            unsigned char tCount = (game.gmRand().rand() % 3) + 1; //Generate between 1 and 3 treasures
 
             for(int i = 0; i < tCount; ++i){ //For each treasure
-                gmRand->rItem(*player); //Generate a treasure
+                game.gmRand().rItem(player, game); //Generate a treasure
             }
+            game.player(player);
         }
         else if(_event == RmEvent::Spring){ //If spring
-            player->hp(player->hp().max()); //Heal player
-            player->mp(player->mp().max()); //Heal player
-            std::cout << player->name() << " is fully restored!" << std::endl;
-            for(int i = 0; i < player->invSize(); ++i){ //Identify Items
-                player->identify(i); //Identify
+            Actor player = game.player();
+            player.hp(player.hp().max()); //Heal player
+            player.mp(player.mp().max()); //Heal player
+            std::cout << player.name() << " is fully restored!" << std::endl;
+            for(int i = 0; i < player.invSize(); ++i){ //Identify Items
+                player.identify(i); //Identify
             }
             std::cout << "Items identified!" << std::endl;
+            game.player(player);
         }
         _event = RmEvent::None; //Clear room event
     }
@@ -114,73 +115,68 @@ void Flow::Room::trigger(){
             tmpMenu.addBack("Down");
         }
         do{ //While the player hasn't moved Rooms
+            Actor player = game.player();
             char input = menu(tmpMenu, 4); //Display the game menu
             switch(input){
                 case 'P': //Player Status
                 {
-                    std::cout << player->name() << std::endl;
-                    std::cout << "Job: " << toString(player->job()) << std::endl;
-                    std::cout << player->hp().fullName() << ": " << player->hp().value() << "/" << player->hp().max()
-                            << std::endl;
-                    std::cout << player->mp().fullName() << ": " << player->mp().value() << "/" << player->mp().max()
-                            << std::endl;
-                    std::cout << player->attack().fullName() << ": " << to_int(player->attack().value()) << std::endl;
-                    std::cout << player->defense().fullName() << ": " << to_int(player->defense().value()) << std::endl;
-                    std::cout << "Weapon: " << player->weapon().name() << std::endl;
-                    std::cout << "\t" << player->weapon().description() << std::endl;
-                    std::cout << "Armor: " << player->armor().name() << std::endl;
-                    std::cout << "\t" << player->armor().description() << std::endl;
+                    stats(player);
                     break;
                 }
                 case 'I': //Inventory
                 {
-                    player->selectItem();
+                    player.selectItem();
                     break;
                 }
                 case 'O': //Options
                 {
-                    getOptionsMenu();
-                    if(*over){ //If quitting
+                    getOptionsMenu(game);
+                    if(game.isGameOver()){ //If quitting
                         moved = true;
                     }
                     break;
                 }
                 case 'M': //Map
                 {
-                    floor->draw(); //Draw map
+                    game.floor().draw(game); //Draw map
                     break;
                 }
                 default: //For anything else
                 {
                     if(input == 'N' && FlagUtil::hasFlag(_exit, Direct::NORTH)){ //If moving North
-                        floor->move(*pos, Direct::NORTH);
+                        game.floor().move(pos, Direct::NORTH);
+                        game.pos(pos);
                         moved = true;
                     }
                     else if(input == 'E' && FlagUtil::hasFlag(_exit, Direct::EAST)){ //If moving East
-                        floor->move(*pos, Direct::EAST);
+                        game.floor().move(pos, Direct::EAST);
+                        game.pos(pos);
                         moved = true;
                     }
                     else if(input == 'S' && FlagUtil::hasFlag(_exit, Direct::SOUTH)){ //If moving South
-                        floor->move(*pos, Direct::SOUTH);
+                        game.floor().move(pos, Direct::SOUTH);
+                        game.pos(pos);
                         moved = true;
                     }
                     else if(input == 'W' && FlagUtil::hasFlag(_exit, Direct::WEST)){ //If moving West
-                        floor->move(*pos, Direct::WEST);
+                        game.floor().move(pos, Direct::WEST);
+                        game.pos(pos);
                         moved = true;
                     }
                     else if(input == 'D' && _end){ //If exiting the Floor
-                        *over = true; //Quit game
-                        if(conf->asciiArt){ //If ASCII art is on
+                        game.setGameOver(true); //Quit game
+                        if(game.config().asciiArt){ //If ASCII art is on
                             rdTxt("GameData/win.txt"); //Win message
                         }
                         else{ //Otherwise
                             std::cout << "YOU WIN!" << std::endl;
                         }
-                        //save(); //Save the game
+                        save(game.config().saveGame + game.player().name() + ".sav", game); //Save the game
                         moved = true;
                     }
                 }
             }
+            game.player(player);
         } while(!moved);
     }
 }
@@ -254,12 +250,11 @@ bool Flow::Floor::move(Point &pos, unsigned char direct){
     return false;
 }
 
-void Flow::Floor::draw() const{
-    std::shared_ptr<Point> pos = Game::get<Point>("player_pos");
+void Flow::Floor::draw(Game &game) const{
     for(int i = 0; i < _sizeY; ++i){ //For every row
         for(int j = 0; j < _sizeX; ++j){ //For every column
             std::cout << "[";
-            if(pos->x == j && pos->y == i){ //Output @ for the player position (similar to NetHack)
+            if(game.pos().x == j && game.pos().y == i){ //Output @ for the player position (similar to NetHack)
                 std::cout << "@";
             }
             else if(_rooms[i][j].isStart()){ //Output S for the start position

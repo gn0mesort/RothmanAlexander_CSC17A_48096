@@ -11,9 +11,8 @@
  * Created on December 2, 2016
  */
 
-#include "item.h"
-#include "stat.h"
 #include "actor.h"
+#include "game.h"
 
 Flow::Item::Item(){
     _ident = false;
@@ -130,16 +129,45 @@ Flow::Weapon::Weapon() : Flow::Item(){ }
 
 Flow::Weapon::Weapon(const Weapon &other) : Flow::Item(other){ }
 
+Flow::Weapon::Weapon(unsigned char elem, unsigned char value, Game &game) : Flow::Item(0, value){
+    element(elem, game);
+}
+
 Flow::Weapon::Weapon(unsigned char elem, unsigned char value) : Flow::Item(0, value){
     element(elem);
 }
 
-Flow::Weapon::Weapon(const std::string &name, const std::string &uiName, const std::string &desc, unsigned char elem,
-                     unsigned char value, bool ident) : Flow::Item(name, uiName, desc, 0, value, ident){
-    element(elem);
+Flow::Weapon::Weapon(Game &game, const std::string &name, const std::string &uiName, const std::string &desc,
+                     unsigned char elem, unsigned char value, bool ident) : Flow::Item(name, uiName, desc, 0, value,
+                                                                                       ident){
+    element(elem, game);
+}
+
+void Flow::Weapon::element(unsigned char elem){
+    Item::element(elem);
+}
+
+void Flow::Weapon::element(unsigned char elem, Game &game){
+    _elem = elem;
+    if(FlagUtil::hasFlag(_elem, (DmgElem::FIRE | DmgElem::WIND)) && _elem != DmgElem::ABSOLUT){
+        _elem ^= (DmgElem::FIRE | DmgElem::WIND);
+    }
+    if(FlagUtil::hasFlag(_elem, (DmgElem::ICE | DmgElem::LIGHTNG)) && _elem != DmgElem::ABSOLUT){
+        _elem ^= (DmgElem::ICE | DmgElem::LIGHTNG);
+    }
+    _name = createName(game);
+    _desc = createDescription();
+}
+
+unsigned char Flow::Weapon::element() const{
+    return _elem;
 }
 
 std::string Flow::Weapon::createName(){
+    return "Fists";
+}
+
+std::string Flow::Weapon::createName(Game &game){
     std::stringstream r;
 
     if(_elem == Flow::DmgElem::ABSOLUT){ //If ABSOLUT
@@ -184,18 +212,11 @@ std::string Flow::Weapon::createName(){
         }
     }
 
-    try{
-        if(Game::get<Actor>("player")->job() != Job::None){ //If the player has a set Job
-            std::shared_ptr<Collections::Dictionary<Job, Collections::LinkedList < std::string>>> nWeaps =
-                    Game::get<Collections::Dictionary<Job, Collections::LinkedList < std::string>>>("weapon_names");
-            r << (*nWeaps)[Game::get<Actor>("player")->job()][Game::get<GmRand>("rand")->rand() %
-                    (*nWeaps)[Game::get<Actor>("player")->job()].size()]; //Insert the weapon name
-        }
-        else{ //Otherwise
-            r << "Fists";
-        }
+    if(game.player().job() != Job::None){
+        r << game.weaponNames()[game.player().job()][game.gmRand().rand()
+                % game.weaponNames()[game.player().job()].size()];
     }
-    catch(Error::ArgumentException e){
+    else{
         r << "Fists";
     }
 
@@ -215,9 +236,9 @@ std::string Flow::Weapon::createDescription(){
     return r.str();
 }
 
-bool Flow::Weapon::use(Actor &target){
+bool Flow::Weapon::use(Actor &target, bool output){
     identify();
-    target.equip(*this);
+    target.equip(*this, output);
     return true;
 }
 
@@ -301,9 +322,9 @@ std::string Flow::Armor::createDescription(){
     return r.str();
 }
 
-bool Flow::Armor::use(Actor &target){
+bool Flow::Armor::use(Actor &target, bool output){
     identify();
-    target.equip(*this);
+    target.equip(*this, output);
     return true;
 }
 
@@ -416,8 +437,90 @@ std::string Flow::Potion::createDescription(){
     return r.str();
 }
 
-bool Flow::Potion::use(Actor &target){
-    return false;
+bool Flow::Potion::use(Actor &target, bool output){
+    bool r = false;
+    if(output){
+        std::cout << target.name() << " used " << _name << "." << std::endl; //Display usage message
+    }
+    if(_elem == DmgElem::NONE){ //If the item is an Identifying Potion
+        if(target.invSize() > 0){ //If you have more than one Item in your inventory
+            int select = intMenu(target.inventoryMenu(), 1);
+            if(select > 0){ //If the selection is greater than 0
+                target.identify(select - 1, true); //Identify the item and output text
+                r = true;
+            }
+        }
+        else if(output){ //Otherwise if you have no other items
+            std::cout << "Nothing happens." << std::endl;
+        }
+    }
+    else if(_elem == DmgElem::ABSOLUT){ //If the potion is an absolute type potion
+        if(output){
+            std::cout << _name << " was fully restored!" << std::endl;
+        }
+        target.hp(target.hp().max()); //Restore hp
+        target.mp(target.mp().max()); //Restore mp
+        r = true;
+    }
+    else{ //Otherwise do potion processing by element
+        if(FlagUtil::hasFlag(_elem, DmgElem::HEALING)){ //If the potion has a healing flag
+            if(output){
+                std::cout << target.name() << " recovered " << to_int(_value) << " HP!" << std::endl;
+            }
+            target.hp(target.hp().value() + _value); //heal the Actor
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::FIRE)){ //If the potion has a fire flag
+            if(output){
+                std::cout << target.name() << "'s attack power increased by " << to_int(_value) << std::endl;
+            }
+            target.attack(target.attack().value() + _value); //Increase the Actor's attack
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::ICE)){ //If the potion has an ice flag
+            if(output){
+                std::cout << target.name() << "'s defense increased by " << to_int(_value) << std::endl;
+            }
+            target.defense(target.defense().value() + _value); //Increase the Actor's defense
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::LIGHTNG)){ //If the potion has a lightning flag
+            if(output){
+                std::cout << target.name() << "'s defense decreased by " << to_int(_value) << std::endl;
+            }
+            target.defense(target.defense().value() - _value); //Decrease the Actor's defense
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::WIND)){ //If the potion has a wind flag
+            if(output){
+                std::cout << target.name() << "'s attack power decreased by " << to_int(_value) << std::endl;
+            }
+            target.attack(target.attack().value() - _value); //Decrease the Actor's attack
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::HOLY)){ //If the potion has a holy flag
+            if(output){
+                std::cout << target.name() << "'s maximum HP has increased by " << to_int(_value) << std::endl;
+            }
+            IStat hp = target.hp();
+            hp.max(hp.max() + _value);
+            target.hp(hp); //Increase the Actor's max HP
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::SHADOW)){ //If the potion has a shadow flag
+            if(output){
+                std::cout << target.name() << "'s maximum MP has increased by " << to_int(_value) << std::endl;
+            }
+            IStat mp = target.mp();
+            mp.max(mp.max() + _value);
+            target.mp(mp); //Increase the Actor's max MP
+        }
+        if(FlagUtil::hasFlag(_elem, DmgElem::NGHTMRE)){ //If the potion has a nightmare flag
+            if(output){
+                std::cout << target.name() << " had a terrible nightmare!" << std::endl;
+            }
+            for(int i = 0; i < target.invSize(); ++i){ //Deidentify all items
+                target.obfuscate();
+            }
+        }
+        r = true;
+    }
+
+    return r;
 }
 
 Flow::ItemType Flow::Potion::type() const{

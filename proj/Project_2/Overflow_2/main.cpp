@@ -20,6 +20,7 @@
 #include "actor.h"
 #include "game.h"
 #include "random.h"
+#include "functions.h"
 
 //Namespaces
 using namespace std;
@@ -28,44 +29,39 @@ using namespace Flow;
 
 int main(int argc, char** argv){
     try{
-        init();
-        loadConfig();
-        Collections::LinkedList<string> mMenu = {"New Game", "Load", "Options", "Help", "Exit"};
-
+        Game game;
+        game.config(loadConfig(game.configPath()));
         bool quit = false; //Whether or not to quit the game
 
-        shared_ptr<Config> conf = Game::get<Config>("game_config");
-        shared_ptr<Actor> player = Game::get<Actor>("player");
-
         do{ //While not quitting
-            if(conf->asciiArt){ //If ASCII art is enabled
+            if(game.config().asciiArt){ //If ASCII art is enabled
                 rdTxt("GameData/title.txt"); //Display ASCII title
             }
             else{ //Otherwise
                 cout << "OVERFLOW" << endl; //Output title
                 cout << endl;
             }
-            char input = menu(mMenu, 5); //Do main menu processing
+            char input = menu({"New Game", "Load", "Options", "Help", "Exit"}, 5); //Do main menu processing
             switch(input){
                 case 'N': //New Game
                 {
                     rdTxt("GameData/crawl.txt"); //Display title crawl
-                    *player = createCharacter(); //Create player character
-                    play(); //Play the game
+                    createCharacter(game); //Create player character
+                    game.play(); //Play the game
                     break;
                 }
                 case 'L': //Load
                 {
-                    *player = Actor(); //Reinitialize the player
-                    if(loadMenu()){ //If the game is loaded
+                    game.player(Actor()); //Reinitialize the player
+                    if(loadMenu(game)){ //If the game is loaded
                         rdTxt("GameData/crawl.txt"); //Display title crawl
-                        play(); //Play the game
+                        game.play(); //Play the game
                     }
                     break;
                 }
                 case 'O': //Options
                 {
-                    mainMenuOptions(); //Display game options menu
+                    mainMenuOptions(game); //Display game options menu
                     break;
                 }
                 case 'H': //Help
@@ -81,8 +77,7 @@ int main(int argc, char** argv){
             cout << endl;
         } while(!quit);
 
-        saveConfig();
-        cleanup();
+        saveConfig(game.configPath(), game.config());
     }
     catch(Exception e){
         cerr << e.toString() << endl;

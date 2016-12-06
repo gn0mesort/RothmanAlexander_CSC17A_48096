@@ -14,30 +14,9 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include <memory>
-#include <iostream>
-#include <utility>
-
-#include "flags.h"
-#include "game.h"
-#include "item.h"
-#include "actor.h"
-#include "macros.h"
-#include "random.h"
+#include "enums.h"
 
 namespace Flow{
-
-    struct Point{
-        int x;
-        int y;
-    };
-
-    enum class RmEvent{
-        None = 0,
-        Encounter = 1,
-        Treasure = 2,
-        Spring = 3
-    };
 
     class Room{
     private:
@@ -54,7 +33,7 @@ namespace Flow{
         void event(RmEvent);
         unsigned char exit() const;
         void exit(unsigned char);
-        void trigger();
+        void trigger(Game&);
         bool isEnd() const;
         bool isStart() const;
     };
@@ -70,7 +49,7 @@ namespace Flow{
         Floor(unsigned char, unsigned char);
         ~Floor();
         bool move(Point&, unsigned char);
-        void draw() const;
+        void draw(Game&) const;
         void drawDbg() const;
         bool isOverflow(unsigned char, unsigned char) const;
         bool isOverflowX(unsigned char) const;

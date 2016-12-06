@@ -32,7 +32,9 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Game Headers" projectFiles="true">
         <itemPath>actor.h</itemPath>
+        <itemPath>enums.h</itemPath>
         <itemPath>flags.h</itemPath>
+        <itemPath>functions.h</itemPath>
         <itemPath>game.h</itemPath>
         <itemPath>item.h</itemPath>
         <itemPath>random.h</itemPath>
@@ -53,8 +55,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Game Source Files" projectFiles="true">
+        <itemPath>_game.cpp</itemPath>
         <itemPath>actor.cpp</itemPath>
         <itemPath>flags.cpp</itemPath>
+        <itemPath>functions.cpp</itemPath>
         <itemPath>game.cpp</itemPath>
         <itemPath>item.cpp</itemPath>
         <itemPath>random.cpp</itemPath>
@@ -142,11 +146,15 @@
       </item>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="_game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="actor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="actor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="collections.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="enums.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="except.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -155,6 +163,10 @@
       <item path="flags.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="flags.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="functions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="functions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="game.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -258,11 +270,15 @@
       </item>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="_game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="actor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="actor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="collections.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="enums.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="except.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -271,6 +287,10 @@
       <item path="flags.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="flags.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="functions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="functions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="game.cpp" ex="false" tool="1" flavor2="0">
       </item>
