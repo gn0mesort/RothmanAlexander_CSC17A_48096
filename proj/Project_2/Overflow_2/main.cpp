@@ -13,13 +13,7 @@
 
 //User Libraries
 #include "except.h"
-#include "macros.h"
-#include "collections.h"
-#include "stat.h"
-#include "item.h"
-#include "actor.h"
 #include "game.h"
-#include "random.h"
 #include "functions.h"
 
 //Namespaces
@@ -46,14 +40,14 @@ int main(int argc, char** argv){
                 case 'N': //New Game
                 {
                     rdTxt("GameData/crawl.txt"); //Display title crawl
-                    createCharacter(game); //Create player character
+                    game.createCharacter(); //Create player character
                     game.play(); //Play the game
                     break;
                 }
                 case 'L': //Load
                 {
                     game.player(Actor()); //Reinitialize the player
-                    if(loadMenu(game)){ //If the game is loaded
+                    if(game.loadMenu()){ //If the game is loaded
                         rdTxt("GameData/crawl.txt"); //Display title crawl
                         game.play(); //Play the game
                     }
@@ -61,7 +55,7 @@ int main(int argc, char** argv){
                 }
                 case 'O': //Options
                 {
-                    mainMenuOptions(game); //Display game options menu
+                    game.mainMenuOptions(); //Display game options menu
                     break;
                 }
                 case 'H': //Help

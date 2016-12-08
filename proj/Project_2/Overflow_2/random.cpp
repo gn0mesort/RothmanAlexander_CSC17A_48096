@@ -11,7 +11,6 @@
  * Created on December 2, 2016
  */
 
-#include "game.h"
 #include "random.h"
 
 Flow::RNGPoint Flow::GmRand::_point;
@@ -51,37 +50,6 @@ unsigned int Flow::GmRand::seed(){
     return _point.seed;
 }
 
-Flow::Actor Flow::GmRand::rActor(Game &game){
-    unsigned char drops = 0; //The number of drop items
-    int hp = rand() % (game.player().hp().max() * 2) + 1; //HP is between 1 and 2 * the player's max HP
-    int mp = rand() % (game.player().mp().max() * 2) + 1; //MP is between 1 and 2 * the player's max MP
-    unsigned char atk = rand() % (game.player().attack().value() + 2); //Attack is between 0 and the player's attack + 2
-    unsigned char def = rand() % (game.player().attack().value() + 2); //Defense is between 0 and the player's defense + 2
-    std::string name = game.monsterNames()[rand() % game.monsterNames().size()]; //Generate the name
-    //Generate weapons and armor
-    //Both may have values between 0 and the player's bonus + 10
-    Actor r; //The return Actor
-    rItem(r, game, ItemType::Weapon, false);
-    r.use(0, false);
-    r.removeItem(0);
-    rItem(r, game, ItemType::Armor, false);
-    r.use(0, false);
-    r.removeItem(0);
-
-    r.name(name); //Set the name
-    r.attack(atk); //Set the atk
-    r.defense(def); //Set the def
-    r.hp(IStat(hp, "HP", "Hit Points", hp, 0, 9999, 0)); //Set HP
-    r.mp(IStat(mp, "MP", "Magic Points", mp, 0, 9999, 0)); //Set MP
-
-    drops = (rand() % 4); //Generate number of Item drops
-    for(int i = 0; i < drops; ++i){ //For each drop
-        rItem(r, game, ItemType::None, false); //Add a random Item
-    }
-
-    return r;
-}
-
 unsigned char Flow::GmRand::rElem(){
     unsigned char val = rand() % 100; //Generate a percentage
     unsigned char r = 0;
@@ -97,66 +65,6 @@ unsigned char Flow::GmRand::rElem(){
     }
 
     return r;
-}
-
-void Flow::GmRand::rItem(Actor &target, Game &game, ItemType type, bool output){
-    RNGPoint gen = _point;
-    unsigned char value = rand() % (game.player().attack().value() + 50);
-    unsigned char elem = rElem();
-    int percent = rand() % 100;
-    std::string uiName = "";
-
-    if(type == ItemType::None){
-        if(percent < 50){
-            uiName = game.itemNames()[ItemType::Potion][rand() % game.itemNames().size()];
-            Potion itm("", uiName, "", elem, value);
-            itm.generationPoint(gen);
-            target.addItem(itm);
-        }
-        else if(percent >= 50 && percent < 70){
-            uiName = game.itemNames()[ItemType::Armor][rand() % game.itemNames().size()];
-            Armor itm("", uiName, "", elem, value);
-            itm.generationPoint(gen);
-            target.addItem(itm);
-        }
-        else{
-            uiName = game.itemNames()[ItemType::Weapon][rand() % game.itemNames().size()];
-            Weapon itm(game, "", uiName, "", elem, value);
-            itm.generationPoint(gen);
-            target.addItem(itm);
-        }
-    }
-    else{
-        switch(type){
-            case ItemType::Potion:
-            {
-                uiName = game.itemNames()[ItemType::Potion][rand() % game.itemNames().size()];
-                Potion itm("", uiName, "", elem, value);
-                itm.generationPoint(gen);
-                target.addItem(itm);
-                break;
-            }
-            case ItemType::Weapon:
-            {
-                uiName = game.itemNames()[ItemType::Weapon][rand() % game.itemNames().size()];
-                Weapon itm(game, "", uiName, "", elem, value);
-                itm.generationPoint(gen);
-                target.addItem(itm);
-                break;
-            }
-            case ItemType::Armor:
-            {
-                uiName = game.itemNames()[ItemType::Armor][rand() % game.itemNames().size()];
-                Armor itm("", uiName, "", elem, value);
-                itm.generationPoint(gen);
-                target.addItem(itm);
-                break;
-            }
-        }
-    }
-    if(output){
-        std::cout << uiName << " acquired!" << std::endl;
-    }
 }
 
 void Flow::GmRand::seek(const RNGPoint &point){

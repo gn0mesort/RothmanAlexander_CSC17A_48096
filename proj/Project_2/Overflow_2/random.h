@@ -16,12 +16,9 @@
 
 #include "structs.h"
 #include "enums.h"
+#include "room.h"
 
 namespace Flow{
-    class Floor;
-    class Room;
-    class Game;
-    class Actor;
 
     class GmRand{
     private:
@@ -35,8 +32,6 @@ namespace Flow{
         unsigned int seed();
         unsigned int pos();
         int rand();
-        Actor rActor(Game&);
-        void rItem(Actor&, Game&, ItemType = ItemType::None, bool = true);
         unsigned char rElem();
         Floor rFloor(unsigned char = 32);
         Room rRoom(bool = false, bool = false);

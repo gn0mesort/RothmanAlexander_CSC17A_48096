@@ -12,6 +12,7 @@
 #include <vector>
 #include <utility>
 #include <string>
+#include <memory>
 
 #include "except.h"
 
@@ -824,7 +825,6 @@ namespace Collections{
         }
         throw Error::ArgumentException("Key not found (const)", Error::ErrorCode::ARGUMENT_EXCEPTION);
     }
-
 }
 
 #endif /* COLLECTIONS_H */

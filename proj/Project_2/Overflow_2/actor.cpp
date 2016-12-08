@@ -11,7 +11,6 @@
  * Created on December 2, 2016
  */
 
-#include "random.h"
 #include "actor.h"
 
 Flow::Actor::Actor(){
@@ -23,6 +22,8 @@ Flow::Actor::Actor(){
     _mp = IStat(100, "MP", "Magic Points", 100, 0, 9999, 0);
     _weap = Weapon(0, 10);
     _armor = Armor(0, 10);
+    _weap.identify();
+    _armor.identify();
 }
 
 void Flow::Actor::addItem(const Potion &item){
@@ -258,11 +259,114 @@ void Flow::Actor::difficulty(unsigned char diff){
 }
 
 void Flow::Actor::use(unsigned int index, bool output){
+    bool consumed = false;
     std::shared_ptr<Item> itm = _inv[index];
     removeItem(index);
-    if(!itm->use(*this, output)){
-        _inv.addBack(itm);
+    switch(itm->type()){
+        case ItemType::Potion:
+        {
+            if(output){
+                std::cout << _name << " used " << itm->name() << "." << std::endl; //Display usage message
+            }
+            if(itm->element() == DmgElem::NONE){ //If the item is an Identifying Potion
+                if(invSize() > 0){ //If you have more than one Item in your inventory
+                    int select = intMenu(inventoryMenu(), 1);
+                    if(select > 0){ //If the selection is greater than 0
+                        identify(select - 1, true); //Identify the item and output text
+                        consumed = true;
+                    }
+                }
+                else if(output){ //Otherwise if you have no other items
+                    std::cout << "Nothing happens." << std::endl;
+                }
+            }
+            else if(itm->element() == DmgElem::ABSOLUT){ //If the potion is an absolute type potion
+                if(output){
+                    std::cout << _name << " was fully restored!" << std::endl;
+                }
+                _hp = _hp.max(); //Restore hp
+                _mp = _mp.max(); //Restore mp
+                consumed = true;
+            }
+            else{ //Otherwise do potion processing by element
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::HEALING)){ //If the potion has a healing flag
+                    if(output){
+                        std::cout << _name << " recovered " << to_int(itm->value()) << " HP!" << std::endl;
+                    }
+                    _hp.value(_hp.value() + itm->value()); //heal the Actor
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::FIRE)){ //If the potion has a fire flag
+                    if(output){
+                        std::cout << _name << "'s attack power increased by " << to_int(itm->value()) << std::endl;
+                    }
+                    _atk.value(_atk.value() + itm->value()); //Increase the Actor's attack
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::ICE)){ //If the potion has an ice flag
+                    if(output){
+                        std::cout << _name << "'s defense increased by " << to_int(itm->value()) << std::endl;
+                    }
+                    _def.value(_def.value() + itm->value()); //Increase the Actor's defense
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::LIGHTNG)){ //If the potion has a lightning flag
+                    if(output){
+                        std::cout << _name << "'s defense decreased by " << to_int(itm->value()) << std::endl;
+                    }
+                    _def.value(_def.value() - itm->value()); //Decrease the Actor's defense
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::WIND)){ //If the potion has a wind flag
+                    if(output){
+                        std::cout << _name << "'s attack power decreased by " << to_int(itm->value()) << std::endl;
+                    }
+                    _atk.value(_atk.value() - itm->value()); //Decrease the Actor's attack
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::HOLY)){ //If the potion has a holy flag
+                    if(output){
+                        std::cout << _name << "'s maximum HP has increased by " << to_int(itm->value()) << std::endl;
+                    }
+                    _hp.max(_hp.max() + itm->value()); //Increase the Actor's max HP
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::SHADOW)){ //If the potion has a shadow flag
+                    if(output){
+                        std::cout << _name << "'s maximum MP has increased by " << to_int(itm->value()) << std::endl;
+                    }
+                    _mp.max(_mp.max() + itm->value()); //Increase the Actor's max MP
+                }
+                if(FlagUtil::hasFlag(itm->element(), DmgElem::NGHTMRE)){ //If the potion has a nightmare flag
+                    if(output){
+                        std::cout << _name << " had a terrible nightmare!" << std::endl;
+                    }
+                    obfuscate();
+                }
+                consumed = true;
+            }
+            break;
+        }
+
+        case ItemType::Weapon:
+        {
+            std::shared_ptr<Weapon> weap = std::static_pointer_cast<Weapon>(itm);
+            weap->identify();
+            equip(*weap, output);
+            consumed = true;
+            break;
+        }
+
+        case ItemType::Armor:
+        {
+            std::shared_ptr<Armor> armor = std::static_pointer_cast<Armor>(itm);
+            armor->identify();
+            equip(*armor, output);
+            consumed = true;
+            break;
+        }
     }
+    if(!consumed){
+        addItem(itm);
+    }
+}
+
+void Flow::Actor::addItem(const std::shared_ptr<Item> &itm){
+    _inv.addBack(itm);
 }
 
 void Flow::Actor::obfuscate(){

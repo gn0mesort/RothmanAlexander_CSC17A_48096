@@ -14,7 +14,13 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+#include <iostream>
+#include <iomanip>
+
 #include "enums.h"
+#include "structs.h"
+#include "flags.h"
+#include "macros.h"
 
 namespace Flow{
 
@@ -33,7 +39,6 @@ namespace Flow{
         void event(RmEvent);
         unsigned char exit() const;
         void exit(unsigned char);
-        void trigger(Game&);
         bool isEnd() const;
         bool isStart() const;
     };
@@ -49,7 +54,7 @@ namespace Flow{
         Floor(unsigned char, unsigned char);
         ~Floor();
         bool move(Point&, unsigned char);
-        void draw(Game&) const;
+        void draw(const Point&) const;
         void drawDbg() const;
         bool isOverflow(unsigned char, unsigned char) const;
         bool isOverflowX(unsigned char) const;

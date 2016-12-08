@@ -21,6 +21,7 @@
 #include "enums.h"
 
 namespace Flow{
+    const int HEADER = 0x776f6c66;
 
     /**
      * Game context object. Doing things this way eliminates global state but also saves me from having to add
@@ -70,7 +71,22 @@ namespace Flow{
         //Gameplay Functions
         void play();
         bool encounter(Actor&);
+        void trigger(Room&);
+        void stats(const Actor&);
+        bool loadMenu();
+        void gameOptionsMenu();
+        void mainMenuOptions();
+        void createCharacter();
     };
+
+    void save(const std::string&, const Game&);
+    void load(const std::string&, Game&);
+    void updateSaveIndex(const std::string&, const Game&);
+    Config loadConfig(const std::string&);
+    void saveConfig(const std::string&, Config);
+
+    Actor rActor(Game&);
+    void rItem(Actor&, Game&, ItemType = ItemType::None, bool = true);
 }
 
 #endif /* GAME_H */
