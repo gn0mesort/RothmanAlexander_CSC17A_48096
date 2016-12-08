@@ -55,7 +55,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Game Source Files" projectFiles="true">
-        <itemPath>_game.cpp</itemPath>
         <itemPath>actor.cpp</itemPath>
         <itemPath>flags.cpp</itemPath>
         <itemPath>functions.cpp</itemPath>
@@ -145,8 +144,6 @@
       <item path="GameData/win.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="_game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="actor.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -269,8 +266,6 @@
       <item path="GameData/win.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="_game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="actor.cpp" ex="false" tool="1" flavor2="0">
       </item>

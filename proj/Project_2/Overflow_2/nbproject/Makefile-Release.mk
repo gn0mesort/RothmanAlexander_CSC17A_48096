@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_game.o \
 	${OBJECTDIR}/actor.o \
 	${OBJECTDIR}/except.o \
 	${OBJECTDIR}/flags.o \
@@ -72,11 +71,6 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/overflow_2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/overflow_2 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_game.o: _game.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_game.o _game.cpp
 
 ${OBJECTDIR}/actor.o: actor.cpp 
 	${MKDIR} -p ${OBJECTDIR}

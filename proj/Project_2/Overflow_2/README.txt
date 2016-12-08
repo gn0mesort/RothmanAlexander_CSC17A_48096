@@ -7,7 +7,7 @@
 *          █▐            ▀      ▀                 ▀ ▀   *
 *          ▐                                            *
 *********************************************************
-Version: 1.0
+Version: 2.0
 ABOUT:
     Overflow is small Role-playing game in the style of Rogue. The objective
     of the game is to reach the end of the board while collecting as much 
@@ -48,26 +48,10 @@ FILE ENCODINGS
     *PLAYER MAX MP (4 BYTES)                                                  *
     *PLAYER ATTACK POWER (1 BYTE)                                             *
     *PLAYER DEFENSE POWER (1 BYTE)                                            *
-    *SIZE OF WEAPON'S NAME (4 BYTES)                                          *
-    *WEAPON'S NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)                  *
-    *SIZE OF WEAPON'S UNIDENTIFIED NAME (4 BYTES)                             *
-    *WEAPON'S UNIDENTIFIED NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)     *
-    *SIZE OF WEAPON'S DESCRIPTION (4 BYTES)                                   *
-    *WEAPON'S DESCRIPTION (SIZE DETERMINED BY NUMBER OF CHARACTERS)           *
-    *WEAPON'S ELEMENT (1 BYTE)                                                *
-    *WEAPON'S ATTACK BONUS (1 BYTE)                                           *
-    *WEAPON'S ITMTYPE (4 BYTES)                                               *
-    *WEAPON'S IDENTIFIACTION STATUS (1 BYTE)                                  *
-    *SIZE OF ARMOR'S NAME (4 BYTES)                                           *
-    *ARMOR'S NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)                   *
-    *SIZE OF ARMOR'S UNIDENTIFIED NAME (4 BYTES)                              *
-    *ARMOR'S UNIDENTIFIED NAME (SIZE DETERMINED BY NUMBER OF CHARACTERS)      *
-    *SIZE OF ARMOR'S DESCRIPTION (4 BYTES)                                    *
-    *ARMOR'S DESCRIPTION (SIZE DETERMINED BY NUMBER OF CHARACTERS)            *
-    *ARMOR'S ELEMENT (1 BYTE)                                                 *
-    *ARMOR'S ATTACK BONUS (1 BYTE)                                            *
-    *ARMOR'S ITMTYPE (4 BYTES)                                                *
-    *ARMOR'S IDENTIFIACTION STATUS (1 BYTE)                                   *
+    *WEAPON RNG SEED (4 BYTES)                                                *
+    *WEAPON RNG POSITION (4 BYTES)                                            *
+    *ARMOR RNG SEED (4 BYTES)                                                 *
+    *ARMOR RNG POSITION (4 BYTES)                                             *
     ***************************************************************************
     All stored strings are null terminated.
 READING THE MAP:
