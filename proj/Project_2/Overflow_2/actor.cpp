@@ -122,6 +122,7 @@ void Flow::Actor::hit(Actor &target){
 void Flow::Actor::equip(const Weapon &weap, bool output){
     addItem(_weap);
     _weap = weap;
+    _weap.identify();
     if(output){
         std::cout << _name << " equipped " << _weap.name() << std::endl;
     }
@@ -135,6 +136,7 @@ void Flow::Actor::equip(const Weapon &weap, bool output){
 void Flow::Actor::equip(const Armor &armor, bool output){
     addItem(_armor);
     _armor = armor;
+    _armor.identify();
     if(output){
         std::cout << _name << " equipped " << _armor.name() << std::endl;
     }
