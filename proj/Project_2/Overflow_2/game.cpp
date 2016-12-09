@@ -875,7 +875,7 @@ void Flow::rItem(Actor &target, Game &game, ItemType type, bool output){
     RNGPoint gen; //The current RNG position and seed
     gen.pos = GmRand().pos(); //Set position
     gen.seed = GmRand().seed(); //Set seed
-    unsigned char value = GmRand().rand() % ((rand() % (game.player().attack().value() + 50)) + 1); //Generate value
+    unsigned char value = GmRand().rand() % ((GmRand().rand() % (game.player().attack().value() + 50)) + 1); //Generate value
     unsigned char elem = GmRand().rElem(); //Generate element
     int percent = GmRand().rand() % 100; //Generate type percentage
     std::string uiName = ""; //The unidentified name of the Item
