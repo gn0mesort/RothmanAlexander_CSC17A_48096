@@ -1,28 +1,31 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   functions.h
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Define loose functions for Overflow
  * Created on December 5, 2016
  */
 
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <string>
-#include <iostream>
-#include <fstream>
+//System Libraries
+#include <string> //Strings
+#include <iostream> //I/O
+#include <fstream> //File I/O
 
-#include "collections.h"
-#include "enums.h"
-#include "stringext.h"
-#include "flags.h"
-#include "structs.h"
+//User Libraries
+#include "collections.h" //LinkedLists
+#include "enums.h" //Enumeration types
+#include "stringext.h" //String extensions
+#include "flags.h" //Flag constants
+#include "structs.h" //Game structs
 
 namespace Flow{
     void rdTxt(const std::string&);

@@ -8,7 +8,8 @@
 #ifndef MACROS_H
 #define MACROS_H
 
-#include <string>
+//System Libraries
+#include <string> //Strings
 
 #ifndef null
 /**
@@ -19,7 +20,7 @@
 
 #ifndef byte
 /**
- * Defines a byte macro that is equivalent to the Byte::Byte<unsigned int>
+ * Defines a byte macro that is equivalent to the Byte::Byte<unsigned char>
  */
 #define byte Byte::Byte<unsigned char>
 #endif
@@ -53,6 +54,9 @@
 #endif
 
 #ifndef to_bin
+/**
+ * Convert a value to binary data
+ */
 #define to_bin(x) (reinterpret_cast<char*>(&x))
 #endif
 

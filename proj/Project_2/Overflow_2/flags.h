@@ -20,32 +20,122 @@
 
 namespace Flow{
 
-    //Exit
-    //Container namespace for Exit constants. Provides scoped enum like syntax to constants
+    /**
+     * Container namespace for Exit constants and functions
+     */
     namespace Direct{
-        const unsigned char NONE = 0, NORTH = 1, EAST = 2, SOUTH = 4, WEST = 8;
+        /**
+         * No direction
+0         */
+        const unsigned char NONE = 0,
+                /**
+                 * North on a compass
+                 */
+                NORTH = 1,
+
+                /**
+                 * East on a compass
+                 */
+                EAST = 2,
+
+                /**
+                 * South on a compass
+                 */
+                SOUTH = 4,
+
+                /**
+                 * West on a compass
+                 */
+                WEST = 8;
+
         unsigned char reverse(unsigned char);
         std::string toString(unsigned char);
         std::string toString(unsigned char, bool);
     }
 
-    //DmgElem
-    //Container namespace for DamageElement constants. Provides scoped enum like syntax to constants
+    /**
+     * A container namespace for damage elements
+     */
     namespace DmgElem{
-        const unsigned char NONE = 0, NGHTMRE = 1, FIRE = 2, ICE = 4, LIGHTNG = 8, WIND = 16, HOLY = 32, SHADOW = 64,
-                HEALING = 128, ABSOLUT = 255;
+        /**
+         * No element
+         */
+        const unsigned char NONE = 0,
+                /**
+                 * Nightmare element. Represents magic damage and obfuscation
+                 */
+                NGHTMRE = 1,
+
+                /**
+                 * Fire element. Represents fire damage and Attack increases
+                 */
+                FIRE = 2,
+
+                /**
+                 * Ice element. Represents ice damage and Defense increases
+                 */
+                ICE = 4,
+
+                /**
+                 * Lightning element. Represents lightning damage and Defense decreases
+                 */
+                LIGHTNG = 8,
+
+                /**
+                 * Wind element. Represents wind damage and Attack decreases
+                 */
+                WIND = 16,
+
+                /**
+                 * Holy element. Represents holy damage and HP increases
+                 */
+                HOLY = 32,
+
+                /**
+                 * Shadow element. Represents shadow damage and MP increases
+                 */
+                SHADOW = 64,
+
+                /**
+                 * Healing element. Represents healing attacks and HP regeneration
+                 */
+                HEALING = 128,
+
+                /**
+                 * Absolute element. Represents legendary attacks and full restoration
+                 */
+                ABSOLUT = 255;
+
         std::string toString(unsigned char);
     }
 
-    //Diff
-    //Container namespace for Difficulty constants. Provides scoped enum like syntax to constants
+    /**
+     * Container namepsace for difficulty constants
+     */
     namespace Diff{
-        const unsigned char NONE = 0, EASY = 8, MEDIUM = 16, HARD = 32;
+        /**
+         * No difficulty
+         */
+        const unsigned char NONE = 0,
+                /**
+                 * Easy games
+                 */
+                EASY = 8,
+
+                /**
+                 * Medium games
+                 */
+                MEDIUM = 16,
+
+                /**
+                 * Hard games
+                 */
+                HARD = 32;
     }
 
-    //FlgUtil
-    //Defines a class that contains functions for checking bit flags
-
+    /**
+     * Defines a class that contains flag handling functions
+     */
     class FlagUtil{
     private:
     public:

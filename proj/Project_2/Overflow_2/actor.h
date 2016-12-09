@@ -1,43 +1,88 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   actor.h
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Define an Actor (a character who can take actions)
  * Created on December 2, 2016
  */
 
 #ifndef ACTOR_H
 #define ACTOR_H
 
-#include <memory>
+//System Libraries
+#include <memory> //Smart pointers
 
-#include "enums.h"
-#include "stat.h"
-#include "structs.h"
-#include "collections.h"
-#include "flags.h"
-#include "functions.h"
-#include "item.h"
-#include "random.h"
+//User Libraries
+#include "enums.h" //Enumeration types
+#include "stat.h" //Stat objects
+#include "structs.h" //Game structs
+#include "collections.h" //LinkedLists and Dictionarys
+#include "flags.h" //Game bit flags
+#include "functions.h" //Loose game functions
+#include "item.h" //Item objects
+#include "random.h" //GmRand
 
 namespace Flow{
 
+    /**
+     * Defines an Actor (a game character). Actors represent both the player and enemies in the game
+     */
     class Actor{
     private:
+        /**
+         * The game's difficulty, only meaningful in the player object
+         */
         unsigned char _diff;
+
+        /**
+         * The Actor's job (class), only meaningful in the player object
+         */
         Job _job;
+
+        /**
+         * The Actor's name
+         */
         std::string _name;
+
+        /**
+         * A single byte Stat representing the Actor's attack power
+         */
         BStat _atk;
+
+        /**
+         * A single byte Stat representing the Actor's defense power
+         */
         BStat _def;
+
+        /**
+         * An int Stat representing the Actor's hit points
+         */
         IStat _hp;
+
+        /**
+         * An int Stat representing the Actor's magic points
+         */
         IStat _mp;
+
+        /**
+         * The Actor's current Weapon
+         */
         Weapon _weap;
+
+        /**
+         * The Actor's current Armor
+         */
         Armor _armor;
+
+        /**
+         * The Actor's current Inventory
+         */
         Collections::LinkedList<std::shared_ptr<Item>> _inv;
     public:
         Actor();
@@ -45,40 +90,38 @@ namespace Flow{
         void addItem(const Weapon&);
         void addItem(const Armor&);
         void addItem(const std::shared_ptr<Item>&);
-        void hit(Actor&);
-        void equip(const Weapon&, bool = true);
-        void equip(const Armor&, bool = true);
-        void use(unsigned int, bool = true);
-        void identify(unsigned int, bool = false);
-        void removeItem(unsigned int);
-        BStat attack() const;
+        void addItems(const Actor&);
         void attack(unsigned char);
         void attack(const BStat&);
-        BStat defense() const;
         void defense(unsigned char);
         void defense(const BStat&);
-        IStat hp() const;
+        void difficulty(unsigned char);
+        void equip(const Weapon&, bool = true);
+        void equip(const Armor&, bool = true);
+        void hit(Actor&);
         void hp(int);
         void hp(const IStat&);
-        Job job() const;
+        void identify(unsigned int, bool = false);
         void job(Job);
-        IStat mp() const;
         void mp(int);
         void mp(const IStat&);
-        std::string name() const;
         void name(const std::string&);
-        Weapon weapon() const;
-        Armor armor() const;
+        void obfuscate();
+        void removeItem(unsigned int);
+        void use(unsigned int, bool = true);
+        unsigned char difficulty() const;
         unsigned int invSize();
         int selectItem();
-        void addItems(const Actor&);
-        unsigned char difficulty() const;
-        void difficulty(unsigned char);
+        std::string name() const;
+        Job job() const;
+        BStat attack() const;
+        BStat defense() const;
+        IStat hp() const;
+        IStat mp() const;
+        Armor armor() const;
+        Weapon weapon() const;
         Collections::LinkedList<std::string> inventoryMenu();
-        void obfuscate();
     };
-
-
 
     std::string toString(Job);
 }

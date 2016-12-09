@@ -1,32 +1,38 @@
 /*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   main.cpp
  * Author: Alexander Rothman <arothman@student.rcc.edu>
- * Purpose:
+ * Purpose: Control the main flow of the Overflow game program
  * Created on November 26, 2016
  */
 
 
 //System Libraries
-#include <iostream>
-#include <fstream>
-#include <exception>
+#include <iostream> //I/O
+#include <exception> //std::exceptions
 
 //User Libraries
-#include "except.h"
-#include "game.h"
-#include "functions.h"
+#include "except.h" //Error::Exceptions
+#include "game.h" //Main game classes and data
+#include "functions.h" //Loose game functions
 
 //Namespaces
-using namespace std;
-using namespace Error;
-using namespace Flow;
+using namespace std; //Standard namespace
+using namespace Error; //Namespace for Error::Exceptions
+using namespace Flow; //Game namespace
 
 int main(int argc, char** argv){
-    try{
-        Game game;
-        game.config(loadConfig(game.configPath()));
+    try{ //Try to run the game
+        Game game; //Initialize a new Game
         bool quit = false; //Whether or not to quit the game
 
+        game.config(loadConfig(game.configPath())); //Load the game config
         do{ //While not quitting
             if(game.config().asciiArt){ //If ASCII art is enabled
                 rdTxt("GameData/title.txt"); //Display ASCII title
@@ -70,18 +76,17 @@ int main(int argc, char** argv){
             }
             cout << endl;
         } while(!quit);
+        saveConfig(game.configPath(), game.config()); //Save the game configuration
+    }
+    catch(Exception e){ //Catch any Error::Exceptions thrown by the game
+        cerr << e.toString() << endl; //Output the error
+        return e.errorCode(); //Return 1
+    }
+    catch(std::exception e){ //Catch std::exceptions thrown by the game
+        cerr << e.what() << endl; //Output the error
+        return 1; //Return 1
+    }
 
-        saveConfig(game.configPath(), game.config());
-    }
-    catch(Exception e){
-        cerr << e.toString() << endl;
-        return e.errorCode();
-    }
-    catch(std::exception e){
-        cerr << e.what() << endl;
-        return 1;
-    }
-
-    return 0;
+    return 0; //Exit
 }
 

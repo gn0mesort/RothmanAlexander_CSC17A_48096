@@ -8,21 +8,17 @@
  *          ▐
  * File:   Flags.cpp
  * Author: Alexander Rothman <arothman@student.rcc.edu>
- * Purpose: Source file for Flags.h
+ * Purpose: Source file for flags.h
  * Created on October 15, 2016
  */
 
-//User Libraries
-#include "Flags.h" //Bit Flags
+#include "flags.h"
 
-//toStr
-//Convert a direction constant to a string
-//Input:
-//direct
-//A direction to return the string of
-//Output:
-//A string representing the input direction
-
+/**
+ * Convert a direction to a string
+ * @param direct The direction to convert
+ * @return A string containing the directions in direct
+ */
 std::string Flow::Direct::toString(unsigned char direct){
     std::string r; //The return string
 
@@ -47,14 +43,12 @@ std::string Flow::Direct::toString(unsigned char direct){
     return r;
 }
 
-//toStr
-//Convert a direction to an abbreviated string or to its normal string representation
-//Input:
-//direct
-//The direction to return the string of
-//Output:
-//A string representing the input direction
-
+/**
+ * Convert a direction to an abbreviated string or to its normal string representation
+ * @param direct The direction to convert
+ * @param abbrv Whether or not to abbreviate
+ * @return  A string representing the input direction
+ */
 std::string Flow::Direct::toString(unsigned char direct, bool abbrv){
     std::string r; //The return string
 
@@ -79,14 +73,11 @@ std::string Flow::Direct::toString(unsigned char direct, bool abbrv){
     return r;
 }
 
-//reverse
-//Return the reverse of the input direction
-//Input:
-//direct
-//The direction to return the reverse of
-//Output:
-//The opposite of any cardinal direction or Flow::Direct::NONE (0) otherwise
-
+/**
+ * Reverse a direction
+ * @param direct A direction to reverse. Must be a cardinal direction
+ * @return The opposite direction or Direct::NONE for noncardinal inputs
+ */
 unsigned char Flow::Direct::reverse(unsigned char direct){
     if(direct == Direct::NORTH){ //If north
         return Direct::SOUTH;
@@ -103,14 +94,11 @@ unsigned char Flow::Direct::reverse(unsigned char direct){
     return Direct::NONE; //In case of noncardinal directions
 }
 
-//toStr
-//Convert an element to a string
-//Input:
-//elem
-//The element to convert
-//Output:
-//The string representation of the element
-
+/**
+ * Convert an element to a string
+ * @param elem The element to convert
+ * @return A string representation of the input element
+ */
 std::string Flow::DmgElem::toString(unsigned char elem){
     std::string r;
 
@@ -147,16 +135,12 @@ std::string Flow::DmgElem::toString(unsigned char elem){
     return r;
 }
 
-//hasFlag
-//Return whether or not the input data has the given flag value. Works with flags of any size up to unsigned long
-//Input:
-//data
-//The set of flags to check
-//value
-//The elemental flag value to check for
-//Output:
-//True if the flag is found otherwise false
-
+/**
+ * Return whether or not the input data has the given flag values.
+ * @param data The data to compare to
+ * @param value The values to compare to data
+ * @return true in the values are found in the data. Otherwise false
+ */
 bool Flow::FlagUtil::hasFlag(unsigned long data, unsigned long value){
     return (data & value) == value;
 }

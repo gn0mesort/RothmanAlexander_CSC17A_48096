@@ -1,18 +1,22 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   item.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Source file for item.h
  * Created on December 2, 2016
  */
 
 #include "item.h"
 
+/**
+ * Default Item constructor
+ */
 Flow::Item::Item(){
     _ident = false;
     _elem = DmgElem::NONE;
@@ -20,8 +24,14 @@ Flow::Item::Item(){
     _name = "Item";
     _uiName = "Unknown Item";
     _desc = "An Item";
+    _genPoint.pos = 0;
+    _genPoint.seed = 0;
 }
 
+/**
+ * Item copy constructor
+ * @param other The Item to copy
+ */
 Flow::Item::Item(const Item &other){
     _ident = other.isIdenitfied();
     _elem = other.element();
@@ -32,6 +42,11 @@ Flow::Item::Item(const Item &other){
     _genPoint = other.generationPoint();
 }
 
+/**
+ * Parameterized Item constructor
+ * @param elem The element of the Item
+ * @param value The value of the Item
+ */
 Flow::Item::Item(unsigned char elem, unsigned char value){
     _ident = false;
     _elem = elem;
@@ -40,6 +55,15 @@ Flow::Item::Item(unsigned char elem, unsigned char value){
     _genPoint.seed = 0;
 }
 
+/**
+ * Parameterized Item constructor
+ * @param name The Item's name
+ * @param uiName The Item's unidentified name
+ * @param desc The Item's description
+ * @param elem The Item's element
+ * @param value The Item's value
+ * @param ident Whether or not the Item is identified
+ */
 Flow::Item::Item(const std::string &name, const std::string &uiName, const std::string &desc, unsigned char elem,
                  unsigned char value, bool ident){
     _ident = ident;
@@ -52,82 +76,156 @@ Flow::Item::Item(const std::string &name, const std::string &uiName, const std::
     _genPoint.seed = 0;
 }
 
+/**
+ * Identify the Item
+ */
 void Flow::Item::identify(){
     _ident = true;
 }
 
+/**
+ * Obfuscate the Item
+ */
 void Flow::Item::obfuscate(){
     _ident = false;
 }
 
+/**
+ * Get the Item's description
+ * @return The current Item description
+ */
 std::string Flow::Item::description() const{
     return _desc;
 }
 
+/**
+ * Set the Item's description
+ * @param desc The new description to set
+ */
 void Flow::Item::description(const std::string &desc){
     _desc = desc;
 }
 
+/**
+ * Get the Item's element
+ * @return The current element of the Item
+ */
 unsigned char Flow::Item::element() const{
     return _elem;
 }
 
+/**
+ * Set the Item's element. Clear conflicting elements and generate new Item name/description
+ * @param elem The new element to set
+ */
 void Flow::Item::element(unsigned char elem){
-    _elem = elem;
-    if(FlagUtil::hasFlag(_elem, (DmgElem::FIRE | DmgElem::WIND)) && _elem != DmgElem::ABSOLUT){
+    _elem = elem; //Set the element
+    if(FlagUtil::hasFlag(_elem, (DmgElem::FIRE | DmgElem::WIND)) && _elem != DmgElem::ABSOLUT){ //Clear FIRE and WIND
         _elem ^= (DmgElem::FIRE | DmgElem::WIND);
     }
-    if(FlagUtil::hasFlag(_elem, (DmgElem::ICE | DmgElem::LIGHTNG)) && _elem != DmgElem::ABSOLUT){
+    if(FlagUtil::hasFlag(_elem, (DmgElem::ICE | DmgElem::LIGHTNG)) && _elem != DmgElem::ABSOLUT){ //Clear ICE and LIGTNG
         _elem ^= (DmgElem::ICE | DmgElem::LIGHTNG);
     }
-    _name = createName();
-    _desc = createDescription();
+    _name = createName(); //Generate new name
+    _desc = createDescription(); //Generate new description
 }
 
+/**
+ * Get the Item's name
+ * @return The Item's current name
+ */
 std::string Flow::Item::name() const{
     return _name;
 }
 
+/**
+ * Set the Item's name
+ * @param nName The new name to set
+ */
 void Flow::Item::name(const std::string &nName){
     _name = nName;
 }
 
+/**
+ * Get the Item's unidentified name
+ * @return The Item's unidentified name
+ */
 std::string Flow::Item::unidentifiedName() const{
     return _uiName;
 }
 
+/**
+ * Set the Item's unidentified name
+ * @param uiName The new unidentified name to set
+ */
 void Flow::Item::unidentifiedName(const std::string &uiName){
     _uiName = uiName;
 }
 
+/**
+ * Get whether or not the Item is identified
+ * @return true if it is identified. Otherwise false
+ */
 bool Flow::Item::isIdenitfied() const{
     return _ident;
 }
 
+/**
+ * Get the Item's value
+ * @return The current value for this Item
+ */
 unsigned char Flow::Item::value() const{
     return _value;
 }
 
+/**
+ * Set the Item's value
+ * @param nValue The new value to set
+ */
 void Flow::Item::value(unsigned char nValue){
     _value = nValue;
 }
 
+/**
+ * Get the Item's type
+ * @return An ItemType value representing the type of the Item
+ */
 Flow::ItemType Flow::Item::type() const{
     return ItemType::None;
 }
 
+/**
+ * Get the RNGPoint that this Item was generated at
+ * @return The seed and position of the RNG when this value was generated
+ */
 Flow::RNGPoint Flow::Item::generationPoint() const{
     return _genPoint;
 }
 
+/**
+ * Set the RNGPoint for this Item
+ * @param genPoint The RNGPoint at which this Item was generated
+ */
 void Flow::Item::generationPoint(const RNGPoint &genPoint){
     _genPoint = genPoint;
 }
 
+/**
+ * @see Item
+ */
 Flow::Weapon::Weapon() : Flow::Item(){ }
 
+/**
+ * @see Item
+ */
 Flow::Weapon::Weapon(const Weapon &other) : Flow::Item(other){ }
 
+/**
+ * Parameterized Weapon constructor. Sets the element using Weapon::element(unsigned char) rather than
+ * Item::element(unsigned char)
+ * @param elem The element of the Item
+ * @param value The value of the Item
+ */
 Flow::Weapon::Weapon(unsigned char elem, unsigned char value) : Flow::Item(0, value){
     element(elem);
 }

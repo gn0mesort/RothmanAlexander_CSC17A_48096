@@ -1,92 +1,134 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   game.h
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Define the main game object as well as functions that rely on it
  * Created on December 2, 2016
  */
 
 #ifndef GAME_H
 #define GAME_H
 
-#include "random.h"
-#include "room.h"
-#include "collections.h"
-#include "actor.h"
-#include "enums.h"
+//User Libraries
+#include "random.h" //Game RNG
+#include "room.h" //Room and Floor objects
+#include "collections.h" //LinkedLists and Dictionarys
+#include "actor.h" //Actor objects
+#include "enums.h" //Enumeration types
+#include "functions.h" //Loose game functions
 
+/**
+ * A namespace containing objects for the Overflow game
+ */
 namespace Flow{
+    /**
+     * Game header value. Translates to the ASCII sequence "flow" when written to a file
+     */
     const int HEADER = 0x776f6c66;
 
     /**
-     * Game context object. Doing things this way eliminates global state but also saves me from having to add
-     * 10,000,000,000 parameters to everything :O
-     *
-     * I'm not sure why doing this didn't occur to me before but I had to read about 10 different web pages before
-     * I figured this out. In retrospect this is really obvious and the right thing to do.
+     * Game object. Contains all the Game's data as well as gameplay functions.
      */
     class Game{
     private:
-        //Member fields
-        Actor _player;
-        GmRand _gmRand;
-        Point _pos;
-        Config _config;
-        Floor _floor;
+        /**
+         * Value indicating whether or not the game has ended
+         */
         bool _gameOver;
 
+        /**
+         * The Game's player
+         */
+        Actor _player;
+
+        /**
+         * The position of the Game's player
+         */
+        Point _pos;
+
+        /**
+         * The Game's configuration
+         */
+        Config _config;
+
+        /**
+         * The current Game map
+         */
+        Floor _floor;
+
+        /**
+         * A LinkedList containing monster names. Filled during the construction of a Game from GameData/monsters.txt
+         */
         Collections::LinkedList<std::string> _monNames;
+
+        /**
+         * A Dictionary containing Item names by ItemType. Filled during the construction of a Game as follows:
+         * ItemType::None   : 0
+         * ItemType::Potion : Data from GameData/uidpotionnames.txt
+         * ItemType::Weapon : Data from GameData/uidweaponnames.txt
+         * ItemType::Armor  : Data from GameData/uidarmornames.txt
+         */
         Collections::Dictionary<ItemType, Collections::LinkedList<std::string>> _itmNames;
+
+        /**
+         * A Dictionary containing Weapon names by Job. Filled during the construction of of a Game as follows:
+         * Job::None   : 0
+         * Job::Knight : Data from GameData/knightweapons.txt
+         * Job::Cleric : Data from GameData/clericweapons.txt
+         * Job::Mage   : Data from GameData/mageweapons.txt
+         * Job::Lancer : Data from GameData/lancerweapons.txt
+         */
         Collections::Dictionary<Job, Collections::LinkedList<std::string>> _weapNames;
 
+        /**
+         * Path to the Game's index.sav file. Defaulted to GameData/index.sav
+         */
         std::string _indexPath;
+
+        /**
+         * Path to the Game's configuration file. Defaulted to GameData/game.conf
+         */
         std::string _confPath;
     public:
         Game();
-
-        Actor player() const;
-        void player(const Actor&);
-        GmRand gmRand() const;
-        Point pos() const;
-        void pos(const Point&);
-        Config config() const;
+        void createCharacter();
         void config(const Config&);
-        Floor floor() const;
         void floor(const Floor&);
-        bool isGameOver() const;
+        void gameOptionsMenu();
+        void mainMenuOptions();
+        void play();
+        void player(const Actor&);
+        void pos(const Point&);
         void setGameOver(bool);
-
+        void stats(const Actor&);
+        void trigger(Room&);
+        bool encounter(Actor&);
+        bool isGameOver() const;
+        bool loadMenu();
+        std::string configPath() const;
+        std::string indexPath() const;
+        Config config() const;
+        Point pos() const;
+        Actor player() const;
+        Floor floor() const;
         Collections::LinkedList<std::string> monsterNames() const;
         Collections::Dictionary<ItemType, Collections::LinkedList<std::string>> itemNames() const;
         Collections::Dictionary<Job, Collections::LinkedList<std::string>> weaponNames() const;
-
-        std::string indexPath() const;
-        std::string configPath() const;
-
-        //Gameplay Functions
-        void play();
-        bool encounter(Actor&);
-        void trigger(Room&);
-        void stats(const Actor&);
-        bool loadMenu();
-        void gameOptionsMenu();
-        void mainMenuOptions();
-        void createCharacter();
     };
 
-    void save(const std::string&, const Game&);
     void load(const std::string&, Game&);
+    void save(const std::string&, const Game&);
+    void saveConfig(const std::string&, Config);
+    void rItem(Actor&, Game&, ItemType = ItemType::None, bool = true);
     void updateSaveIndex(const std::string&, const Game&);
     Config loadConfig(const std::string&);
-    void saveConfig(const std::string&, Config);
-
     Actor rActor(Game&);
-    void rItem(Actor&, Game&, ItemType = ItemType::None, bool = true);
 }
 
 #endif /* GAME_H */

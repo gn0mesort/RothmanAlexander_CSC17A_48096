@@ -8,13 +8,14 @@
 #ifndef COLLECTIONS_H
 #define COLLECTIONS_H
 
-#include <sstream>
-#include <vector>
-#include <utility>
-#include <string>
-#include <memory>
+//System Libraries
+#include <sstream> //Stringstreams
+#include <vector> //Vectors
+#include <utility> //std::swap
+#include <string> //Strings
 
-#include "except.h"
+//User Libraries
+#include "except.h" //Error::Exceptions
 
 /**
  * Defines various data structures
@@ -765,6 +766,10 @@ namespace Collections{
         }
     }
 
+    /**
+     * Get a LinkedList of keys from the Dictionary
+     * @return A LinkedList containing every key value in the Dictionary
+     */
     template<typename TKey, typename TValue>
     LinkedList<TKey> Dictionary<TKey, TValue>::keys(){
         LinkedList<TKey> r;
@@ -776,6 +781,10 @@ namespace Collections{
         return r;
     }
 
+    /**
+     * Get a LinkedList of values from the Dictionary
+     * @return A LinkedList containing every value in the Dictionary
+     */
     template<typename TKey, typename TValue>
     LinkedList<TValue> Dictionary<TKey, TValue>::values(){
         LinkedList<TKey> r;

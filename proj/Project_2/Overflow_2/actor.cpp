@@ -1,18 +1,22 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   actor.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Source file for actor.h
  * Created on December 2, 2016
  */
 
 #include "actor.h"
 
+/**
+ * Default Actor constructor
+ */
 Flow::Actor::Actor(){
     _job = Job::Knight;
     _name = "Player";
@@ -26,35 +30,54 @@ Flow::Actor::Actor(){
     _armor.identify();
 }
 
+/**
+ * Add an Item to the Actor's inventory
+ * @param item A Potion to add to the inventory
+ */
 void Flow::Actor::addItem(const Potion &item){
     _inv.addBack(std::make_shared<Potion>(item));
 }
 
+/**
+ * Add an Item to the Actor's inventory
+ * @param item A Weapon to add to the inventory
+ */
 void Flow::Actor::addItem(const Weapon &item){
     _inv.addBack(std::make_shared<Weapon>(item));
 }
 
+/**
+ * Add an Item to the Actor's inventory
+ * @param item An Armor object to add to the inventory
+ */
 void Flow::Actor::addItem(const Armor &item){
     _inv.addBack(std::make_shared<Armor>(item));
 }
 
+/**
+ * Calculate and apply damage from a physical attack to a target Actor
+ * @param target
+ */
 void Flow::Actor::hit(Actor &target){
-    GmRand gmRand;
+    GmRand gmRand; //Get an RNG instance
     int damage = 0; //The total damage to be dealt
     bool healing = FlagUtil::hasFlag(_weap.element(), DmgElem::HEALING) //Whether or not this attack will heal
             && _weap.element() != DmgElem::ABSOLUT;
     bool absorb = false; //Whether or not this attack will be absorbed
-    if(_weap.element() == DmgElem::ABSOLUT && target.armor().element() != DmgElem::ABSOLUT){ //If the attack element is Absolute and the defense element is not Absolute
+    if(_weap.element() == DmgElem::ABSOLUT && target.armor().element() != DmgElem::ABSOLUT){ //If the attack element is
+        //Absolute and the defense element is not Absolute
         damage = _weap.value() + _atk.value(); //Calculate the damage based solely on attack and weapon damage
     }
     else if(target.armor().element() == DmgElem::ABSOLUT){ //Else if both elements are Absolute
         damage = (_weap.value() + _atk.value()) / ((gmRand.rand() % 3) + 1); //Calculate damage as normal
         damage -= (target.armor().value() + target.defense().value()) / ((gmRand.rand() % 3) + 1);
     }
-    else if(_weap.element() != DmgElem::ABSOLUT && target.armor().element() == DmgElem::ABSOLUT){ //If the defense element is Absolute but the attack element isn't
+    else if(_weap.element() != DmgElem::ABSOLUT && target.armor().element() == DmgElem::ABSOLUT){ //If the defense
+        //element is Absolute but the attack element isn't
         absorb = true; //The damage is absorbed
     }
-    else if(_weap.element() == target.armor().element() && _weap.element() != DmgElem::NONE){ //If both elements match and are not None
+    else if(_weap.element() == target.armor().element() && _weap.element() != DmgElem::NONE){ //If both elements match
+        //and are not None
         absorb = true; //The damage is absorbed
     }
     else{ //Otherwise
@@ -66,7 +89,8 @@ void Flow::Actor::hit(Actor &target){
     }
     if(!healing && !absorb){ //If the attack isn't a heal or absorbed
         damage += (gmRand.rand() % 5); //Add between 0 and 5 damage
-        if(_weap.element() != DmgElem::ABSOLUT && FlagUtil::hasFlag(_weap.element(), DmgElem::NGHTMRE) && _mp.value() > 0){ //If Nightmare damage
+        if(_weap.element() != DmgElem::ABSOLUT && FlagUtil::hasFlag(_weap.element(), DmgElem::NGHTMRE)
+           && _mp.value() > 0){ //If Nightmare damage
             std::cout << _name << "'s weapon is burning with witchfire!" << std::endl;
             int bonus = 0; //The mana bonus is 0
             bonus = gmRand.rand() % _mp.value(); //Calculate the mana bonus between 0 and the current amount of MP
@@ -90,6 +114,11 @@ void Flow::Actor::hit(Actor &target){
     }
 }
 
+/**
+ * Equip a Weapon
+ * @param weap The Weapon to equip
+ * @param output Whether or not to output text
+ */
 void Flow::Actor::equip(const Weapon &weap, bool output){
     addItem(_weap);
     _weap = weap;
@@ -98,6 +127,11 @@ void Flow::Actor::equip(const Weapon &weap, bool output){
     }
 }
 
+/**
+ * Equip some Armor
+ * @param armor The Armor to equip
+ * @param output Whether or not to output text
+ */
 void Flow::Actor::equip(const Armor &armor, bool output){
     addItem(_armor);
     _armor = armor;
@@ -106,8 +140,13 @@ void Flow::Actor::equip(const Armor &armor, bool output){
     }
 }
 
+/**
+ * Identify an Item in the Actor's inventory
+ * @param index The index in the inventory to identify
+ * @param output Whether or not to output text
+ */
 void Flow::Actor::identify(unsigned int index, bool output){
-    if(!_inv[index]->isIdenitfied()){
+    if(!_inv[index]->isIdenitfied()){ //If not Identified
         if(output){ //If output should be displayed
             std::cout << _inv[index]->unidentifiedName() << " is " << _inv[index]->name() << std::endl;
         }
@@ -118,84 +157,165 @@ void Flow::Actor::identify(unsigned int index, bool output){
     }
 }
 
+/**
+ * Remove an Item from the Actor's inventory
+ * @param index The index of the Item to remove
+ */
 void Flow::Actor::removeItem(unsigned int index){
     _inv.remove(index);
 }
 
+/**
+ * Return the Actor's attack Stat
+ * @return A BStat containing the Actor's attack data
+ */
 Flow::BStat Flow::Actor::attack() const{
     return _atk;
 }
 
+/**
+ * Set the Actor's attack Stat
+ * @param atk A value to set the value of _atk to
+ */
 void Flow::Actor::attack(unsigned char atk){
     _atk.value(atk);
 }
 
+/**
+ * Set the Actor's attack Stat
+ * @param atk A BStat object to set _atk to
+ */
 void Flow::Actor::attack(const BStat &atk){
     _atk = atk;
 }
 
+/**
+ * Return the Actor's defense Stat
+ * @return A BStat containing the Actor's defense data
+ */
 Flow::BStat Flow::Actor::defense() const{
     return _def;
 }
 
+/**
+ * Set the Actor's defense Stat
+ * @param def A value to set the value of _def to
+ */
 void Flow::Actor::defense(unsigned char def){
     _def.value(def);
 }
 
+/**
+ * Set the Actor's defense Stat
+ * @param def A BStat object to set _def to
+ */
 void Flow::Actor::defense(const BStat &def){
     _def = def;
 }
 
+/**
+ * Return the Actor's HP Stat
+ * @return An IStat containing the Actor's HP data
+ */
 Flow::IStat Flow::Actor::hp() const{
     return _hp;
 }
 
+/**
+ * Set the Actor's HP
+ * @param nHp A value to set the value of _hp to
+ */
 void Flow::Actor::hp(int nHp){
     _hp.value(nHp);
 }
 
+/**
+ * Set the Actor's HP
+ * @param nHp An IStat to set _hp to
+ */
 void Flow::Actor::hp(const IStat &nHp){
     _hp = nHp;
 }
 
+/**
+ * Return the Actor's current Job
+ * @return The value of _job
+ */
 Flow::Job Flow::Actor::job() const{
     return _job;
 }
 
+/**
+ * Set the Actor's current Job
+ * @param nJob A Job to set the Actor to
+ */
 void Flow::Actor::job(Job nJob){
     _job = nJob;
 }
 
+/**
+ * Returns the Actor's MP Stat
+ * @return An IStat containing the Actor's MP data
+ */
 Flow::IStat Flow::Actor::mp() const{
     return _mp;
 }
 
+/**
+ * Set the Actor's MP
+ * @param nMp A value to set the value of _mp to
+ */
 void Flow::Actor::mp(int nMp){
     _mp.value(nMp);
 }
 
+/**
+ * Set the Actor's MP
+ * @param nMp An IStat to set _mp to
+ */
 void Flow::Actor::mp(const IStat &nMp){
     _mp = nMp;
 }
 
+/**
+ * Get the Actor's name
+ * @return The value of _name
+ */
 std::string Flow::Actor::name() const{
     return _name;
 }
 
+/**
+ * Set the Actor's name
+ * @param nName A new name to set _name to
+ */
 void Flow::Actor::name(const std::string &nName){
     _name = nName;
 }
 
+/**
+ * Get the Actor's current Weapon
+ * @return The currently equipped Weapon
+ */
 Flow::Weapon Flow::Actor::weapon() const{
     return _weap;
 }
 
+/**
+ * Get the Actor's current Armor
+ * @return The currently equipped Armor
+ */
 Flow::Armor Flow::Actor::armor() const{
     return _armor;
 }
 
+/**
+ * Select an Item from the Actor's inventory
+ * @return The index of the selected Item
+ */
 int Flow::Actor::selectItem(){
     int r = intMenu(inventoryMenu(), 1); //Get the return value from menu processing
+
     if(r > 0){ //If not back
         char input = menu({"Use", "Drop"}, 2); //Menu processing
         switch(input){
@@ -217,11 +337,18 @@ int Flow::Actor::selectItem(){
             }
         }
     }
+
     return r;
 }
 
+/**
+ * Get a menu LinkedList containing the names of Items in the Actor's inventory
+ * @return A LinkedList containing the names of Items in the Actor's inventory. Names are either identified names for
+ * identified items or unidentified names
+ */
 Collections::LinkedList<std::string> Flow::Actor::inventoryMenu(){
-    Collections::LinkedList<std::string> r; //The return vector
+    Collections::LinkedList<std::string> r; //The return LinkedList
+
     for(int i = 0; i < _inv.size(); ++i){ //For the entire inventory
         std::string opt; //The current menu option
         if(_inv[i]->isIdenitfied()){ //If the item is identified
@@ -238,32 +365,52 @@ Collections::LinkedList<std::string> Flow::Actor::inventoryMenu(){
     return r;
 }
 
+/**
+ * Get the size of the Actor's inventory
+ * @return The size of the Actor's inventory in Items
+ */
 unsigned int Flow::Actor::invSize(){
     return _inv.size();
 }
 
+/**
+ * Add Items to the Actor's inventory from another Actor's inventory
+ * @param other The other Actor to take Items from
+ */
 void Flow::Actor::addItems(const Actor &other){
-    for(int i = 0; i < other._inv.size(); ++i){
-        //std::cout << other._inv[i]->isIdenitfied() << std::endl;
-        _inv.addBack(other._inv[i]);
-        std::cout << other._inv[i]->unidentifiedName() << " acquired!" << std::endl;
+    for(int i = 0; i < other._inv.size(); ++i){ //For the inventory of other
+        _inv.addBack(other._inv[i]); //Add items
+        std::cout << other._inv[i]->unidentifiedName() << " acquired!" << std::endl; //Output acquired message
     }
 }
 
+/**
+ * Get the difficulty of the game
+ * @return The difficulty value for this Actor
+ */
 unsigned char Flow::Actor::difficulty() const{
     return _diff;
 }
 
+/**
+ * Set the difficulty of the game
+ * @param diff The difficulty to set the game to
+ */
 void Flow::Actor::difficulty(unsigned char diff){
     _diff = diff;
 }
 
+/**
+ * Use an Item from the Actor's inventory
+ * @param index The index of the Item to use
+ * @param output Whether or not to output usage text
+ */
 void Flow::Actor::use(unsigned int index, bool output){
-    bool consumed = false;
-    std::shared_ptr<Item> itm = _inv[index];
-    removeItem(index);
+    bool consumed = false; //Whether or not the Item was consumed
+    std::shared_ptr<Item> itm = _inv[index]; //Get the Item
+    removeItem(index); //Remove the Item from the inventory
     switch(itm->type()){
-        case ItemType::Potion:
+        case ItemType::Potion: //If it's a Potion
         {
             if(output){
                 std::cout << _name << " used " << itm->name() << "." << std::endl; //Display usage message
@@ -273,7 +420,7 @@ void Flow::Actor::use(unsigned int index, bool output){
                     int select = intMenu(inventoryMenu(), 1);
                     if(select > 0){ //If the selection is greater than 0
                         identify(select - 1, true); //Identify the item and output text
-                        consumed = true;
+                        consumed = true; //The Item was consumed
                     }
                 }
                 else if(output){ //Otherwise if you have no other items
@@ -286,7 +433,7 @@ void Flow::Actor::use(unsigned int index, bool output){
                 }
                 _hp = _hp.max(); //Restore hp
                 _mp = _mp.max(); //Restore mp
-                consumed = true;
+                consumed = true; //The Item was consumed
             }
             else{ //Otherwise do potion processing by element
                 if(FlagUtil::hasFlag(itm->element(), DmgElem::HEALING)){ //If the potion has a healing flag
@@ -335,46 +482,57 @@ void Flow::Actor::use(unsigned int index, bool output){
                     if(output){
                         std::cout << _name << " had a terrible nightmare!" << std::endl;
                     }
-                    obfuscate();
+                    obfuscate(); //Obfuscate all Items in the inventory
                 }
-                consumed = true;
+                consumed = true; //The Item was consumed
             }
             break;
         }
-
-        case ItemType::Weapon:
+        case ItemType::Weapon: //If it's a Weapon
         {
-            std::shared_ptr<Weapon> weap = std::static_pointer_cast<Weapon>(itm);
-            weap->identify();
-            equip(*weap, output);
-            consumed = true;
+            std::shared_ptr<Weapon> weap = std::static_pointer_cast<Weapon>(itm); //Convert the Item to a Weapon
+            weap->identify(); //Identify the Weapon
+            equip(*weap, output); //Equip the Weapon
+            consumed = true; //The Item was consumed
             break;
         }
 
-        case ItemType::Armor:
+        case ItemType::Armor: //If it's Armor
         {
-            std::shared_ptr<Armor> armor = std::static_pointer_cast<Armor>(itm);
-            armor->identify();
-            equip(*armor, output);
-            consumed = true;
+            std::shared_ptr<Armor> armor = std::static_pointer_cast<Armor>(itm); //Convert the Item to Armor
+            armor->identify(); //Identify the Armor
+            equip(*armor, output); //Equip the Armor
+            consumed = true; //The Item was consumed
             break;
         }
     }
-    if(!consumed){
-        addItem(itm);
+    if(!consumed){ //If the Item wasn't consumed
+        addItem(itm); //Add it back to the Inventory
     }
 }
 
+/**
+ * Add an Item to the Actor's inventory
+ * @param itm A std::shared_ptr<Item> pointing to the Item to add
+ */
 void Flow::Actor::addItem(const std::shared_ptr<Item> &itm){
     _inv.addBack(itm);
 }
 
+/**
+ * Obfuscate all Items in the Actor's inventory
+ */
 void Flow::Actor::obfuscate(){
     for(int i = 0; i < _inv.size(); ++i){
         _inv[i]->obfuscate();
     }
 }
 
+/**
+ * Convert a Job to a string
+ * @param job The Job to convert
+ * @return A string representing the input Job
+ */
 std::string Flow::toString(Flow::Job job){
     if(job == Flow::Job::Knight){
         return "Knight";

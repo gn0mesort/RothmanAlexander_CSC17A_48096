@@ -1,6 +1,6 @@
 /*
  * File:   stringext.h
- * Author: Alexander Rothman <alexander@megate.ch>
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
  * Purpose: Defines string utility functions
  * Created on November 22, 2016
  */
@@ -8,10 +8,12 @@
 #ifndef STRINGEXT_H
 #define STRINGEXT_H
 
-#include <string>
-#include <fstream>
+//System Libraries
+#include <string> //Strings
+#include <fstream> //File I/O
 
-#include "macros.h"
+//User Libraries
+#include "macros.h" //Preprocessor macros
 
 std::string toupper(const std::string&);
 std::string tolower(const std::string&);

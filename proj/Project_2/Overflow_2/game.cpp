@@ -1,25 +1,32 @@
 /*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   game.cpp
  * Author: Alexander Rothman <alexander@megate.ch>
  * Purpose:
  * Created on December 5, 2016
  */
 
-#include "functions.h"
 #include "game.h"
 
 /**
  * Game constructor. Serves to initialize a game
  */
 Flow::Game::Game(){
-    _player;
-    _gmRand.srand();
-    _pos;
-    _config.asciiArt = true;
-    _config.saveGame = "GameData/";
-    _floor;
+    GmRand().srand(); //Seed Game RNG
+    _player; //Generate default player
+    _pos; //Generate default position
+    _config.asciiArt = true; //Configure art display
+    _config.saveGame = "GameData/"; //Configure save path
+    _floor; //Generate default floor
     _gameOver = false;
 
+    //Configure Dictionaries
     _itmNames.addBack(ItemType::Potion, Collections::LinkedList<std::string>());
     _itmNames.addBack(ItemType::Armor, Collections::LinkedList<std::string>());
     _itmNames.addBack(ItemType::Weapon, Collections::LinkedList<std::string>());
@@ -28,9 +35,11 @@ Flow::Game::Game(){
     _weapNames.addBack(Job::Lancer, Collections::LinkedList<std::string>());
     _weapNames.addBack(Job::Mage, Collections::LinkedList<std::string>());
 
+    //Configure Paths
     _indexPath = "GameData/index.sav";
     _confPath = "GameData/game.conf";
 
+    //Load Dictionary and LinkedList data
     rdTxt("GameData/monsters.txt", _monNames);
     rdTxt("GameData/uidpotionnames.txt", _itmNames[ItemType::Potion]);
     rdTxt("GameData/uidarmornames.txt", _itmNames[ItemType::Armor]);
@@ -41,72 +50,131 @@ Flow::Game::Game(){
     rdTxt("GameData/mageweapons.txt", _weapNames[Job::Mage]);
 }
 
+/**
+ * Return the Game's configuration
+ * @return The Game's current configuration
+ */
 Flow::Config Flow::Game::config() const{
     return _config;
 }
 
+/**
+ * Set the Game's configuration
+ * @param conf The new configuration for the Game
+ */
 void Flow::Game::config(const Config &conf){
     _config = conf;
 }
 
+/**
+ * Get the Game's configuration path
+ * @return The current configuration path
+ */
 std::string Flow::Game::configPath() const{
     return _confPath;
 }
 
+/**
+ * Get the Game's current Floor
+ * @return The current Floor
+ */
 Flow::Floor Flow::Game::floor() const{
     return _floor;
 }
 
+/**
+ * Set the Game's Floor
+ * @param nFloor The new Floor to set _floor to
+ */
 void Flow::Game::floor(const Floor &nFloor){
     _floor = nFloor;
 }
 
-Flow::GmRand Flow::Game::gmRand() const{
-    return _gmRand;
-}
-
+/**
+ * Get the Game's save index path
+ * @return The Game's current save index path
+ */
 std::string Flow::Game::indexPath() const{
     return _indexPath;
 }
 
+/**
+ * Get whether or not the game has ended
+ * @return true if the Game has ended. Otherwise false
+ */
 bool Flow::Game::isGameOver() const{
     return _gameOver;
 }
 
+/**
+ * Get the Dictionary of unidentified item names for this Game
+ * @return A Dictionary containing Item names by ItemType
+ */
 Collections::Dictionary<Flow::ItemType, Collections::LinkedList<std::string>> Flow::Game::itemNames() const{
     return _itmNames;
 }
 
+/**
+ * Get the LinkedList of monster names for this Game
+ * @return The current list of monster names
+ */
 Collections::LinkedList<std::string> Flow::Game::monsterNames() const{
     return _monNames;
 }
 
+/**
+ * Get the Game's player
+ * @return The current Actor object for the player
+ */
 Flow::Actor Flow::Game::player() const{
     return _player;
 }
 
+/**
+ * Set the Game's player
+ * @param nPlayer The Actor to set the Game's player to
+ */
 void Flow::Game::player(const Actor &nPlayer){
     _player = nPlayer;
 }
 
+/**
+ * Get the current position of the player
+ * @return A Point containing the player's position
+ */
 Flow::Point Flow::Game::pos() const{
     return _pos;
 }
 
+/**
+ * Set the current position of the player
+ * @param pos A point containing the position to set the player to
+ */
 void Flow::Game::pos(const Point &pos){
     _pos = pos;
 }
 
+/**
+ * Set the Game's game over state flag
+ * @param gameOver Whether or not the game has ended
+ */
 void Flow::Game::setGameOver(bool gameOver){
     _gameOver = gameOver;
 }
 
+/**
+ * Get a Dictionary of Weapon names by Job
+ * @return A Dictionary containing Weapon names for this game
+ */
 Collections::Dictionary<Flow::Job, Collections::LinkedList<std::string>> Flow::Game::weaponNames() const{
     return _weapNames;
 }
 
+/**
+ * Play the Game
+ */
 void Flow::Game::play(){
-    _floor = _gmRand.rFloor(_player.difficulty()); //Get a new random floor
+    _floor = GmRand().rFloor(_player.difficulty()); //Get a new random floor
     _pos = _floor.start(); //Move the player to the start cell
     _floor[_pos.y][_pos.x].event(Flow::RmEvent::None); //Set the start cell event to none
     do{ //While the game isn't over
@@ -116,61 +184,71 @@ void Flow::Game::play(){
     _gameOver = false; //Toggle the game over flag
 }
 
+/**
+ * Encounter an enemy
+ * @param enemy An Actor representing a monster for the player to fight
+ * @return true if the player wins. Otherwise false
+ */
 bool Flow::Game::encounter(Actor &enemy){
-    bool turn = false,
-            r = false;
+    bool turn = false, //Whether or not it's the player's turn
+            r = false; //Return value
 
-    do{
-        enemy.hit(_player);
-        if(_player.hp().value() > 0){
-            do{
+    do{ //While no one is dead
+        enemy.hit(_player); //Hit the player
+        if(_player.hp().value() > 0){ //If the player isn't dead
+            do{ //While the player's turn isn't used up
+                //Display stats
                 std::cout << enemy.name() << ": " << enemy.hp().value() << "/" << enemy.hp().max() << " ";
                 std::cout << enemy.hp().name() << std::endl;
                 std::cout << _player.name() << ": " << _player.hp().value() << "/" << _player.hp().max() << " ";
                 std::cout << _player.hp().name() << std::endl;
-                turn = true;
+                turn = true; //Player's turn
                 char input = menu({"Attack", "Inventory", "Player Status"}, 5);
                 switch(input){
-                    case 'A':
+                    case 'A': //Attack
                     {
-                        _player.hit(enemy);
-                        turn = false;
+                        _player.hit(enemy); //Hit the enemy
+                        turn = false; //End the turn
                         break;
                     }
-                    case 'I':
+                    case 'I': //Inventory
                     {
-                        int index = _player.selectItem();
-                        if(index > -1){
-                            turn = false;
+                        int index = _player.selectItem(); //Select an Item
+                        if(index > -1){ //If an Item was used
+                            turn = false; //End the turn
                         }
                         break;
                     }
-                    case 'P':
+                    case 'P': //Player Status
                     {
-                        stats(_player);
+                        stats(_player); //Display Stats
                         break;
                     }
                 }
             } while(turn);
         }
     } while(_player.hp().value() > 0 && enemy.hp().value() > 0);
-    if(_player.hp().value() > 0){
-        _player.addItems(enemy);
-        r = true;
+    if(_player.hp().value() > 0){ //If the player won
+        _player.addItems(enemy); //Award the player Item drops
+        r = true; //The player won
     }
-    else{
+    else{ //Otherwise
         if(_config.asciiArt){ //If ASCII art is on
             rdTxt("GameData/gameover.txt"); //Display game over screen
         }
         else{ //Otherwise
             std::cout << "GAME OVER!" << std::endl;
         }
-        r = false;
+        r = false; //The player lost
     }
 
     return r;
 }
 
+/**
+ * Trigger the event in a Room
+ * @param room A Room to trigger events for
+ */
 void Flow::Game::trigger(Room &room){
     bool moved = false; //If the player has moved
     std::stringstream convert; //String stream for conversion
@@ -284,6 +362,10 @@ void Flow::Game::trigger(Room &room){
     }
 }
 
+/**
+ * Display the Stat values for an Actor
+ * @param actor The Actor to display Stats for
+ */
 void Flow::Game::stats(const Actor &actor){
     std::cout << actor.name() << std::endl;
     std::cout << "Job: " << toString(actor.job()) << std::endl;
@@ -297,6 +379,9 @@ void Flow::Game::stats(const Actor &actor){
     std::cout << "\t" << actor.armor().description() << std::endl;
 }
 
+/**
+ * Handle the in-game options menu
+ */
 void Flow::Game::gameOptionsMenu(){
     bool back = false; //Whether or not to go back
     Config nConf = _config; //Create a copy of the game config
@@ -344,53 +429,65 @@ void Flow::Game::gameOptionsMenu(){
     _config = nConf; //Copy edited config back to the game config
 }
 
+/**
+ * Update save index file
+ * @param path The path to add to the index
+ * @param game The current Game object
+ */
 void Flow::updateSaveIndex(const std::string &path, const Game &game){
-    std::ofstream out;
-    std::ifstream in;
-    Collections::LinkedList<std::string> list;
+    std::ofstream out; //Input Stream
+    std::ifstream in; //Output Stream
+    Collections::LinkedList<std::string> list; //Current file content
 
-    in.open(game.indexPath().c_str());
-    if(in.is_open()){
+    in.open(game.indexPath().c_str()); //Open the index
+    if(in.is_open()){ //If it opened
         std::string input;
-        while(getline(in, input)){
+        while(getline(in, input)){ //Read index into list
             list.addBack(input);
         }
     }
-    in.close();
+    in.close(); //Close the index
 
-    out.open(game.indexPath().c_str(), std::fstream::trunc);
-    if(out.is_open()){
-        if(list.size() > 0){
+    out.open(game.indexPath().c_str(), std::fstream::trunc); //Open and clear the index
+    if(out.is_open()){ //If it opened
+        if(list.size() > 0){ //Output the list to the index
             for(int i = 0; i < list.size(); ++i){
                 out << list[i] << std::endl;
             }
         }
-        out << path << std::endl;
+        out << path << std::endl; //Append the new path
     }
-    out.close();
+    out.close(); //Close the index
 }
 
+/**
+ * Save a Game
+ * @param path The path to save to
+ * @param game The Game to save
+ */
 void Flow::save(const std::string &path, const Game &game){
-    int header = HEADER;
-    std::ofstream out;
-    Actor player = game.player();
+    int header = HEADER; //Get a nonconst header copy
+    std::ofstream out; //Output stream
+    Actor player = game.player(); //Get a copy of the player
 
-    if(!checkFile(path, HEADER)){
-        updateSaveIndex(path, game);
+    if(!checkFile(path, HEADER)){ //Check the file
+        updateSaveIndex(path, game); //If it didn't exist update the index
     }
-    out.open(path.c_str(), (std::ios::trunc | std::ios::binary));
-    if(out.good()){
+    out.open(path.c_str(), (std::ios::trunc | std::ios::binary)); //Open the file for binary output
+    if(out.good()){ //If the file is alright
 
+        //Read save values out of the player
         Job job = player.job();
         int maxHp = player.hp().max(),
                 maxMp = player.mp().max();
         unsigned char atk = player.attack().value(),
                 def = player.defense().value(),
                 diff = player.difficulty();
-        RNGPoint weap = player.weapon().generationPoint(),
+        RNGPoint weap = player.weapon().generationPoint(), //Save weapon and armor by using RNG seeds
                 armor = player.armor().generationPoint();
 
 
+        //Write data to the file
         out.write(to_bin(header), sizeof (header));
         out.write(to_bin(diff), sizeof (diff));
         writeBinary(player.name(), out);
@@ -404,13 +501,16 @@ void Flow::save(const std::string &path, const Game &game){
         out.write(to_bin(armor.seed), sizeof (armor.seed));
         out.write(to_bin(armor.pos), sizeof (armor.pos));
     }
-    else{
-        out.close();
-        throw Error::FileException();
+    else{ //Otherwise
+        out.close(); //Close the file
+        throw Error::FileException(); //Throw FileException
     }
-    out.close();
+    out.close(); //Close the file
 }
 
+/**
+ * Process main menu options menu
+ */
 void Flow::Game::mainMenuOptions(){
     bool back = false; //Whether or not to go back
 
@@ -450,13 +550,19 @@ void Flow::Game::mainMenuOptions(){
     _config = nConf; //Copy the new config back to the game config
 }
 
+/**
+ * Load a Game
+ * @param path The path to load from
+ * @param game The Game to load data into
+ */
 void Flow::load(const std::string &path, Game &game){
-    Actor player;
-    std::ifstream in;
+    Actor player; //Create a new player
+    std::ifstream in; //Input stream
 
-    if(checkFile(path, HEADER)){
-        in.open(path.c_str(), (std::ios::binary));
+    if(checkFile(path, HEADER)){ //Ensure that the file is valid
+        in.open(path.c_str(), (std::ios::binary)); //Open the file in binary mode
         if(in.good()){
+            //Create seperate fields for player data
             Job job;
             int maxHp,
                     maxMp;
@@ -466,7 +572,8 @@ void Flow::load(const std::string &path, Game &game){
             RNGPoint weap,
                     armor;
 
-            in.seekg(std::ios::beg + sizeof (HEADER));
+            in.seekg(std::ios::beg + sizeof (HEADER)); //Seek past the header value
+            //Read data from the file
             in.read(to_bin(diff), sizeof (diff));
             player.name(readBinary(in));
             in.read(to_bin(job), sizeof (job));
@@ -479,6 +586,7 @@ void Flow::load(const std::string &path, Game &game){
             in.read(to_bin(armor.seed), sizeof (armor.seed));
             in.read(to_bin(armor.pos), sizeof (armor.pos));
 
+            //Set player data to loaded data
             player.difficulty(diff);
             player.job(job);
             IStat hp = player.hp();
@@ -493,43 +601,48 @@ void Flow::load(const std::string &path, Game &game){
             player.defense(def);
             game.player(player);
 
+            //Regenerate equipped Items from RNGPoints
             RNGPoint cache;
-            cache.pos = GmRand().pos();
+            cache.pos = GmRand().pos(); //Cache current RNGPoint
             cache.seed = GmRand().seed();
-            if(weap.seed != 0){
+            if(weap.seed != 0){ //Check for default Weapon
                 GmRand().seek(weap);
                 rItem(player, game, ItemType::Weapon, false);
                 player.use(0, false);
                 player.removeItem(0);
             }
-            else{
+            else{ //Otherwise provide a default Weapon
                 Weapon weap = player.weapon();
                 weap.name(game.weaponNames()[player.job()][GmRand().rand() % game.weaponNames()[player.job()].size()]);
                 player.equip(weap, false);
             }
-            if(armor.seed != 0){
+            if(armor.seed != 0){ //Check for default Armor
                 GmRand().seek(armor);
                 rItem(player, game, ItemType::Armor, false);
                 player.use(0, false);
                 player.removeItem(0);
             }
-            else{
+            else{ //Otherwise provide a default Armor
                 player.equip(Armor(DmgElem::NONE, 10), false);
             }
-            GmRand().seek(cache);
+            GmRand().seek(cache); //Seek RNG back to cached position
 
-            game.player(player);
+            game.player(player); //Save the player to the Game object
         }
-        else{
-            in.close();
-            throw Error::FileException();
+        else{ //Otherwise
+            in.close(); //Close the file
+            throw Error::FileException(); //Throw a FileException
         }
     }
-    else{
-        throw Error::FileException("Invalid File");
+    else{ //Otherwise
+        throw Error::FileException("Invalid File"); //Throw a FileException
     }
 }
 
+/**
+ * Handle the load menu
+ * @return Whether or not a file was loaded
+ */
 bool Flow::Game::loadMenu(){
     bool r = false, //Return value
             back = false; //Whether or not to go back
@@ -583,6 +696,9 @@ bool Flow::Game::loadMenu(){
     return r;
 }
 
+/**
+ * Create a new player Actor for the game
+ */
 void Flow::Game::createCharacter(){
     std::string name; //An input string
     _player = Actor();
@@ -618,6 +734,7 @@ void Flow::Game::createCharacter(){
             break;
         }
     }
+    //Configure equipment
     Weapon weap = _player.weapon();
     weap.name(_weapNames[_player.job()][GmRand().rand() % _weapNames[_player.job()].size()]);
     _player.equip(weap, false);
@@ -663,42 +780,59 @@ void Flow::Game::createCharacter(){
     }
 }
 
+/**
+ * Load a configuration
+ * @param path The path to the Config to load
+ * @return A Config object based on the loaded file
+ */
 Flow::Config Flow::loadConfig(const std::string &path){
-    Config r;
+    Config r; //Create default config
     r.asciiArt = true;
     r.saveGame = "GameData/";
+    std::ifstream in; //Input stream
 
-    std::ifstream in;
-    if(checkFile(path, HEADER)){
-        in.open(path, std::ios::binary);
-        if(in.good()){
-            in.seekg(std::ios::beg + sizeof (HEADER));
+    if(checkFile(path, HEADER)){ //Check that the file is valid
+        in.open(path, std::ios::binary); //Open the file in binary mode
+        if(in.good()){ //If the file is good
+            in.seekg(std::ios::beg + sizeof (HEADER)); //Seek past the header
+            //Load the file
             in.read(to_bin(r.asciiArt), sizeof (r.asciiArt));
             r.saveGame = readBinary(in);
         }
     }
-    in.close();
+    in.close(); //Close the file
 
     return r;
 }
 
+/**
+ * Save a Config
+ * @param path The path to save to
+ * @param config The Config to save
+ */
 void Flow::saveConfig(const std::string &path, Config config){
-    int header = HEADER;
-    std::ofstream out;
+    int header = HEADER; //Get a nonconst header
+    std::ofstream out; //Output stream
 
-    out.open(path, std::ios::binary);
-    if(out.good()){
+    out.open(path, std::ios::binary); //Open the file in binary mode
+    if(out.good()){ //If the file is good
+        //Write the file
         out.write(to_bin(header), sizeof (header));
         out.write(to_bin(config.asciiArt), sizeof (config.asciiArt));
         writeBinary(config.saveGame, out);
     }
-    else{
-        out.close();
-        throw Error::FileException();
+    else{ //Otherwise
+        out.close(); //Close the file
+        throw Error::FileException(); //Throw a FileException
     }
-    out.close();
+    out.close(); //Close the file
 }
 
+/**
+ * Generate a random Actor
+ * @param game The Game to use in generation
+ * @return An Actor with Stats based off of the Game's player
+ */
 Flow::Actor Flow::rActor(Game &game){
     unsigned char drops = 0; //The number of drop items
     int hp = GmRand().rand() % (game.player().hp().max() * 2) + 1; //HP is between 1 and 2 * the player's max HP
@@ -730,37 +864,44 @@ Flow::Actor Flow::rActor(Game &game){
     return r;
 }
 
+/**
+ * Generate a random Item and add it to the input Actor's inventory
+ * @param target The Actor to add Item's to
+ * @param game The Game the Actor will belong to
+ * @param type The type of Item to generate or None for random type
+ * @param output Whether to output information or not
+ */
 void Flow::rItem(Actor &target, Game &game, ItemType type, bool output){
-    RNGPoint gen;
-    gen.pos = GmRand().pos();
-    gen.seed = GmRand().seed();
-    unsigned char value = GmRand().rand() % (game.player().attack().value() + 50);
-    unsigned char elem = GmRand().rElem();
-    int percent = GmRand().rand() % 100;
-    std::string uiName = "";
+    RNGPoint gen; //The current RNG position and seed
+    gen.pos = GmRand().pos(); //Set position
+    gen.seed = GmRand().seed(); //Set seed
+    unsigned char value = GmRand().rand() % (game.player().attack().value() + 50); //Generate value
+    unsigned char elem = GmRand().rElem(); //Generate element
+    int percent = GmRand().rand() % 100; //Generate type percentage
+    std::string uiName = ""; //The unidentified name of the Item
 
-    if(type == ItemType::None){
-        if(percent < 50){
+    if(type == ItemType::None){ //If Random
+        if(percent < 50){ //Generate Potion
             uiName = game.itemNames()[ItemType::Potion][GmRand().rand() % game.itemNames().size()];
             Potion itm("", uiName, "", elem, value);
             itm.generationPoint(gen);
             target.addItem(itm);
         }
-        else if(percent >= 50 && percent < 70){
+        else if(percent >= 50 && percent < 70){ //Generate Armor
             uiName = game.itemNames()[ItemType::Armor][GmRand().rand() % game.itemNames().size()];
             Armor itm("", uiName, "", elem, value);
             itm.generationPoint(gen);
             target.addItem(itm);
         }
-        else{
+        else{ //Generate Weapon
             uiName = game.itemNames()[ItemType::Weapon][GmRand().rand() % game.itemNames().size()];
             Weapon itm("", uiName, "", elem, value, false, &game.weaponNames()[game.player().job()]);
             itm.generationPoint(gen);
             target.addItem(itm);
         }
     }
-    else{
-        switch(type){
+    else{ //If not random
+        switch(type){ //Choose type based on input and generate Item
             case ItemType::Potion:
             {
                 uiName = game.itemNames()[ItemType::Potion][GmRand().rand() % game.itemNames().size()];
@@ -787,7 +928,7 @@ void Flow::rItem(Actor &target, Game &game, ItemType type, bool output){
             }
         }
     }
-    if(output){
+    if(output){ //If outputting text
         std::cout << uiName << " acquired!" << std::endl;
     }
 }
