@@ -1,0 +1,224 @@
+\hypertarget{class_collections_1_1_list_node}{}\section{Collections\+:\+:List\+Node$<$ T $>$ Class Template Reference}
+\label{class_collections_1_1_list_node}\index{Collections\+::\+List\+Node$<$ T $>$@{Collections\+::\+List\+Node$<$ T $>$}}
+
+
+{\ttfamily \#include $<$collections.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_collections_1_1_list_node_ad89dab0c61b95b43c587b0efce053194}{List\+Node} ()
+\item 
+\hyperlink{class_collections_1_1_list_node_acaabce83984a44c70640cb93d964b711}{List\+Node} (T)
+\item 
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_list_node_a914e3ed4b565faa4cef38e9f7b28bfee}{head} () const
+\item 
+void \hyperlink{class_collections_1_1_list_node_af336d8b69f73ae5c40874572a688c48a}{head} (\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$)
+\item 
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_list_node_a102a97a1589e2df0797a9717bbecd952}{tail} () const
+\item 
+void \hyperlink{class_collections_1_1_list_node_aa2a2e35182902b354508841661bf181c}{tail} (\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$)
+\item 
+T \hyperlink{class_collections_1_1_list_node_abec2647bdf4181dcb560e6e8eb4ffdf4}{data} () const
+\item 
+void \hyperlink{class_collections_1_1_list_node_a898a4374f1e33bf00f6a69fb3f816182}{data} (T)
+\item 
+T \& \hyperlink{class_collections_1_1_list_node_ad28943a3024eb910bbb9c031da6ca50d}{dataref} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_list_node_ac40e75e29325a6767686d7e828fa3b6a}{\+\_\+head}
+\item 
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_list_node_a292ac07a1175ba5feecc79c7982bbf61}{\+\_\+tail}
+\item 
+T \hyperlink{class_collections_1_1_list_node_a00e5880511d5045370127b2da895ab4f}{\+\_\+data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Collections\+::\+List\+Node$<$ T $>$}
+
+Defines a single node in a \hyperlink{class_collections_1_1_linked_list}{Linked\+List}. Contains two links as well as the node data 
+
+Definition at line 29 of file collections.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_collections_1_1_list_node_ad89dab0c61b95b43c587b0efce053194}{}\label{class_collections_1_1_list_node_ad89dab0c61b95b43c587b0efce053194} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!List\+Node@{List\+Node}}
+\index{List\+Node@{List\+Node}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{List\+Node()}{ListNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::\hyperlink{class_collections_1_1_list_node}{List\+Node} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor for a \hyperlink{class_collections_1_1_list_node}{List\+Node}. Doesn\textquotesingle{}t link the node to anything. 
+
+Definition at line 62 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_acaabce83984a44c70640cb93d964b711}{}\label{class_collections_1_1_list_node_acaabce83984a44c70640cb93d964b711} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!List\+Node@{List\+Node}}
+\index{List\+Node@{List\+Node}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{List\+Node()}{ListNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::\hyperlink{class_collections_1_1_list_node}{List\+Node} (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+Parameterized constructor for a \hyperlink{class_collections_1_1_list_node}{List\+Node}. Doesn\textquotesingle{}t link the node to anything. Set \+\_\+data to the input value 
+\begin{DoxyParams}{Parameters}
+{\em data} & The value of this node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file collections.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_collections_1_1_list_node_abec2647bdf4181dcb560e6e8eb4ffdf4}{}\label{class_collections_1_1_list_node_abec2647bdf4181dcb560e6e8eb4ffdf4} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!data@{data}}
+\index{data@{data}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the value of this \hyperlink{class_collections_1_1_list_node}{List\+Node} \begin{DoxyReturn}{Returns}
+The current value of this \hyperlink{class_collections_1_1_list_node}{List\+Node} 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_a898a4374f1e33bf00f6a69fb3f816182}{}\label{class_collections_1_1_list_node_a898a4374f1e33bf00f6a69fb3f816182} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!data@{data}}
+\index{data@{data}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::data (\begin{DoxyParamCaption}\item[{T}]{val }\end{DoxyParamCaption})}
+
+Set the value of this \hyperlink{class_collections_1_1_list_node}{List\+Node} 
+\begin{DoxyParams}{Parameters}
+{\em val} & The value to set this node\textquotesingle{}s value to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_ad28943a3024eb910bbb9c031da6ca50d}{}\label{class_collections_1_1_list_node_ad28943a3024eb910bbb9c031da6ca50d} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!dataref@{dataref}}
+\index{dataref@{dataref}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{dataref()}{dataref()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::dataref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of this node by reference \begin{DoxyReturn}{Returns}
+A reference to the data value of this node 
+\end{DoxyReturn}
+
+
+Definition at line 138 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_a914e3ed4b565faa4cef38e9f7b28bfee}{}\label{class_collections_1_1_list_node_a914e3ed4b565faa4cef38e9f7b28bfee} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!head@{head}}
+\index{head@{head}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{head()}{head()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get a pointer to the previous \hyperlink{class_collections_1_1_list_node}{List\+Node} from this \hyperlink{class_collections_1_1_list_node}{List\+Node} \begin{DoxyReturn}{Returns}
+A pointer to this \hyperlink{class_collections_1_1_list_node}{List\+Node}\textquotesingle{}s head node 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_af336d8b69f73ae5c40874572a688c48a}{}\label{class_collections_1_1_list_node_af336d8b69f73ae5c40874572a688c48a} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!head@{head}}
+\index{head@{head}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{head()}{head()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::head (\begin{DoxyParamCaption}\item[{\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$}]{ref }\end{DoxyParamCaption})}
+
+Sets the head pointer for this \hyperlink{class_collections_1_1_list_node}{List\+Node} 
+\begin{DoxyParams}{Parameters}
+{\em ref} & A pointer to the \hyperlink{class_collections_1_1_list_node}{List\+Node} that exists ahead of this node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_a102a97a1589e2df0797a9717bbecd952}{}\label{class_collections_1_1_list_node_a102a97a1589e2df0797a9717bbecd952} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!tail@{tail}}
+\index{tail@{tail}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{tail()}{tail()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets a pointer to the next \hyperlink{class_collections_1_1_list_node}{List\+Node} from this \hyperlink{class_collections_1_1_list_node}{List\+Node} \begin{DoxyReturn}{Returns}
+A pointer to this \hyperlink{class_collections_1_1_list_node}{List\+Node}\textquotesingle{}s tail node 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_aa2a2e35182902b354508841661bf181c}{}\label{class_collections_1_1_list_node_aa2a2e35182902b354508841661bf181c} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!tail@{tail}}
+\index{tail@{tail}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{tail()}{tail()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::tail (\begin{DoxyParamCaption}\item[{\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$}]{ref }\end{DoxyParamCaption})}
+
+Sets the tail pointer for this \hyperlink{class_collections_1_1_list_node}{List\+Node} 
+\begin{DoxyParams}{Parameters}
+{\em ref} & A pointer to the \hyperlink{class_collections_1_1_list_node}{List\+Node} that exists after this node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 111 of file collections.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_collections_1_1_list_node_a00e5880511d5045370127b2da895ab4f}{}\label{class_collections_1_1_list_node_a00e5880511d5045370127b2da895ab4f} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!\+\_\+data@{\+\_\+data}}
+\index{\+\_\+data@{\+\_\+data}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{\+\_\+data}{\_data}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::\+\_\+data\hspace{0.3cm}{\ttfamily [protected]}}
+
+The data for this \hyperlink{class_collections_1_1_list_node}{List\+Node} 
+
+Definition at line 45 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_ac40e75e29325a6767686d7e828fa3b6a}{}\label{class_collections_1_1_list_node_ac40e75e29325a6767686d7e828fa3b6a} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!\+\_\+head@{\+\_\+head}}
+\index{\+\_\+head@{\+\_\+head}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{\+\_\+head}{\_head}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$T$>$$\ast$ \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::\+\_\+head\hspace{0.3cm}{\ttfamily [protected]}}
+
+The previous node in the list that contains this node or 0 if this node is the first node 
+
+Definition at line 35 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_list_node_a292ac07a1175ba5feecc79c7982bbf61}{}\label{class_collections_1_1_list_node_a292ac07a1175ba5feecc79c7982bbf61} 
+\index{Collections\+::\+List\+Node@{Collections\+::\+List\+Node}!\+\_\+tail@{\+\_\+tail}}
+\index{\+\_\+tail@{\+\_\+tail}!Collections\+::\+List\+Node@{Collections\+::\+List\+Node}}
+\subsubsection{\texorpdfstring{\+\_\+tail}{\_tail}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$T$>$$\ast$ \hyperlink{class_collections_1_1_list_node}{Collections\+::\+List\+Node}$<$ T $>$\+::\+\_\+tail\hspace{0.3cm}{\ttfamily [protected]}}
+
+The next node in the list that contains this node or 0 if this node is the last node 
+
+Definition at line 40 of file collections.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{collections_8h}{collections.\+h}\end{DoxyCompactItemize}

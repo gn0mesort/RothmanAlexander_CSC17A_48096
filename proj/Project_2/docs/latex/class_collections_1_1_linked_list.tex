@@ -1,0 +1,365 @@
+\hypertarget{class_collections_1_1_linked_list}{}\section{Collections\+:\+:Linked\+List$<$ T $>$ Class Template Reference}
+\label{class_collections_1_1_linked_list}\index{Collections\+::\+Linked\+List$<$ T $>$@{Collections\+::\+Linked\+List$<$ T $>$}}
+
+
+{\ttfamily \#include $<$collections.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_collections_1_1_linked_list_a547dc3612e33d645182861b562422026}{Linked\+List} ()
+\item 
+\hyperlink{class_collections_1_1_linked_list_a30fd67a48642d3765239c2ecdc8427cb}{Linked\+List} (unsigned int)
+\item 
+\hyperlink{class_collections_1_1_linked_list_a98748f998c9a28fbf0767355b44a8d5d}{Linked\+List} (const \hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&)
+\item 
+\hyperlink{class_collections_1_1_linked_list_af6748fde41f293f6c3e9b945ca811a99}{Linked\+List} (const T\mbox{[}$\,$\mbox{]}, unsigned int)
+\item 
+\hyperlink{class_collections_1_1_linked_list_a598749544a328460effd5e63dd6ba3cc}{Linked\+List} (const std\+::vector$<$ T $>$ \&)
+\item 
+\hyperlink{class_collections_1_1_linked_list_aacebe14f1bc1a6c671b51f01b021f772}{Linked\+List} (std\+::initializer\+\_\+list$<$ T $>$)
+\item 
+\hyperlink{class_collections_1_1_linked_list_ae10b83b464852084807dafd350a32089}{$\sim$\+Linked\+List} ()
+\item 
+unsigned int \hyperlink{class_collections_1_1_linked_list_a4e8745c011b11dfba9e15ea58959b99a}{size} () const
+\item 
+void \hyperlink{class_collections_1_1_linked_list_ab79923f4444e818f1b2e98426111af97}{add\+Back} (T)
+\item 
+void \hyperlink{class_collections_1_1_linked_list_a018e80a402059f6be8766539a019bfd8}{add\+Front} (T)
+\item 
+void \hyperlink{class_collections_1_1_linked_list_af7199bf3dcefa095a606fbd10df6867a}{remove} (unsigned int)
+\item 
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_linked_list_a854255c40752578a69367417f370545c}{head} () const
+\item 
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_linked_list_abb1529550a311ed2cfd784fc17540b8c}{tail} () const
+\item 
+std\+::string \hyperlink{class_collections_1_1_linked_list_aa31d67c806b697431151be9264c80ea7}{to\+String} (int=10)
+\item 
+bool \hyperlink{class_collections_1_1_linked_list_aba10a5308e624f78fe9f356b144e61fa}{contains} (T)
+\item 
+T \& \hyperlink{class_collections_1_1_linked_list_adb503bc22d6d74144f93bbd59064bba2}{operator\mbox{[}$\,$\mbox{]}} (unsigned int)
+\item 
+T \hyperlink{class_collections_1_1_linked_list_a6eb74c0ff9720d297ae076b4e218a655}{operator\mbox{[}$\,$\mbox{]}} (unsigned int) const
+\item 
+\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \& \hyperlink{class_collections_1_1_linked_list_acefe88d73e0db57e3fb7a2529f650eef}{operator=} (const \hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_collections_1_1_linked_list_af2bcf49a857d26c8a47aa42dedbc6b2a}{swap} (\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&, \hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Collections\+::\+Linked\+List$<$ T $>$}
+
+Defines a doubly linked list class. Almost certainly not better than std\+::list. Provides basic functionality like indexing, adding to the front or back of the list, removing nodes, copy construction, and to\+String. This class forms the basis for the other structures in this namespace 
+
+Definition at line 152 of file collections.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_collections_1_1_linked_list_a547dc3612e33d645182861b562422026}{}\label{class_collections_1_1_linked_list_a547dc3612e33d645182861b562422026} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs a default \hyperlink{class_collections_1_1_linked_list}{Linked\+List}. The default list will be empty 
+
+Definition at line 194 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a30fd67a48642d3765239c2ecdc8427cb}{}\label{class_collections_1_1_linked_list_a30fd67a48642d3765239c2ecdc8427cb} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+Constructs a \hyperlink{class_collections_1_1_linked_list}{Linked\+List} of the given size. This requires C++11 or higher 
+\begin{DoxyParams}{Parameters}
+{\em size} & The initial size of the list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 206 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a98748f998c9a28fbf0767355b44a8d5d}{}\label{class_collections_1_1_linked_list_a98748f998c9a28fbf0767355b44a8d5d} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}\item[{const \hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a \hyperlink{class_collections_1_1_linked_list}{Linked\+List} as a copy of another list 
+\begin{DoxyParams}{Parameters}
+{\em other} & The list to copy \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 222 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_af6748fde41f293f6c3e9b945ca811a99}{}\label{class_collections_1_1_linked_list_af6748fde41f293f6c3e9b945ca811a99} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}\item[{const T}]{arr\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+Constructs a \hyperlink{class_collections_1_1_linked_list}{Linked\+List} from an array 
+\begin{DoxyParams}{Parameters}
+{\em arr} & The array to copy into the list \\
+\hline
+{\em size} & The size of the input array \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 238 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a598749544a328460effd5e63dd6ba3cc}{}\label{class_collections_1_1_linked_list_a598749544a328460effd5e63dd6ba3cc} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{data }\end{DoxyParamCaption})}
+
+Constructs a \hyperlink{class_collections_1_1_linked_list}{Linked\+List} from a vector 
+\begin{DoxyParams}{Parameters}
+{\em data} & The vector to copy \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 253 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_aacebe14f1bc1a6c671b51f01b021f772}{}\label{class_collections_1_1_linked_list_aacebe14f1bc1a6c671b51f01b021f772} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{list }\end{DoxyParamCaption})}
+
+
+
+Definition at line 264 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_ae10b83b464852084807dafd350a32089}{}\label{class_collections_1_1_linked_list_ae10b83b464852084807dafd350a32089} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!````~Linked\+List@{$\sim$\+Linked\+List}}
+\index{````~Linked\+List@{$\sim$\+Linked\+List}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{$\sim$\+Linked\+List()}{~LinkedList()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::$\sim$\hyperlink{class_collections_1_1_linked_list}{Linked\+List} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys a \hyperlink{class_collections_1_1_linked_list}{Linked\+List}. Checks for empty lists. 
+
+Definition at line 277 of file collections.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_collections_1_1_linked_list_ab79923f4444e818f1b2e98426111af97}{}\label{class_collections_1_1_linked_list_ab79923f4444e818f1b2e98426111af97} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!add\+Back@{add\+Back}}
+\index{add\+Back@{add\+Back}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{add\+Back()}{addBack()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::add\+Back (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+Adds a new list element after the tail element 
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 305 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a018e80a402059f6be8766539a019bfd8}{}\label{class_collections_1_1_linked_list_a018e80a402059f6be8766539a019bfd8} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!add\+Front@{add\+Front}}
+\index{add\+Front@{add\+Front}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{add\+Front()}{addFront()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::add\+Front (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+Adds a new list element before the head element 
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 325 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_aba10a5308e624f78fe9f356b144e61fa}{}\label{class_collections_1_1_linked_list_aba10a5308e624f78fe9f356b144e61fa} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!contains@{contains}}
+\index{contains@{contains}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+bool \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{T}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line 398 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a854255c40752578a69367417f370545c}{}\label{class_collections_1_1_linked_list_a854255c40752578a69367417f370545c} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!head@{head}}
+\index{head@{head}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{head()}{head()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the head node of this list \begin{DoxyReturn}{Returns}
+The fist node in the list 
+\end{DoxyReturn}
+
+
+Definition at line 384 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_acefe88d73e0db57e3fb7a2529f650eef}{}\label{class_collections_1_1_linked_list_acefe88d73e0db57e3fb7a2529f650eef} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!operator=@{operator=}}
+\index{operator=@{operator=}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \& \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+Copy one list to another using the assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The list on the right hand side of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this list 
+\end{DoxyReturn}
+
+
+Definition at line 492 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_adb503bc22d6d74144f93bbd59064bba2}{}\label{class_collections_1_1_linked_list_adb503bc22d6d74144f93bbd59064bba2} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Gets the list element at the given index and returns it by reference 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the given element 
+\end{DoxyReturn}
+
+
+Definition at line 448 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a6eb74c0ff9720d297ae076b4e218a655}{}\label{class_collections_1_1_linked_list_a6eb74c0ff9720d297ae076b4e218a655} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption}) const}
+
+Get the list element at the given index and returns it by value 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the given element 
+\end{DoxyReturn}
+
+
+Definition at line 470 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_af7199bf3dcefa095a606fbd10df6867a}{}\label{class_collections_1_1_linked_list_af7199bf3dcefa095a606fbd10df6867a} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!remove@{remove}}
+\index{remove@{remove}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Removes the element at the given index from the list 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index to remove from the list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 345 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_a4e8745c011b11dfba9e15ea58959b99a}{}\label{class_collections_1_1_linked_list_a4e8745c011b11dfba9e15ea58959b99a} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!size@{size}}
+\index{size@{size}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+unsigned int \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the size of the list \begin{DoxyReturn}{Returns}
+The size of the \hyperlink{class_collections_1_1_linked_list}{Linked\+List} 
+\end{DoxyReturn}
+
+
+Definition at line 296 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_af2bcf49a857d26c8a47aa42dedbc6b2a}{}\label{class_collections_1_1_linked_list_af2bcf49a857d26c8a47aa42dedbc6b2a} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!swap@{swap}}
+\index{swap@{swap}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&}]{a,  }\item[{\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Swap the values of two Linked\+Lists 
+\begin{DoxyParams}{Parameters}
+{\em a} & The first list \\
+\hline
+{\em b} & The second list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 436 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_abb1529550a311ed2cfd784fc17540b8c}{}\label{class_collections_1_1_linked_list_abb1529550a311ed2cfd784fc17540b8c} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!tail@{tail}}
+\index{tail@{tail}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{tail()}{tail()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_collections_1_1_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the tail node of this list \begin{DoxyReturn}{Returns}
+The last node in the list 
+\end{DoxyReturn}
+
+
+Definition at line 393 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_linked_list_aa31d67c806b697431151be9264c80ea7}{}\label{class_collections_1_1_linked_list_aa31d67c806b697431151be9264c80ea7} 
+\index{Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Collections\+::\+Linked\+List@{Collections\+::\+Linked\+List}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ T $>$\+::to\+String (\begin{DoxyParamCaption}\item[{int}]{per\+Line = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+Convert this list into a string 
+\begin{DoxyParams}{Parameters}
+{\em per\+Line} & The number of elements to print per line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing this list 
+\end{DoxyReturn}
+
+
+Definition at line 418 of file collections.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{collections_8h}{collections.\+h}\end{DoxyCompactItemize}

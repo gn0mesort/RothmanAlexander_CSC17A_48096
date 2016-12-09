@@ -1,0 +1,208 @@
+\hypertarget{class_flow_1_1_stat}{}\section{Flow\+:\+:Stat$<$ T $>$ Class Template Reference}
+\label{class_flow_1_1_stat}\index{Flow\+::\+Stat$<$ T $>$@{Flow\+::\+Stat$<$ T $>$}}
+
+
+{\ttfamily \#include $<$stat.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_stat_ab9619eea9fbadcdc6c16eb371344d6d9}{Stat} ()
+\item 
+void \hyperlink{class_flow_1_1_stat_a1a04573bbc533a2d5af98ec708a060ca}{full\+Name} (const std\+::string \&)
+\item 
+void \hyperlink{class_flow_1_1_stat_acb4d3c7aeaf3e74166dcf3ae8bae623c}{name} (const std\+::string \&)
+\item 
+std\+::string \hyperlink{class_flow_1_1_stat_adbd9f33d895447e503a42ec4d270f4b4}{full\+Name} () const
+\item 
+std\+::string \hyperlink{class_flow_1_1_stat_a189a887c27df8b70987df310cee98337}{name} () const
+\item 
+virtual void \hyperlink{class_flow_1_1_stat_ab28bdb79f7d6444f1e341a62ef039b96}{value} (T n\+Value)=0
+\item 
+virtual T \hyperlink{class_flow_1_1_stat_a61757491d2145c37460a1cd32a8db8bb}{max} () const =0
+\item 
+virtual T \hyperlink{class_flow_1_1_stat_a7cf2be39e64fb4da988b604b92a85d28}{min} () const =0
+\item 
+virtual T \hyperlink{class_flow_1_1_stat_a8861df6366e182078ea6c9bac2b718e2}{value} () const =0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_flow_1_1_stat_ad85647ec1e66fd927a9e15755fc9f3c1}{\+\_\+name}
+\item 
+std\+::string \hyperlink{class_flow_1_1_stat_a6e6f57fcab4840d6ed92639f017b8e0c}{\+\_\+fl\+Name}
+\item 
+T \hyperlink{class_flow_1_1_stat_aba908d9094479b62f72a9663ba25232b}{\+\_\+value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Flow\+::\+Stat$<$ T $>$}
+
+Define \hyperlink{class_flow_1_1_stat}{Stat} objects. Stats are abstract and take a template type. The templating type should always a value type 
+
+Definition at line 27 of file stat.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_stat_ab9619eea9fbadcdc6c16eb371344d6d9}{}\label{class_flow_1_1_stat_ab9619eea9fbadcdc6c16eb371344d6d9} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!Stat@{Stat}}
+\index{Stat@{Stat}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{Stat()}{Stat()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::\hyperlink{class_flow_1_1_stat}{Stat} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_flow_1_1_stat}{Stat} constructor 
+
+Definition at line 64 of file stat.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_stat_a1a04573bbc533a2d5af98ec708a060ca}{}\label{class_flow_1_1_stat_a1a04573bbc533a2d5af98ec708a060ca} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!full\+Name@{full\+Name}}
+\index{full\+Name@{full\+Name}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{full\+Name()}{fullName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::full\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fl\+Name }\end{DoxyParamCaption})}
+
+Set the full name of the \hyperlink{class_flow_1_1_stat}{Stat} 
+\begin{DoxyParams}{Parameters}
+{\em fl\+Name} & The new full name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file stat.\+h.
+
+\hypertarget{class_flow_1_1_stat_adbd9f33d895447e503a42ec4d270f4b4}{}\label{class_flow_1_1_stat_adbd9f33d895447e503a42ec4d270f4b4} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!full\+Name@{full\+Name}}
+\index{full\+Name@{full\+Name}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{full\+Name()}{fullName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::full\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the full name of the \hyperlink{class_flow_1_1_stat}{Stat} \begin{DoxyReturn}{Returns}
+The full name of the \hyperlink{class_flow_1_1_stat}{Stat} 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file stat.\+h.
+
+\hypertarget{class_flow_1_1_stat_a61757491d2145c37460a1cd32a8db8bb}{}\label{class_flow_1_1_stat_a61757491d2145c37460a1cd32a8db8bb} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!max@{max}}
+\index{max@{max}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+virtual T \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_flow_1_1_i_stat_afe5c49dcc98e7960bbc8d7064e7c831a}{Flow\+::\+I\+Stat}, and \hyperlink{class_flow_1_1_b_stat_adcd3075bd06f64d690e66067047f0121}{Flow\+::\+B\+Stat}.
+
+\hypertarget{class_flow_1_1_stat_a7cf2be39e64fb4da988b604b92a85d28}{}\label{class_flow_1_1_stat_a7cf2be39e64fb4da988b604b92a85d28} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!min@{min}}
+\index{min@{min}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+virtual T \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_flow_1_1_i_stat_a50cce8b3e14125d89165bce7cc9666ee}{Flow\+::\+I\+Stat}, and \hyperlink{class_flow_1_1_b_stat_a815c577e96e80df05112d5e7928789c1}{Flow\+::\+B\+Stat}.
+
+\hypertarget{class_flow_1_1_stat_acb4d3c7aeaf3e74166dcf3ae8bae623c}{}\label{class_flow_1_1_stat_acb4d3c7aeaf3e74166dcf3ae8bae623c} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!name@{name}}
+\index{name@{name}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{n\+Name }\end{DoxyParamCaption})}
+
+Set the short name of the \hyperlink{class_flow_1_1_stat}{Stat} 
+\begin{DoxyParams}{Parameters}
+{\em n\+Name} & The new short name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file stat.\+h.
+
+\hypertarget{class_flow_1_1_stat_a189a887c27df8b70987df310cee98337}{}\label{class_flow_1_1_stat_a189a887c27df8b70987df310cee98337} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!name@{name}}
+\index{name@{name}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the short name of the \hyperlink{class_flow_1_1_stat}{Stat} \begin{DoxyReturn}{Returns}
+The short name of the \hyperlink{class_flow_1_1_stat}{Stat} 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file stat.\+h.
+
+\hypertarget{class_flow_1_1_stat_ab28bdb79f7d6444f1e341a62ef039b96}{}\label{class_flow_1_1_stat_ab28bdb79f7d6444f1e341a62ef039b96} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!value@{value}}
+\index{value@{value}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+virtual void \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::value (\begin{DoxyParamCaption}\item[{T}]{n\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_flow_1_1_i_stat_aff7abbcc9c44f1f07ed956f9d571c674}{Flow\+::\+I\+Stat}, and \hyperlink{class_flow_1_1_b_stat_a65299c411a0e8767b6715557de1cbf23}{Flow\+::\+B\+Stat}.
+
+\hypertarget{class_flow_1_1_stat_a8861df6366e182078ea6c9bac2b718e2}{}\label{class_flow_1_1_stat_a8861df6366e182078ea6c9bac2b718e2} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!value@{value}}
+\index{value@{value}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+virtual T \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_flow_1_1_i_stat_a14a9ee1f7703cf474a12d07f334ab4a3}{Flow\+::\+I\+Stat}, and \hyperlink{class_flow_1_1_b_stat_aafd9dbf4e02e6fbfc3bc3dfb572496dc}{Flow\+::\+B\+Stat}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_flow_1_1_stat_a6e6f57fcab4840d6ed92639f017b8e0c}{}\label{class_flow_1_1_stat_a6e6f57fcab4840d6ed92639f017b8e0c} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!\+\_\+fl\+Name@{\+\_\+fl\+Name}}
+\index{\+\_\+fl\+Name@{\+\_\+fl\+Name}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{\+\_\+fl\+Name}{\_flName}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+std\+::string \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::\+\_\+fl\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The full name of the \hyperlink{class_flow_1_1_stat}{Stat} 
+
+Definition at line 38 of file stat.\+h.
+
+\hypertarget{class_flow_1_1_stat_ad85647ec1e66fd927a9e15755fc9f3c1}{}\label{class_flow_1_1_stat_ad85647ec1e66fd927a9e15755fc9f3c1} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!\+\_\+name@{\+\_\+name}}
+\index{\+\_\+name@{\+\_\+name}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{\+\_\+name}{\_name}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+std\+::string \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The short name of the \hyperlink{class_flow_1_1_stat}{Stat} 
+
+Definition at line 33 of file stat.\+h.
+
+\hypertarget{class_flow_1_1_stat_aba908d9094479b62f72a9663ba25232b}{}\label{class_flow_1_1_stat_aba908d9094479b62f72a9663ba25232b} 
+\index{Flow\+::\+Stat@{Flow\+::\+Stat}!\+\_\+value@{\+\_\+value}}
+\index{\+\_\+value@{\+\_\+value}!Flow\+::\+Stat@{Flow\+::\+Stat}}
+\subsubsection{\texorpdfstring{\+\_\+value}{\_value}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T \hyperlink{class_flow_1_1_stat}{Flow\+::\+Stat}$<$ T $>$\+::\+\_\+value\hspace{0.3cm}{\ttfamily [protected]}}
+
+The value of the \hyperlink{class_flow_1_1_stat}{Stat} 
+
+Definition at line 43 of file stat.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{stat_8h}{stat.\+h}\end{DoxyCompactItemize}

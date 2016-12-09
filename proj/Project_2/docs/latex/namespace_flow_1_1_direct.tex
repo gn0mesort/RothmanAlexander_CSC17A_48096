@@ -1,0 +1,139 @@
+\hypertarget{namespace_flow_1_1_direct}{}\section{Flow\+:\+:Direct Namespace Reference}
+\label{namespace_flow_1_1_direct}\index{Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{namespace_flow_1_1_direct_a441c0002a213a4fd71976e704ad16f33}{reverse} (unsigned char)
+\item 
+std\+::string \hyperlink{namespace_flow_1_1_direct_a7730679ec550d52f40e1ca296bf8ae67}{to\+String} (unsigned char)
+\item 
+std\+::string \hyperlink{namespace_flow_1_1_direct_ad0809c7c6050ad4d27dea7be23af40a8}{to\+String} (unsigned char, bool)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned char \hyperlink{namespace_flow_1_1_direct_a3a2e55bf055fca941f5bd430389462ea}{N\+O\+NE} = 0
+\item 
+const unsigned char \hyperlink{namespace_flow_1_1_direct_aeaeaa2d58de609af52cf2666bf3868a7}{N\+O\+R\+TH} = 1
+\item 
+const unsigned char \hyperlink{namespace_flow_1_1_direct_a8ff328289a90b44b52de5251b6da59ec}{E\+A\+ST} = 2
+\item 
+const unsigned char \hyperlink{namespace_flow_1_1_direct_ac93371fec14643176c2413f84b02b9ad}{S\+O\+U\+TH} = 4
+\item 
+const unsigned char \hyperlink{namespace_flow_1_1_direct_a71884fb1eefd6b366b08e03e8eca5205}{W\+E\+ST} = 8
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Container namespace for Exit constants and functions 
+
+\subsection{Function Documentation}
+\hypertarget{namespace_flow_1_1_direct_a441c0002a213a4fd71976e704ad16f33}{}\label{namespace_flow_1_1_direct_a441c0002a213a4fd71976e704ad16f33} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!reverse@{reverse}}
+\index{reverse@{reverse}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Direct\+::reverse (\begin{DoxyParamCaption}\item[{unsigned char}]{direct }\end{DoxyParamCaption})}
+
+Reverse a direction 
+\begin{DoxyParams}{Parameters}
+{\em direct} & A direction to reverse. Must be a cardinal direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The opposite direction or \hyperlink{namespace_flow_1_1_direct_a3a2e55bf055fca941f5bd430389462ea}{Direct\+::\+N\+O\+NE} for noncardinal inputs 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file flags.\+cpp.
+
+\hypertarget{namespace_flow_1_1_direct_a7730679ec550d52f40e1ca296bf8ae67}{}\label{namespace_flow_1_1_direct_a7730679ec550d52f40e1ca296bf8ae67} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Direct\+::to\+String (\begin{DoxyParamCaption}\item[{unsigned char}]{direct }\end{DoxyParamCaption})}
+
+Convert a direction to a string 
+\begin{DoxyParams}{Parameters}
+{\em direct} & The direction to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the directions in direct 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file flags.\+cpp.
+
+\hypertarget{namespace_flow_1_1_direct_ad0809c7c6050ad4d27dea7be23af40a8}{}\label{namespace_flow_1_1_direct_ad0809c7c6050ad4d27dea7be23af40a8} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Direct\+::to\+String (\begin{DoxyParamCaption}\item[{unsigned char}]{direct,  }\item[{bool}]{abbrv }\end{DoxyParamCaption})}
+
+Convert a direction to an abbreviated string or to its normal string representation 
+\begin{DoxyParams}{Parameters}
+{\em direct} & The direction to convert \\
+\hline
+{\em abbrv} & Whether or not to abbreviate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing the input direction 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file flags.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespace_flow_1_1_direct_a8ff328289a90b44b52de5251b6da59ec}{}\label{namespace_flow_1_1_direct_a8ff328289a90b44b52de5251b6da59ec} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!E\+A\+ST@{E\+A\+ST}}
+\index{E\+A\+ST@{E\+A\+ST}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{E\+A\+ST}{EAST}}
+{\footnotesize\ttfamily const unsigned char Flow\+::\+Direct\+::\+E\+A\+ST = 2}
+
+East on a compass 
+
+Definition at line 39 of file flags.\+h.
+
+\hypertarget{namespace_flow_1_1_direct_a3a2e55bf055fca941f5bd430389462ea}{}\label{namespace_flow_1_1_direct_a3a2e55bf055fca941f5bd430389462ea} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!N\+O\+NE@{N\+O\+NE}}
+\index{N\+O\+NE@{N\+O\+NE}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{N\+O\+NE}{NONE}}
+{\footnotesize\ttfamily const unsigned char Flow\+::\+Direct\+::\+N\+O\+NE = 0}
+
+No direction 0 
+
+Definition at line 30 of file flags.\+h.
+
+\hypertarget{namespace_flow_1_1_direct_aeaeaa2d58de609af52cf2666bf3868a7}{}\label{namespace_flow_1_1_direct_aeaeaa2d58de609af52cf2666bf3868a7} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!N\+O\+R\+TH@{N\+O\+R\+TH}}
+\index{N\+O\+R\+TH@{N\+O\+R\+TH}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{N\+O\+R\+TH}{NORTH}}
+{\footnotesize\ttfamily const unsigned char Flow\+::\+Direct\+::\+N\+O\+R\+TH = 1}
+
+North on a compass 
+
+Definition at line 34 of file flags.\+h.
+
+\hypertarget{namespace_flow_1_1_direct_ac93371fec14643176c2413f84b02b9ad}{}\label{namespace_flow_1_1_direct_ac93371fec14643176c2413f84b02b9ad} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!S\+O\+U\+TH@{S\+O\+U\+TH}}
+\index{S\+O\+U\+TH@{S\+O\+U\+TH}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{S\+O\+U\+TH}{SOUTH}}
+{\footnotesize\ttfamily const unsigned char Flow\+::\+Direct\+::\+S\+O\+U\+TH = 4}
+
+South on a compass 
+
+Definition at line 44 of file flags.\+h.
+
+\hypertarget{namespace_flow_1_1_direct_a71884fb1eefd6b366b08e03e8eca5205}{}\label{namespace_flow_1_1_direct_a71884fb1eefd6b366b08e03e8eca5205} 
+\index{Flow\+::\+Direct@{Flow\+::\+Direct}!W\+E\+ST@{W\+E\+ST}}
+\index{W\+E\+ST@{W\+E\+ST}!Flow\+::\+Direct@{Flow\+::\+Direct}}
+\subsubsection{\texorpdfstring{W\+E\+ST}{WEST}}
+{\footnotesize\ttfamily const unsigned char Flow\+::\+Direct\+::\+W\+E\+ST = 8}
+
+West on a compass 
+
+Definition at line 49 of file flags.\+h.
+

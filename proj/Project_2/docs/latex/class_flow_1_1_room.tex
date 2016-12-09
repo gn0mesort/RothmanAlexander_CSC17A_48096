@@ -1,0 +1,191 @@
+\hypertarget{class_flow_1_1_room}{}\section{Flow\+:\+:Room Class Reference}
+\label{class_flow_1_1_room}\index{Flow\+::\+Room@{Flow\+::\+Room}}
+
+
+{\ttfamily \#include $<$room.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_room_acbd4ea4683660ee3f5120b396e3d9e67}{Room} ()
+\item 
+\hyperlink{class_flow_1_1_room_ab9bb4be79ce8b04be3537a6fc308dad4}{Room} (const \hyperlink{class_flow_1_1_room}{Room} \&)
+\item 
+\hyperlink{class_flow_1_1_room_ab72d88a0660f8d836fc8edc18ded95dc}{Room} (unsigned char, \hyperlink{namespace_flow_a01e62c2d0a9c24924a2fce4b667dd9d8}{Rm\+Event}, bool=false, bool=false)
+\item 
+void \hyperlink{class_flow_1_1_room_ac6f5f04b58afe0002ced970c6068c503}{add\+Exit} (unsigned char)
+\item 
+void \hyperlink{class_flow_1_1_room_abf44d5659e88ff6cef74e5a95350d09d}{event} (\hyperlink{namespace_flow_a01e62c2d0a9c24924a2fce4b667dd9d8}{Rm\+Event})
+\item 
+void \hyperlink{class_flow_1_1_room_a67dabfa09fc6c04cf9706c6387083990}{exit} (unsigned char)
+\item 
+bool \hyperlink{class_flow_1_1_room_a2a41303b2f9856fd8d9f7fcf7feccab5}{is\+End} () const
+\item 
+bool \hyperlink{class_flow_1_1_room_ad5fe3a89b1a14b1619f920f624953ff6}{is\+Start} () const
+\item 
+unsigned char \hyperlink{class_flow_1_1_room_afddbff9ee70421d5df3dbbf202afe35f}{exit} () const
+\item 
+\hyperlink{namespace_flow_a01e62c2d0a9c24924a2fce4b667dd9d8}{Rm\+Event} \hyperlink{class_flow_1_1_room_a5f32585a64d31afb8add2d20eb884a85}{event} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines a \hyperlink{class_flow_1_1_room}{Room} in the game world 
+
+Definition at line 33 of file room.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_room_acbd4ea4683660ee3f5120b396e3d9e67}{}\label{class_flow_1_1_room_acbd4ea4683660ee3f5120b396e3d9e67} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!Room@{Room}}
+\index{Room@{Room}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Flow\+::\+Room\+::\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_flow_1_1_room}{Room} constructor 
+
+Definition at line 20 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_ab9bb4be79ce8b04be3537a6fc308dad4}{}\label{class_flow_1_1_room_ab9bb4be79ce8b04be3537a6fc308dad4} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!Room@{Room}}
+\index{Room@{Room}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Flow\+::\+Room\+::\+Room (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_room}{Room} \&}]{other }\end{DoxyParamCaption})}
+
+\hyperlink{class_flow_1_1_room}{Room} copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & The \hyperlink{class_flow_1_1_room}{Room} to copy \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_ab72d88a0660f8d836fc8edc18ded95dc}{}\label{class_flow_1_1_room_ab72d88a0660f8d836fc8edc18ded95dc} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!Room@{Room}}
+\index{Room@{Room}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Flow\+::\+Room\+::\+Room (\begin{DoxyParamCaption}\item[{unsigned char}]{exit,  }\item[{\hyperlink{namespace_flow_a01e62c2d0a9c24924a2fce4b667dd9d8}{Rm\+Event}}]{event,  }\item[{bool}]{start = {\ttfamily false},  }\item[{bool}]{end = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_flow_1_1_room}{Room} constructor 
+\begin{DoxyParams}{Parameters}
+{\em exit} & The exits to the \hyperlink{class_flow_1_1_room}{Room} \\
+\hline
+{\em event} & The \hyperlink{class_flow_1_1_room}{Room}\textquotesingle{}s event \\
+\hline
+{\em start} & Whether or not the \hyperlink{class_flow_1_1_room}{Room} is the start of the \hyperlink{class_flow_1_1_floor}{Floor} \\
+\hline
+{\em end} & Whether or not the \hyperlink{class_flow_1_1_room}{Room} is end of the \hyperlink{class_flow_1_1_floor}{Floor} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file room.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_room_ac6f5f04b58afe0002ced970c6068c503}{}\label{class_flow_1_1_room_ac6f5f04b58afe0002ced970c6068c503} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!add\+Exit@{add\+Exit}}
+\index{add\+Exit@{add\+Exit}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{add\+Exit()}{addExit()}}
+{\footnotesize\ttfamily void Flow\+::\+Room\+::add\+Exit (\begin{DoxyParamCaption}\item[{unsigned char}]{exit }\end{DoxyParamCaption})}
+
+Add an exit to the \hyperlink{class_flow_1_1_room}{Room} 
+\begin{DoxyParams}{Parameters}
+{\em exit} & The exit to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_abf44d5659e88ff6cef74e5a95350d09d}{}\label{class_flow_1_1_room_abf44d5659e88ff6cef74e5a95350d09d} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!event@{event}}
+\index{event@{event}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{event()}{event()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Room\+::event (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_flow_a01e62c2d0a9c24924a2fce4b667dd9d8}{Rm\+Event}}]{n\+Event }\end{DoxyParamCaption})}
+
+Set the event for this \hyperlink{class_flow_1_1_room}{Room} 
+\begin{DoxyParams}{Parameters}
+{\em n\+Event} & An Rm\+Event indicating the event of this \hyperlink{class_flow_1_1_room}{Room} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_a5f32585a64d31afb8add2d20eb884a85}{}\label{class_flow_1_1_room_a5f32585a64d31afb8add2d20eb884a85} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!event@{event}}
+\index{event@{event}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{event()}{event()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{namespace_flow_a01e62c2d0a9c24924a2fce4b667dd9d8}{Flow\+::\+Rm\+Event} Flow\+::\+Room\+::event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the event for the \hyperlink{class_flow_1_1_room}{Room} \begin{DoxyReturn}{Returns}
+The event for this \hyperlink{class_flow_1_1_room}{Room} 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_a67dabfa09fc6c04cf9706c6387083990}{}\label{class_flow_1_1_room_a67dabfa09fc6c04cf9706c6387083990} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!exit@{exit}}
+\index{exit@{exit}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{exit()}{exit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Room\+::exit (\begin{DoxyParamCaption}\item[{unsigned char}]{n\+Exit }\end{DoxyParamCaption})}
+
+Set the exits to the \hyperlink{class_flow_1_1_room}{Room} 
+\begin{DoxyParams}{Parameters}
+{\em n\+Exit} & The exits to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_afddbff9ee70421d5df3dbbf202afe35f}{}\label{class_flow_1_1_room_afddbff9ee70421d5df3dbbf202afe35f} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!exit@{exit}}
+\index{exit@{exit}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{exit()}{exit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Room\+::exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the exits to the \hyperlink{class_flow_1_1_room}{Room} \begin{DoxyReturn}{Returns}
+The current exits to the \hyperlink{class_flow_1_1_room}{Room} 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_a2a41303b2f9856fd8d9f7fcf7feccab5}{}\label{class_flow_1_1_room_a2a41303b2f9856fd8d9f7fcf7feccab5} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!is\+End@{is\+End}}
+\index{is\+End@{is\+End}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{is\+End()}{isEnd()}}
+{\footnotesize\ttfamily bool Flow\+::\+Room\+::is\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get whether or not this is the ending \hyperlink{class_flow_1_1_room}{Room} for the \hyperlink{class_flow_1_1_floor}{Floor} \begin{DoxyReturn}{Returns}
+true if the \hyperlink{class_flow_1_1_room}{Room} is a \hyperlink{class_flow_1_1_floor}{Floor} end. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_room_ad5fe3a89b1a14b1619f920f624953ff6}{}\label{class_flow_1_1_room_ad5fe3a89b1a14b1619f920f624953ff6} 
+\index{Flow\+::\+Room@{Flow\+::\+Room}!is\+Start@{is\+Start}}
+\index{is\+Start@{is\+Start}!Flow\+::\+Room@{Flow\+::\+Room}}
+\subsubsection{\texorpdfstring{is\+Start()}{isStart()}}
+{\footnotesize\ttfamily bool Flow\+::\+Room\+::is\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get whether or not this is the starting \hyperlink{class_flow_1_1_room}{Room} for the \hyperlink{class_flow_1_1_floor}{Floor} \begin{DoxyReturn}{Returns}
+true if the \hyperlink{class_flow_1_1_room}{Room} is a \hyperlink{class_flow_1_1_floor}{Floor} start. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file room.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{room_8h}{room.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{room_8cpp}{room.\+cpp}\end{DoxyCompactItemize}

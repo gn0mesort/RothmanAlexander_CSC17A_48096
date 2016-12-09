@@ -1,0 +1,330 @@
+\hypertarget{class_flow_1_1_floor}{}\section{Flow\+:\+:Floor Class Reference}
+\label{class_flow_1_1_floor}\index{Flow\+::\+Floor@{Flow\+::\+Floor}}
+
+
+{\ttfamily \#include $<$room.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_floor_a056779b11b4084e15cc7c376f791a8f3}{Floor} ()
+\item 
+\hyperlink{class_flow_1_1_floor_ab4003203c3ad5de4c13d669bddbb0df5}{Floor} (const \hyperlink{class_flow_1_1_floor}{Floor} \&)
+\item 
+\hyperlink{class_flow_1_1_floor_afc7d87d65bc697a8901ad9506bafb5b9}{Floor} (unsigned char, unsigned char)
+\item 
+\hyperlink{class_flow_1_1_floor_abcb53e88835e043390289c0aac035ac0}{$\sim$\+Floor} ()
+\item 
+void \hyperlink{class_flow_1_1_floor_a7fedee1db9c05420cc75bee81c3be0b6}{draw} (const \hyperlink{struct_flow_1_1_point}{Point} \&) const
+\item 
+void \hyperlink{class_flow_1_1_floor_a9cab7af772e3b3a12f289b0942e870f1}{draw\+Dbg} () const
+\item 
+bool \hyperlink{class_flow_1_1_floor_a649041679a73f38cf92ef7082c885795}{is\+Overflow} (unsigned char, unsigned char) const
+\item 
+bool \hyperlink{class_flow_1_1_floor_a6511d441ffd99d0a0d85669cfa846945}{is\+OverflowX} (unsigned char) const
+\item 
+bool \hyperlink{class_flow_1_1_floor_aae39e73db09b3b26d17dfda7418a67d1}{is\+OverflowY} (unsigned char) const
+\item 
+bool \hyperlink{class_flow_1_1_floor_a257b06bf103cca41a2b6e42692fb4fbe}{move} (\hyperlink{struct_flow_1_1_point}{Point} \&, unsigned char)
+\item 
+unsigned char \hyperlink{class_flow_1_1_floor_ad56ae970e75d1be616164efd2f84125b}{sizeX} () const
+\item 
+unsigned char \hyperlink{class_flow_1_1_floor_a6b25e8faedfd7de16efea8523c45794c}{sizeY} () const
+\item 
+\hyperlink{struct_flow_1_1_point}{Point} \hyperlink{class_flow_1_1_floor_aaac7f88dd55b4fe38ba36f686109fe7b}{start} () const
+\item 
+\hyperlink{class_flow_1_1_room}{Room} \hyperlink{class_flow_1_1_floor_a167e37ebab4947cdc191890647ff99e6}{get} (unsigned char, unsigned char) const
+\item 
+\hyperlink{class_flow_1_1_room}{Room} $\ast$ \hyperlink{class_flow_1_1_floor_a4b76afdb21d1687bd9ed0d37e09a15d7}{operator\mbox{[}$\,$\mbox{]}} (unsigned int)
+\item 
+\hyperlink{class_flow_1_1_floor}{Floor} \& \hyperlink{class_flow_1_1_floor_a0d053f735a848823fcb7e2f8650090da}{operator=} (const \hyperlink{class_flow_1_1_floor}{Floor} \&)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_flow_1_1_floor_a390f2a8e15aa8c4cb50180feda028d5d}{swap} (\hyperlink{class_flow_1_1_floor}{Floor} \&, \hyperlink{class_flow_1_1_floor}{Floor} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines a \hyperlink{class_flow_1_1_floor}{Floor} in the game world. A \hyperlink{class_flow_1_1_floor}{Floor} is a 2D array or Rooms 
+
+Definition at line 70 of file room.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_floor_a056779b11b4084e15cc7c376f791a8f3}{}\label{class_flow_1_1_floor_a056779b11b4084e15cc7c376f791a8f3} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!Floor@{Floor}}
+\index{Floor@{Floor}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{Floor()}{Floor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Flow\+::\+Floor\+::\+Floor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_flow_1_1_floor}{Floor} constructor 
+
+Definition at line 111 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_ab4003203c3ad5de4c13d669bddbb0df5}{}\label{class_flow_1_1_floor_ab4003203c3ad5de4c13d669bddbb0df5} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!Floor@{Floor}}
+\index{Floor@{Floor}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{Floor()}{Floor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Flow\+::\+Floor\+::\+Floor (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_floor}{Floor} \&}]{other }\end{DoxyParamCaption})}
+
+\hyperlink{class_flow_1_1_floor}{Floor} copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & The \hyperlink{class_flow_1_1_floor}{Floor} to copy from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_afc7d87d65bc697a8901ad9506bafb5b9}{}\label{class_flow_1_1_floor_afc7d87d65bc697a8901ad9506bafb5b9} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!Floor@{Floor}}
+\index{Floor@{Floor}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{Floor()}{Floor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Flow\+::\+Floor\+::\+Floor (\begin{DoxyParamCaption}\item[{unsigned char}]{sizeX,  }\item[{unsigned char}]{sizeY }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_flow_1_1_floor}{Floor} constructor 
+\begin{DoxyParams}{Parameters}
+{\em sizeX} & The X-\/axis size of the \hyperlink{class_flow_1_1_floor}{Floor} \\
+\hline
+{\em sizeY} & The Y-\/axis size of the \hyperlink{class_flow_1_1_floor}{Floor} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 145 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_abcb53e88835e043390289c0aac035ac0}{}\label{class_flow_1_1_floor_abcb53e88835e043390289c0aac035ac0} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!````~Floor@{$\sim$\+Floor}}
+\index{````~Floor@{$\sim$\+Floor}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{$\sim$\+Floor()}{~Floor()}}
+{\footnotesize\ttfamily Flow\+::\+Floor\+::$\sim$\+Floor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hyperlink{class_flow_1_1_floor}{Floor} destructor 
+
+Definition at line 157 of file room.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_floor_a7fedee1db9c05420cc75bee81c3be0b6}{}\label{class_flow_1_1_floor_a7fedee1db9c05420cc75bee81c3be0b6} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!draw@{draw}}
+\index{draw@{draw}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Flow\+::\+Floor\+::draw (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_flow_1_1_point}{Point} \&}]{pos }\end{DoxyParamCaption}) const}
+
+Draw a map of the \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position of the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s player \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 196 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a9cab7af772e3b3a12f289b0942e870f1}{}\label{class_flow_1_1_floor_a9cab7af772e3b3a12f289b0942e870f1} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!draw\+Dbg@{draw\+Dbg}}
+\index{draw\+Dbg@{draw\+Dbg}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{draw\+Dbg()}{drawDbg()}}
+{\footnotesize\ttfamily void Flow\+::\+Floor\+::draw\+Dbg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Draw Debug map of the \hyperlink{class_flow_1_1_floor}{Floor} 
+
+Definition at line 221 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a167e37ebab4947cdc191890647ff99e6}{}\label{class_flow_1_1_floor_a167e37ebab4947cdc191890647ff99e6} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!get@{get}}
+\index{get@{get}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_room}{Flow\+::\+Room} Flow\+::\+Floor\+::get (\begin{DoxyParamCaption}\item[{unsigned char}]{x,  }\item[{unsigned char}]{y }\end{DoxyParamCaption}) const}
+
+Get a \hyperlink{class_flow_1_1_room}{Room} from the \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em x} & The X position of the \hyperlink{class_flow_1_1_room}{Room} \\
+\hline
+{\em y} & The Y position of the \hyperlink{class_flow_1_1_room}{Room} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \hyperlink{class_flow_1_1_room}{Room} at the given position 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a649041679a73f38cf92ef7082c885795}{}\label{class_flow_1_1_floor_a649041679a73f38cf92ef7082c885795} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!is\+Overflow@{is\+Overflow}}
+\index{is\+Overflow@{is\+Overflow}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{is\+Overflow()}{isOverflow()}}
+{\footnotesize\ttfamily bool Flow\+::\+Floor\+::is\+Overflow (\begin{DoxyParamCaption}\item[{unsigned char}]{x,  }\item[{unsigned char}]{y }\end{DoxyParamCaption}) const}
+
+Check whether an (X, Y) position is outside the bounds of the \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em x} & The X position \\
+\hline
+{\em y} & The Y position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the point is outside the bounds of the \hyperlink{class_flow_1_1_floor}{Floor}. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 239 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a6511d441ffd99d0a0d85669cfa846945}{}\label{class_flow_1_1_floor_a6511d441ffd99d0a0d85669cfa846945} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!is\+OverflowX@{is\+OverflowX}}
+\index{is\+OverflowX@{is\+OverflowX}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{is\+Overflow\+X()}{isOverflowX()}}
+{\footnotesize\ttfamily bool Flow\+::\+Floor\+::is\+OverflowX (\begin{DoxyParamCaption}\item[{unsigned char}]{x }\end{DoxyParamCaption}) const}
+
+Check whether an X position is outside the bounds of the \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em x} & The X position to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the position is outside the bounds of the \hyperlink{class_flow_1_1_floor}{Floor}. Otherwise false 
+\end{DoxyReturn}
+If greater than sizeX or less than 0 
+
+Definition at line 251 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_aae39e73db09b3b26d17dfda7418a67d1}{}\label{class_flow_1_1_floor_aae39e73db09b3b26d17dfda7418a67d1} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!is\+OverflowY@{is\+OverflowY}}
+\index{is\+OverflowY@{is\+OverflowY}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{is\+Overflow\+Y()}{isOverflowY()}}
+{\footnotesize\ttfamily bool Flow\+::\+Floor\+::is\+OverflowY (\begin{DoxyParamCaption}\item[{unsigned char}]{y }\end{DoxyParamCaption}) const}
+
+Check whether an Y position is outside the bounds of the \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em y} & The Y position to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the position is outside the bounds of the \hyperlink{class_flow_1_1_floor}{Floor}. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a257b06bf103cca41a2b6e42692fb4fbe}{}\label{class_flow_1_1_floor_a257b06bf103cca41a2b6e42692fb4fbe} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!move@{move}}
+\index{move@{move}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily bool Flow\+::\+Floor\+::move (\begin{DoxyParamCaption}\item[{\hyperlink{struct_flow_1_1_point}{Point} \&}]{pos,  }\item[{unsigned char}]{direct }\end{DoxyParamCaption})}
+
+Move a point within the bounds of a \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em pos} & The point to move \\
+\hline
+{\em direct} & The direction to move in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether or not the move succeeded 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a0d053f735a848823fcb7e2f8650090da}{}\label{class_flow_1_1_floor_a0d053f735a848823fcb7e2f8650090da} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!operator=@{operator=}}
+\index{operator=@{operator=}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_floor}{Flow\+::\+Floor} \& Flow\+::\+Floor\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_floor}{Floor} \&}]{rhs }\end{DoxyParamCaption})}
+
+\hyperlink{class_flow_1_1_floor}{Floor} assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right hand side of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \hyperlink{class_flow_1_1_floor}{Floor} after assignment 
+\end{DoxyReturn}
+
+
+Definition at line 329 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a4b76afdb21d1687bd9ed0d37e09a15d7}{}\label{class_flow_1_1_floor_a4b76afdb21d1687bd9ed0d37e09a15d7} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_room}{Flow\+::\+Room} $\ast$ Flow\+::\+Floor\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Get an array of Rooms from the \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the array to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of Rooms as a pointer 
+\end{DoxyReturn}
+
+
+Definition at line 320 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_ad56ae970e75d1be616164efd2f84125b}{}\label{class_flow_1_1_floor_ad56ae970e75d1be616164efd2f84125b} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!sizeX@{sizeX}}
+\index{sizeX@{sizeX}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{size\+X()}{sizeX()}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Floor\+::sizeX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the X-\/axis size of the \hyperlink{class_flow_1_1_floor}{Floor} \begin{DoxyReturn}{Returns}
+The X-\/axis size of the \hyperlink{class_flow_1_1_floor}{Floor} 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a6b25e8faedfd7de16efea8523c45794c}{}\label{class_flow_1_1_floor_a6b25e8faedfd7de16efea8523c45794c} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!sizeY@{sizeY}}
+\index{sizeY@{sizeY}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{size\+Y()}{sizeY()}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Floor\+::sizeY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the Y-\/axis size of the \hyperlink{class_flow_1_1_floor}{Floor} \begin{DoxyReturn}{Returns}
+The Y-\/axis size of the \hyperlink{class_flow_1_1_floor}{Floor} 
+\end{DoxyReturn}
+
+
+Definition at line 282 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_aaac7f88dd55b4fe38ba36f686109fe7b}{}\label{class_flow_1_1_floor_aaac7f88dd55b4fe38ba36f686109fe7b} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!start@{start}}
+\index{start@{start}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \hyperlink{struct_flow_1_1_point}{Flow\+::\+Point} Flow\+::\+Floor\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the starting position for the \hyperlink{class_flow_1_1_floor}{Floor} \begin{DoxyReturn}{Returns}
+A \hyperlink{struct_flow_1_1_point}{Point} containing the starting position 
+\end{DoxyReturn}
+
+
+Definition at line 290 of file room.\+cpp.
+
+\hypertarget{class_flow_1_1_floor_a390f2a8e15aa8c4cb50180feda028d5d}{}\label{class_flow_1_1_floor_a390f2a8e15aa8c4cb50180feda028d5d} 
+\index{Flow\+::\+Floor@{Flow\+::\+Floor}!swap@{swap}}
+\index{swap@{swap}!Flow\+::\+Floor@{Flow\+::\+Floor}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void Flow\+::\+Floor\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{class_flow_1_1_floor}{Floor} \&}]{a,  }\item[{\hyperlink{class_flow_1_1_floor}{Floor} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Swap 2 Floors 
+\begin{DoxyParams}{Parameters}
+{\em a} & The first \hyperlink{class_flow_1_1_floor}{Floor} \\
+\hline
+{\em b} & The second \hyperlink{class_flow_1_1_floor}{Floor} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 341 of file room.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{room_8h}{room.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{room_8cpp}{room.\+cpp}\end{DoxyCompactItemize}

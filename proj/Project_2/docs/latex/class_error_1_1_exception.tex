@@ -1,0 +1,165 @@
+\hypertarget{class_error_1_1_exception}{}\section{Error\+:\+:Exception Class Reference}
+\label{class_error_1_1_exception}\index{Error\+::\+Exception@{Error\+::\+Exception}}
+
+
+{\ttfamily \#include $<$except.\+h$>$}
+
+Inheritance diagram for Error\+:\+:Exception\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_error_1_1_exception}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_error_1_1_exception_a70a660fb0a4db6cf2292dec3a1fd498c}{Exception} (const std\+::string \&=\hyperlink{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{nameof}(\hyperlink{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+ON}), unsigned int=\hyperlink{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+ON})
+\item 
+virtual std\+::string \hyperlink{class_error_1_1_exception_a74aebac49ea7118fdf16cf4a47d8723c}{message} () const
+\item 
+virtual void \hyperlink{class_error_1_1_exception_adebb86877e373ff1738d3959006ac166}{message} (const std\+::string \&)
+\item 
+virtual unsigned int \hyperlink{class_error_1_1_exception_ad0b9ea65370ae2a2a241fe998ccc6c77}{error\+Code} () const
+\item 
+virtual void \hyperlink{class_error_1_1_exception_a90ee3eaa75cc09bd7d0d1e843076f9a2}{error\+Code} (unsigned int)
+\item 
+virtual std\+::string \hyperlink{class_error_1_1_exception_a36cabfb6ea6390290ab4d67a6a30cca1}{to\+String} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_error_1_1_exception_a61695262013be27ae2053111c70f03a5}{\+\_\+msg}
+\item 
+unsigned int \hyperlink{class_error_1_1_exception_a3f15b05b9087dd84715995e7c94c7492}{\+\_\+code}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A base class designed to be inherited by various types of \hyperlink{class_error_1_1_exception}{Exception}. Differs from std\+::exception in that it behaves more like System.\+Exception in C\# 
+
+Definition at line 61 of file except.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_error_1_1_exception_a70a660fb0a4db6cf2292dec3a1fd498c}{}\label{class_error_1_1_exception_a70a660fb0a4db6cf2292dec3a1fd498c} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!Exception@{Exception}}
+\index{Exception@{Exception}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{Exception()}{Exception()}}
+{\footnotesize\ttfamily Error\+::\+Exception\+::\+Exception (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg = {\ttfamily \hyperlink{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{nameof}(\hyperlink{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+ON})},  }\item[{unsigned int}]{code = {\ttfamily \hyperlink{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+ON}} }\end{DoxyParamCaption})}
+
+The default constructor for an \hyperlink{class_error_1_1_exception}{Exception}. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & An error message indicating the nature of the exception. Defaults to \char`\"{}\+Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+O\+N\char`\"{} \\
+\hline
+{\em code} & An integer error code indicating the nature of the exception. Defaults to \hyperlink{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+ON} \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespace_error_1_1_error_code}{Error\+Code} 
+\end{DoxySeeAlso}
+
+
+Definition at line 16 of file except.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_error_1_1_exception_ad0b9ea65370ae2a2a241fe998ccc6c77}{}\label{class_error_1_1_exception_ad0b9ea65370ae2a2a241fe998ccc6c77} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!error\+Code@{error\+Code}}
+\index{error\+Code@{error\+Code}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{error\+Code()}{errorCode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily unsigned int Error\+::\+Exception\+::error\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get an error code for this \hyperlink{class_error_1_1_exception}{Exception} \begin{DoxyReturn}{Returns}
+The \hyperlink{namespace_error_1_1_error_code}{Error\+Code} for this exception 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file except.\+cpp.
+
+\hypertarget{class_error_1_1_exception_a90ee3eaa75cc09bd7d0d1e843076f9a2}{}\label{class_error_1_1_exception_a90ee3eaa75cc09bd7d0d1e843076f9a2} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!error\+Code@{error\+Code}}
+\index{error\+Code@{error\+Code}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{error\+Code()}{errorCode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Error\+::\+Exception\+::error\+Code (\begin{DoxyParamCaption}\item[{unsigned int}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the error code for this \hyperlink{class_error_1_1_exception}{Exception} 
+\begin{DoxyParams}{Parameters}
+{\em code} & The \hyperlink{namespace_error_1_1_error_code}{Error\+Code} for this exception \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file except.\+cpp.
+
+\hypertarget{class_error_1_1_exception_a74aebac49ea7118fdf16cf4a47d8723c}{}\label{class_error_1_1_exception_a74aebac49ea7118fdf16cf4a47d8723c} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!message@{message}}
+\index{message@{message}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Error\+::\+Exception\+::message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get an error message for this \hyperlink{class_error_1_1_exception}{Exception} \begin{DoxyReturn}{Returns}
+The error message for this \hyperlink{class_error_1_1_exception}{Exception} 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file except.\+cpp.
+
+\hypertarget{class_error_1_1_exception_adebb86877e373ff1738d3959006ac166}{}\label{class_error_1_1_exception_adebb86877e373ff1738d3959006ac166} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!message@{message}}
+\index{message@{message}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Error\+::\+Exception\+::message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the error message for this \hyperlink{class_error_1_1_exception}{Exception} 
+\begin{DoxyParams}{Parameters}
+{\em msg} & The error message for this \hyperlink{class_error_1_1_exception}{Exception} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file except.\+cpp.
+
+\hypertarget{class_error_1_1_exception_a36cabfb6ea6390290ab4d67a6a30cca1}{}\label{class_error_1_1_exception_a36cabfb6ea6390290ab4d67a6a30cca1} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily std\+::string Error\+::\+Exception\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Generate a string representation of this object \begin{DoxyReturn}{Returns}
+A string of the format \char`\"{}message \+: error\+Code\char`\"{} 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file except.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_error_1_1_exception_a3f15b05b9087dd84715995e7c94c7492}{}\label{class_error_1_1_exception_a3f15b05b9087dd84715995e7c94c7492} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!\+\_\+code@{\+\_\+code}}
+\index{\+\_\+code@{\+\_\+code}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{\+\_\+code}{\_code}}
+{\footnotesize\ttfamily unsigned int Error\+::\+Exception\+::\+\_\+code\hspace{0.3cm}{\ttfamily [protected]}}
+
+The underlying error code of the \hyperlink{class_error_1_1_exception}{Exception} 
+
+Definition at line 72 of file except.\+h.
+
+\hypertarget{class_error_1_1_exception_a61695262013be27ae2053111c70f03a5}{}\label{class_error_1_1_exception_a61695262013be27ae2053111c70f03a5} 
+\index{Error\+::\+Exception@{Error\+::\+Exception}!\+\_\+msg@{\+\_\+msg}}
+\index{\+\_\+msg@{\+\_\+msg}!Error\+::\+Exception@{Error\+::\+Exception}}
+\subsubsection{\texorpdfstring{\+\_\+msg}{\_msg}}
+{\footnotesize\ttfamily std\+::string Error\+::\+Exception\+::\+\_\+msg\hspace{0.3cm}{\ttfamily [protected]}}
+
+The underlying message value of the \hyperlink{class_error_1_1_exception}{Exception} 
+
+Definition at line 67 of file except.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{except_8h}{except.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{except_8cpp}{except.\+cpp}\end{DoxyCompactItemize}

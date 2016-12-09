@@ -1,0 +1,484 @@
+\hypertarget{class_flow_1_1_item}{}\section{Flow\+:\+:Item Class Reference}
+\label{class_flow_1_1_item}\index{Flow\+::\+Item@{Flow\+::\+Item}}
+
+
+{\ttfamily \#include $<$item.\+h$>$}
+
+Inheritance diagram for Flow\+:\+:Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_flow_1_1_item}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_item_a5ceb9782e3bcecad6e897205555a2fd2}{Item} ()
+\item 
+\hyperlink{class_flow_1_1_item_afd155cd633c9271deccc3a64a92ef8a6}{Item} (const \hyperlink{class_flow_1_1_item}{Item} \&)
+\item 
+\hyperlink{class_flow_1_1_item_a7a4c9046f26096192a8df5cda0f1ce79}{Item} (unsigned char, unsigned char)
+\item 
+\hyperlink{class_flow_1_1_item_a69ddfc7a600d8a66a4b6a045f149ce6a}{Item} (const std\+::string \&, const std\+::string \&=\char`\"{}Unknown \hyperlink{class_flow_1_1_item}{Item}\char`\"{}, const std\+::string \&=\char`\"{}An \hyperlink{class_flow_1_1_item}{Item}\char`\"{}, unsigned char=\hyperlink{namespace_flow_1_1_dmg_elem_a2c7180f371963927ddcc5b333568a33b}{Dmg\+Elem\+::\+N\+O\+NE}, unsigned char=0, bool=false)
+\item 
+void \hyperlink{class_flow_1_1_item_a479edd419531aa2db9f707efac66fa7b}{description} (const std\+::string \&)
+\item 
+void \hyperlink{class_flow_1_1_item_a0cde312c43e4807d994a84aa28711629}{generation\+Point} (const \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} \&)
+\item 
+void \hyperlink{class_flow_1_1_item_aad72c7a574fa3ab77a4a01f0f7be8589}{identify} ()
+\item 
+void \hyperlink{class_flow_1_1_item_a1e8fe7af2c547994e93bf1cbc3289908}{name} (const std\+::string \&)
+\item 
+void \hyperlink{class_flow_1_1_item_a75302c9fecaeef01b9dabde3a0861f8c}{obfuscate} ()
+\item 
+void \hyperlink{class_flow_1_1_item_afe1b907ce55b03b7011a694aedf1f1f9}{unidentified\+Name} (const std\+::string \&)
+\item 
+void \hyperlink{class_flow_1_1_item_a0c903b70ce7ddd19ee2c117de443bc30}{value} (unsigned char)
+\item 
+bool \hyperlink{class_flow_1_1_item_ad87cbf57ff2a9ff9f141af741e5755e5}{is\+Idenitfied} () const
+\item 
+unsigned char \hyperlink{class_flow_1_1_item_af475c6f792312b9ad95dae06b6cb29b6}{value} () const
+\item 
+std\+::string \hyperlink{class_flow_1_1_item_ade8afa150cf8f2b97ce7de8cfbc4f1df}{description} () const
+\item 
+std\+::string \hyperlink{class_flow_1_1_item_a176977d10b96c739e28870bd928e34f8}{name} () const
+\item 
+std\+::string \hyperlink{class_flow_1_1_item_a7686c3f072a62c2f97c70fe7b2b93f86}{unidentified\+Name} () const
+\item 
+\hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} \hyperlink{class_flow_1_1_item_ad40180fcaf6fdd43fb3b9321387beca2}{generation\+Point} () const
+\item 
+virtual void \hyperlink{class_flow_1_1_item_a9a9f3132cecb67d6104668100f00cd47}{element} (unsigned char)
+\item 
+virtual unsigned char \hyperlink{class_flow_1_1_item_ae108f4ebbdcd75ac4d4ee1d009330040}{element} () const
+\item 
+virtual \hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bca}{Item\+Type} \hyperlink{class_flow_1_1_item_ae0c7ea7506ef62f2204837131f021f55}{type} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \hyperlink{class_flow_1_1_item_abf20647ff13aa4c761828d2d5508c504}{create\+Description} ()=0
+\item 
+virtual std\+::string \hyperlink{class_flow_1_1_item_a775605940d8a063e7cf5c7d87820d4d1}{create\+Name} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_flow_1_1_item_abefb3d3a64bfc77c93f0ca9b325c966e}{\+\_\+ident}
+\item 
+unsigned char \hyperlink{class_flow_1_1_item_a977a018070e3ce6992d652b0cf178cb3}{\+\_\+elem}
+\item 
+unsigned char \hyperlink{class_flow_1_1_item_a1c1de96ab66fbe77536937564a0852fd}{\+\_\+value}
+\item 
+std\+::string \hyperlink{class_flow_1_1_item_a43a8e81e91d1ec86e8be9b3172143bda}{\+\_\+desc}
+\item 
+std\+::string \hyperlink{class_flow_1_1_item_ac7078c7e7317b504c3f3aa017e2f2907}{\+\_\+name}
+\item 
+std\+::string \hyperlink{class_flow_1_1_item_ae08e5fc92acca2fd0e2b88f9c6d4a750}{\+\_\+ui\+Name}
+\item 
+\hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} \hyperlink{class_flow_1_1_item_a87ac75440226f3f7e14211b5eae81618}{\+\_\+gen\+Point}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 28 of file item.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_item_a5ceb9782e3bcecad6e897205555a2fd2}{}\label{class_flow_1_1_item_a5ceb9782e3bcecad6e897205555a2fd2} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!Item@{Item}}
+\index{Item@{Item}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Flow\+::\+Item\+::\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_flow_1_1_item}{Item} constructor 
+
+Definition at line 20 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_afd155cd633c9271deccc3a64a92ef8a6}{}\label{class_flow_1_1_item_afd155cd633c9271deccc3a64a92ef8a6} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!Item@{Item}}
+\index{Item@{Item}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Flow\+::\+Item\+::\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_item}{Item} \&}]{other }\end{DoxyParamCaption})}
+
+\hyperlink{class_flow_1_1_item}{Item} copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & The \hyperlink{class_flow_1_1_item}{Item} to copy \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a7a4c9046f26096192a8df5cda0f1ce79}{}\label{class_flow_1_1_item_a7a4c9046f26096192a8df5cda0f1ce79} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!Item@{Item}}
+\index{Item@{Item}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Flow\+::\+Item\+::\+Item (\begin{DoxyParamCaption}\item[{unsigned char}]{elem,  }\item[{unsigned char}]{value }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_flow_1_1_item}{Item} constructor 
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element of the \hyperlink{class_flow_1_1_item}{Item} \\
+\hline
+{\em value} & The value of the \hyperlink{class_flow_1_1_item}{Item} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a69ddfc7a600d8a66a4b6a045f149ce6a}{}\label{class_flow_1_1_item_a69ddfc7a600d8a66a4b6a045f149ce6a} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!Item@{Item}}
+\index{Item@{Item}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Flow\+::\+Item\+::\+Item (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{ui\+Name = {\ttfamily \char`\"{}Unknown~\hyperlink{class_flow_1_1_item}{Item}\char`\"{}},  }\item[{const std\+::string \&}]{desc = {\ttfamily \char`\"{}An~\hyperlink{class_flow_1_1_item}{Item}\char`\"{}},  }\item[{unsigned char}]{elem = {\ttfamily \hyperlink{namespace_flow_1_1_dmg_elem_a2c7180f371963927ddcc5b333568a33b}{Dmg\+Elem\+::\+N\+O\+NE}},  }\item[{unsigned char}]{value = {\ttfamily 0},  }\item[{bool}]{ident = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_flow_1_1_item}{Item} constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s name \\
+\hline
+{\em ui\+Name} & The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s unidentified name \\
+\hline
+{\em desc} & The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s description \\
+\hline
+{\em elem} & The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s element \\
+\hline
+{\em value} & The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s value \\
+\hline
+{\em ident} & Whether or not the \hyperlink{class_flow_1_1_item}{Item} is identified \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file item.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_item_abf20647ff13aa4c761828d2d5508c504}{}\label{class_flow_1_1_item_abf20647ff13aa4c761828d2d5508c504} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!create\+Description@{create\+Description}}
+\index{create\+Description@{create\+Description}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{create\+Description()}{createDescription()}}
+{\footnotesize\ttfamily virtual std\+::string Flow\+::\+Item\+::create\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_flow_1_1_potion_a94d1c25d72b46c6e9d8eeb9880bdeca5}{Flow\+::\+Potion}, \hyperlink{class_flow_1_1_armor_a4774ee68bb4814fd645bbedf19958719}{Flow\+::\+Armor}, and \hyperlink{class_flow_1_1_weapon_a42cc691551e85def9133007c95b2b472}{Flow\+::\+Weapon}.
+
+\hypertarget{class_flow_1_1_item_a775605940d8a063e7cf5c7d87820d4d1}{}\label{class_flow_1_1_item_a775605940d8a063e7cf5c7d87820d4d1} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!create\+Name@{create\+Name}}
+\index{create\+Name@{create\+Name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{create\+Name()}{createName()}}
+{\footnotesize\ttfamily virtual std\+::string Flow\+::\+Item\+::create\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_flow_1_1_potion_ab21ab2dbee0ff4bb9dbe9cba6689ea34}{Flow\+::\+Potion}, \hyperlink{class_flow_1_1_armor_af8706de01294d876610c7a821e39dc84}{Flow\+::\+Armor}, and \hyperlink{class_flow_1_1_weapon_af8b4a298527dfc4e5c16d5ea2136841f}{Flow\+::\+Weapon}.
+
+\hypertarget{class_flow_1_1_item_a479edd419531aa2db9f707efac66fa7b}{}\label{class_flow_1_1_item_a479edd419531aa2db9f707efac66fa7b} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!description@{description}}
+\index{description@{description}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{description()}{description()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{desc }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s description 
+\begin{DoxyParams}{Parameters}
+{\em desc} & The new description to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_ade8afa150cf8f2b97ce7de8cfbc4f1df}{}\label{class_flow_1_1_item_ade8afa150cf8f2b97ce7de8cfbc4f1df} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!description@{description}}
+\index{description@{description}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{description()}{description()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Item\+::description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s description \begin{DoxyReturn}{Returns}
+The current \hyperlink{class_flow_1_1_item}{Item} description 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a9a9f3132cecb67d6104668100f00cd47}{}\label{class_flow_1_1_item_a9a9f3132cecb67d6104668100f00cd47} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!element@{element}}
+\index{element@{element}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{element()}{element()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::element (\begin{DoxyParamCaption}\item[{unsigned char}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s element. Clear conflicting elements and generate new \hyperlink{class_flow_1_1_item}{Item} name/description 
+\begin{DoxyParams}{Parameters}
+{\em elem} & The new element to set \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_flow_1_1_weapon_a5e008e915610d3ba9d38fed417c807b8}{Flow\+::\+Weapon}.
+
+
+
+Definition at line 121 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_ae108f4ebbdcd75ac4d4ee1d009330040}{}\label{class_flow_1_1_item_ae108f4ebbdcd75ac4d4ee1d009330040} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!element@{element}}
+\index{element@{element}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{element()}{element()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Item\+::element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s element \begin{DoxyReturn}{Returns}
+The current element of the \hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_flow_1_1_weapon_a7bf5d4c7fe9132615ae906c1992e3e53}{Flow\+::\+Weapon}.
+
+
+
+Definition at line 113 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a0cde312c43e4807d994a84aa28711629}{}\label{class_flow_1_1_item_a0cde312c43e4807d994a84aa28711629} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!generation\+Point@{generation\+Point}}
+\index{generation\+Point@{generation\+Point}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{generation\+Point()}{generationPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::generation\+Point (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} \&}]{gen\+Point }\end{DoxyParamCaption})}
+
+Set the \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} for this \hyperlink{class_flow_1_1_item}{Item} 
+\begin{DoxyParams}{Parameters}
+{\em gen\+Point} & The \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} at which this \hyperlink{class_flow_1_1_item}{Item} was generated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 209 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_ad40180fcaf6fdd43fb3b9321387beca2}{}\label{class_flow_1_1_item_ad40180fcaf6fdd43fb3b9321387beca2} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!generation\+Point@{generation\+Point}}
+\index{generation\+Point@{generation\+Point}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{generation\+Point()}{generationPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{struct_flow_1_1_r_n_g_point}{Flow\+::\+R\+N\+G\+Point} Flow\+::\+Item\+::generation\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} that this \hyperlink{class_flow_1_1_item}{Item} was generated at \begin{DoxyReturn}{Returns}
+The seed and position of the R\+NG when this value was generated 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_aad72c7a574fa3ab77a4a01f0f7be8589}{}\label{class_flow_1_1_item_aad72c7a574fa3ab77a4a01f0f7be8589} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!identify@{identify}}
+\index{identify@{identify}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{identify()}{identify()}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::identify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Identify the \hyperlink{class_flow_1_1_item}{Item} 
+
+Definition at line 82 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_ad87cbf57ff2a9ff9f141af741e5755e5}{}\label{class_flow_1_1_item_ad87cbf57ff2a9ff9f141af741e5755e5} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!is\+Idenitfied@{is\+Idenitfied}}
+\index{is\+Idenitfied@{is\+Idenitfied}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{is\+Idenitfied()}{isIdenitfied()}}
+{\footnotesize\ttfamily bool Flow\+::\+Item\+::is\+Idenitfied (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get whether or not the \hyperlink{class_flow_1_1_item}{Item} is identified \begin{DoxyReturn}{Returns}
+true if it is identified. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a1e8fe7af2c547994e93bf1cbc3289908}{}\label{class_flow_1_1_item_a1e8fe7af2c547994e93bf1cbc3289908} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!name@{name}}
+\index{name@{name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{n\+Name }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s name 
+\begin{DoxyParams}{Parameters}
+{\em n\+Name} & The new name to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 145 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a176977d10b96c739e28870bd928e34f8}{}\label{class_flow_1_1_item_a176977d10b96c739e28870bd928e34f8} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!name@{name}}
+\index{name@{name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Item\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s name \begin{DoxyReturn}{Returns}
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s current name 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a75302c9fecaeef01b9dabde3a0861f8c}{}\label{class_flow_1_1_item_a75302c9fecaeef01b9dabde3a0861f8c} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!obfuscate@{obfuscate}}
+\index{obfuscate@{obfuscate}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{obfuscate()}{obfuscate()}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::obfuscate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Obfuscate the \hyperlink{class_flow_1_1_item}{Item} 
+
+Definition at line 89 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_ae0c7ea7506ef62f2204837131f021f55}{}\label{class_flow_1_1_item_ae0c7ea7506ef62f2204837131f021f55} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!type@{type}}
+\index{type@{type}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bca}{Flow\+::\+Item\+Type} Flow\+::\+Item\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s type \begin{DoxyReturn}{Returns}
+An Item\+Type value representing the type of the \hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_flow_1_1_potion_a5594ca2469cc324d4fc163cc96955d42}{Flow\+::\+Potion}, \hyperlink{class_flow_1_1_armor_af1c230e1f7f497caf6bcb86ccf67329d}{Flow\+::\+Armor}, and \hyperlink{class_flow_1_1_weapon_afa86ebc4b8803a970425c947f96e7c94}{Flow\+::\+Weapon}.
+
+
+
+Definition at line 193 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_afe1b907ce55b03b7011a694aedf1f1f9}{}\label{class_flow_1_1_item_afe1b907ce55b03b7011a694aedf1f1f9} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!unidentified\+Name@{unidentified\+Name}}
+\index{unidentified\+Name@{unidentified\+Name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{unidentified\+Name()}{unidentifiedName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::unidentified\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ui\+Name }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s unidentified name 
+\begin{DoxyParams}{Parameters}
+{\em ui\+Name} & The new unidentified name to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a7686c3f072a62c2f97c70fe7b2b93f86}{}\label{class_flow_1_1_item_a7686c3f072a62c2f97c70fe7b2b93f86} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!unidentified\+Name@{unidentified\+Name}}
+\index{unidentified\+Name@{unidentified\+Name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{unidentified\+Name()}{unidentifiedName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Item\+::unidentified\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s unidentified name \begin{DoxyReturn}{Returns}
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s unidentified name 
+\end{DoxyReturn}
+
+
+Definition at line 153 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_a0c903b70ce7ddd19ee2c117de443bc30}{}\label{class_flow_1_1_item_a0c903b70ce7ddd19ee2c117de443bc30} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!value@{value}}
+\index{value@{value}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Item\+::value (\begin{DoxyParamCaption}\item[{unsigned char}]{n\+Value }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s value 
+\begin{DoxyParams}{Parameters}
+{\em n\+Value} & The new value to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 185 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_item_af475c6f792312b9ad95dae06b6cb29b6}{}\label{class_flow_1_1_item_af475c6f792312b9ad95dae06b6cb29b6} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!value@{value}}
+\index{value@{value}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Item\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s value \begin{DoxyReturn}{Returns}
+The current value for this \hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file item.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_flow_1_1_item_a43a8e81e91d1ec86e8be9b3172143bda}{}\label{class_flow_1_1_item_a43a8e81e91d1ec86e8be9b3172143bda} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+desc@{\+\_\+desc}}
+\index{\+\_\+desc@{\+\_\+desc}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+desc}{\_desc}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Item\+::\+\_\+desc\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s description 
+
+Definition at line 49 of file item.\+h.
+
+\hypertarget{class_flow_1_1_item_a977a018070e3ce6992d652b0cf178cb3}{}\label{class_flow_1_1_item_a977a018070e3ce6992d652b0cf178cb3} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+elem@{\+\_\+elem}}
+\index{\+\_\+elem@{\+\_\+elem}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+elem}{\_elem}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Item\+::\+\_\+elem\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s element 
+
+Definition at line 39 of file item.\+h.
+
+\hypertarget{class_flow_1_1_item_a87ac75440226f3f7e14211b5eae81618}{}\label{class_flow_1_1_item_a87ac75440226f3f7e14211b5eae81618} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+gen\+Point@{\+\_\+gen\+Point}}
+\index{\+\_\+gen\+Point@{\+\_\+gen\+Point}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+gen\+Point}{\_genPoint}}
+{\footnotesize\ttfamily \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} Flow\+::\+Item\+::\+\_\+gen\+Point\hspace{0.3cm}{\ttfamily [protected]}}
+
+The R\+NG position that generated this \hyperlink{class_flow_1_1_item}{Item} 
+
+Definition at line 64 of file item.\+h.
+
+\hypertarget{class_flow_1_1_item_abefb3d3a64bfc77c93f0ca9b325c966e}{}\label{class_flow_1_1_item_abefb3d3a64bfc77c93f0ca9b325c966e} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+ident@{\+\_\+ident}}
+\index{\+\_\+ident@{\+\_\+ident}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+ident}{\_ident}}
+{\footnotesize\ttfamily bool Flow\+::\+Item\+::\+\_\+ident\hspace{0.3cm}{\ttfamily [protected]}}
+
+Whether or not the \hyperlink{class_flow_1_1_item}{Item} is identified 
+
+Definition at line 34 of file item.\+h.
+
+\hypertarget{class_flow_1_1_item_ac7078c7e7317b504c3f3aa017e2f2907}{}\label{class_flow_1_1_item_ac7078c7e7317b504c3f3aa017e2f2907} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+name@{\+\_\+name}}
+\index{\+\_\+name@{\+\_\+name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+name}{\_name}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Item\+::\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s name 
+
+Definition at line 54 of file item.\+h.
+
+\hypertarget{class_flow_1_1_item_ae08e5fc92acca2fd0e2b88f9c6d4a750}{}\label{class_flow_1_1_item_ae08e5fc92acca2fd0e2b88f9c6d4a750} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+ui\+Name@{\+\_\+ui\+Name}}
+\index{\+\_\+ui\+Name@{\+\_\+ui\+Name}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+ui\+Name}{\_uiName}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Item\+::\+\_\+ui\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s unidentified name 
+
+Definition at line 59 of file item.\+h.
+
+\hypertarget{class_flow_1_1_item_a1c1de96ab66fbe77536937564a0852fd}{}\label{class_flow_1_1_item_a1c1de96ab66fbe77536937564a0852fd} 
+\index{Flow\+::\+Item@{Flow\+::\+Item}!\+\_\+value@{\+\_\+value}}
+\index{\+\_\+value@{\+\_\+value}!Flow\+::\+Item@{Flow\+::\+Item}}
+\subsubsection{\texorpdfstring{\+\_\+value}{\_value}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Item\+::\+\_\+value\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \hyperlink{class_flow_1_1_item}{Item}\textquotesingle{}s value 
+
+Definition at line 44 of file item.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{item_8h}{item.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{item_8cpp}{item.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,205 @@
+\hypertarget{class_flow_1_1_gm_rand}{}\section{Flow\+:\+:Gm\+Rand Class Reference}
+\label{class_flow_1_1_gm_rand}\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+
+
+{\ttfamily \#include $<$random.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_flow_1_1_gm_rand_a109fe067556f62419afe48f11048acf5}{seek} (unsigned int)
+\item 
+void \hyperlink{class_flow_1_1_gm_rand_a75eb20ea46c459b53793960e711dd81c}{seek} (const \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} \&)
+\item 
+void \hyperlink{class_flow_1_1_gm_rand_aadd656b294e8e7330ba408486646e2f3}{srand} ()
+\item 
+void \hyperlink{class_flow_1_1_gm_rand_abc8aefeb9e15a414964e6e9b0665a8e7}{srand} (unsigned int)
+\item 
+unsigned char \hyperlink{class_flow_1_1_gm_rand_aeb38e9d08aae7a5d4788facf408b01dc}{r\+Direct} ()
+\item 
+unsigned char \hyperlink{class_flow_1_1_gm_rand_a7df923fe60c18e20a157de7aa599f533}{r\+Elem} ()
+\item 
+unsigned int \hyperlink{class_flow_1_1_gm_rand_a8a8b7dafe3991717c68beb1f13409f77}{seed} ()
+\item 
+unsigned int \hyperlink{class_flow_1_1_gm_rand_aef1a411df95f3d49a7180fbcd9d432c1}{pos} ()
+\item 
+int \hyperlink{class_flow_1_1_gm_rand_a638c37993080f31a9857d11c284c15b5}{rand} ()
+\item 
+\hyperlink{class_flow_1_1_room}{Room} \hyperlink{class_flow_1_1_gm_rand_a8a978d8967082e7e519996204c29eb9d}{r\+Room} (bool=false, bool=false)
+\item 
+\hyperlink{class_flow_1_1_floor}{Floor} \hyperlink{class_flow_1_1_gm_rand_a9ca568e62a941c10e42bedb3e334ed52}{r\+Floor} (unsigned char=32)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines an object which allows access to the \hyperlink{class_flow_1_1_gm_rand_a638c37993080f31a9857d11c284c15b5}{rand()} function and records the number of generations which have occurred 
+
+Definition at line 29 of file random.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_gm_rand_aef1a411df95f3d49a7180fbcd9d432c1}{}\label{class_flow_1_1_gm_rand_aef1a411df95f3d49a7180fbcd9d432c1} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!pos@{pos}}
+\index{pos@{pos}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{pos()}{pos()}}
+{\footnotesize\ttfamily unsigned int Flow\+::\+Gm\+Rand\+::pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the position of the R\+NG \begin{DoxyReturn}{Returns}
+The position of the R\+NG in calls to \hyperlink{class_flow_1_1_gm_rand_a638c37993080f31a9857d11c284c15b5}{rand()} from 0 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a638c37993080f31a9857d11c284c15b5}{}\label{class_flow_1_1_gm_rand_a638c37993080f31a9857d11c284c15b5} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!rand@{rand}}
+\index{rand@{rand}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{rand()}{rand()}}
+{\footnotesize\ttfamily int Flow\+::\+Gm\+Rand\+::rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate a random number \begin{DoxyReturn}{Returns}
+A random int 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_aeb38e9d08aae7a5d4788facf408b01dc}{}\label{class_flow_1_1_gm_rand_aeb38e9d08aae7a5d4788facf408b01dc} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!r\+Direct@{r\+Direct}}
+\index{r\+Direct@{r\+Direct}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{r\+Direct()}{rDirect()}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Gm\+Rand\+::r\+Direct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate a random direction. Always cardinal \begin{DoxyReturn}{Returns}
+The generated direction 
+\end{DoxyReturn}
+
+
+Definition at line 189 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a7df923fe60c18e20a157de7aa599f533}{}\label{class_flow_1_1_gm_rand_a7df923fe60c18e20a157de7aa599f533} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!r\+Elem@{r\+Elem}}
+\index{r\+Elem@{r\+Elem}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{r\+Elem()}{rElem()}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Gm\+Rand\+::r\+Elem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get a random element \begin{DoxyReturn}{Returns}
+A random element based on the game\textquotesingle{}s set probabilities 
+\end{DoxyReturn}
+10\% chance of possible multiple enchants 
+
+Definition at line 81 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a9ca568e62a941c10e42bedb3e334ed52}{}\label{class_flow_1_1_gm_rand_a9ca568e62a941c10e42bedb3e334ed52} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!r\+Floor@{r\+Floor}}
+\index{r\+Floor@{r\+Floor}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{r\+Floor()}{rFloor()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_floor}{Flow\+::\+Floor} Flow\+::\+Gm\+Rand\+::r\+Floor (\begin{DoxyParamCaption}\item[{unsigned char}]{size = {\ttfamily 32} }\end{DoxyParamCaption})}
+
+Generate a random \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the \hyperlink{class_flow_1_1_floor}{Floor} to generate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated \hyperlink{class_flow_1_1_floor}{Floor} object 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a8a978d8967082e7e519996204c29eb9d}{}\label{class_flow_1_1_gm_rand_a8a978d8967082e7e519996204c29eb9d} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!r\+Room@{r\+Room}}
+\index{r\+Room@{r\+Room}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{r\+Room()}{rRoom()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_room}{Flow\+::\+Room} Flow\+::\+Gm\+Rand\+::r\+Room (\begin{DoxyParamCaption}\item[{bool}]{start = {\ttfamily false},  }\item[{bool}]{end = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Generate a random \hyperlink{class_flow_1_1_room}{Room} 
+\begin{DoxyParams}{Parameters}
+{\em start} & Whether or not the \hyperlink{class_flow_1_1_room}{Room} is the starting \hyperlink{class_flow_1_1_room}{Room} \\
+\hline
+{\em end} & Whether or not the \hyperlink{class_flow_1_1_room}{Room} is the ending \hyperlink{class_flow_1_1_room}{Room} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated \hyperlink{class_flow_1_1_room}{Room} 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a8a8b7dafe3991717c68beb1f13409f77}{}\label{class_flow_1_1_gm_rand_a8a8b7dafe3991717c68beb1f13409f77} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!seed@{seed}}
+\index{seed@{seed}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{seed()}{seed()}}
+{\footnotesize\ttfamily unsigned int Flow\+::\+Gm\+Rand\+::seed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the seed of the R\+NG \begin{DoxyReturn}{Returns}
+The current seed value 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a109fe067556f62419afe48f11048acf5}{}\label{class_flow_1_1_gm_rand_a109fe067556f62419afe48f11048acf5} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!seek@{seek}}
+\index{seek@{seek}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{seek()}{seek()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Gm\+Rand\+::seek (\begin{DoxyParamCaption}\item[{unsigned int}]{pos }\end{DoxyParamCaption})}
+
+Seek the R\+NG by reseeding it and calling \hyperlink{class_flow_1_1_gm_rand_a638c37993080f31a9857d11c284c15b5}{rand()} 
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position to seek to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_a75eb20ea46c459b53793960e711dd81c}{}\label{class_flow_1_1_gm_rand_a75eb20ea46c459b53793960e711dd81c} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!seek@{seek}}
+\index{seek@{seek}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{seek()}{seek()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Gm\+Rand\+::seek (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point} \&}]{point }\end{DoxyParamCaption})}
+
+Seek the position of the R\+NG to the a position in an \hyperlink{struct_flow_1_1_r_n_g_point}{R\+N\+G\+Point}. Reseeds the generator 
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_aadd656b294e8e7330ba408486646e2f3}{}\label{class_flow_1_1_gm_rand_aadd656b294e8e7330ba408486646e2f3} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!srand@{srand}}
+\index{srand@{srand}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{srand()}{srand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Gm\+Rand\+::srand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Seed the random number generator with the current time 
+
+Definition at line 22 of file random.\+cpp.
+
+\hypertarget{class_flow_1_1_gm_rand_abc8aefeb9e15a414964e6e9b0665a8e7}{}\label{class_flow_1_1_gm_rand_abc8aefeb9e15a414964e6e9b0665a8e7} 
+\index{Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}!srand@{srand}}
+\index{srand@{srand}!Flow\+::\+Gm\+Rand@{Flow\+::\+Gm\+Rand}}
+\subsubsection{\texorpdfstring{srand()}{srand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Gm\+Rand\+::srand (\begin{DoxyParamCaption}\item[{unsigned int}]{seed }\end{DoxyParamCaption})}
+
+Seed the random number generator with the input seed 
+\begin{DoxyParams}{Parameters}
+{\em seed} & The seed to use \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file random.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{random_8h}{random.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{random_8cpp}{random.\+cpp}\end{DoxyCompactItemize}

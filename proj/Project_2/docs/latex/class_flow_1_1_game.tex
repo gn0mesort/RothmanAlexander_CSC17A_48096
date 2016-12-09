@@ -1,0 +1,392 @@
+\hypertarget{class_flow_1_1_game}{}\section{Flow\+:\+:Game Class Reference}
+\label{class_flow_1_1_game}\index{Flow\+::\+Game@{Flow\+::\+Game}}
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_game_a004f19f00e62d93d91eee232e29ea31c}{Game} ()
+\item 
+void \hyperlink{class_flow_1_1_game_a580e2eabf342b6d3ac7436797ddc888b}{create\+Character} ()
+\item 
+void \hyperlink{class_flow_1_1_game_af5f57d1ab3145d03cf0973b84a5334a6}{config} (const \hyperlink{struct_flow_1_1_config}{Config} \&)
+\item 
+void \hyperlink{class_flow_1_1_game_a00ae48e872335db0232eeb370159a3d7}{floor} (const \hyperlink{class_flow_1_1_floor}{Floor} \&)
+\item 
+void \hyperlink{class_flow_1_1_game_a55e2c12a46497c5d0f8bafca7f5cc808}{game\+Options\+Menu} ()
+\item 
+void \hyperlink{class_flow_1_1_game_a25c2d490f362ad2b0d4df53eee48602d}{main\+Menu\+Options} ()
+\item 
+void \hyperlink{class_flow_1_1_game_a3d95d67c58ebe09eb885b86a4d8f82ba}{play} ()
+\item 
+void \hyperlink{class_flow_1_1_game_a7308fddfe2757534d7012f32730ce465}{player} (const \hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+void \hyperlink{class_flow_1_1_game_a5ee9a0d6a9c1fe708deac4f5b48a01e9}{pos} (const \hyperlink{struct_flow_1_1_point}{Point} \&)
+\item 
+void \hyperlink{class_flow_1_1_game_a260baa4e54ff4c1862553a39052e3ee0}{set\+Game\+Over} (bool)
+\item 
+void \hyperlink{class_flow_1_1_game_ab97b20057d0b0952033d47b6f1b0bfe4}{stats} (const \hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+void \hyperlink{class_flow_1_1_game_aa4e29ff35123debac161f187f97aaf7d}{trigger} (\hyperlink{class_flow_1_1_room}{Room} \&)
+\item 
+bool \hyperlink{class_flow_1_1_game_a6dae12a63733a289b34a03dd8d709139}{encounter} (\hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+bool \hyperlink{class_flow_1_1_game_a66ce2ce0a7e590682aa064b240cc4024}{is\+Game\+Over} () const
+\item 
+bool \hyperlink{class_flow_1_1_game_a685c4a00d30acbd2e17ce4244a18f595}{load\+Menu} ()
+\item 
+std\+::string \hyperlink{class_flow_1_1_game_a447cb57574a380a17d26087d10151c5c}{config\+Path} () const
+\item 
+std\+::string \hyperlink{class_flow_1_1_game_a200c86e4c7a3f63b8dd27819eed1b13c}{index\+Path} () const
+\item 
+\hyperlink{struct_flow_1_1_config}{Config} \hyperlink{class_flow_1_1_game_a032b087aa124b6882a260c264d3d3922}{config} () const
+\item 
+\hyperlink{struct_flow_1_1_point}{Point} \hyperlink{class_flow_1_1_game_a422898b838eb808cf5f5e832a225adb7}{pos} () const
+\item 
+\hyperlink{class_flow_1_1_actor}{Actor} \hyperlink{class_flow_1_1_game_a8c0df90f917b0111944464cdea5c24fd}{player} () const
+\item 
+\hyperlink{class_flow_1_1_floor}{Floor} \hyperlink{class_flow_1_1_game_a9b18f73128d214e1774b75ce05d63039}{floor} () const
+\item 
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ \hyperlink{class_flow_1_1_game_a4adcdf9a6c23065c19af4fae3a0a731f}{monster\+Names} () const
+\item 
+\hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ \hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bca}{Item\+Type}, \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ $>$ \hyperlink{class_flow_1_1_game_a21ce5c0b4e1b53fa661e85af8b0342de}{item\+Names} () const
+\item 
+\hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ \hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job}, \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ $>$ \hyperlink{class_flow_1_1_game_abbcc4db0f8c813849e1d110871a5bf66}{weapon\+Names} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_flow_1_1_game}{Game} object. Contains all the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s data as well as gameplay functions. 
+
+Definition at line 38 of file game.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_game_a004f19f00e62d93d91eee232e29ea31c}{}\label{class_flow_1_1_game_a004f19f00e62d93d91eee232e29ea31c} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!Game@{Game}}
+\index{Game@{Game}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Flow\+::\+Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hyperlink{class_flow_1_1_game}{Game} constructor. Serves to initialize a game 
+
+Definition at line 20 of file game.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_game_af5f57d1ab3145d03cf0973b84a5334a6}{}\label{class_flow_1_1_game_af5f57d1ab3145d03cf0973b84a5334a6} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!config@{config}}
+\index{config@{config}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{config()}{config()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::config (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_flow_1_1_config}{Config} \&}]{conf }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s configuration 
+\begin{DoxyParams}{Parameters}
+{\em conf} & The new configuration for the \hyperlink{class_flow_1_1_game}{Game} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a032b087aa124b6882a260c264d3d3922}{}\label{class_flow_1_1_game_a032b087aa124b6882a260c264d3d3922} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!config@{config}}
+\index{config@{config}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{config()}{config()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{struct_flow_1_1_config}{Flow\+::\+Config} Flow\+::\+Game\+::config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s configuration \begin{DoxyReturn}{Returns}
+The \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s current configuration 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a447cb57574a380a17d26087d10151c5c}{}\label{class_flow_1_1_game_a447cb57574a380a17d26087d10151c5c} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!config\+Path@{config\+Path}}
+\index{config\+Path@{config\+Path}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{config\+Path()}{configPath()}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Game\+::config\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s configuration path \begin{DoxyReturn}{Returns}
+The current configuration path 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a580e2eabf342b6d3ac7436797ddc888b}{}\label{class_flow_1_1_game_a580e2eabf342b6d3ac7436797ddc888b} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!create\+Character@{create\+Character}}
+\index{create\+Character@{create\+Character}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{create\+Character()}{createCharacter()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::create\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a new player \hyperlink{class_flow_1_1_actor}{Actor} for the game 
+
+Definition at line 702 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a6dae12a63733a289b34a03dd8d709139}{}\label{class_flow_1_1_game_a6dae12a63733a289b34a03dd8d709139} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!encounter@{encounter}}
+\index{encounter@{encounter}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{encounter()}{encounter()}}
+{\footnotesize\ttfamily bool Flow\+::\+Game\+::encounter (\begin{DoxyParamCaption}\item[{\hyperlink{class_flow_1_1_actor}{Actor} \&}]{enemy }\end{DoxyParamCaption})}
+
+Encounter an enemy 
+\begin{DoxyParams}{Parameters}
+{\em enemy} & An \hyperlink{class_flow_1_1_actor}{Actor} representing a monster for the player to fight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the player wins. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a00ae48e872335db0232eeb370159a3d7}{}\label{class_flow_1_1_game_a00ae48e872335db0232eeb370159a3d7} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!floor@{floor}}
+\index{floor@{floor}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{floor()}{floor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::floor (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_floor}{Floor} \&}]{n\+Floor }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s \hyperlink{class_flow_1_1_floor}{Floor} 
+\begin{DoxyParams}{Parameters}
+{\em n\+Floor} & The new \hyperlink{class_flow_1_1_floor}{Floor} to set \+\_\+floor to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a9b18f73128d214e1774b75ce05d63039}{}\label{class_flow_1_1_game_a9b18f73128d214e1774b75ce05d63039} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!floor@{floor}}
+\index{floor@{floor}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{floor()}{floor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_floor}{Flow\+::\+Floor} Flow\+::\+Game\+::floor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s current \hyperlink{class_flow_1_1_floor}{Floor} \begin{DoxyReturn}{Returns}
+The current \hyperlink{class_flow_1_1_floor}{Floor} 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a55e2c12a46497c5d0f8bafca7f5cc808}{}\label{class_flow_1_1_game_a55e2c12a46497c5d0f8bafca7f5cc808} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!game\+Options\+Menu@{game\+Options\+Menu}}
+\index{game\+Options\+Menu@{game\+Options\+Menu}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{game\+Options\+Menu()}{gameOptionsMenu()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::game\+Options\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Handle the in-\/game options menu 
+
+Definition at line 385 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a200c86e4c7a3f63b8dd27819eed1b13c}{}\label{class_flow_1_1_game_a200c86e4c7a3f63b8dd27819eed1b13c} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!index\+Path@{index\+Path}}
+\index{index\+Path@{index\+Path}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{index\+Path()}{indexPath()}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Game\+::index\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s save index path \begin{DoxyReturn}{Returns}
+The \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s current save index path 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a66ce2ce0a7e590682aa064b240cc4024}{}\label{class_flow_1_1_game_a66ce2ce0a7e590682aa064b240cc4024} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!is\+Game\+Over@{is\+Game\+Over}}
+\index{is\+Game\+Over@{is\+Game\+Over}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{is\+Game\+Over()}{isGameOver()}}
+{\footnotesize\ttfamily bool Flow\+::\+Game\+::is\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get whether or not the game has ended \begin{DoxyReturn}{Returns}
+true if the \hyperlink{class_flow_1_1_game}{Game} has ended. Otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a21ce5c0b4e1b53fa661e85af8b0342de}{}\label{class_flow_1_1_game_a21ce5c0b4e1b53fa661e85af8b0342de} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!item\+Names@{item\+Names}}
+\index{item\+Names@{item\+Names}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{item\+Names()}{itemNames()}}
+{\footnotesize\ttfamily \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ \hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bca}{Flow\+::\+Item\+Type}, \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ $>$ Flow\+::\+Game\+::item\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the Dictionary of unidentified item names for this \hyperlink{class_flow_1_1_game}{Game} \begin{DoxyReturn}{Returns}
+A Dictionary containing \hyperlink{class_flow_1_1_item}{Item} names by Item\+Type 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a685c4a00d30acbd2e17ce4244a18f595}{}\label{class_flow_1_1_game_a685c4a00d30acbd2e17ce4244a18f595} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!load\+Menu@{load\+Menu}}
+\index{load\+Menu@{load\+Menu}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{load\+Menu()}{loadMenu()}}
+{\footnotesize\ttfamily bool Flow\+::\+Game\+::load\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Handle the load menu \begin{DoxyReturn}{Returns}
+Whether or not a file was loaded 
+\end{DoxyReturn}
+
+
+Definition at line 646 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a25c2d490f362ad2b0d4df53eee48602d}{}\label{class_flow_1_1_game_a25c2d490f362ad2b0d4df53eee48602d} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!main\+Menu\+Options@{main\+Menu\+Options}}
+\index{main\+Menu\+Options@{main\+Menu\+Options}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{main\+Menu\+Options()}{mainMenuOptions()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::main\+Menu\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Process main menu options menu 
+
+Definition at line 514 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a4adcdf9a6c23065c19af4fae3a0a731f}{}\label{class_flow_1_1_game_a4adcdf9a6c23065c19af4fae3a0a731f} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!monster\+Names@{monster\+Names}}
+\index{monster\+Names@{monster\+Names}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{monster\+Names()}{monsterNames()}}
+{\footnotesize\ttfamily \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ Flow\+::\+Game\+::monster\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the Linked\+List of monster names for this \hyperlink{class_flow_1_1_game}{Game} \begin{DoxyReturn}{Returns}
+The current list of monster names 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a3d95d67c58ebe09eb885b86a4d8f82ba}{}\label{class_flow_1_1_game_a3d95d67c58ebe09eb885b86a4d8f82ba} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!play@{play}}
+\index{play@{play}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Play the \hyperlink{class_flow_1_1_game}{Game} 
+
+Definition at line 176 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a7308fddfe2757534d7012f32730ce465}{}\label{class_flow_1_1_game_a7308fddfe2757534d7012f32730ce465} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!player@{player}}
+\index{player@{player}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{player()}{player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::player (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_actor}{Actor} \&}]{n\+Player }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s player 
+\begin{DoxyParams}{Parameters}
+{\em n\+Player} & The \hyperlink{class_flow_1_1_actor}{Actor} to set the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s player to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 137 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a8c0df90f917b0111944464cdea5c24fd}{}\label{class_flow_1_1_game_a8c0df90f917b0111944464cdea5c24fd} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!player@{player}}
+\index{player@{player}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{player()}{player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_actor}{Flow\+::\+Actor} Flow\+::\+Game\+::player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s player \begin{DoxyReturn}{Returns}
+The current \hyperlink{class_flow_1_1_actor}{Actor} object for the player 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a5ee9a0d6a9c1fe708deac4f5b48a01e9}{}\label{class_flow_1_1_game_a5ee9a0d6a9c1fe708deac4f5b48a01e9} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!pos@{pos}}
+\index{pos@{pos}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{pos()}{pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::pos (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_flow_1_1_point}{Point} \&}]{pos }\end{DoxyParamCaption})}
+
+Set the current position of the player 
+\begin{DoxyParams}{Parameters}
+{\em pos} & A point containing the position to set the player to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 153 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a422898b838eb808cf5f5e832a225adb7}{}\label{class_flow_1_1_game_a422898b838eb808cf5f5e832a225adb7} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!pos@{pos}}
+\index{pos@{pos}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{pos()}{pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{struct_flow_1_1_point}{Flow\+::\+Point} Flow\+::\+Game\+::pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the current position of the player \begin{DoxyReturn}{Returns}
+A \hyperlink{struct_flow_1_1_point}{Point} containing the player\textquotesingle{}s position 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_a260baa4e54ff4c1862553a39052e3ee0}{}\label{class_flow_1_1_game_a260baa4e54ff4c1862553a39052e3ee0} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!set\+Game\+Over@{set\+Game\+Over}}
+\index{set\+Game\+Over@{set\+Game\+Over}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{set\+Game\+Over()}{setGameOver()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::set\+Game\+Over (\begin{DoxyParamCaption}\item[{bool}]{game\+Over }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_game}{Game}\textquotesingle{}s game over state flag 
+\begin{DoxyParams}{Parameters}
+{\em game\+Over} & Whether or not the game has ended \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_ab97b20057d0b0952033d47b6f1b0bfe4}{}\label{class_flow_1_1_game_ab97b20057d0b0952033d47b6f1b0bfe4} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!stats@{stats}}
+\index{stats@{stats}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{stats()}{stats()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::stats (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_actor}{Actor} \&}]{actor }\end{DoxyParamCaption})}
+
+Display the \hyperlink{class_flow_1_1_stat}{Stat} values for an \hyperlink{class_flow_1_1_actor}{Actor} 
+\begin{DoxyParams}{Parameters}
+{\em actor} & The \hyperlink{class_flow_1_1_actor}{Actor} to display Stats for \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 369 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_aa4e29ff35123debac161f187f97aaf7d}{}\label{class_flow_1_1_game_aa4e29ff35123debac161f187f97aaf7d} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!trigger@{trigger}}
+\index{trigger@{trigger}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{trigger()}{trigger()}}
+{\footnotesize\ttfamily void Flow\+::\+Game\+::trigger (\begin{DoxyParamCaption}\item[{\hyperlink{class_flow_1_1_room}{Room} \&}]{room }\end{DoxyParamCaption})}
+
+Trigger the event in a \hyperlink{class_flow_1_1_room}{Room} 
+\begin{DoxyParams}{Parameters}
+{\em room} & A \hyperlink{class_flow_1_1_room}{Room} to trigger events for \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 252 of file game.\+cpp.
+
+\hypertarget{class_flow_1_1_game_abbcc4db0f8c813849e1d110871a5bf66}{}\label{class_flow_1_1_game_abbcc4db0f8c813849e1d110871a5bf66} 
+\index{Flow\+::\+Game@{Flow\+::\+Game}!weapon\+Names@{weapon\+Names}}
+\index{weapon\+Names@{weapon\+Names}!Flow\+::\+Game@{Flow\+::\+Game}}
+\subsubsection{\texorpdfstring{weapon\+Names()}{weaponNames()}}
+{\footnotesize\ttfamily \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ \hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Flow\+::\+Job}, \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ $>$ Flow\+::\+Game\+::weapon\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get a Dictionary of \hyperlink{class_flow_1_1_weapon}{Weapon} names by Job \begin{DoxyReturn}{Returns}
+A Dictionary containing \hyperlink{class_flow_1_1_weapon}{Weapon} names for this game 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file game.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{game_8h}{game.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{game_8cpp}{game.\+cpp}\end{DoxyCompactItemize}

@@ -1,13 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
+ * ████▄     ▄   ▄███▄   █▄▄▄▄ ▄████  █    ████▄   ▄ ▄
+ * █   █      █  █▀   ▀  █  ▄▀ █▀   ▀ █    █   █  █   █
+ * █   █ █     █ ██▄▄    █▀▀▌  █▀▀    █    █   █ █ ▄   █
+ * ▀████  █    █ █▄   ▄▀ █  █  █      ███▄ ▀████ █  █  █
+ *         █  █  ▀███▀     █    █         ▀       █ █ █
+ *          █▐            ▀      ▀                 ▀ ▀
+ *          ▐
  * File:   random.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@studnet.rcc.edu>
+ * Purpose: Source file for random.h
  * Created on December 2, 2016
  */
 
@@ -15,41 +16,68 @@
 
 Flow::RNGPoint Flow::GmRand::_point;
 
+/**
+ * Seed the random number generator with the current time
+ */
 void Flow::GmRand::srand(){
-    _point.pos = 0;
-    _point.seed = to_int(time(0));
+    _point.pos = 0; //Set the position to 0
+    _point.seed = to_int(time(0)); //Set the seed
 
-    std::srand(_point.seed);
+    std::srand(_point.seed); //Seed the underlying PRNG
 }
 
+/**
+ * Seed the random number generator with the input seed
+ * @param seed The seed to use
+ */
 void Flow::GmRand::srand(unsigned int seed){
-    _point.pos = 0;
-    _point.seed = seed;
+    _point.pos = 0; //Set the position to 0
+    _point.seed = seed; //Set the seed
 
-    std::srand(_point.seed);
+    std::srand(_point.seed); //Seed the underlying PRNG
 }
 
+/**
+ * Generate a random number
+ * @return A random int
+ */
 int Flow::GmRand::rand(){
-    ++_point.pos;
-    return std::rand();
+    ++_point.pos; //Increment the position
+    return std::rand(); //Return the random number
 }
 
+/**
+ * Seek the RNG by reseeding it and calling rand()
+ * @param pos The position to seek to
+ */
 void Flow::GmRand::seek(unsigned int pos){
-    srand(_point.seed);
+    srand(_point.seed); //Seed the PRNG
 
-    for(unsigned int i = 0; i < pos; ++i){
+    for(unsigned int i = 0; i < pos; ++i){ //Seek the PRNG
         rand();
     }
 }
 
+/**
+ * Get the position of the RNG
+ * @return The position of the RNG in calls to rand() from 0
+ */
 unsigned int Flow::GmRand::pos(){
     return _point.pos;
 }
 
+/**
+ * Get the seed of the RNG
+ * @return The current seed value
+ */
 unsigned int Flow::GmRand::seed(){
     return _point.seed;
 }
 
+/**
+ * Get a random element
+ * @return A random element based on the game's set probabilities
+ */
 unsigned char Flow::GmRand::rElem(){
     unsigned char val = rand() % 100; //Generate a percentage
     unsigned char r = 0;
@@ -67,11 +95,20 @@ unsigned char Flow::GmRand::rElem(){
     return r;
 }
 
+/**
+ * Seek the position of the RNG to the a position in an RNGPoint. Reseeds the generator
+ * @param point
+ */
 void Flow::GmRand::seek(const RNGPoint &point){
-    _point.seed = point.seed;
-    seek(point.pos);
+    _point.seed = point.seed; //Set the new seed
+    seek(point.pos); //Seek
 }
 
+/**
+ * Generate a random Floor
+ * @param size The size of the Floor to generate
+ * @return The generated Floor object
+ */
 Flow::Floor Flow::GmRand::rFloor(unsigned char size){
     Floor r; //The return floor
     Point pos; //The current position of the generator
@@ -122,6 +159,12 @@ Flow::Floor Flow::GmRand::rFloor(unsigned char size){
     return r;
 }
 
+/**
+ * Generate a random Room
+ * @param start Whether or not the Room is the starting Room
+ * @param end Whether or not the Room is the ending Room
+ * @return The generated Room
+ */
 Flow::Room Flow::GmRand::rRoom(bool start, bool end){
     unsigned char rVal = rand() % 100; //Generate a percentage
     RmEvent event = RmEvent::None; //Default the even to none
@@ -139,6 +182,10 @@ Flow::Room Flow::GmRand::rRoom(bool start, bool end){
     return Room(Direct::NONE, event, start, end); //Return the new room
 }
 
+/**
+ * Generate a random direction. Always cardinal
+ * @return The generated direction
+ */
 unsigned char Flow::GmRand::rDirect(){
     unsigned char r = Direct::NONE; //The return value
 

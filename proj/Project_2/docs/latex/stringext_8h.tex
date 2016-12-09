@@ -1,0 +1,90 @@
+\hypertarget{stringext_8h}{}\section{Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/stringext.h File Reference}
+\label{stringext_8h}\index{Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/stringext.\+h@{Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/stringext.\+h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}macros.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{stringext_8h_a6d153761b4095364574d57aa457c001c}{toupper} (const std\+::string \&)
+\item 
+std\+::string \hyperlink{stringext_8h_a61eca578998bf418e51bb17e02c4cde0}{tolower} (const std\+::string \&)
+\item 
+void \hyperlink{stringext_8h_a0f23c391f28ec6b46f7cc58b78fc4e2f}{write\+Binary} (const std\+::string \&, std\+::ofstream \&)
+\item 
+std\+::string \hyperlink{stringext_8h_a8794e3b97e07066079ae6c95f5bc7d3e}{read\+Binary} (std\+::ifstream \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{stringext_8h_a8794e3b97e07066079ae6c95f5bc7d3e}{}\label{stringext_8h_a8794e3b97e07066079ae6c95f5bc7d3e} 
+\index{stringext.\+h@{stringext.\+h}!read\+Binary@{read\+Binary}}
+\index{read\+Binary@{read\+Binary}!stringext.\+h@{stringext.\+h}}
+\subsubsection{\texorpdfstring{read\+Binary()}{readBinary()}}
+{\footnotesize\ttfamily std\+::string read\+Binary (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{in }\end{DoxyParamCaption})}
+
+Read a string from an input file stream as binary data 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string resulting from the binary data read from the stream 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file stringext.\+cpp.
+
+\hypertarget{stringext_8h_a61eca578998bf418e51bb17e02c4cde0}{}\label{stringext_8h_a61eca578998bf418e51bb17e02c4cde0} 
+\index{stringext.\+h@{stringext.\+h}!tolower@{tolower}}
+\index{tolower@{tolower}!stringext.\+h@{stringext.\+h}}
+\subsubsection{\texorpdfstring{tolower()}{tolower()}}
+{\footnotesize\ttfamily std\+::string tolower (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+Convert a string to lower case characters 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of str with all the alphabetic characters set to lower case 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file stringext.\+cpp.
+
+\hypertarget{stringext_8h_a6d153761b4095364574d57aa457c001c}{}\label{stringext_8h_a6d153761b4095364574d57aa457c001c} 
+\index{stringext.\+h@{stringext.\+h}!toupper@{toupper}}
+\index{toupper@{toupper}!stringext.\+h@{stringext.\+h}}
+\subsubsection{\texorpdfstring{toupper()}{toupper()}}
+{\footnotesize\ttfamily std\+::string toupper (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+Convert a string to upper case characters 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of str with all the alphabetic characters set to upper case 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file stringext.\+cpp.
+
+\hypertarget{stringext_8h_a0f23c391f28ec6b46f7cc58b78fc4e2f}{}\label{stringext_8h_a0f23c391f28ec6b46f7cc58b78fc4e2f} 
+\index{stringext.\+h@{stringext.\+h}!write\+Binary@{write\+Binary}}
+\index{write\+Binary@{write\+Binary}!stringext.\+h@{stringext.\+h}}
+\subsubsection{\texorpdfstring{write\+Binary()}{writeBinary()}}
+{\footnotesize\ttfamily void write\+Binary (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str,  }\item[{std\+::ofstream \&}]{out }\end{DoxyParamCaption})}
+
+Write a string to an output file stream as binary data 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to write \\
+\hline
+{\em out} & The stream to output to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file stringext.\+cpp.
+

@@ -1,0 +1,83 @@
+\hypertarget{namespace_error_1_1_error_code}{}\section{Error\+:\+:Error\+Code Namespace Reference}
+\label{namespace_error_1_1_error_code}\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \hyperlink{namespace_error_1_1_error_code_a257bb41202c970fe16218971c3865153}{N\+O\+NE} = 0x00000000
+\item 
+const unsigned int \hyperlink{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{E\+X\+C\+E\+P\+T\+I\+ON} = 0x00000001
+\item 
+const unsigned int \hyperlink{namespace_error_1_1_error_code_acf46c5671e39c66ef96a9a701c8cb91f}{A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} = 0x00000101
+\item 
+const unsigned int \hyperlink{namespace_error_1_1_error_code_a16746831d05707d52cb441c12ed4b471}{N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} = 0x00000201
+\item 
+const unsigned int \hyperlink{namespace_error_1_1_error_code_a712ca5dd58f19a6c3804bea7d62a71d1}{M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} = 0x00000301
+\item 
+const unsigned int \hyperlink{namespace_error_1_1_error_code_ad646bbf666b6a07dc245d1e1b47107be}{F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} = 0x00000401
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A container namespace for preset exception error codes. All codes (except N\+O\+NE) end with the byte 0x01 (0000 0001). This is because P\+O\+S\+IX systems (Linux/\+Cygwin) only return 8-\/bit error codes (Windows will return the full 32-\/bit code). Codes end in 0x01 to ensure that returning an exception is always understood as a failed run. 
+
+\subsection{Variable Documentation}
+\hypertarget{namespace_error_1_1_error_code_acf46c5671e39c66ef96a9a701c8cb91f}{}\label{namespace_error_1_1_error_code_acf46c5671e39c66ef96a9a701c8cb91f} 
+\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}!A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}
+\index{A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsubsection{\texorpdfstring{A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}{ARGUMENT\_EXCEPTION}}
+{\footnotesize\ttfamily const unsigned int Error\+::\+Error\+Code\+::\+A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON = 0x00000101}
+
+Represents an exception caused by an invalid input argument 
+
+Definition at line 42 of file except.\+h.
+
+\hypertarget{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081}{}\label{namespace_error_1_1_error_code_ae85b7b550a5a82a4f04d8d5df167f081} 
+\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}!E\+X\+C\+E\+P\+T\+I\+ON@{E\+X\+C\+E\+P\+T\+I\+ON}}
+\index{E\+X\+C\+E\+P\+T\+I\+ON@{E\+X\+C\+E\+P\+T\+I\+ON}!Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsubsection{\texorpdfstring{E\+X\+C\+E\+P\+T\+I\+ON}{EXCEPTION}}
+{\footnotesize\ttfamily const unsigned int Error\+::\+Error\+Code\+::\+E\+X\+C\+E\+P\+T\+I\+ON = 0x00000001}
+
+Represents a generic exception. Equivalent to 0x01 
+
+Definition at line 38 of file except.\+h.
+
+\hypertarget{namespace_error_1_1_error_code_ad646bbf666b6a07dc245d1e1b47107be}{}\label{namespace_error_1_1_error_code_ad646bbf666b6a07dc245d1e1b47107be} 
+\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}!F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}
+\index{F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsubsection{\texorpdfstring{F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}{FILE\_EXCEPTION}}
+{\footnotesize\ttfamily const unsigned int Error\+::\+Error\+Code\+::\+F\+I\+L\+E\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON = 0x00000401}
+
+Represents an exception caused by a File stream 
+
+Definition at line 54 of file except.\+h.
+
+\hypertarget{namespace_error_1_1_error_code_a712ca5dd58f19a6c3804bea7d62a71d1}{}\label{namespace_error_1_1_error_code_a712ca5dd58f19a6c3804bea7d62a71d1} 
+\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}!M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}
+\index{M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsubsection{\texorpdfstring{M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}{MATH\_EXCEPTION}}
+{\footnotesize\ttfamily const unsigned int Error\+::\+Error\+Code\+::\+M\+A\+T\+H\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON = 0x00000301}
+
+Represents an exception caused by a math error (such as a division by 0) 
+
+Definition at line 50 of file except.\+h.
+
+\hypertarget{namespace_error_1_1_error_code_a257bb41202c970fe16218971c3865153}{}\label{namespace_error_1_1_error_code_a257bb41202c970fe16218971c3865153} 
+\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}!N\+O\+NE@{N\+O\+NE}}
+\index{N\+O\+NE@{N\+O\+NE}!Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsubsection{\texorpdfstring{N\+O\+NE}{NONE}}
+{\footnotesize\ttfamily const unsigned int Error\+::\+Error\+Code\+::\+N\+O\+NE = 0x00000000}
+
+Represents the absence of an error. Equivalent to 0x00 
+
+Definition at line 34 of file except.\+h.
+
+\hypertarget{namespace_error_1_1_error_code_a16746831d05707d52cb441c12ed4b471}{}\label{namespace_error_1_1_error_code_a16746831d05707d52cb441c12ed4b471} 
+\index{Error\+::\+Error\+Code@{Error\+::\+Error\+Code}!N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}
+\index{N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON@{N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}!Error\+::\+Error\+Code@{Error\+::\+Error\+Code}}
+\subsubsection{\texorpdfstring{N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}{NULL\_EXCEPTION}}
+{\footnotesize\ttfamily const unsigned int Error\+::\+Error\+Code\+::\+N\+U\+L\+L\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON = 0x00000201}
+
+Represents an exception caused by a null reference 
+
+Definition at line 46 of file except.\+h.
+

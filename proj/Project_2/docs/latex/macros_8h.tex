@@ -1,0 +1,122 @@
+\hypertarget{macros_8h}{}\section{Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/macros.h File Reference}
+\label{macros_8h}\index{Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/macros.\+h@{Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/macros.\+h}}
+{\ttfamily \#include $<$string$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{macros_8h_ac97b8ee753e4405397a42ad5799b0f9e}{null}~(0)
+\item 
+\#define \hyperlink{macros_8h_a71809484a26cd96c6abe839a0a8a289d}{byte}~Byte\+::\+Byte$<$unsigned char$>$
+\item 
+\#define \hyperlink{macros_8h_a4f50cb4af81538ff988e02e4dc3c3a10}{stringify}(x)~(\#x)
+\item 
+\#define \hyperlink{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{nameof}(x)~(\hyperlink{macros_8h_a1909f153e507910e59b30a9763ab16a7}{nameof\+\_\+check}(\#x, x))
+\item 
+\#define \hyperlink{macros_8h_aa0a42312a91949f0a96dd9fb22add592}{to\+\_\+int}(x)~(static\+\_\+cast$<$int$>$(x))
+\item 
+\#define \hyperlink{macros_8h_a6f62a5190dbaeee853a865eabf6cce13}{to\+\_\+uint}(x)~(static\+\_\+cast$<$unsigned int$>$(x))
+\item 
+\#define \hyperlink{macros_8h_aca2d18dbed09b8400ea7015ab259c10d}{to\+\_\+bin}(x)~(reinterpret\+\_\+cast$<$char$\ast$$>$(\&x))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \hyperlink{macros_8h_a1909f153e507910e59b30a9763ab16a7}{nameof\+\_\+check} (const std\+::string \&str, T value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{macros_8h_a71809484a26cd96c6abe839a0a8a289d}{}\label{macros_8h_a71809484a26cd96c6abe839a0a8a289d} 
+\index{macros.\+h@{macros.\+h}!byte@{byte}}
+\index{byte@{byte}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{byte}{byte}}
+{\footnotesize\ttfamily \#define byte~Byte\+::\+Byte$<$unsigned char$>$}
+
+Defines a byte macro that is equivalent to the Byte\+::\+Byte$<$unsigned char$>$ 
+
+Definition at line 25 of file macros.\+h.
+
+\hypertarget{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{}\label{macros_8h_a235bdec0a6bf62f3b3af87e528109847} 
+\index{macros.\+h@{macros.\+h}!nameof@{nameof}}
+\index{nameof@{nameof}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{nameof}{nameof}}
+{\footnotesize\ttfamily \#define nameof(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(\hyperlink{macros_8h_a1909f153e507910e59b30a9763ab16a7}{nameof\+\_\+check}(\#x, x))}
+
+Gets the name of an assignable value. Otherwise generate compiler errors 
+
+Definition at line 39 of file macros.\+h.
+
+\hypertarget{macros_8h_ac97b8ee753e4405397a42ad5799b0f9e}{}\label{macros_8h_ac97b8ee753e4405397a42ad5799b0f9e} 
+\index{macros.\+h@{macros.\+h}!null@{null}}
+\index{null@{null}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{null}{null}}
+{\footnotesize\ttfamily \#define null~(0)}
+
+Defines null as 0. The same as N\+U\+LL 
+
+Definition at line 18 of file macros.\+h.
+
+\hypertarget{macros_8h_a4f50cb4af81538ff988e02e4dc3c3a10}{}\label{macros_8h_a4f50cb4af81538ff988e02e4dc3c3a10} 
+\index{macros.\+h@{macros.\+h}!stringify@{stringify}}
+\index{stringify@{stringify}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{stringify}{stringify}}
+{\footnotesize\ttfamily \#define stringify(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(\#x)}
+
+Preform simple stringification. Equivalent to wrapping a value in double quotes 
+
+Definition at line 32 of file macros.\+h.
+
+\hypertarget{macros_8h_aca2d18dbed09b8400ea7015ab259c10d}{}\label{macros_8h_aca2d18dbed09b8400ea7015ab259c10d} 
+\index{macros.\+h@{macros.\+h}!to\+\_\+bin@{to\+\_\+bin}}
+\index{to\+\_\+bin@{to\+\_\+bin}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{to\+\_\+bin}{to\_bin}}
+{\footnotesize\ttfamily \#define to\+\_\+bin(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(reinterpret\+\_\+cast$<$char$\ast$$>$(\&x))}
+
+Convert a value to binary data 
+
+Definition at line 60 of file macros.\+h.
+
+\hypertarget{macros_8h_aa0a42312a91949f0a96dd9fb22add592}{}\label{macros_8h_aa0a42312a91949f0a96dd9fb22add592} 
+\index{macros.\+h@{macros.\+h}!to\+\_\+int@{to\+\_\+int}}
+\index{to\+\_\+int@{to\+\_\+int}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{to\+\_\+int}{to\_int}}
+{\footnotesize\ttfamily \#define to\+\_\+int(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(static\+\_\+cast$<$int$>$(x))}
+
+Convert a value to an int 
+
+Definition at line 46 of file macros.\+h.
+
+\hypertarget{macros_8h_a6f62a5190dbaeee853a865eabf6cce13}{}\label{macros_8h_a6f62a5190dbaeee853a865eabf6cce13} 
+\index{macros.\+h@{macros.\+h}!to\+\_\+uint@{to\+\_\+uint}}
+\index{to\+\_\+uint@{to\+\_\+uint}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{to\+\_\+uint}{to\_uint}}
+{\footnotesize\ttfamily \#define to\+\_\+uint(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(static\+\_\+cast$<$unsigned int$>$(x))}
+
+Convert a value to an unsigned int 
+
+Definition at line 53 of file macros.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{macros_8h_a1909f153e507910e59b30a9763ab16a7}{}\label{macros_8h_a1909f153e507910e59b30a9763ab16a7} 
+\index{macros.\+h@{macros.\+h}!nameof\+\_\+check@{nameof\+\_\+check}}
+\index{nameof\+\_\+check@{nameof\+\_\+check}!macros.\+h@{macros.\+h}}
+\subsubsection{\texorpdfstring{nameof\+\_\+check()}{nameof\_check()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string nameof\+\_\+check (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str,  }\item[{T}]{value }\end{DoxyParamCaption})}
+
+Causes a compiler error if \hyperlink{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{nameof()} is used on a value that can\textquotesingle{}t be assigned 
+\begin{DoxyParams}{Parameters}
+{\em str} & The stringified input of \hyperlink{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{nameof()} \\
+\hline
+{\em value} & The input of \hyperlink{macros_8h_a235bdec0a6bf62f3b3af87e528109847}{nameof()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the input string str 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file macros.\+h.
+

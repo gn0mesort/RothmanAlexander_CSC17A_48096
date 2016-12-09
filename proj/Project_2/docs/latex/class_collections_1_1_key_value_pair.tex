@@ -1,0 +1,147 @@
+\hypertarget{class_collections_1_1_key_value_pair}{}\section{Collections\+:\+:Key\+Value\+Pair$<$ T\+Key, T\+Value $>$ Class Template Reference}
+\label{class_collections_1_1_key_value_pair}\index{Collections\+::\+Key\+Value\+Pair$<$ T\+Key, T\+Value $>$@{Collections\+::\+Key\+Value\+Pair$<$ T\+Key, T\+Value $>$}}
+
+
+{\ttfamily \#include $<$collections.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_collections_1_1_key_value_pair_aa64a4c74132079a13bdc1469e43eb75a}{Key\+Value\+Pair} ()
+\item 
+\hyperlink{class_collections_1_1_key_value_pair_a89b31d39dbe604c5ccf72989406925d3}{Key\+Value\+Pair} (T\+Key, T\+Value)
+\item 
+T\+Key \hyperlink{class_collections_1_1_key_value_pair_a677589bdfb5b66154ff76beac4289958}{key} () const
+\item 
+void \hyperlink{class_collections_1_1_key_value_pair_aa0c15557fd02131df792d633b3e094c9}{key} (T\+Key)
+\item 
+T\+Value \hyperlink{class_collections_1_1_key_value_pair_a7ffc604a86ce512c419a212d6e92ccb0}{value} () const
+\item 
+void \hyperlink{class_collections_1_1_key_value_pair_a7e18d15bccbb04704445daf632cda15d}{value} (T\+Value)
+\item 
+T\+Value \& \hyperlink{class_collections_1_1_key_value_pair_a233be67709beba1bd5a4d00c249345d5}{valueref} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Key, typename T\+Value$>$\newline
+class Collections\+::\+Key\+Value\+Pair$<$ T\+Key, T\+Value $>$}
+
+Defines a pair of a key and a value. Reduces the amount of data required to store a dictionary, and reduces the amount of operations to preform a look up on a dictionary 
+
+Definition at line 610 of file collections.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_collections_1_1_key_value_pair_aa64a4c74132079a13bdc1469e43eb75a}{}\label{class_collections_1_1_key_value_pair_aa64a4c74132079a13bdc1469e43eb75a} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!Key\+Value\+Pair@{Key\+Value\+Pair}}
+\index{Key\+Value\+Pair@{Key\+Value\+Pair}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{Key\+Value\+Pair()}{KeyValuePair()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+\hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::\hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} constructor 
+
+Definition at line 635 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_key_value_pair_a89b31d39dbe604c5ccf72989406925d3}{}\label{class_collections_1_1_key_value_pair_a89b31d39dbe604c5ccf72989406925d3} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!Key\+Value\+Pair@{Key\+Value\+Pair}}
+\index{Key\+Value\+Pair@{Key\+Value\+Pair}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{Key\+Value\+Pair()}{KeyValuePair()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value$>$ \\
+\hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::\hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} (\begin{DoxyParamCaption}\item[{T\+Key}]{key,  }\item[{T\+Value}]{value }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} constructor 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for this pair \\
+\hline
+{\em value} & The value for this pair \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 643 of file collections.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_collections_1_1_key_value_pair_a677589bdfb5b66154ff76beac4289958}{}\label{class_collections_1_1_key_value_pair_a677589bdfb5b66154ff76beac4289958} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!key@{key}}
+\index{key@{key}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{key()}{key()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+T\+Key \hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the key for this \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} \begin{DoxyReturn}{Returns}
+The current key for this pair 
+\end{DoxyReturn}
+
+
+Definition at line 653 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_key_value_pair_aa0c15557fd02131df792d633b3e094c9}{}\label{class_collections_1_1_key_value_pair_aa0c15557fd02131df792d633b3e094c9} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!key@{key}}
+\index{key@{key}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{key()}{key()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value $>$ \\
+void \hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::key (\begin{DoxyParamCaption}\item[{T\+Key}]{n\+Key }\end{DoxyParamCaption})}
+
+Set the key for this \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} 
+\begin{DoxyParams}{Parameters}
+{\em n\+Key} & The new key for this pair \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 662 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_key_value_pair_a7ffc604a86ce512c419a212d6e92ccb0}{}\label{class_collections_1_1_key_value_pair_a7ffc604a86ce512c419a212d6e92ccb0} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!value@{value}}
+\index{value@{value}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+T\+Value \hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the value for this \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} \begin{DoxyReturn}{Returns}
+The current value for this pair 
+\end{DoxyReturn}
+
+
+Definition at line 671 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_key_value_pair_a7e18d15bccbb04704445daf632cda15d}{}\label{class_collections_1_1_key_value_pair_a7e18d15bccbb04704445daf632cda15d} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!value@{value}}
+\index{value@{value}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{value()}{value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value$>$ \\
+void \hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::value (\begin{DoxyParamCaption}\item[{T\+Value}]{n\+Value }\end{DoxyParamCaption})}
+
+Set the value for this \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} 
+\begin{DoxyParams}{Parameters}
+{\em n\+Value} & The new value for this pair \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 680 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_key_value_pair_a233be67709beba1bd5a4d00c249345d5}{}\label{class_collections_1_1_key_value_pair_a233be67709beba1bd5a4d00c249345d5} 
+\index{Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}!valueref@{valueref}}
+\index{valueref@{valueref}!Collections\+::\+Key\+Value\+Pair@{Collections\+::\+Key\+Value\+Pair}}
+\subsubsection{\texorpdfstring{valueref()}{valueref()}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+T\+Value \& \hyperlink{class_collections_1_1_key_value_pair}{Collections\+::\+Key\+Value\+Pair}$<$ T\+Key, T\+Value $>$\+::valueref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value for this \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} \begin{DoxyReturn}{Returns}
+A reference to the value of this pair 
+\end{DoxyReturn}
+
+
+Definition at line 689 of file collections.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{collections_8h}{collections.\+h}\end{DoxyCompactItemize}

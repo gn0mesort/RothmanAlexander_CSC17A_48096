@@ -1,0 +1,614 @@
+\hypertarget{class_flow_1_1_actor}{}\section{Flow\+:\+:Actor Class Reference}
+\label{class_flow_1_1_actor}\index{Flow\+::\+Actor@{Flow\+::\+Actor}}
+
+
+{\ttfamily \#include $<$actor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_actor_a242b634b62029fb8fc3226e6dae85606}{Actor} ()
+\item 
+void \hyperlink{class_flow_1_1_actor_a6ea333bb237a2c0cf932048003b4a4cd}{add\+Item} (const \hyperlink{class_flow_1_1_potion}{Potion} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a330ec5658330568c65799ccd34e77889}{add\+Item} (const \hyperlink{class_flow_1_1_weapon}{Weapon} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_ae27354156a8ea17e3141c087996e6d79}{add\+Item} (const \hyperlink{class_flow_1_1_armor}{Armor} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a0c00bc33f98a815227a665fb4d61664d}{add\+Item} (const std\+::shared\+\_\+ptr$<$ \hyperlink{class_flow_1_1_item}{Item} $>$ \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_abf713d204f2cf3fc2de46b32c775ebdc}{add\+Items} (const \hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a7c829abc5329c2506ea0ffe5b029c1a9}{attack} (unsigned char)
+\item 
+void \hyperlink{class_flow_1_1_actor_a7aee4043e372b4e1391418daa5728958}{attack} (const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_a20e4a2e21e5ba583df61b83770a35033}{defense} (unsigned char)
+\item 
+void \hyperlink{class_flow_1_1_actor_aba8a18fe7673cbd965d195e128067351}{defense} (const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_aec7a9e3499e6d4441d3f32c4437b3d83}{difficulty} (unsigned char)
+\item 
+void \hyperlink{class_flow_1_1_actor_a2b2c31fc34e8aae951764f80730479e0}{equip} (const \hyperlink{class_flow_1_1_weapon}{Weapon} \&, bool=true)
+\item 
+void \hyperlink{class_flow_1_1_actor_aa3e3371f1fde52c0dae09ba6f34bb599}{equip} (const \hyperlink{class_flow_1_1_armor}{Armor} \&, bool=true)
+\item 
+void \hyperlink{class_flow_1_1_actor_a8d41b4076822bd8bc03f44119c7546b0}{hit} (\hyperlink{class_flow_1_1_actor}{Actor} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_ab6e6c8f8feb5112cff282769e00f8cc5}{hp} (int)
+\item 
+void \hyperlink{class_flow_1_1_actor_a26d5b782a05e0b8fc8a5d9b3565b97d8}{hp} (const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_ae4cb3aadfe983b6bee09b27649dbb704}{identify} (unsigned int, bool=false)
+\item 
+void \hyperlink{class_flow_1_1_actor_ac107aa0995c0532286dea215ef912cc5}{job} (\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job})
+\item 
+void \hyperlink{class_flow_1_1_actor_aca6243d244b329bed207352fdc3646be}{mp} (int)
+\item 
+void \hyperlink{class_flow_1_1_actor_a655ad26be9ed06a24653c3413390ac10}{mp} (const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_ad30420df40d6fec219c9bbac83762b8a}{name} (const std\+::string \&)
+\item 
+void \hyperlink{class_flow_1_1_actor_aea7ee4b2807325b9c4f9f394fb2c22c1}{obfuscate} ()
+\item 
+void \hyperlink{class_flow_1_1_actor_a012c1fd5768e2781aab76dea7d29d7c5}{remove\+Item} (unsigned int)
+\item 
+void \hyperlink{class_flow_1_1_actor_ad6b899f59bde8718624f61159083c74d}{use} (unsigned int, bool=true)
+\item 
+unsigned char \hyperlink{class_flow_1_1_actor_a2e4ed70c823b510309914f53e26495da}{difficulty} () const
+\item 
+unsigned int \hyperlink{class_flow_1_1_actor_a6bc972a1ad28bbdb4b30f73779a1f78d}{inv\+Size} ()
+\item 
+int \hyperlink{class_flow_1_1_actor_a648ab8280efed25bb52cb065199b1dd6}{select\+Item} ()
+\item 
+std\+::string \hyperlink{class_flow_1_1_actor_a66f88663ad38508b09e53115608dd0f7}{name} () const
+\item 
+\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job} \hyperlink{class_flow_1_1_actor_aac6046fc99b742a2307084b0b366c2ed}{job} () const
+\item 
+\hyperlink{class_flow_1_1_b_stat}{B\+Stat} \hyperlink{class_flow_1_1_actor_ab1b5a1e970f6721aeefe580e77d24ddb}{attack} () const
+\item 
+\hyperlink{class_flow_1_1_b_stat}{B\+Stat} \hyperlink{class_flow_1_1_actor_a70095802b129f53a2467e919e5e14c9b}{defense} () const
+\item 
+\hyperlink{class_flow_1_1_i_stat}{I\+Stat} \hyperlink{class_flow_1_1_actor_aaea76048a01d31bfc82a0eeb53c5cbdb}{hp} () const
+\item 
+\hyperlink{class_flow_1_1_i_stat}{I\+Stat} \hyperlink{class_flow_1_1_actor_a197cf5bc7b1b24c4e557adbdc6d9bbdf}{mp} () const
+\item 
+\hyperlink{class_flow_1_1_armor}{Armor} \hyperlink{class_flow_1_1_actor_a2b9ad51f3967a2b738f850440e4e56c0}{armor} () const
+\item 
+\hyperlink{class_flow_1_1_weapon}{Weapon} \hyperlink{class_flow_1_1_actor_ad22b99397cfccf1b2e1f9022fd59a322}{weapon} () const
+\item 
+\hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ \hyperlink{class_flow_1_1_actor_a57fa1f3f670561fbca7ad13ad6a6f35f}{inventory\+Menu} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines an \hyperlink{class_flow_1_1_actor}{Actor} (a game character). Actors represent both the player and enemies in the game 
+
+Definition at line 36 of file actor.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_actor_a242b634b62029fb8fc3226e6dae85606}{}\label{class_flow_1_1_actor_a242b634b62029fb8fc3226e6dae85606} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{Actor()}{Actor()}}
+{\footnotesize\ttfamily Flow\+::\+Actor\+::\+Actor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_flow_1_1_actor}{Actor} constructor 
+
+Definition at line 20 of file actor.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_actor_a6ea333bb237a2c0cf932048003b4a4cd}{}\label{class_flow_1_1_actor_a6ea333bb237a2c0cf932048003b4a4cd} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{add\+Item()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::add\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_potion}{Potion} \&}]{item }\end{DoxyParamCaption})}
+
+Add an \hyperlink{class_flow_1_1_item}{Item} to the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em item} & A \hyperlink{class_flow_1_1_potion}{Potion} to add to the inventory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a330ec5658330568c65799ccd34e77889}{}\label{class_flow_1_1_actor_a330ec5658330568c65799ccd34e77889} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{add\+Item()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::add\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_weapon}{Weapon} \&}]{item }\end{DoxyParamCaption})}
+
+Add an \hyperlink{class_flow_1_1_item}{Item} to the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em item} & A \hyperlink{class_flow_1_1_weapon}{Weapon} to add to the inventory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ae27354156a8ea17e3141c087996e6d79}{}\label{class_flow_1_1_actor_ae27354156a8ea17e3141c087996e6d79} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{add\+Item()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::add\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_armor}{Armor} \&}]{item }\end{DoxyParamCaption})}
+
+Add an \hyperlink{class_flow_1_1_item}{Item} to the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em item} & An \hyperlink{class_flow_1_1_armor}{Armor} object to add to the inventory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a0c00bc33f98a815227a665fb4d61664d}{}\label{class_flow_1_1_actor_a0c00bc33f98a815227a665fb4d61664d} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{add\+Item()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::add\+Item (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \hyperlink{class_flow_1_1_item}{Item} $>$ \&}]{itm }\end{DoxyParamCaption})}
+
+Add an \hyperlink{class_flow_1_1_item}{Item} to the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em itm} & A std\+::shared\+\_\+ptr$<$\+Item$>$ pointing to the \hyperlink{class_flow_1_1_item}{Item} to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 518 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_abf713d204f2cf3fc2de46b32c775ebdc}{}\label{class_flow_1_1_actor_abf713d204f2cf3fc2de46b32c775ebdc} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!add\+Items@{add\+Items}}
+\index{add\+Items@{add\+Items}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{add\+Items()}{addItems()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::add\+Items (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_actor}{Actor} \&}]{other }\end{DoxyParamCaption})}
+
+Add Items to the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory from another \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \hyperlink{class_flow_1_1_actor}{Actor} to take Items from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 380 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a2b9ad51f3967a2b738f850440e4e56c0}{}\label{class_flow_1_1_actor_a2b9ad51f3967a2b738f850440e4e56c0} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!armor@{armor}}
+\index{armor@{armor}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{armor()}{armor()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_armor}{Flow\+::\+Armor} Flow\+::\+Actor\+::armor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s current \hyperlink{class_flow_1_1_armor}{Armor} \begin{DoxyReturn}{Returns}
+The currently equipped \hyperlink{class_flow_1_1_armor}{Armor} 
+\end{DoxyReturn}
+
+
+Definition at line 308 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a7c829abc5329c2506ea0ffe5b029c1a9}{}\label{class_flow_1_1_actor_a7c829abc5329c2506ea0ffe5b029c1a9} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!attack@{attack}}
+\index{attack@{attack}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{attack()}{attack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::attack (\begin{DoxyParamCaption}\item[{unsigned char}]{atk }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s attack \hyperlink{class_flow_1_1_stat}{Stat} 
+\begin{DoxyParams}{Parameters}
+{\em atk} & A value to set the value of \+\_\+atk to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 180 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a7aee4043e372b4e1391418daa5728958}{}\label{class_flow_1_1_actor_a7aee4043e372b4e1391418daa5728958} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!attack@{attack}}
+\index{attack@{attack}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{attack()}{attack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::attack (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&}]{atk }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s attack \hyperlink{class_flow_1_1_stat}{Stat} 
+\begin{DoxyParams}{Parameters}
+{\em atk} & A \hyperlink{class_flow_1_1_b_stat}{B\+Stat} object to set \+\_\+atk to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 188 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ab1b5a1e970f6721aeefe580e77d24ddb}{}\label{class_flow_1_1_actor_ab1b5a1e970f6721aeefe580e77d24ddb} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!attack@{attack}}
+\index{attack@{attack}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{attack()}{attack()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_b_stat}{Flow\+::\+B\+Stat} Flow\+::\+Actor\+::attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s attack \hyperlink{class_flow_1_1_stat}{Stat} \begin{DoxyReturn}{Returns}
+A \hyperlink{class_flow_1_1_b_stat}{B\+Stat} containing the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s attack data 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a20e4a2e21e5ba583df61b83770a35033}{}\label{class_flow_1_1_actor_a20e4a2e21e5ba583df61b83770a35033} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!defense@{defense}}
+\index{defense@{defense}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{defense()}{defense()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::defense (\begin{DoxyParamCaption}\item[{unsigned char}]{def }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s defense \hyperlink{class_flow_1_1_stat}{Stat} 
+\begin{DoxyParams}{Parameters}
+{\em def} & A value to set the value of \+\_\+def to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 204 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aba8a18fe7673cbd965d195e128067351}{}\label{class_flow_1_1_actor_aba8a18fe7673cbd965d195e128067351} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!defense@{defense}}
+\index{defense@{defense}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{defense()}{defense()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::defense (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_b_stat}{B\+Stat} \&}]{def }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s defense \hyperlink{class_flow_1_1_stat}{Stat} 
+\begin{DoxyParams}{Parameters}
+{\em def} & A \hyperlink{class_flow_1_1_b_stat}{B\+Stat} object to set \+\_\+def to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a70095802b129f53a2467e919e5e14c9b}{}\label{class_flow_1_1_actor_a70095802b129f53a2467e919e5e14c9b} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!defense@{defense}}
+\index{defense@{defense}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{defense()}{defense()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_b_stat}{Flow\+::\+B\+Stat} Flow\+::\+Actor\+::defense (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s defense \hyperlink{class_flow_1_1_stat}{Stat} \begin{DoxyReturn}{Returns}
+A \hyperlink{class_flow_1_1_b_stat}{B\+Stat} containing the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s defense data 
+\end{DoxyReturn}
+
+
+Definition at line 196 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aec7a9e3499e6d4441d3f32c4437b3d83}{}\label{class_flow_1_1_actor_aec7a9e3499e6d4441d3f32c4437b3d83} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!difficulty@{difficulty}}
+\index{difficulty@{difficulty}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{difficulty()}{difficulty()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::difficulty (\begin{DoxyParamCaption}\item[{unsigned char}]{diff }\end{DoxyParamCaption})}
+
+Set the difficulty of the game 
+\begin{DoxyParams}{Parameters}
+{\em diff} & The difficulty to set the game to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 399 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a2e4ed70c823b510309914f53e26495da}{}\label{class_flow_1_1_actor_a2e4ed70c823b510309914f53e26495da} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!difficulty@{difficulty}}
+\index{difficulty@{difficulty}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{difficulty()}{difficulty()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Actor\+::difficulty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the difficulty of the game \begin{DoxyReturn}{Returns}
+The difficulty value for this \hyperlink{class_flow_1_1_actor}{Actor} 
+\end{DoxyReturn}
+
+
+Definition at line 391 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a2b2c31fc34e8aae951764f80730479e0}{}\label{class_flow_1_1_actor_a2b2c31fc34e8aae951764f80730479e0} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!equip@{equip}}
+\index{equip@{equip}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{equip()}{equip()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::equip (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_weapon}{Weapon} \&}]{weap,  }\item[{bool}]{output = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Equip a \hyperlink{class_flow_1_1_weapon}{Weapon} 
+\begin{DoxyParams}{Parameters}
+{\em weap} & The \hyperlink{class_flow_1_1_weapon}{Weapon} to equip \\
+\hline
+{\em output} & Whether or not to output text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 122 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aa3e3371f1fde52c0dae09ba6f34bb599}{}\label{class_flow_1_1_actor_aa3e3371f1fde52c0dae09ba6f34bb599} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!equip@{equip}}
+\index{equip@{equip}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{equip()}{equip()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::equip (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_armor}{Armor} \&}]{armor,  }\item[{bool}]{output = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Equip some \hyperlink{class_flow_1_1_armor}{Armor} 
+\begin{DoxyParams}{Parameters}
+{\em armor} & The \hyperlink{class_flow_1_1_armor}{Armor} to equip \\
+\hline
+{\em output} & Whether or not to output text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 135 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a8d41b4076822bd8bc03f44119c7546b0}{}\label{class_flow_1_1_actor_a8d41b4076822bd8bc03f44119c7546b0} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!hit@{hit}}
+\index{hit@{hit}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::hit (\begin{DoxyParamCaption}\item[{\hyperlink{class_flow_1_1_actor}{Actor} \&}]{target }\end{DoxyParamCaption})}
+
+Calculate and apply damage from a physical attack to a target \hyperlink{class_flow_1_1_actor}{Actor} 
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ab6e6c8f8feb5112cff282769e00f8cc5}{}\label{class_flow_1_1_actor_ab6e6c8f8feb5112cff282769e00f8cc5} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!hp@{hp}}
+\index{hp@{hp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{hp()}{hp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::hp (\begin{DoxyParamCaption}\item[{int}]{n\+Hp }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s HP 
+\begin{DoxyParams}{Parameters}
+{\em n\+Hp} & A value to set the value of \+\_\+hp to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a26d5b782a05e0b8fc8a5d9b3565b97d8}{}\label{class_flow_1_1_actor_a26d5b782a05e0b8fc8a5d9b3565b97d8} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!hp@{hp}}
+\index{hp@{hp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{hp()}{hp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::hp (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&}]{n\+Hp }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s HP 
+\begin{DoxyParams}{Parameters}
+{\em n\+Hp} & An \hyperlink{class_flow_1_1_i_stat}{I\+Stat} to set \+\_\+hp to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 236 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aaea76048a01d31bfc82a0eeb53c5cbdb}{}\label{class_flow_1_1_actor_aaea76048a01d31bfc82a0eeb53c5cbdb} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!hp@{hp}}
+\index{hp@{hp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{hp()}{hp()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_i_stat}{Flow\+::\+I\+Stat} Flow\+::\+Actor\+::hp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s HP \hyperlink{class_flow_1_1_stat}{Stat} \begin{DoxyReturn}{Returns}
+An \hyperlink{class_flow_1_1_i_stat}{I\+Stat} containing the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s HP data 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ae4cb3aadfe983b6bee09b27649dbb704}{}\label{class_flow_1_1_actor_ae4cb3aadfe983b6bee09b27649dbb704} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!identify@{identify}}
+\index{identify@{identify}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{identify()}{identify()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::identify (\begin{DoxyParamCaption}\item[{unsigned int}]{index,  }\item[{bool}]{output = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Identify an \hyperlink{class_flow_1_1_item}{Item} in the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index in the inventory to identify \\
+\hline
+{\em output} & Whether or not to output text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 148 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a57fa1f3f670561fbca7ad13ad6a6f35f}{}\label{class_flow_1_1_actor_a57fa1f3f670561fbca7ad13ad6a6f35f} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!inventory\+Menu@{inventory\+Menu}}
+\index{inventory\+Menu@{inventory\+Menu}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{inventory\+Menu()}{inventoryMenu()}}
+{\footnotesize\ttfamily \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ Flow\+::\+Actor\+::inventory\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get a menu Linked\+List containing the names of Items in the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory \begin{DoxyReturn}{Returns}
+A Linked\+List containing the names of Items in the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory. Names are either identified names for identified items or unidentified names 
+\end{DoxyReturn}
+
+
+Definition at line 349 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a6bc972a1ad28bbdb4b30f73779a1f78d}{}\label{class_flow_1_1_actor_a6bc972a1ad28bbdb4b30f73779a1f78d} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!inv\+Size@{inv\+Size}}
+\index{inv\+Size@{inv\+Size}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{inv\+Size()}{invSize()}}
+{\footnotesize\ttfamily unsigned int Flow\+::\+Actor\+::inv\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the size of the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory \begin{DoxyReturn}{Returns}
+The size of the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory in Items 
+\end{DoxyReturn}
+
+
+Definition at line 372 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ac107aa0995c0532286dea215ef912cc5}{}\label{class_flow_1_1_actor_ac107aa0995c0532286dea215ef912cc5} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!job@{job}}
+\index{job@{job}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{job()}{job()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::job (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Job}}]{n\+Job }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s current Job 
+\begin{DoxyParams}{Parameters}
+{\em n\+Job} & A Job to set the \hyperlink{class_flow_1_1_actor}{Actor} to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 252 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aac6046fc99b742a2307084b0b366c2ed}{}\label{class_flow_1_1_actor_aac6046fc99b742a2307084b0b366c2ed} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!job@{job}}
+\index{job@{job}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{job()}{job()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{namespace_flow_a05bb774db920847e46f3779aaef1b07b}{Flow\+::\+Job} Flow\+::\+Actor\+::job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s current Job \begin{DoxyReturn}{Returns}
+The value of \+\_\+job 
+\end{DoxyReturn}
+
+
+Definition at line 244 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aca6243d244b329bed207352fdc3646be}{}\label{class_flow_1_1_actor_aca6243d244b329bed207352fdc3646be} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!mp@{mp}}
+\index{mp@{mp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{mp()}{mp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::mp (\begin{DoxyParamCaption}\item[{int}]{n\+Mp }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s MP 
+\begin{DoxyParams}{Parameters}
+{\em n\+Mp} & A value to set the value of \+\_\+mp to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 268 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a655ad26be9ed06a24653c3413390ac10}{}\label{class_flow_1_1_actor_a655ad26be9ed06a24653c3413390ac10} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!mp@{mp}}
+\index{mp@{mp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{mp()}{mp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::mp (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_i_stat}{I\+Stat} \&}]{n\+Mp }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s MP 
+\begin{DoxyParams}{Parameters}
+{\em n\+Mp} & An \hyperlink{class_flow_1_1_i_stat}{I\+Stat} to set \+\_\+mp to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 276 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a197cf5bc7b1b24c4e557adbdc6d9bbdf}{}\label{class_flow_1_1_actor_a197cf5bc7b1b24c4e557adbdc6d9bbdf} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!mp@{mp}}
+\index{mp@{mp}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{mp()}{mp()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_i_stat}{Flow\+::\+I\+Stat} Flow\+::\+Actor\+::mp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s MP \hyperlink{class_flow_1_1_stat}{Stat} \begin{DoxyReturn}{Returns}
+An \hyperlink{class_flow_1_1_i_stat}{I\+Stat} containing the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s MP data 
+\end{DoxyReturn}
+
+
+Definition at line 260 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ad30420df40d6fec219c9bbac83762b8a}{}\label{class_flow_1_1_actor_ad30420df40d6fec219c9bbac83762b8a} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!name@{name}}
+\index{name@{name}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{n\+Name }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s name 
+\begin{DoxyParams}{Parameters}
+{\em n\+Name} & A new name to set \+\_\+name to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 292 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a66f88663ad38508b09e53115608dd0f7}{}\label{class_flow_1_1_actor_a66f88663ad38508b09e53115608dd0f7} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!name@{name}}
+\index{name@{name}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Actor\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s name \begin{DoxyReturn}{Returns}
+The value of \+\_\+name 
+\end{DoxyReturn}
+
+
+Definition at line 284 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_aea7ee4b2807325b9c4f9f394fb2c22c1}{}\label{class_flow_1_1_actor_aea7ee4b2807325b9c4f9f394fb2c22c1} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!obfuscate@{obfuscate}}
+\index{obfuscate@{obfuscate}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{obfuscate()}{obfuscate()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::obfuscate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Obfuscate all Items in the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+
+Definition at line 525 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a012c1fd5768e2781aab76dea7d29d7c5}{}\label{class_flow_1_1_actor_a012c1fd5768e2781aab76dea7d29d7c5} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!remove\+Item@{remove\+Item}}
+\index{remove\+Item@{remove\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{remove\+Item()}{removeItem()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::remove\+Item (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Remove an \hyperlink{class_flow_1_1_item}{Item} from the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the \hyperlink{class_flow_1_1_item}{Item} to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_a648ab8280efed25bb52cb065199b1dd6}{}\label{class_flow_1_1_actor_a648ab8280efed25bb52cb065199b1dd6} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!select\+Item@{select\+Item}}
+\index{select\+Item@{select\+Item}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{select\+Item()}{selectItem()}}
+{\footnotesize\ttfamily int Flow\+::\+Actor\+::select\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Select an \hyperlink{class_flow_1_1_item}{Item} from the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory \begin{DoxyReturn}{Returns}
+The index of the selected \hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxyReturn}
+
+
+Definition at line 316 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ad6b899f59bde8718624f61159083c74d}{}\label{class_flow_1_1_actor_ad6b899f59bde8718624f61159083c74d} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!use@{use}}
+\index{use@{use}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void Flow\+::\+Actor\+::use (\begin{DoxyParamCaption}\item[{unsigned int}]{index,  }\item[{bool}]{output = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Use an \hyperlink{class_flow_1_1_item}{Item} from the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s inventory 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the \hyperlink{class_flow_1_1_item}{Item} to use \\
+\hline
+{\em output} & Whether or not to output usage text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 408 of file actor.\+cpp.
+
+\hypertarget{class_flow_1_1_actor_ad22b99397cfccf1b2e1f9022fd59a322}{}\label{class_flow_1_1_actor_ad22b99397cfccf1b2e1f9022fd59a322} 
+\index{Flow\+::\+Actor@{Flow\+::\+Actor}!weapon@{weapon}}
+\index{weapon@{weapon}!Flow\+::\+Actor@{Flow\+::\+Actor}}
+\subsubsection{\texorpdfstring{weapon()}{weapon()}}
+{\footnotesize\ttfamily \hyperlink{class_flow_1_1_weapon}{Flow\+::\+Weapon} Flow\+::\+Actor\+::weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the \hyperlink{class_flow_1_1_actor}{Actor}\textquotesingle{}s current \hyperlink{class_flow_1_1_weapon}{Weapon} \begin{DoxyReturn}{Returns}
+The currently equipped \hyperlink{class_flow_1_1_weapon}{Weapon} 
+\end{DoxyReturn}
+
+
+Definition at line 300 of file actor.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{actor_8h}{actor.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{actor_8cpp}{actor.\+cpp}\end{DoxyCompactItemize}

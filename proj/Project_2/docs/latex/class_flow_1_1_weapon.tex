@@ -1,0 +1,250 @@
+\hypertarget{class_flow_1_1_weapon}{}\section{Flow\+:\+:Weapon Class Reference}
+\label{class_flow_1_1_weapon}\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+
+
+{\ttfamily \#include $<$item.\+h$>$}
+
+Inheritance diagram for Flow\+:\+:Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_flow_1_1_weapon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_flow_1_1_weapon_ad522593046c51ee386ff98da6bc050cb}{Weapon} ()
+\item 
+\hyperlink{class_flow_1_1_weapon_a07aaf63f1e08014a451d36a675b5cf89}{Weapon} (const \hyperlink{class_flow_1_1_weapon}{Weapon} \&)
+\item 
+\hyperlink{class_flow_1_1_weapon_ab533e5af85bbd0d5a852005dfadc192b}{Weapon} (unsigned char, unsigned char)
+\item 
+\hyperlink{class_flow_1_1_weapon_a92f807e27a072edeafc7e49154b7da78}{Weapon} (const std\+::string \&, const std\+::string \&=\char`\"{}Unknown \hyperlink{class_flow_1_1_item}{Item}\char`\"{}, const std\+::string \&=\char`\"{}An \hyperlink{class_flow_1_1_item}{Item}\char`\"{}, unsigned char=\hyperlink{namespace_flow_1_1_dmg_elem_a2c7180f371963927ddcc5b333568a33b}{Dmg\+Elem\+::\+N\+O\+NE}, unsigned char=0, bool=false, const \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ $\ast$=0)
+\item 
+void \hyperlink{class_flow_1_1_weapon_a5e008e915610d3ba9d38fed417c807b8}{element} (unsigned char) override
+\item 
+void \hyperlink{class_flow_1_1_weapon_a37b7081fb155f49bf6af4ab4fdbf5d85}{element} (unsigned char, const \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ \&)
+\item 
+unsigned char \hyperlink{class_flow_1_1_weapon_a7bf5d4c7fe9132615ae906c1992e3e53}{element} () const override
+\item 
+\hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bca}{Item\+Type} \hyperlink{class_flow_1_1_weapon_afa86ebc4b8803a970425c947f96e7c94}{type} () const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_flow_1_1_weapon_a42cc691551e85def9133007c95b2b472}{create\+Description} () override
+\item 
+std\+::string \hyperlink{class_flow_1_1_weapon_af8b4a298527dfc4e5c16d5ea2136841f}{create\+Name} () override
+\item 
+std\+::string \hyperlink{class_flow_1_1_weapon_acd4f51875ed9488e144ea7475ebb1760}{create\+Name} (const \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ \&)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 93 of file item.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_flow_1_1_weapon_ad522593046c51ee386ff98da6bc050cb}{}\label{class_flow_1_1_weapon_ad522593046c51ee386ff98da6bc050cb} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Flow\+::\+Weapon\+::\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxySeeAlso}
+
+
+Definition at line 216 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_a07aaf63f1e08014a451d36a675b5cf89}{}\label{class_flow_1_1_weapon_a07aaf63f1e08014a451d36a675b5cf89} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Flow\+::\+Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{const \hyperlink{class_flow_1_1_weapon}{Weapon} \&}]{other }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxySeeAlso}
+
+
+Definition at line 221 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_ab533e5af85bbd0d5a852005dfadc192b}{}\label{class_flow_1_1_weapon_ab533e5af85bbd0d5a852005dfadc192b} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Flow\+::\+Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{unsigned char}]{elem,  }\item[{unsigned char}]{value }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_flow_1_1_weapon}{Weapon} constructor. Sets the element using \hyperlink{class_flow_1_1_weapon_a5e008e915610d3ba9d38fed417c807b8}{Weapon\+::element(unsigned char)} rather than \hyperlink{class_flow_1_1_item_a9a9f3132cecb67d6104668100f00cd47}{Item\+::element(unsigned char)} 
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element of the \hyperlink{class_flow_1_1_item}{Item} \\
+\hline
+{\em value} & The value of the \hyperlink{class_flow_1_1_item}{Item} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 229 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_a92f807e27a072edeafc7e49154b7da78}{}\label{class_flow_1_1_weapon_a92f807e27a072edeafc7e49154b7da78} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Flow\+::\+Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{ui\+Name = {\ttfamily \char`\"{}Unknown~\hyperlink{class_flow_1_1_item}{Item}\char`\"{}},  }\item[{const std\+::string \&}]{desc = {\ttfamily \char`\"{}An~\hyperlink{class_flow_1_1_item}{Item}\char`\"{}},  }\item[{unsigned char}]{elem = {\ttfamily \hyperlink{namespace_flow_1_1_dmg_elem_a2c7180f371963927ddcc5b333568a33b}{Dmg\+Elem\+::\+N\+O\+NE}},  }\item[{unsigned char}]{value = {\ttfamily 0},  }\item[{bool}]{ident = {\ttfamily false},  }\item[{const \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ $\ast$}]{weap\+Names = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Parameterized \hyperlink{class_flow_1_1_weapon}{Weapon} constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & The \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s name \\
+\hline
+{\em ui\+Name} & The \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s unidentified name \\
+\hline
+{\em desc} & The \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s description \\
+\hline
+{\em elem} & The \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s element \\
+\hline
+{\em value} & The \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s value \\
+\hline
+{\em ident} & Whether or not the \hyperlink{class_flow_1_1_weapon}{Weapon} is identified \\
+\hline
+{\em weap\+Names} & A pointer to a Linked\+List of weapon names to use in creating the \hyperlink{class_flow_1_1_weapon}{Weapon} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 243 of file item.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_flow_1_1_weapon_a42cc691551e85def9133007c95b2b472}{}\label{class_flow_1_1_weapon_a42cc691551e85def9133007c95b2b472} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!create\+Description@{create\+Description}}
+\index{create\+Description@{create\+Description}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{create\+Description()}{createDescription()}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Weapon\+::create\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Create a description for the \hyperlink{class_flow_1_1_weapon}{Weapon} \begin{DoxyReturn}{Returns}
+A descriptive string for the \hyperlink{class_flow_1_1_weapon}{Weapon} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_flow_1_1_item_abf20647ff13aa4c761828d2d5508c504}{Flow\+::\+Item}.
+
+
+
+Definition at line 352 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_af8b4a298527dfc4e5c16d5ea2136841f}{}\label{class_flow_1_1_weapon_af8b4a298527dfc4e5c16d5ea2136841f} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!create\+Name@{create\+Name}}
+\index{create\+Name@{create\+Name}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{create\+Name()}{createName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Weapon\+::create\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Create a name without a list of \hyperlink{class_flow_1_1_weapon}{Weapon} names \begin{DoxyReturn}{Returns}
+Always returns \char`\"{}\+Fists\char`\"{} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_flow_1_1_item_a775605940d8a063e7cf5c7d87820d4d1}{Flow\+::\+Item}.
+
+
+
+Definition at line 290 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_acd4f51875ed9488e144ea7475ebb1760}{}\label{class_flow_1_1_weapon_acd4f51875ed9488e144ea7475ebb1760} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!create\+Name@{create\+Name}}
+\index{create\+Name@{create\+Name}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{create\+Name()}{createName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Flow\+::\+Weapon\+::create\+Name (\begin{DoxyParamCaption}\item[{const \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ \&}]{weap\+Names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Create a name with a list of \hyperlink{class_flow_1_1_weapon}{Weapon} names 
+\begin{DoxyParams}{Parameters}
+{\em weap\+Names} & The list of weapon names to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing the \hyperlink{class_flow_1_1_weapon}{Weapon} based on its element 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_a5e008e915610d3ba9d38fed417c807b8}{}\label{class_flow_1_1_weapon_a5e008e915610d3ba9d38fed417c807b8} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!element@{element}}
+\index{element@{element}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{element()}{element()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Weapon\+::element (\begin{DoxyParamCaption}\item[{unsigned char}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_flow_1_1_item}{Item} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \hyperlink{class_flow_1_1_item_a9a9f3132cecb67d6104668100f00cd47}{Flow\+::\+Item}.
+
+
+
+Definition at line 257 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_a37b7081fb155f49bf6af4ab4fdbf5d85}{}\label{class_flow_1_1_weapon_a37b7081fb155f49bf6af4ab4fdbf5d85} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!element@{element}}
+\index{element@{element}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{element()}{element()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Flow\+::\+Weapon\+::element (\begin{DoxyParamCaption}\item[{unsigned char}]{elem,  }\item[{const \hyperlink{class_collections_1_1_linked_list}{Collections\+::\+Linked\+List}$<$ std\+::string $>$ \&}]{weap\+Names }\end{DoxyParamCaption})}
+
+Set the \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s element. Alter the name and description based on the element 
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to set \\
+\hline
+{\em weap\+Names} & A Linked\+List of \hyperlink{class_flow_1_1_weapon}{Weapon} names \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_a7bf5d4c7fe9132615ae906c1992e3e53}{}\label{class_flow_1_1_weapon_a7bf5d4c7fe9132615ae906c1992e3e53} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!element@{element}}
+\index{element@{element}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{element()}{element()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily unsigned char Flow\+::\+Weapon\+::element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the \hyperlink{class_flow_1_1_weapon}{Weapon}\textquotesingle{}s element \begin{DoxyReturn}{Returns}
+The current element of the \hyperlink{class_flow_1_1_weapon}{Weapon} 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_flow_1_1_item_ae108f4ebbdcd75ac4d4ee1d009330040}{Flow\+::\+Item}.
+
+
+
+Definition at line 282 of file item.\+cpp.
+
+\hypertarget{class_flow_1_1_weapon_afa86ebc4b8803a970425c947f96e7c94}{}\label{class_flow_1_1_weapon_afa86ebc4b8803a970425c947f96e7c94} 
+\index{Flow\+::\+Weapon@{Flow\+::\+Weapon}!type@{type}}
+\index{type@{type}!Flow\+::\+Weapon@{Flow\+::\+Weapon}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bca}{Flow\+::\+Item\+Type} Flow\+::\+Weapon\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the type of this \hyperlink{class_flow_1_1_weapon}{Weapon} \begin{DoxyReturn}{Returns}
+\hyperlink{namespace_flow_a09368c0b65b3d1bc5c227ed1046c8bcaa18c83669920215a818638ad0e5421e4b}{Item\+Type\+::\+Weapon} 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_flow_1_1_item_ae0c7ea7506ef62f2204837131f021f55}{Flow\+::\+Item}.
+
+
+
+Definition at line 369 of file item.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{item_8h}{item.\+h}\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{item_8cpp}{item.\+cpp}\end{DoxyCompactItemize}

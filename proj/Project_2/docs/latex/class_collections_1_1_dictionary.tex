@@ -1,0 +1,191 @@
+\hypertarget{class_collections_1_1_dictionary}{}\section{Collections\+:\+:Dictionary$<$ T\+Key, T\+Value $>$ Class Template Reference}
+\label{class_collections_1_1_dictionary}\index{Collections\+::\+Dictionary$<$ T\+Key, T\+Value $>$@{Collections\+::\+Dictionary$<$ T\+Key, T\+Value $>$}}
+
+
+{\ttfamily \#include $<$collections.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_collections_1_1_dictionary_a772de3b4b0a38cfbc18f84fb249364b8}{Dictionary} ()
+\item 
+void \hyperlink{class_collections_1_1_dictionary_a579608263d8579d4664d8cf393e54c00}{add\+Front} (T\+Key, T\+Value)
+\item 
+void \hyperlink{class_collections_1_1_dictionary_a097c05648ba47cb5da4f81fbffd047f4}{add\+Back} (T\+Key, T\+Value)
+\item 
+void \hyperlink{class_collections_1_1_dictionary_a761db4a7547c513bb9df5f91e7367c73}{remove} (T\+Key)
+\item 
+\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T\+Key $>$ \hyperlink{class_collections_1_1_dictionary_a2c8e857e82c6cf00f36a745e48b69722}{keys} ()
+\item 
+\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T\+Value $>$ \hyperlink{class_collections_1_1_dictionary_a0c886eb7be8ffb9eff8ba66d901ec9e0}{values} ()
+\item 
+unsigned int \hyperlink{class_collections_1_1_dictionary_a7f1d63bbe511321336d9a2cd18fd9166}{size} ()
+\item 
+T\+Value \& \hyperlink{class_collections_1_1_dictionary_af1902b74664715fc19fd2d8944f2d65c}{operator\mbox{[}$\,$\mbox{]}} (T\+Key)
+\item 
+T\+Value \hyperlink{class_collections_1_1_dictionary_a74c0362900e4d8084baf72c6a58105fc}{operator\mbox{[}$\,$\mbox{]}} (T\+Key key) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Key, typename T\+Value$>$\newline
+class Collections\+::\+Dictionary$<$ T\+Key, T\+Value $>$}
+
+Defines a \hyperlink{class_collections_1_1_dictionary}{Dictionary}. A \hyperlink{class_collections_1_1_dictionary}{Dictionary} is collection of \hyperlink{class_collections_1_1_key_value_pair}{Key\+Value\+Pair} objects indexed by their keys. Depends directly on \hyperlink{class_collections_1_1_linked_list}{Linked\+List} 
+
+Definition at line 702 of file collections.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_collections_1_1_dictionary_a772de3b4b0a38cfbc18f84fb249364b8}{}\label{class_collections_1_1_dictionary_a772de3b4b0a38cfbc18f84fb249364b8} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!Dictionary@{Dictionary}}
+\index{Dictionary@{Dictionary}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{Dictionary()}{Dictionary()}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+\hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::\hyperlink{class_collections_1_1_dictionary}{Dictionary} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_collections_1_1_dictionary}{Dictionary} Constructor 
+
+Definition at line 724 of file collections.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_collections_1_1_dictionary_a097c05648ba47cb5da4f81fbffd047f4}{}\label{class_collections_1_1_dictionary_a097c05648ba47cb5da4f81fbffd047f4} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!add\+Back@{add\+Back}}
+\index{add\+Back@{add\+Back}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{add\+Back()}{addBack()}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value$>$ \\
+void \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::add\+Back (\begin{DoxyParamCaption}\item[{T\+Key}]{key,  }\item[{T\+Value}]{value }\end{DoxyParamCaption})}
+
+Add an element to the end of the \hyperlink{class_collections_1_1_dictionary}{Dictionary}. If the key already exists set the value to value. 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for this element \\
+\hline
+{\em value} & The value for this element \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 747 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_a579608263d8579d4664d8cf393e54c00}{}\label{class_collections_1_1_dictionary_a579608263d8579d4664d8cf393e54c00} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!add\+Front@{add\+Front}}
+\index{add\+Front@{add\+Front}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{add\+Front()}{addFront()}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value$>$ \\
+void \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::add\+Front (\begin{DoxyParamCaption}\item[{T\+Key}]{key,  }\item[{T\+Value}]{value }\end{DoxyParamCaption})}
+
+Add an element to the beginning of the \hyperlink{class_collections_1_1_dictionary}{Dictionary}. If the key already exists set the value to value. 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for this element \\
+\hline
+{\em value} & The value for this element \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 732 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_a2c8e857e82c6cf00f36a745e48b69722}{}\label{class_collections_1_1_dictionary_a2c8e857e82c6cf00f36a745e48b69722} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!keys@{keys}}
+\index{keys@{keys}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{keys()}{keys()}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T\+Key $>$ \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get a \hyperlink{class_collections_1_1_linked_list}{Linked\+List} of keys from the \hyperlink{class_collections_1_1_dictionary}{Dictionary} \begin{DoxyReturn}{Returns}
+A \hyperlink{class_collections_1_1_linked_list}{Linked\+List} containing every key value in the \hyperlink{class_collections_1_1_dictionary}{Dictionary} 
+\end{DoxyReturn}
+
+
+Definition at line 774 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_af1902b74664715fc19fd2d8944f2d65c}{}\label{class_collections_1_1_dictionary_af1902b74664715fc19fd2d8944f2d65c} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value $>$ \\
+T\+Value \& \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{T\+Key}]{key }\end{DoxyParamCaption})}
+
+Get a reference to the value of the input key 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the value to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the value at the given key 
+\end{DoxyReturn}
+
+
+Definition at line 814 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_a74c0362900e4d8084baf72c6a58105fc}{}\label{class_collections_1_1_dictionary_a74c0362900e4d8084baf72c6a58105fc} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value $>$ \\
+T\+Value \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{T\+Key}]{key }\end{DoxyParamCaption}) const}
+
+Get the value of a key 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to get the value of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the given key 
+\end{DoxyReturn}
+
+
+Definition at line 829 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_a761db4a7547c513bb9df5f91e7367c73}{}\label{class_collections_1_1_dictionary_a761db4a7547c513bb9df5f91e7367c73} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!remove@{remove}}
+\index{remove@{remove}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename T\+Key, typename T\+Value $>$ \\
+void \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::remove (\begin{DoxyParamCaption}\item[{T\+Key}]{key }\end{DoxyParamCaption})}
+
+Remove an element from the \hyperlink{class_collections_1_1_dictionary}{Dictionary} 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the element to remove. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 761 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_a7f1d63bbe511321336d9a2cd18fd9166}{}\label{class_collections_1_1_dictionary_a7f1d63bbe511321336d9a2cd18fd9166} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!size@{size}}
+\index{size@{size}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+unsigned int \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the size of the \hyperlink{class_collections_1_1_dictionary}{Dictionary} \begin{DoxyReturn}{Returns}
+The size (in elements) 
+\end{DoxyReturn}
+
+
+Definition at line 804 of file collections.\+h.
+
+\hypertarget{class_collections_1_1_dictionary_a0c886eb7be8ffb9eff8ba66d901ec9e0}{}\label{class_collections_1_1_dictionary_a0c886eb7be8ffb9eff8ba66d901ec9e0} 
+\index{Collections\+::\+Dictionary@{Collections\+::\+Dictionary}!values@{values}}
+\index{values@{values}!Collections\+::\+Dictionary@{Collections\+::\+Dictionary}}
+\subsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename T\+Key , typename T\+Value $>$ \\
+\hyperlink{class_collections_1_1_linked_list}{Linked\+List}$<$ T\+Value $>$ \hyperlink{class_collections_1_1_dictionary}{Collections\+::\+Dictionary}$<$ T\+Key, T\+Value $>$\+::values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get a \hyperlink{class_collections_1_1_linked_list}{Linked\+List} of values from the \hyperlink{class_collections_1_1_dictionary}{Dictionary} \begin{DoxyReturn}{Returns}
+A \hyperlink{class_collections_1_1_linked_list}{Linked\+List} containing every value in the \hyperlink{class_collections_1_1_dictionary}{Dictionary} 
+\end{DoxyReturn}
+
+
+Definition at line 789 of file collections.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rothman\+Alexander\+\_\+\+C\+S\+C17\+A\+\_\+48096/proj/\+Project\+\_\+2/\+Overflow\+\_\+2/\hyperlink{collections_8h}{collections.\+h}\end{DoxyCompactItemize}

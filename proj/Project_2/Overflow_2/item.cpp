@@ -230,48 +230,79 @@ Flow::Weapon::Weapon(unsigned char elem, unsigned char value) : Flow::Item(0, va
     element(elem);
 }
 
+/**
+ * Parameterized Weapon constructor
+ * @param name The Weapon's name
+ * @param uiName The Weapon's unidentified name
+ * @param desc The Weapon's description
+ * @param elem The Weapon's element
+ * @param value The Weapon's value
+ * @param ident Whether or not the Weapon is identified
+ * @param weapNames A pointer to a LinkedList of weapon names to use in creating the Weapon
+ */
 Flow::Weapon::Weapon(const std::string &name, const std::string &uiName, const std::string &desc, unsigned char elem,
-                     unsigned char value, bool ident, const Collections::LinkedList<std::string> *uiNames) :
+                     unsigned char value, bool ident, const Collections::LinkedList<std::string> *weapNames) :
 Flow::Item(name, uiName, desc, 0, value, ident){
-    if(uiNames != 0){
-        element(elem, *uiNames);
+    if(weapNames != 0){ //If uiNames is set
+        element(elem, *weapNames);
     }
-    else{
+    else{ //Otherwise
         element(elem);
     }
 }
 
+/**
+ * @see Item
+ */
 void Flow::Weapon::element(unsigned char elem){
     Item::element(elem);
 }
 
-void Flow::Weapon::element(unsigned char elem, const Collections::LinkedList<std::string> &uiNames){
-    _elem = elem;
-    if(FlagUtil::hasFlag(_elem, (DmgElem::FIRE | DmgElem::WIND)) && _elem != DmgElem::ABSOLUT){
+/**
+ * Set the Weapon's element. Alter the name and description based on the element
+ * @param elem The element to set
+ * @param weapNames A LinkedList of Weapon names
+ */
+void Flow::Weapon::element(unsigned char elem, const Collections::LinkedList<std::string> &weapNames){
+    _elem = elem; //Set the element
+    if(FlagUtil::hasFlag(_elem, (DmgElem::FIRE | DmgElem::WIND)) && _elem != DmgElem::ABSOLUT){ //Clear FIRE and WIND
         _elem ^= (DmgElem::FIRE | DmgElem::WIND);
     }
-    if(FlagUtil::hasFlag(_elem, (DmgElem::ICE | DmgElem::LIGHTNG)) && _elem != DmgElem::ABSOLUT){
+    if(FlagUtil::hasFlag(_elem, (DmgElem::ICE | DmgElem::LIGHTNG)) && _elem != DmgElem::ABSOLUT){ //Clear ICE and LIGTNG
         _elem ^= (DmgElem::ICE | DmgElem::LIGHTNG);
     }
-    _name = createName(uiNames);
-    _desc = createDescription();
+    _name = createName(weapNames); //Generate new name
+    _desc = createDescription(); //Generate new description
 }
 
+/**
+ * Get the Weapon's element
+ * @return The current element of the Weapon
+ */
 unsigned char Flow::Weapon::element() const{
     return _elem;
 }
 
+/**
+ * Create a name without a list of Weapon names
+ * @return Always returns "Fists"
+ */
 std::string Flow::Weapon::createName(){
     return "Fists";
 }
 
-std::string Flow::Weapon::createName(const Collections::LinkedList<std::string> &uiNames){
+/**
+ * Create a name with a list of Weapon names
+ * @param weapNames The list of weapon names to use
+ * @return A string representing the Weapon based on its element
+ */
+std::string Flow::Weapon::createName(const Collections::LinkedList<std::string> &weapNames){
     std::stringstream r;
 
     if(_elem == Flow::DmgElem::ABSOLUT){ //If ABSOLUT
         r << "Legendary ";
     }
-    else{ //Otherwise (again the same as armor and potions)
+    else{ //Otherwise (the same as armor and potions)
         if(FlagUtil::hasFlag(_elem, DmgElem::HEALING)){
             r << "Curative ";
         }
@@ -309,11 +340,15 @@ std::string Flow::Weapon::createName(const Collections::LinkedList<std::string> 
             r << "Storming ";
         }
     }
-    r << uiNames[GmRand().rand() % uiNames.size()];
+    r << weapNames[GmRand().rand() % weapNames.size()];
 
     return r.str();
 }
 
+/**
+ * Create a description for the Weapon
+ * @return A descriptive string for the Weapon
+ */
 std::string Flow::Weapon::createDescription(){
     std::stringstream r;
 
@@ -327,23 +362,43 @@ std::string Flow::Weapon::createDescription(){
     return r.str();
 }
 
+/**
+ * Get the type of this Weapon
+ * @return ItemType::Weapon
+ */
 Flow::ItemType Flow::Weapon::type() const{
     return ItemType::Weapon;
 }
 
+/**
+ * @see Item
+ */
 Flow::Armor::Armor() : Flow::Item(){ }
 
+/**
+ * @see Item
+ */
 Flow::Armor::Armor(const Armor &other) : Flow::Item(other){ }
 
+/**
+ * @see Item
+ */
 Flow::Armor::Armor(unsigned char elem, unsigned char value) : Flow::Item(0, value){
     element(elem);
 }
 
+/**
+ * @see Item
+ */
 Flow::Armor::Armor(const std::string &name, const std::string &uiName, const std::string &desc, unsigned char elem,
                    unsigned char value, bool ident) : Flow::Item(name, uiName, desc, 0, value, ident){
     element(elem);
 }
 
+/**
+ * Create a name for the Armor
+ * @return A name string based on the Armor's element
+ */
 std::string Flow::Armor::createName(){
     std::stringstream r;
 
@@ -394,6 +449,10 @@ std::string Flow::Armor::createName(){
     return r.str();
 }
 
+/**
+ * Create a description for the Armor
+ * @return A descriptive string for this Armor
+ */
 std::string Flow::Armor::createDescription(){
     std::stringstream r;
 
@@ -407,23 +466,43 @@ std::string Flow::Armor::createDescription(){
     return r.str();
 }
 
+/**
+ * Get the type of the Armor
+ * @return ItemType::Armor
+ */
 Flow::ItemType Flow::Armor::type() const{
     return ItemType::Armor;
 }
 
+/**
+ * @see Item
+ */
 Flow::Potion::Potion() : Flow::Item(){ }
 
+/**
+ * @see Item
+ */
 Flow::Potion::Potion(const Potion &other) : Flow::Item(other){ }
 
+/**
+ * @see Item
+ */
 Flow::Potion::Potion(unsigned char elem, unsigned char value) : Flow::Item(0, value){
     element(elem);
 }
 
+/**
+ * @see Item
+ */
 Flow::Potion::Potion(const std::string &name, const std::string &uiName, const std::string &desc, unsigned char elem,
                      unsigned char value, bool ident) : Flow::Item(name, uiName, desc, 0, value, ident){
     element(elem);
 }
 
+/**
+ * Create a name for the Potion based on its element
+ * @return A name representing this Potion
+ */
 std::string Flow::Potion::createName(){
     std::stringstream r;
 
@@ -477,6 +556,10 @@ std::string Flow::Potion::createName(){
     return r.str();
 }
 
+/**
+ * Create a description for the Potion
+ * @return A descriptive string for the Potion
+ */
 std::string Flow::Potion::createDescription(){
     std::stringstream r;
 
@@ -516,6 +599,10 @@ std::string Flow::Potion::createDescription(){
     return r.str();
 }
 
+/**
+ * Get the type of Potion items
+ * @return ItemType::Potion
+ */
 Flow::ItemType Flow::Potion::type() const{
     return ItemType::Potion;
 }
