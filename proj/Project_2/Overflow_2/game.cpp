@@ -7,8 +7,8 @@
  *          █▐            ▀      ▀                 ▀ ▀
  *          ▐
  * File:   game.cpp
- * Author: Alexander Rothman <alexander@megate.ch>
- * Purpose:
+ * Author: Alexander Rothman <arothman@student.rcc.edu>
+ * Purpose: Source file for game.h
  * Created on December 5, 2016
  */
 
