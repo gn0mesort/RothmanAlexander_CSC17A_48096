@@ -1,5 +1,5 @@
 /*
- * File:   linkedlist.h
+ * File:   collections.h
  * Author: Alexander Rothman <arothman@student.rcc.edu>
  * Purpose: Define various data structures
  * Created on November 22, 2016

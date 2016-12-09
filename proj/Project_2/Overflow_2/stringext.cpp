@@ -5,8 +5,6 @@
  * Created on November 22, 2016
  */
 
-#include <fstream>
-
 #include "stringext.h"
 
 /**
