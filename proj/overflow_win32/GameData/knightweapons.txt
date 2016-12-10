@@ -1,0 +1,10 @@
+Longsword
+Rapier
+Katana
+Zweihander
+Curtana
+Spatha
+Shamshir
+Executioner's Sword
+Sabre
+Zanbato

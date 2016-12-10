@@ -16,6 +16,11 @@
 //System Libraries
 #include <iostream> //I/O
 #include <exception> //std::exceptions
+#include <ctime> //Time
+#include <string> //Strings
+#include <iomanip> //I/O Formatting
+#include <cstdlib> //C Standard Library
+#include <cstdio> //C Standard I/O
 
 //User Libraries
 #include "except.h" //Error::Exceptions

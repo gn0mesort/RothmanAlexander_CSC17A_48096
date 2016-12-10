@@ -624,9 +624,6 @@ void Flow::load(const std::string &path, Game &game){
                 player.use(0, false);
                 player.removeItem(0);
             }
-            else{ //Otherwise provide a default Armor
-                player.equip(Armor(DmgElem::NONE, 10), false);
-            }
             GmRand().seek(cache); //Seek RNG back to cached position
 
             game.player(player); //Save the player to the Game object
