@@ -614,7 +614,9 @@ void Flow::load(const std::string &path, Game &game){
             else{ //Otherwise provide a default Weapon
                 Weapon weap = player.weapon();
                 weap.name(game.weaponNames()[player.job()][GmRand().rand() % game.weaponNames()[player.job()].size()]);
-                player.equip(weap, false);
+                player.addItem(weap);
+                player.use(0, false);
+                player.removeItem(0);
             }
             if(armor.seed != 0){ //Check for default Armor
                 GmRand().seek(armor);
